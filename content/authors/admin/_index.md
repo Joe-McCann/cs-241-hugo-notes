@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Associate Professor, Associate Chair for Graduate Studies, [Department of Mathematical Sciences](https://math.njit.edu/)
+role: Software Engineer, Adjunct Professor at NJIT
 
 # Organizations/Affiliations
 organizations:
@@ -18,7 +18,7 @@ organizations:
   url: "https://www.njit.edu"
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include dynamical systems and nonlinear waves, vortex dynamics, quantum graphs, and network inference
+bio: If it exists, mathematicians will find a way to do math with it
 
 interests:
 - Nonlinear Waves
@@ -51,9 +51,6 @@ social:
 - icon: youtube
   icon_pack: fab
   link: https://www.youtube.com/channel/UCiyasG0DrzLgI7jD2nIo5vQ
-- icon: cv
-  icon_pack: ai
-  link: files/CVgoodman.pdf
 - icon: github
   icon_pack: fab
   link: https://github.com/Joe-McCann

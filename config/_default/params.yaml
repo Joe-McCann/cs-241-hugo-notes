@@ -18,7 +18,6 @@ marketing:
     local_business_type: ''
     org_name: ''
     description: 'Roy Goodman is an associate professor and Associate Chair for Graduate Studies in the Department of Mathematical Sciences at NJIT'
-    twitter: 'manroygood'
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -42,7 +41,7 @@ header:
 
 footer:
   copyright:
-    notice: '© {2022} Roy Goodman. This work is licensed under {license}'
+    notice: '© {2022} William Joe McCann. This work is licensed under {license}.'
     license:
       enable: true
       allow_derivatives: false
@@ -66,6 +65,7 @@ features:
       - julia
       - latex
       - matlab
+      - python
   math:
     enable: true
   diagram:
