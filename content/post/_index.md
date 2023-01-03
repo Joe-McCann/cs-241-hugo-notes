@@ -1,6 +1,5 @@
 ---
 title: Posts
-cms_exclude: true
 
 # View.
 #   1 = List
@@ -8,8 +7,12 @@ cms_exclude: true
 #   3 = Card
 view: 2
 
+#type: "widget_page"
+
 # Optional header image (relative to `static/media/` folder).
 header:
-  caption: ''
-  image: ''
+  caption: ""
+  image: ""
+
 ---
+

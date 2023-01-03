@@ -3,7 +3,7 @@
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: Academic # Website name
+title: 'Joe McCann' # Website name
 baseURL: 'https://example.com/' # Website URL
 
 ############################
@@ -23,8 +23,8 @@ module:
   imports:
     - path: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-netlify-cms
     - path: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-netlify
-    - path: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-reveal
     - path: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy/v5
+    - path: github.com/wowchemy/wowchemy-hugo-themes/modules/wowchemy-plugin-reveal
 
 ############################
 ## ADVANCED
@@ -42,6 +42,7 @@ permalinks:
   tags: '/tag/:slug/'
   categories: '/category/:slug/'
   publication_types: '/publication-type/:slug/'
+  teaching: 'courses/:slug'
 disableAliases: true
 outputs:
   home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
@@ -58,6 +59,17 @@ taxonomies:
   author: authors
 markup:
   _merge: deep
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codeFences: false
+  tableOfContents:
+    startLevel: 2
+    endLevel: 3
+
+
 related:
   threshold: 80
   includeNewer: true
@@ -67,9 +79,13 @@ related:
       weight: 100
     - name: categories
       weight: 70
+    - name: authors
+      weight: 20
+    - name: title
+      weight: 60
+    - name: summary
+      weight: 50
 security:
   _merge: deep
 sitemap:
-  _merge: deep
-minify:
   _merge: deep

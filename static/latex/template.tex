@@ -1,0 +1,41 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[numbers,sort&compress]{natbib}  % The best package! It automatically sorts citations 
+                                            % and compresses consecutive numbered citations
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{flexisym}	 % needed for breqn on the next line
+\usepackage{breqn}       % to match \left and \right across line breaks (\\)
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}   % Some improvements to AMS-LaTeX
+
+\usepackage{csquotes}    % This line and the next automatically replace ordinary quotation marks
+\MakeOuterQuote{"}       % with asymmetric opening and closing quotation marks
+
+%% Useful things for while you're writing
+\usepackage{todonotes}   % For including todo items and placeholders for missing figures
+\usepackage{showlabels}  % Display labels
+
+
+\numberwithin{equation}{section}
+
+% \include{abbrevs}      % uncomment if you have an abbrevs.tex file with your macros
+\graphicspath{{Images/}}
+
+\title{Brief Article}
+\author{Roy H. Goodman}
+\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+
+\section*{Acknowledgments}
+
+%\bibliography{references}
+%\bibliographystyle{abbrv} % The best bibliography style because it replaces 
+                           % first & middle names with initials
+
+\end{document}  

@@ -1,0 +1,44 @@
+% These three definitions use \DeclarePairedDelimiter from mathtools
+% Use with a * to get \left and \right sizing
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter{\PB}{\{}{\}}{#1,#2} % Poisson brackets
+\DeclarePairedDelimiterX{\innerp}[2]{\langle}{\rangle}{#1,#2}
+
+\newcommand{\normp}[2]{{\norm*{#1}}_{#2}}
+
+\newcommand{\Tee}{\mathsf{T}} % I use this for the transpose of a matrix
+
+% If you have words in a subscript, they should be in Roman characters
+\newcommand{\hc}{h_{\mathrm{crit}}}
+
+% Shortcuts for some matrices, which are bold uppercase Roman letters
+\newcommand{\J}{\mathbf{J}}
+\newcommand{\I}{\mathbf{I}}
+\newcommand{\A}{\mathbf{A}}
+
+% Shortcuts for some vectors, which are bold lowercase Roman letters
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\q}{\mathbf{q}}
+\newcommand{\p}{\mathbf{p}}
+\newcommand{\z}{\mathbf{z}}
+
+\renewcommand{\r}{\mathbf{r}}
+\newcommand{\R}{\mathbf{R}}
+
+\DeclareMathOperator{\sech}{sech}
+
+% First and nth ordinary and partial derivatives
+% Note that the "d" in the derivative is non-italic
+%\newcommand{\diff}[2]\frac{\mathrm{d}#1}{\mathrm{d}#2}
+%\newcommand{\diffn}[2]\frac{\mathrm{d^{#3}}#1}{{\mathrm{d}#2}^{#3}}
+%\newcommand{\diff}[2]\frac{\partial#1}{\partial#2}
+%\newcommand{\diffn}[2]\frac{\mathrm{d^{#3}}#1}{{\partial#2}^{#3}}
+
+
+
+% For use with the todonotes package. I create one of these for each author
+\newcommand{\RG}[1]{\todo[inline,color=yellow]{RG: #1}}
+\newcommand{\BMB}[1]{\todo[inline,color=green]{BMB: #1}}
+

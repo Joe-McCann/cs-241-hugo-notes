@@ -6,8 +6,7 @@
 # Appearance
 
 appearance:
-  theme_day: minimal
-  theme_night: minimal
+  theme_day: njit_theme
   font: minimal
   font_size: L
 
@@ -18,8 +17,8 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'A highly-customizable Hugo academic resume theme powered by Wowchemy website builder.'
-    twitter: 'wowchemy'
+    description: 'Roy Goodman is an associate professor and Associate Chair for Graduate Studies in the Department of Mathematical Sciences at NJIT'
+    twitter: 'manroygood'
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -35,7 +34,7 @@ header:
     align: l
     show_logo: true
     show_language: false
-    show_day_night: true
+    show_day_night: false
     show_search: true
     highlight_active_link: true
 
@@ -43,7 +42,7 @@ header:
 
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {2022} Roy Goodman. This work is licensed under {license}'
     license:
       enable: true
       allow_derivatives: false
@@ -63,14 +62,20 @@ features:
   syntax_highlighter:
     theme_light: github-light
     theme_dark: dracula
+    extra_languages:
+      - julia
+      - latex
+      - matlab
   math:
-    enable: false
+    enable: true
+  diagram:
+    enable: true
   privacy_pack:
     enable: false
   repository:
-    url: 'https://github.com/<username>/<repository>'
+    url: 'https://github.com/Joe-McCann/cs-241-hugo-notes'
     content_dir: content
-    branch: main
+    branch: master
   avatar:
     gravatar: false
     shape: circle
@@ -81,11 +86,6 @@ features:
       show_count: true
     commento:
       url: ''
-    giscus:
-      repo: ''
-      repo_id: ''
-      category: ''
-      category_id: ''
   search:
     provider: wowchemy
     algolia:
@@ -94,7 +94,7 @@ features:
       index_name: ''
       show_logo: false
   map:
-    provider: ''
+    provider: 'mapnik'
     api_key: ''
     zoom: 15
 
@@ -102,13 +102,8 @@ features:
 
 extensions:
   cms:
-    branch: main
+    branch: master
     local_backend: false
+    netlify_cms: true
   academicons:
     enable: true
-
-# Security
-
-security:
-  # Allow frame for embedding speaker notes in slides
-  allow_frame: true
