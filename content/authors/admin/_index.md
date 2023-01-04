@@ -10,20 +10,16 @@ authors:
 superuser: true
 
 # Role/position
-role: Software Engineer, Adjunct Professor at NJIT
-
-# Organizations/Affiliations
-organizations:
-- name: New Jersey Institute of Technology
-  url: "https://www.njit.edu"
+role: Software Engineer at American Express, Adjunct Professor at NJIT
 
 # Short bio (displayed in user profile at end of posts)
 bio: If it exists, mathematicians will find a way to do math with it
 
 interests:
-- Nonlinear Waves
-- Dynamical Systems
-- Computation
+- Data Science
+- Optimization Algorithms
+- Number Theory
+- Computational Complexity
 
 education:
   courses:
@@ -54,6 +50,9 @@ social:
 - icon: github
   icon_pack: fab
   link: https://github.com/Joe-McCann
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/william-joseph-mccann-012298/
 
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
@@ -71,4 +70,7 @@ email: ""
 #- Visitors
 ---
 
-I am an associate professor in the Department of Mathematical Sciences at NJIT. My research applies methods of dynamical systems to (conservative, dispersive) nonlinear wave equations arising, for example, in optics and fluid mechanics. I am interested in dynamical and bifurcation phenomena, and I use techniques from Hamiltonian mechanics and perturbation theory, as well as extensive computations.
+I work full time in Software Engineering at American Express, primarily focusing on autmation work of machine learning model
+deployment processes: a.k.a. being a certified lazy person. Once a week during the college semesters I teach CS 241 Discrete Mathematics
+at NJIT. I have a passion for mathematics and finding ways to insert mathematics into everything I do. I also make stupid little videos
+in my spare time to show people math is freaking cool.

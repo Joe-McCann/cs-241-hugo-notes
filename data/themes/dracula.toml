@@ -1,0 +1,20 @@
+# Theme metadata
+name = "dracula"
+
+[light]
+
+  # Primary
+  primary = "#bd93f9"
+  text = "#f8f8f2"
+
+  # Menu
+  menu_primary = "#44475a"
+  menu_text = "#f8f8f2"
+  menu_text_active = "#bd93f9"
+  menu_title = "#2b2b2b"
+
+  # Home sections
+  home_section_odd = "#282a36"
+  home_section_even = "#44475a"
+
+  # footer

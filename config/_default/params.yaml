@@ -6,7 +6,6 @@
 # Appearance
 
 appearance:
-  theme_day: njit_theme
   font: minimal
   font_size: L
 
@@ -17,7 +16,7 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'Roy Goodman is an associate professor and Associate Chair for Graduate Studies in the Department of Mathematical Sciences at NJIT'
+    description: 'Joe McCann is a Software Engineer, and Adjunct Professor at NJIT who likes to do math'
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -41,12 +40,7 @@ header:
 
 footer:
   copyright:
-    notice: '© {2022} William Joe McCann. This work is licensed under {license}.'
-    license:
-      enable: true
-      allow_derivatives: false
-      share_alike: true
-      allow_commercial: false
+    notice: 'If it exists, mathematicians will find a way to do math with it'
 
 # Localization
 

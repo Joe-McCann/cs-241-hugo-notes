@@ -1,7 +1,7 @@
 ---
 widget: portfolio
 weight: 100
-title: Posts and Material
+title: Topics
 subtitle:
 content:
   filters:
@@ -14,9 +14,9 @@ content:
 
   filter_button:
     - name: All Material
-      tag: '.js-id-current, .js-id-previous'
+      tag: '.js-id-cs241, .js-id-previous'
     - name: CS 241
-      tag: current
+      tag: cs241
 
   filter_default: 0
 design:
