@@ -1,7 +1,7 @@
 ---
 title: Logical Operators
 linktitle: Logical Operators
-toc: false 
+toc: true 
 type: book
 date: "01/02/2023"
 draft: false

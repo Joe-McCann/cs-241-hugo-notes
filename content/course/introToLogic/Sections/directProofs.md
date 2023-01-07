@@ -1,7 +1,7 @@
 ---
 title: Direct Proofs
 linktitle: Proof Techniques, Direct Proofs
-toc: false
+toc: true
 type: book
 date: "01/06/23"
 draft: false
