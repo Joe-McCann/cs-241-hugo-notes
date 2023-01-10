@@ -3,7 +3,7 @@ title: Propositions
 linktitle: Propositions
 toc: true
 type: book
-date: "01/02/2023"
+date: 2023-01-01
 draft: false
 tags:
     - cs241

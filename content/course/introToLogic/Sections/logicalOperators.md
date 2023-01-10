@@ -3,7 +3,7 @@ title: Logical Operators
 linktitle: Logical Operators
 toc: true 
 type: book
-date: "01/02/2023"
+date: 2023-01-02
 draft: false
 tags:
     - cs241

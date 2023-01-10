@@ -3,7 +3,7 @@ title: Direct Proofs
 linktitle: Proof Techniques, Direct Proofs
 toc: true
 type: book
-date: "01/06/23"
+date: 2023-01-06
 draft: false
 tags:
     - cs241
