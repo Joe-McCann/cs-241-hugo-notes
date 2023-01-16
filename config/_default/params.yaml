@@ -53,12 +53,10 @@ locale:
 
 features:
   syntax_highlighter:
-    theme_light: github-light
-    theme_dark: dracula
+    enable: true
+    theme_light: xcode-light
+    theme_dark: xcode-dark
     extra_languages:
-      - julia
-      - latex
-      - matlab
       - python
   math:
     enable: true

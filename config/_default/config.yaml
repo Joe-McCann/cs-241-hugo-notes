@@ -64,7 +64,7 @@ markup:
     renderer:
       unsafe: true
   highlight:
-    codeFences: false
+    codeFences: true
   tableOfContents:
     startLevel: 2
     endLevel: 3
