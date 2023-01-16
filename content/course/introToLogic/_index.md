@@ -35,13 +35,3 @@ Logic very much is the foundation of all of mathematics, which is why it is usua
 to begin. Anything that is ever discovered or invented in math needs to first be *proven* using
 the principles taught here. Be careful about your assumptions, lest you end up like Gottlob Frege working
 on stuff that is unfortunately flawed.
-
----
-
-### Supplementary material
-* [How to Succeed in Math 222]({{< relref "slides/math222" >}})
-* [Introduction to MATLAB](supplements/intro_matlab)
-* [SIR Models of Epidemics](supplements/sir_modeling)
-* [Material for Section 10.1](supplements/supplement10p1) On boundary value problems with nonhomogeneous term on the right hand side.
-* [Material for Section 10.4](supplements/supplement10p4) On the use of Fourier sine series to solve boundary value problems.
-* [Useful Fourier Series Demo in MATLAB](https://dspfirst.gatech.edu/matlab/) Most of the material here is more advanced. Scroll down until you find __Fourier Series Demo__.
