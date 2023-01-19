@@ -58,6 +58,64 @@ Think of $\subseteq$ similarly to $\leq$, and $\subset$ like $<$. Normally we wi
 
 ### Equal Sets
 
+In the above section, we stated that $B\subset A$ if $B\subseteq A$ and $A\neq B$, but what does it actually mean for two sets to be equal to each other? It turns out that this is actually an [axiom of Set Theory](https://mathworld.wolfram.com/Zermelo-FraenkelAxioms.html)
+
+> __Axiom of Extensionality__: Two sets A, B are equal iff they contain the same elements.
+
+In math notation we would say
+$$
+\forall x (x\in A\iff x\in B) \iff A=B.
+$$
+
+Suppose I asked you to solve the following coding challenge problem:
+
+> __Example__: Write a function that takes in two sets and returns True if the sets are equal and False if otherwise.
+
+If we have two sets it would seem straightforward to loop through the items in the first set $A$ and see if all of those are inside of $B$. However this is not enough, as what if $A=\{1\}$ and $B=\{1,2\}$? If $A$ is a proper subset of $B$, seeing if everything in $A$ is not enough, we also need to loop through and see if everything in $B$ is also in $A$ too!
+
+```python
+def set_equal(A, B):
+    for a in A:
+        if a not in B:
+            return False
+    for b in B:
+        if b not in A:
+            return False
+    # If both loops finish then there are no missing items in either set
+    return True
+```
+
+As such in order for $A=B$, then everything in $A$ is in $B$, so $A\subseteq B$, and by similar logic we know that $B\subseteq A$. With this we can actually get an easy condition to use to prove that two sets are equal to each other, and what we will often use to do so.
+
+> __Theorem__: $A=B$ iff $A\subseteq B$ and $B\subseteq A$
+<details>
+  <summary>Answer</summary>
+    We will first prove the forward direction that
+    $$
+        A=B \implies $A\subseteq B$ and $B\subseteq A$.
+    $$
+    Since $A=B$, the two sets contain the same items. As such everything in $A$ is in $B$, so $A\subseteq B$ and by extension $B\subseteq A$.
+
+    Now we will prove the backward direction
+    $$
+        $A\subseteq B$ and $B\subseteq A$ \implies $A=B$.
+    $$
+    Suppose that $A\neq B$, this would mean that there exists an item in $A$ or $B$ that is not inside of the other. For the sake of argument, suppose there is in item in $B$ that is not in $A$, but that would contradict the idea $B\subseteq A$, therefore there cannot be anything in $B$ not in $A$. Since the same argument can be made for $A$, this direction of the proof is completed.
+
+    <b>Q.E.D.</b>
+</details>
+
+This also provides us with another insight into the handling of duplicates, as the sets $\{1,2\}$ and $\{1,2,2\}$ must be the same set, as all the elements of both of them are in each other.
+
 ## Important Sets
+
+In this section I will provide notation for some of the important sets that we will be using throughout this class
+
+1. $\mathbb{N}=\{0,1,2,3,\ldots\}$: The natural numbers, all non-negative numbers
+2. $\mathbb{Z}=\{0,1,-1,2,-2,\ldots\}$: The integers, positive and negative whole numbers
+3. $\mathbb{Z}_+=\{1,2,3,4,5,\ldots\}$: Postive intergers
+4. $\mathbb{Q}=\left\{0,1,-1,\frac{1}{2},-\frac{5}{7},\ldots\right\}$: Rational numbers, all intergers and fractions
+5. $\mathbb{R}=\left\{0,1,-1,\pi, \frac{1}{2}, -e,\ldots \right\}$: Real numbers, all numbers on the number line
+6. $\mathbb{F}=\left\{\text{Jets, Giants, 49ers, Jaguars, \ldots}\right}$: NFL Football teams
 
 [^1]: This phrase can be used a bit liberally so just go with it.

@@ -21,7 +21,7 @@ __William Joe McCann__
 
 ### Chapter 2: Sets
 
-In the previous chapter on [Logic](/course/introtologic/_index) we discussed how you would go about proving things, and the idea that you can have these mathematical statements that do *something*. But we kinda danced around the idea of actually using things and proving them, and talked about these real world silly examples.
+In the previous chapter on [Logic](/course/introtologic) we discussed how you would go about proving things, and the idea that you can have these mathematical statements that do *something*. But we kinda danced around the idea of actually using things and proving them, and talked about these real world silly examples.
 
 But this isn't what mathematicians prove and have been proving! What are the fundemental things that matematicians start with in order to build math from the bottom up? Surely they have to start with something right?
 
