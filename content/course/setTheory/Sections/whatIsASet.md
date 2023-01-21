@@ -27,7 +27,7 @@ When you look at the NJIT campus, there are a bunch of dorm buildings. Specifica
 
 This abstract collection is what we call a __set__, and makes up the backbone of foundational mathematics.
 
-> __Definition__: A __set__ is an unordered collection of unique objects, denoted with curly braces $\{\}$.
+> __Definition__: A __set__ is an unordered collection of unique objects, denoted with curly braces $\\{\\}$.
 
 For the purposes of notation, we will represent sets usually with capital letters $A,B,C,\ldots$ and (variable) items in sets with lowercase letters $a,b,c,\ldots$.
 
@@ -38,6 +38,8 @@ $$
 [19,19,20,21,24,28,25,19,17,33,\ldots].
 $$
 If I was to ask *"What ages are present in our class?"* you would rightfully reply *"$17,19,20,21,24,28,33,\ldots$"* excluding the repeats. This is not because we remove them, but rather the only thing we care about whether an item is a member, or not a member of our set.
+
+---
 
 ### Subsets
 
@@ -71,7 +73,7 @@ Suppose I asked you to solve the following coding challenge problem:
 
 > __Example__: Write a function that takes in two sets and returns True if the sets are equal and False if otherwise.
 
-If we have two sets it would seem straightforward to loop through the items in the first set $A$ and see if all of those are inside of $B$. However this is not enough, as what if $A=\{1\}$ and $B=\{1,2\}$? If $A$ is a proper subset of $B$, seeing if everything in $A$ is not enough, we also need to loop through and see if everything in $B$ is also in $A$ too!
+If we have two sets it would seem straightforward to loop through the items in the first set $A$ and see if all of those are inside of $B$. However this is not enough, as what if $A=\\{1\\}$ and $B=\\{1,2\\}$? If $A$ is a proper subset of $B$, seeing if everything in $A$ is not enough, we also need to loop through and see if everything in $B$ is also in $A$ too!
 
 ```python
 def set_equal(A, B):
@@ -89,33 +91,37 @@ As such in order for $A=B$, then everything in $A$ is in $B$, so $A\subseteq B$,
 
 > __Theorem__: $A=B$ iff $A\subseteq B$ and $B\subseteq A$
 <details>
-  <summary>Answer</summary>
-    We will first prove the forward direction that
-    $$
-        A=B \implies $A\subseteq B$ and $B\subseteq A$.
-    $$
-    Since $A=B$, the two sets contain the same items. As such everything in $A$ is in $B$, so $A\subseteq B$ and by extension $B\subseteq A$.
-
-    Now we will prove the backward direction
-    $$
-        $A\subseteq B$ and $B\subseteq A$ \implies $A=B$.
-    $$
-    Suppose that $A\neq B$, this would mean that there exists an item in $A$ or $B$ that is not inside of the other. For the sake of argument, suppose there is in item in $B$ that is not in $A$, but that would contradict the idea $B\subseteq A$, therefore there cannot be anything in $B$ not in $A$. Since the same argument can be made for $A$, this direction of the proof is completed.
-
-    <b>Q.E.D.</b>
+<summary>Proof</summary>
+We will first prove the forward direction that
+$$
+    A=B \implies A\subseteq B \land B\subseteq A.
+$$
+Since $A=B$, the two sets contain the same items. As such everything in $A$ is in $B$, so $A\subseteq B$ and by extension $B\subseteq A$.
+</br>
+Now we will prove the backward direction
+$$
+    A\subseteq B \land B\subseteq A \implies A=B.
+$$
+Suppose that $A\neq B$, this would mean that there exists an item in $A$ or $B$ that is not inside of the other. For the sake of argument, suppose there is in item in $B$ that is not in $A$, but that would contradict the idea $B\subseteq A$, therefore there cannot be anything in $B$ not in $A$. Since the same argument can be made for $A$, this direction of the proof is completed.
+</br>
+<b>Q.E.D.</b>
 </details>
 
-This also provides us with another insight into the handling of duplicates, as the sets $\{1,2\}$ and $\{1,2,2\}$ must be the same set, as all the elements of both of them are in each other.
+This also provides us with another insight into the handling of duplicates, as the sets $\\{1,2\\}$ and $\\{1,2,2\\}$ must be the same set, as all the elements of both of them are in each other.
+
+---
 
 ## Important Sets
 
-In this section I will provide notation for some of the important sets that we will be using throughout this class
+For sets that are often used or more important, we use bolded fancy looking letters like $\mathbb{A}, \mathbb{B}\ldots$, or fancy cursive letters. In this section I will provide notation for some of the important sets that we will be using throughout this class
 
-1. $\mathbb{N}=\{0,1,2,3,\ldots\}$: The natural numbers, all non-negative numbers
-2. $\mathbb{Z}=\{0,1,-1,2,-2,\ldots\}$: The integers, positive and negative whole numbers
-3. $\mathbb{Z}_+=\{1,2,3,4,5,\ldots\}$: Postive intergers
-4. $\mathbb{Q}=\left\{0,1,-1,\frac{1}{2},-\frac{5}{7},\ldots\right\}$: Rational numbers, all intergers and fractions
-5. $\mathbb{R}=\left\{0,1,-1,\pi, \frac{1}{2}, -e,\ldots \right\}$: Real numbers, all numbers on the number line
-6. $\mathbb{F}=\left\{\text{Jets, Giants, 49ers, Jaguars, \ldots}\right}$: NFL Football teams
+1. $\mathbb{N}=\\{0,1,2,3,\ldots\\}$: The natural numbers, all non-negative numbers
+2. $\mathbb{Z}=\\{0,1,-1,2,-2,\ldots\\}$: The integers, positive and negative whole numbers
+3. $\mathbb{Z}_+=\\{1,2,3,4,5,\ldots\\}$: Postive intergers
+4. $\mathbb{Q}=\\{0,1,-1,\frac{1}{2},-\frac{5}{7},\ldots\\}$: Rational numbers, all intergers and fractions
+5. $\mathbb{R}=\\{0,1,-1,\pi, \frac{1}{2}, -e,\ldots \\}$: Real numbers, all numbers on the number line
+6. $\mathbb{F}=\\{\text{Jets, Giants, 49ers, Jaguars,} \ldots\\}$: NFL Football teams[^2]
+7. $\mathbb{D}=\\{\text{Oak, Honors, Laurel, \ldots}\\}$: NJIT dorm buildings
 
 [^1]: This phrase can be used a bit liberally so just go with it.
+[^2]: Yes this is considered important to me lmfao
