@@ -59,6 +59,40 @@ for n in all_integers: #note there are infinite integers, so this is just a nify
     S.add(n*n)
 ```
 
-### Can $P(x)$ be Anything?
+### Collectors Edition
 
-We might start to build all sorts of cool crazy 
+We might start to build all sorts of cool crazy sets using the things we learned in the above section by setting $P(x)$ to be anything. For example, we might say $P(x)$ is "$x$ is a NJIT dorm building", or "$x$ is a table" or "$x$ is a hydorgen atom in the universe", and create these abstract sets to work with (in some weird way).
+
+What about sets of sets? Why not! This is a totally valid property to collect sets, and why not have things such as
+$$
+A = \\{E | E=\\{x\\} \text{where x is even}\\}
+$$
+which will create us a set that contains smaller sets that contain only one number that is even. There is even a special term[^1] for sets that contain other sets!
+
+>__Definition__: A set whos elements are also sets is a __collection__.
+
+Note that all collections are sets, but not all sets are collections.
+
+### Historical Tangent: Can $P(x)$ be Anything?
+
+As of now this might seem amazing and a way to collect literally anything into a set, which is what Gottlieb Freige thought he could do in the late 1800s. Mans literally wanted to restart math using sets and decided on a couple of straighforward axioms, and one of them was the idea that if you could define some property of an object $P(x)$ then you could make a set for it.
+
+Clearly, from our previous examples, we can see that this is pretty easy so what could go wrong here? The question came up of well, if we have sets that contain sets, can a set contain itself recursivly? Our boy Freige was like *"fuck ya why not seems fine to be"* and allowed shit like the following to fly
+$$
+A = \\{A\\}.
+$$
+Really just not thinking to deeply about what something like this actually means, seeing as its a bit bizzare, notice that we can say that there is now a property of a set $P(A)$ where either the set contains itself or it doesn't. Lets consider an example of a set that does not contain itself, such as
+$$
+A = \\{1,2,3\\},
+$$
+however literally any of our previous examples from other sections also would work. Since a set not containing itself is a property, per the axiom, we should be able to collect them all into a collection of all sets that do not contain themselves
+$$
+D = \\{A | A\not\in A\\} = \\{\mathbb{N},\mathbb{Z},\phi,\ldots\\}.
+$$
+Alright thats fine, but wait, $D$ is a set, so does $D$ contain itself or not? Well say that $D$ __does__ contain itself, then $D\in D$, but $D$ is all the sets that __do not__ contain themselves which would mean $D\not\in D$.
+
+Wait ok so that clearly doesn't work, what about if $D$ __does not__ contain itself? In that case then $D\not\in D$ but then that means $D$ should be in $D$! So this doesn't work either, as not matter what happens we reach a contradiction. This means that under this set of axioms we cannot build this set, and as such this axiom is __not true__.
+
+This is known as __Russell's Paradox__ in honor of the guy who figured it out and literally rendered two volumes of work by Freige worthless 😬
+
+[^1]: This term is not frequently used

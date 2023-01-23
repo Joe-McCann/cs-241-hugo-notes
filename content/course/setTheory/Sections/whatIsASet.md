@@ -122,6 +122,8 @@ For sets that are often used or more important, we use bolded fancy looking lett
 5. $\mathbb{R}=\\{0,1,-1,\pi, \frac{1}{2}, -e,\ldots \\}$: Real numbers, all numbers on the number line
 6. $\mathbb{F}=\\{\text{Jets, Giants, 49ers, Jaguars,} \ldots\\}$: NFL Football teams[^2]
 7. $\mathbb{D}=\\{\text{Oak, Honors, Laurel, \ldots}\\}$: NJIT dorm buildings
+8. $\phi=\\{\\}$: The empty set
+9. $U$: The universal set that contains everything (defined per problem basis)
 
 [^1]: This phrase can be used a bit liberally so just go with it.
 [^2]: Yes this is considered important to me lmfao
