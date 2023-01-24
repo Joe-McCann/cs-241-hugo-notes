@@ -34,5 +34,5 @@ that practically, logic and proof writing is a lot like coding and algorithm des
 
 Logic very much is the foundation of all of mathematics, which is why it is usually a good place
 to begin. Anything that is ever discovered or invented in math needs to first be *proven* using
-the principles taught here. Be careful about your assumptions, lest you end up like Gottlob Frege working
+the principles taught here. Be careful about your assumptions, lest you end up like Gottlob Friege working
 on stuff that is unfortunately flawed.
