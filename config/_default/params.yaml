@@ -58,6 +58,8 @@ features:
     theme_dark: xcode-dark
     extra_languages:
       - python
+      - bash
+      - git
   math:
     enable: true
   diagram:

@@ -27,6 +27,7 @@ When learning about division, sometimes when you divided two numbers it wouldn't
 Clearly every number is a factor of itself, and has $1$ as a factor
 
 > Theorem: Let $a\in\mathbb{Z}$. $1|a$ and $a|a$
+<details>
 <summary>Proof</summary>
 Since every number multiplied by $1$ is itself, we can know that $a=1a$ which by definition means that both $1,a$ are factors of $a$.
 </br>

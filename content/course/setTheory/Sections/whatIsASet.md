@@ -7,7 +7,7 @@ date: 2023-01-16
 draft: false
 tags:
     - cs241
-    - sets
+    - set theory
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
 weight: 205
@@ -121,9 +121,13 @@ For sets that are often used or more important, we use bolded fancy looking lett
 4. $\mathbb{Q}=\\{0,1,-1,\frac{1}{2},-\frac{5}{7},\ldots\\}$: Rational numbers, all intergers and fractions
 5. $\mathbb{R}=\\{0,1,-1,\pi, \frac{1}{2}, -e,\ldots \\}$: Real numbers, all numbers on the number line
 6. $\mathbb{F}=\\{\text{Jets, Giants, 49ers, Jaguars,} \ldots\\}$: NFL Football teams[^2]
-7. $\mathbb{D}=\\{\text{Oak, Honors, Laurel, \ldots}\\}$: NJIT dorm buildings
-8. $\phi=\\{\\}$: The empty set
+7. $\mathbb{D}=\\{\text{Oak, Honors, Laurel,} \ldots\\}$: NJIT dorm buildings
+8. $\varnothing=\\{\\}$: The empty set
 9. $U$: The universal set that contains everything (defined per problem basis)
+
+Note that by definition the following holds
+
+> __Theorem__: For every set $A$, $\varnothing\subseteq A$ and $A\subseteq U$.
 
 [^1]: This phrase can be used a bit liberally so just go with it.
 [^2]: Yes this is considered important to me lmfao

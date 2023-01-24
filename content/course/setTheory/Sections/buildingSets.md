@@ -11,7 +11,7 @@ tags:
     - set builder
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 205
+weight: 210
 ---
 
 ## Making Sets Even More Brief
@@ -41,7 +41,9 @@ although sometimes it will be skipped that $x\in\mathbb{Z}$ if its clear what nu
 
 ```python
 A = set()
-for n in all_integers: #note there are infinite integers, so this is just a nify example thats not real
+for n in all_integers: 
+    # note there are infinite integers,
+    # so this is just a nify example thats not real
     if n > 10:
         A.add(n)
 ```
@@ -55,9 +57,13 @@ which as a loop is
 
 ```python
 S = set()
-for n in all_integers: #note there are infinite integers, so this is just a nify example thats not real
+for n in all_integers:
+    # note there are infinite integers,
+    # so this is just a nify example thats not real
     S.add(n*n)
 ```
+
+---
 
 ### Collectors Edition
 
@@ -73,11 +79,13 @@ which will create us a set that contains smaller sets that contain only one numb
 
 Note that all collections are sets, but not all sets are collections.
 
+---
+
 ### Historical Tangent: Can $P(x)$ be Anything?
 
-As of now this might seem amazing and a way to collect literally anything into a set, which is what Gottlieb Freige thought he could do in the late 1800s. Mans literally wanted to restart math using sets and decided on a couple of straighforward axioms, and one of them was the idea that if you could define some property of an object $P(x)$ then you could make a set for it.
+As of now this might seem amazing and a way to collect literally anything into a set, which is what Gottlieb Frege thought he could do in the late 1800s. Mans literally wanted to restart math using sets and decided on a couple of straighforward axioms, and one of them was the idea that if you could define some property of an object $P(x)$ then you could make a set for it.
 
-Clearly, from our previous examples, we can see that this is pretty easy so what could go wrong here? The question came up of well, if we have sets that contain sets, can a set contain itself recursivly? Our boy Freige was like *"fuck ya why not seems fine to be"* and allowed shit like the following to fly
+Clearly, from our previous examples, we can see that this is pretty easy so what could go wrong here? The question came up of well, if we have sets that contain sets, can a set contain itself recursivly? Our boy Frege was like *"fuck ya why not seems fine to be"* and allowed shit like the following to fly
 $$
 A = \\{A\\}.
 $$
@@ -93,6 +101,6 @@ Alright thats fine, but wait, $D$ is a set, so does $D$ contain itself or not? W
 
 Wait ok so that clearly doesn't work, what about if $D$ __does not__ contain itself? In that case then $D\not\in D$ but then that means $D$ should be in $D$! So this doesn't work either, as not matter what happens we reach a contradiction. This means that under this set of axioms we cannot build this set, and as such this axiom is __not true__.
 
-This is known as __Russell's Paradox__ in honor of the guy who figured it out and literally rendered two volumes of work by Freige worthless 😬
+This is known as __Russell's Paradox__ in honor of the guy who figured it out and literally rendered two volumes of work by Frege worthless 😬
 
 [^1]: This term is not frequently used
