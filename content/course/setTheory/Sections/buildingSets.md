@@ -67,7 +67,7 @@ for n in all_integers:
 
 ### Collectors Edition
 
-We might start to build all sorts of cool crazy sets using the things we learned in the above section by setting $P(x)$ to be anything. For example, we might say $P(x)$ is "$x$ is a NJIT dorm building", or "$x$ is a table" or "$x$ is a hydorgen atom in the universe", and create these abstract sets to work with (in some weird way).
+We might start to build all sorts of cool crazy sets using the things we learned in the above section by setting $P(x)$ to be anything. For example, we might say $P(x)$ is "$x$ is a NJIT dorm building", or "$x$ is a table" or "$x$ is a hydrogen atom in the universe", and create these abstract sets to work with (in some weird way).
 
 What about sets of sets? Why not! This is a totally valid property to collect sets, and why not have things such as
 $$
@@ -85,7 +85,7 @@ Note that all collections are sets, but not all sets are collections.
 
 As of now this might seem amazing and a way to collect literally anything into a set, which is what Gottlieb Frege thought he could do in the late 1800s. Mans literally wanted to restart math using sets and decided on a couple of straighforward axioms, and one of them was the idea that if you could define some property of an object $P(x)$ then you could make a set for it.
 
-Clearly, from our previous examples, we can see that this is pretty easy so what could go wrong here? The question came up of well, if we have sets that contain sets, can a set contain itself recursivly? Our boy Frege was like *"fuck ya why not seems fine to be"* and allowed shit like the following to fly
+Clearly, from our previous examples, we can see that this is pretty easy so what could go wrong here? The question came up of well, if we have sets that contain sets, can a set contain itself recursively? Our boy Frege was like *"fuck ya why not seems fine to be"* and allowed shit like the following to fly
 $$
 A = \\{A\\}.
 $$
