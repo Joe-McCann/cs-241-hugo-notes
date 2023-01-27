@@ -23,6 +23,6 @@ __William Joe McCann__
 
 Before starting work as a Software Engineer, I had always heard people say *"don't worry about grades, they teach you everything on the job anyway"*[^1]. This always confused me because, I was learning a shitton in school and wasn't sure what stuff I was missing out on.
 
-Turns out that they were definitely right, and there was so much that I didn't know about. Not only that, but while your coworkers *will* teach you about the job, they certainly don't *want* to teach you on the job. So lets get you as up to speed as possible.
+Turns out that they were definitely right, and there was so much that I didn't know about. Not only that, but while your coworkers *will* teach you about the job, they certainly don't *want* to teach you on the job. So let's get you as up to speed as possible.
 
-[^1]: This is not to say that CS cirriculum is useless, rather you just don't interact with it as much in a direct way as with other things you do. Certainly knowing theory and how to learn is very important.
+[^1]: This is not to say that CS curriculum is useless, rather you just don't interact with it as much in a direct way as with other things you do. Certainly knowing theory and how to learn is very important.

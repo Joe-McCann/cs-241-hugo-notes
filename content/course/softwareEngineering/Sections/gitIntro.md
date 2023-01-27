@@ -41,7 +41,7 @@ as the proper output. This will be with whatever version you install. Note that 
 
 Have you ever played the video game Skyrim, or a game with a similar manual saving mechanic? In that you are able to manually create a save file, and then whenever you load a save you can pick from one of your files. If you are a psychopath, then you will only have one save file and keep overwriting it every time you save. Imagine if at some point in the game you make a wrong decision, or encounter a bug that breaks a major quest, but you still overwrite your previous save. In that case if you wanna revert back to a not-shitty spot in the game, you will be screwed because you overwrote that save.
 
-Instead of doing it the psycho method, just make a new save file whenever you save, so you can move back to a previous save at any point in time. This is the same basic idea of `git`. When you are working with code, its nice to have these "checkpoints" that you can refer back to in case you royally screw something up.
+Instead of doing it the psycho method, just make a new save file whenever you save, so you can move back to a previous save at any point in time. This is the same basic idea of `git`. When you are working with code, it's nice to have these "checkpoints" that you can refer back to in case you royally screw something up.
 
 `git` also has better functionality than just checkpoint saving though that makes collaboration super easy. Suppose I am working on some file, and my friend is working on a different file that is in the same project. We could both work on the files and keep adding checkpoints, but my friend is an idiot and will break the project with his changes.
 

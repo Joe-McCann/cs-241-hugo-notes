@@ -16,9 +16,9 @@ weight: 215
 
 ## Why do we prove things?
 
-In mathematics everything needs to be rigorously proven in order for it to be truely accepted and believed as rule. This runs counter to a lot of other fields in which something is to be believed true if there is sufficient evidence supporting it. In physics, you can drop an object a million times and be confident at saying it is a law that a dropped object will fall, in math it does not matter how many examples you have that verify your claim if you can't explain the underlying reason it works; if you want to see why see this thread of [large counter examples](https://math.stackexchange.com/questions/514/conjectures-that-have-been-disproved-with-extremely-large-counterexamples).
+In mathematics everything needs to be rigorously proven in order for it to be truly accepted and believed as rule. This runs counter to a lot of other fields in which something is to be believed true if there is sufficient evidence supporting it. In physics, you can drop an object a million times and be confident at saying it is a law that a dropped object will fall, in math it does not matter how many examples you have that verify your claim if you can't explain the underlying reason it works; if you want to see why see this thread of [large counter examples](https://math.stackexchange.com/questions/514/conjectures-that-have-been-disproved-with-extremely-large-counterexamples).
 
-This is not strictly for mathematicians either though, computer scientists are held to the same statndard. How do you know that your code truly works? You can run some tests cases sure, but if there is some unaccounted for error you might end up costing your comapny a large amount of money. You need to be able to prove that your code works *all the time*.
+This is not strictly for mathematicians either though, computer scientists are held to the same standard. How do you know that your code truly works? You can run some tests cases sure, but if there is some unaccounted for error you might end up costing your company a large amount of money. You need to be able to prove that your code works *all the time*.
 
 At the end of the day, if you don't prove your work in any field [haters will say its fake](https://www.youtube.com/shorts/DlYzYgV5-8c)[^haters_meme] and we all know that there is no greater catharsis than proving some stupid dumbass on the internet wrong.
 
@@ -67,10 +67,10 @@ You might think *"Wow thats pretty wordy for a math class, don't we deal with nu
 
 We can't put it off forever and its finally time to do some math. Don't psych yourself out though, just move along in steps of what is true.
 
-> __Example 2__: $(P\rightarrow Q) \equiv (\bar{Q}\rightarrow\bar{P})$, where $\equiv$ means the two expressions are equivilent to each other.
+> __Example 2__: $(P\rightarrow Q) \equiv (\bar{Q}\rightarrow\bar{P})$, where $\equiv$ means the two expressions are equivalent to each other.
 <details>
   <summary>Answer</summary>
-    <i>Proof</i>: If two expressions are equivilent, that means that they will always have the same output as each other if given the same input. Since a truth table is literally listing out all the different input output pairs, if the truth tables are equivilent then the expressions are.
+    <i>Proof</i>: If two expressions are equivalent, that means that they will always have the same output as each other if given the same input. Since a truth table is literally listing out all the different input output pairs, if the truth tables are equivalent then the expressions are.
     {{< math >}}
     $$\begin{array}{c c|c|c c|c}
     P & Q & P\rightarrow Q & \bar{Q} & \bar{P} & \bar{Q}\rightarrow\bar{P} \\\hline
@@ -90,7 +90,7 @@ We can't put it off forever and its finally time to do some math. Don't psych yo
 
 In the previous section we proved that $\bar{Q}\rightarrow\bar{P}$ was the exact same expression as $P\rightarrow Q$, as such if we want to prove that $P\rightarrow Q$, we are completely allowed to prove $\bar{Q}\rightarrow\bar{P}$ instead.
 
-This is called a *Proof by Contrapositive* as the expression $\bar{Q}\rightarrow\bar{P}$ is called the __contrapositive__ of the original expression. While this might seem weird and unqiue, just know that it's literally just a direct proof.
+This is called a *Proof by Contrapositive* as the expression $\bar{Q}\rightarrow\bar{P}$ is called the __contrapositive__ of the original expression. While this might seem weird and unique, just know that it's literally just a direct proof.
 
 > __Example 3__: What is the contrapositive of the statement "If it rains, I will cancel my plans"?
 <details>
@@ -99,19 +99,19 @@ This is called a *Proof by Contrapositive* as the expression $\bar{Q}\rightarrow
 </details>
 
 {{% callout warning %}}
-Be careful when changing around your statements for proofs, $\bar{P}\rightarrow\bar{Q}$ is __not__ equivilent to the contrapositive!
+Be careful when changing around your statements for proofs, $\bar{P}\rightarrow\bar{Q}$ is __not__ equivalent to the contrapositive!
 {{% /callout %}}
 
 ---
 
 ### What the heck is Q.E.D.?
 
-Q.E.D. is an abbreviation of the latin phrase *quod erat demonstrandum* which translates to "what was to be shown". Back in ye-onder days Greek mathematicians would end all their proofs with the phrase as a sort of mathematical mic drop. People eventually shorted it to __Q.E.D.__ and have been using it to meantion that the proof is complete since.
+Q.E.D. is an abbreviation of the latin phrase *quod erat demonstrandum* which translates to "what was to be shown". Back in ye-onder days Greek mathematicians would end all their proofs with the phrase as a sort of mathematical mic drop. People eventually shorted it to __Q.E.D.__ and have been using it to mention that the proof is complete since.
 
 More modern notation[^qed_meme] has people mostly using a box, either $\square$ or $\blacksquare$ because its easier to write on a board, but you can use any symbol you want. I'm actually quite partial to seeing students complete their proofs with funny stupid little images.
 
 [^projective_geometry]: When you paint railroad tracks that connect off in the distance you literally are working in a [different form of geometry!](https://en.wikipedia.org/wiki/Projective_geometry#History)
 
-[^haters_meme]: Feel free to send memes to add to the pages. If its not funny I'll publically shame you
+[^haters_meme]: Feel free to send memes to add to the pages. If its not funny I'll publicly shame you
 
 [^qed_meme]: __Q.E.D.__ is actually infinitely meme-able as it is a phenomenal way to stunt on someone you're fighting with

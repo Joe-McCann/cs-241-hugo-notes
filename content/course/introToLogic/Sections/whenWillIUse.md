@@ -22,7 +22,7 @@ Before we get in to the practical application of logic and proofs to your (a CS 
 
 This is a totally fair question, as proofs are usually completely unlike most types of mathematics a standard student has seen in their college career to this point. Usually you just see a problem like
 $$\int\frac{x^2}{\sqrt{25+x^2}}dx$$
-that you have to solve and say, *"alright, integral with square root on the bottom, probably has to do with trig subs"*, from which you just grind through the problem the same way as you always do. Even if a particular problem is hard, the worst you'll do is just plug it in to Symbolab and say *"Ah shit it was a by-parts problem"*[^1]. Solving proofs is actually much of the same process, except instead of calcuations its arguments, and instead of Symbolab its Math StackExchange!
+that you have to solve and say, *"alright, integral with square root on the bottom, probably has to do with trig subs"*, from which you just grind through the problem the same way as you always do. Even if a particular problem is hard, the worst you'll do is just plug it in to Symbolab and say *"Ah shit it was a by-parts problem"*[^1]. Solving proofs is actually much of the same process, except instead of calculations its arguments, and instead of Symbolab its Math StackExchange!
 
 Of course the best, and most unhelpful, advice on getting better at proofs is to *practice*, which I know to most people is an idea worse than death lmfao 💀.
 
@@ -52,7 +52,7 @@ that these are all odd. From here we would think *"ok I can see this true, now w
 
 #### Step 3: Use the Methods You Know
 
-Observe the problem and select a way of going about it with a certain technique. As you get more aquainted with certain fields, you'll learn different ways of proving things, which you can then add to your toolbox. However, without fancy methods like those, direct proof, proof by contradiction, and induction will always be able to do the trick (with a little more effort). Leverage the things that you already know how to do and decide on a direction.
+Observe the problem and select a way of going about it with a certain technique. As you get more acquainted with certain fields, you'll learn different ways of proving things, which you can then add to your toolbox. However, without fancy methods like those, direct proof, proof by contradiction, and induction will always be able to do the trick (with a little more effort). Leverage the things that you already know how to do and decide on a direction.
 
 Similarly, see if this problem appears familiar to one that you've already solved, cause in that case there is a high probability that you will be able to use a similar method.
 
@@ -80,7 +80,7 @@ If you'd like something that's a little more tangible, __solving proofs is done 
 
 Now sure I can just make up an excuse for you to care about my class, but lets actually run through a interview problem and see how we can go about it using the problem solving technique.
 
-> __Example__ Missing Number Problem: Write a function that takes in an unsorted list of $n-1$ unqiue numbers where every number $x$ in the list is $1\leq x\leq n$, and returns the number in the range $1$ to $n$ that is missing from the list.
+> __Example__ Missing Number Problem: Write a function that takes in an unsorted list of $n-1$ unique numbers where every number $x$ in the list is $1\leq x\leq n$, and returns the number in the range $1$ to $n$ that is missing from the list.
 
 First thing we need to do when seeing this problem is to observe all information we are provided. First, we can see that our list contains only *unique* numbers, so we will only have $1$ missing number. We do not need to worry about duplicates. Next, we see that our list is *unsorted*, which means that we cannot use fast searching algorithms.
 
@@ -139,14 +139,14 @@ This is actually just a simple version of a counting sort, and this has a time c
 
 Now I know what you might be thinking *"Joe, this still doesn't really help me prepare for coding interview problems, because I need to know the coding part"*. You are correct, but with this mindset you might save yourself some time, let me explain.
 
-Let me provide an anectdote. When I was a freshmen in college, I used to help my friends Rids, Jules, and Sahiti study for our physics common exams. I liked Physics and was pretty good at it so I helped them through examples they got stuck on while going over past exams. However, I had a very different studying philosophy from my friends.
+Let me provide an anecdote. When I was a freshmen in college, I used to help my friends Rids, Jules, and Sahiti study for our physics common exams. I liked Physics and was pretty good at it so I helped them through examples they got stuck on while going over past exams. However, I had a very different studying philosophy from my friends.
 
 I believed in knowing the underlying ideas, and then running through one set of practice problems. The ideas were what knowledge was needed to solve the problems, and the one practice set was so that I could make sure I recognized possible exam problems, and caught any areas I might be lacking on. My friends believed in grinding out as many practice exams as possible so they could recognized the problems, and know the material. This often resulted in long study sessions going over the same problem, which was an excuse to spend large amounts of times with my friends so I loved it regardless[^5].
 
 My musings about the past aside, heres how I would suggest going about studying this stuff
 
 1. Practice coding interviews from the *problem solving perspective*. Don't practice and fixate on a specific problem, but rather how you tackle problems you don't know. The odds are in an interview you will not recognize the problem you are given.
-2. Practice your fundementals, if you don't understand a tool you will not be able to use it when you need it.
+2. Practice your fundamentals, if you don't understand a tool you will not be able to use it when you need it.
 3. Practice problems as a way to see what areas you are lacking, and find patterns in problems. If you see that you struggle with DFS, review that topic. If you struggle with understanding new problems given, practice that instead of solving them.
 
 If you were practicing for a calculus exam, you wouldn't grind through solving $\int x^2dx$ and $\int 3x^2dx$ and $\int 10x^2dx$, no you would do it once to learn how to, and then see that all problems from there are the same. Extrapolate that thinking to interviews!
