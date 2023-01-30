@@ -43,7 +43,7 @@ its a good idea to perform yearly inspections, or you trying to lie to your mom 
 Compared to our previous math example, these examples are based on the idea of adding propositions into
 our sentences and arguments. A proposition that has a linguistic meaning because of words used inside of
 it are called __statements__; note that the proposition here is the true or false evaluation of our statement
-based on its meaning. This is all much more philosophical than our monkey applied brains really care for,
+based on its meaning. This is all much more philosophical than our monke applied brains really care for,
 so for our purposes we will use these terms interchangeably (which we literally did in the first paragraph),
 but feel free to check some resources that [explain the difference](https://philosophy.stackexchange.com/a/10896)
 
