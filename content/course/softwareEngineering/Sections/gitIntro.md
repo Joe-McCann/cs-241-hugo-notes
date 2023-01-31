@@ -65,6 +65,10 @@ git clone https://github.com/Joe-McCann/cs-241-hugo-notes.git
 
 > **Definition**: **Cloning** is the act of taking a repository and copying it to another location. These two locations are able to link together so that changes in one can be added to the other. Repository copies on your device are called **local** repositories, and ones that are on a shared server are called **remote** repositories.
 
+{{% callout warning %}}
+If you are not listed as a collaborator of the repo you are cloning, you must first **fork** it which makes a copy under your account that is separate from the original repo.
+{{% /callout %}}
+
 Repositories that are hosted on services like Github are remote repos, that you can clone onto your local device. From there once you are done with all your changes you can then push said changes up into the remote.
 
 When you first clone the repository, your version of the project will be on the primary version that is actually used on the website. When you make changes though, we don't want you to able to change that version willy-nilly as what if you prank me by changing my photo or something. As such, you need to be able to work on your own independent version that I will review when you are done. This independent version is called a branch.
