@@ -52,7 +52,7 @@ Now lets work through the easiest math example such that you can see a proof by 
 
 > __Theorem__ <a name="no_largest_number_theorem">No Largest Number</a>: Let $n$ be an integer, there is no largest $n$ such that for all other integers $m$, $n>m$
 <details>
-  <summary>Answer</summary>
+  <summary>Proof</summary>
   Proof: Let us assume that the negation of $P$ is true, and there is in fact a largest integer we will call $n$. We now will consider the integer $n+1$. Since $n$ is the largest number, we know that $n+1 < n$. We can subtract $n$ from both sides to get that $1 < 0$. This is clearly false which has led us to a contradiction, and as such our initial statement that there is a largest number $n$ is false.
   </br>
   <b>Q.E.D.</b>
