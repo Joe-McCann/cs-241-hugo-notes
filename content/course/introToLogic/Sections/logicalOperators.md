@@ -68,7 +68,7 @@ P & \bar{P} \\ \hline
 
 ### AND
 
-In our previous operation of $NOT$, we saw that there was one input (which is called a unary operation),and now we will explore
+In our previous operation of $NOT$, we saw that there was one input (which is called a unary operation), and now we will explore
 our first operation that takes in two inputs: $AND$. Just as before, we can first consider what this does when we speak in English.
 If I was to tell you that I have a cat __and__ I have a dog, you could infer that individually the statements "I have a cat" and "I have a dog"
 are both true. In essence that is what $AND$ does, it takes in two truth values, and evaluates to true __if and only if__ both inputs
@@ -200,12 +200,12 @@ P & Q & P\iff Q \\ \hline
 \end{array}$$
 {{< /math >}}
 
-This is actually the same truth table as $P=Q$ which is true whenever both propositions hold the same truth value! As such we can say that iff is equivilent to saying that the two statements are the same thing.
+This is actually the same truth table as $P=Q$ which is true whenever both propositions hold the same truth value! As such we can say that iff is equivalent to saying that the two statements are the same thing.
 
 [^1]: Later down the line, you will see this is just listing out the table of a function with $\{0,1\}$ as its input and ouput sets (but we're not there yet)
 
 [^2]: Most of the time the joke here is just evaluating the truth of an $OR$ statement, which doesn't really have to do with inclusivity, but occassionally theres a funny one.
 
-[^3]: Whether thats a current habit or in the past is a discussion for another day.
+[^3]: Whether that's a current habit or in the past is a discussion for another day.
 
 [^4]: Note that $:=$ means "is defined to be". So here we are defining iff to be that expression

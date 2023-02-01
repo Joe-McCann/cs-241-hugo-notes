@@ -23,6 +23,6 @@ __William Joe McCann__
 
 In the previous chapter on [Logic](/course/introtologic) we discussed how you would go about proving things, and the idea that you can have these mathematical statements that do *something*. But we kinda danced around the idea of actually using things and proving them, and talked about these real world silly examples.
 
-But this isn't what mathematicians prove and have been proving! What are the fundemental things that matematicians start with in order to build math from the bottom up? Surely they have to start with something right?
+But this isn't what mathematicians prove and have been proving! What are the fundamental things that mathematicians start with in order to build math from the bottom up? Surely they have to start with something right?
 
-In this chapter we will talk about the most basic structure that was the subject of study over $100$ years ago: __sets__. Nowadays not many people are actively researching into set theory, but don't let that distract you to how important these things are. Sets form an important backbone of every field that uses math, as its so fundementally simple.
+In this chapter we will talk about the most basic structure that was the subject of study over $100$ years ago: __sets__. Nowadays not many people are actively researching into set theory, but don't let that distract you to how important these things are. Sets form an important backbone of every field that uses math, as its so fundamentally simple.

@@ -33,7 +33,7 @@ For the purposes of notation, we will represent sets usually with capital letter
 
 > __Definition__: If $a$ is an item inside set $A$ then we say $a$ is an __element__ of $A$. $a$ is a __member of__ A, and this relationship is notated as $a\in A$.
 
-When we defined sets, we said that was unqiue. This does not mean that repeated elements are dropped from our set, rather they are only included once. For example, suppose I took a list of ages of students I have in class. Something like
+When we defined sets, we said that was unique. This does not mean that repeated elements are dropped from our set, rather they are only included once. For example, suppose I took a list of ages of students I have in class. Something like
 $$
 [19,19,20,21,24,28,25,19,17,33,\ldots].
 $$
@@ -117,8 +117,8 @@ For sets that are often used or more important, we use bolded fancy looking lett
 
 1. $\mathbb{N}=\\{0,1,2,3,\ldots\\}$: The natural numbers, all non-negative numbers
 2. $\mathbb{Z}=\\{0,1,-1,2,-2,\ldots\\}$: The integers, positive and negative whole numbers
-3. $\mathbb{Z}_+=\\{1,2,3,4,5,\ldots\\}$: Postive intergers
-4. $\mathbb{Q}=\\{0,1,-1,\frac{1}{2},-\frac{5}{7},\ldots\\}$: Rational numbers, all intergers and fractions
+3. $\mathbb{Z}_+=\\{1,2,3,4,5,\ldots\\}$: Positive integers
+4. $\mathbb{Q}=\\{0,1,-1,\frac{1}{2},-\frac{5}{7},\ldots\\}$: Rational numbers, all integers and fractions
 5. $\mathbb{R}=\\{0,1,-1,\pi, \frac{1}{2}, -e,\ldots \\}$: Real numbers, all numbers on the number line
 6. $\mathbb{F}=\\{\text{Jets, Giants, 49ers, Jaguars,} \ldots\\}$: NFL Football teams[^2]
 7. $\mathbb{D}=\\{\text{Oak, Honors, Laurel,} \ldots\\}$: NJIT dorm buildings
