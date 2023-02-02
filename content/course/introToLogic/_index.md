@@ -21,13 +21,13 @@ __William Joe McCann__
 
 ### Chapter 1: Logic
 
-Logic is defined as the study of "reasoning conducted according to princples of strict validity".
+Logic is defined as the study of "reasoning conducted according to principles of strict validity".
 When we study logic, we are studying things that we know to be true or false and seeing how that
 impacts the framework of our world.
 
 Practically, studying logic in  mathematical sense is what is used to correctly argue your points
 in a way that cannot be refuted. Should you want to win internet debates, or attempt to win debates
-against your partnet, a strong sense of logical flow and direction is necessary. Similarly, people
+against your partner, a strong sense of logical flow and direction is necessary. Similarly, people
 who are good at making both logical progressions, and making false logical progressions that seem
 legit are both good lawyers and politicians. For a computer science student, you will come to see
 that practically, logic and proof writing is a lot like coding and algorithm design.

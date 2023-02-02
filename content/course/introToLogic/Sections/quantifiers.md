@@ -17,7 +17,7 @@ weight: 225
 
 ## Simple Notation
 
-Before we get into the discussion of quantifiers, lets take a little breather to show some math notation and say what it means. The crazy thing is that mathematicians are lazy af and will take the opporotunity to write things in shorthand. Here are some symbols that I use every now and then
+Before we get into the discussion of quantifiers, lets take a little breather to show some math notation and say what it means. The crazy thing is that mathematicians are lazy af and will take the opportunity to write things in shorthand. Here are some symbols that I use every now and then
 
 1. $\therefore$ - Therefore
 2. $P(x)$ - A statement whos truth depends on an input $x$
@@ -36,7 +36,7 @@ Hold your horses wait what, that symbol $|$ appears twice there? How am I suppos
 
 ## How Much Truth Are We Talking?
 
-When it comes to statements and proofs, you might have noticied that we don't always talk about just a singular statement like *"It is raining outside"* or *"The number 5 is an odd number"*, rather we talk about things that are a little more general or sweeping. For example, we might rather want to say something like *"It rains at least once a month"*, or *"All odd numbers are not divisible by 2"* which provide us insights into just how much truth we can expect from a certain statement.
+When it comes to statements and proofs, you might have noticed that we don't always talk about just a singular statement like *"It is raining outside"* or *"The number 5 is an odd number"*, rather we talk about things that are a little more general or sweeping. For example, we might rather want to say something like *"It rains at least once a month"*, or *"All odd numbers are not divisible by 2"* which provide us insights into just how much truth we can expect from a certain statement.
 
 In particular we often care about two specific types of quantities.
 
@@ -62,7 +62,7 @@ If you provide me with a student from NJIT, they are going to have a UCID, no ma
 
 ### Something
 
-What happens though if we don't care about something being true all the time, but instead we care about it being true sometimes, or more specifically *at least once*? In that case we will use the __existential quantifier__, which besides having a funny name, is one that is used quite frequently in everyday talk and, by extension, mathematics. Very often the most important thing is the existance of a solution, which is something that we will use a lot in later lessons.
+What happens though if we don't care about something being true all the time, but instead we care about it being true sometimes, or more specifically *at least once*? In that case we will use the __existential quantifier__, which besides having a funny name, is one that is used quite frequently in everyday talk and, by extension, mathematics. Very often the most important thing is the existence of a solution, which is something that we will use a lot in later lessons.
 
 Notationally, *"there exists"* is given as the symbol $\exists$. We provide the examples
 
@@ -79,7 +79,7 @@ This statement is also true, in fact there is exactly one dorm on the NJIT campu
 
 ### How to Prove Quantified Statements
 
-Generally, you will just use the same techniques that we gove over in class for other problems, Direct Proof, Contradiction, Induction, etc. However, there is a special consideration that you need to make when you are proving quantified statements: you need to prove their quanitity. This might sound literally obvious and you might think *"yeah no shit Joe you're just telling me to prove the statement"*, but for the amount of students who miss the mark I feel the need to dedicate this special section to them.
+Generally, you will just use the same techniques that we gove over in class for other problems, Direct Proof, Contradiction, Induction, etc. However, there is a special consideration that you need to make when you are proving quantified statements: you need to prove their quantity. This might sound literally obvious and you might think *"yeah no shit Joe you're just telling me to prove the statement"*, but for the amount of students who miss the mark I feel the need to dedicate this special section to them.
 
 If you want to prove an existence statement, that is super easy. All you need to do is just show that an example exists and you're good. For example if we wanted to prove
 

@@ -20,7 +20,7 @@ weight: 215
 
 ### The Venn Diagram
 
-Throughout this section, we will show operations in a visual form by showing **Venn Diagrams** of how the operations work. A Venn Diagram is a simple visualization for performing set operations that can assist in givin an intuition. The universe is represented as the entire image, and the sets are represented by bounded areas on the plane. You can use their crossings to show different operations.
+Throughout this section, we will show operations in a visual form by showing **Venn Diagrams** of how the operations work. A Venn Diagram is a simple visualization for performing set operations that can assist in giving an intuition. The universe is represented as the entire image, and the sets are represented by bounded areas on the plane. You can use their crossings to show different operations.
 
 Hopefully you remember Venn Diagrams from elementary school as ways of showing how something like book characters were different.
 
@@ -96,9 +96,9 @@ What happens though if the items share nothing in common though? For example $A=
 
 ### Set Difference
 
-Previously the operations had direct logical equivilents, however we are now going to work with a new operation thats unique to sets. Suppose we got a list of all the students who were taking CS280 and CS288 at the same time, and put them into sets $C$ (for compiler) and $L$ (for Linux) respectively. Now say you wanted to send an email, but only to the students who were taking **only** CS288, and not CS280. Well we would need an operation to get rid of the overlap!
+Previously the operations had direct logical equivalent, however we are now going to work with a new operation that's unique to sets. Suppose we got a list of all the students who were taking CS280 and CS288 at the same time, and put them into sets $C$ (for compiler) and $L$ (for Linux) respectively. Now say you wanted to send an email, but only to the students who were taking **only** CS288, and not CS280. Well we would need an operation to get rid of the overlap!
 
-> **Definition**: The **dfference** of sets $A, B$, notated as $A-B$ is the set of all items in $A$ that are not in $B$. In set builder notation $$A-B=\\{x|x\in A\text{ and }x\not\in B\\},$$ which can also be written as $$A-B=A\cap\bar{B}.$$
+> **Definition**: The **difference** of sets $A, B$, notated as $A-B$ is the set of all items in $A$ that are not in $B$. In set builder notation $$A-B=\\{x|x\in A\text{ and }x\not\in B\\},$$ which can also be written as $$A-B=A\cap\bar{B}.$$
 
 Note that in this case it is not common that $A-B=B-A$. This is an example at the bottom of the page
 
@@ -136,7 +136,7 @@ For the reverse direction that $A\subseteq B\implies A-B=\varnothing$, suppose t
 
 The symmetric difference, like the set difference, is designed in terms of other operations. Unlike set difference though it is not used super frequently, rather it is occasionally used for the theorem that we will prove at the bottom of this section. Also, the notation is baller as fuck.
 
-> **Definition**: The **symmetric dfference** of sets $A, B$, notated as $A\triangle B$ is defined to be $$A\triangle B = (A-B)\cup (B-A) = (A\cup B) - (A\cap B)
+> **Definition**: The **symmetric difference** of sets $A, B$, notated as $A\triangle B$ is defined to be $$A\triangle B = (A-B)\cup (B-A) = (A\cup B) - (A\cap B)
 
 {{< figure library="true" src="setTheory/symmdiff.png" title="Venn Diagram Representation of $A\triangle B$" lightbox="true" >}}
 
