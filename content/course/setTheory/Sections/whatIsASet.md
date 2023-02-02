@@ -62,7 +62,7 @@ Think of $\subseteq$ similarly to $\leq$, and $\subset$ like $<$. Normally we wi
 
 In the above section, we stated that $B\subset A$ if $B\subseteq A$ and $A\neq B$, but what does it actually mean for two sets to be equal to each other? It turns out that this is actually an [axiom of Set Theory](https://mathworld.wolfram.com/Zermelo-FraenkelAxioms.html)
 
-> __Axiom of Extensionality__: Two sets A, B are equal iff they contain the same elements.
+> __Axiom__ (Axiom of Extensionality): Two sets A, B are equal iff they contain the same elements.
 
 In math notation we would say
 $$

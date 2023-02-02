@@ -134,7 +134,6 @@ The same actually holds for negating $\forall$, if we want to show that it is no
 
 ---
 
-
 ### Nested Quantifiers
 
 We've actually seen in the previous page with [__No Largest Number Theorem__](/course/introtologic/sections/proofbycontradiction#no_largest_number_theorem) that sometimes we need more than one quantifier. The theorem "there is no largest number" states that for every integer $n$, there exists another number $m$ that is bigger than $n$, written out we get that
