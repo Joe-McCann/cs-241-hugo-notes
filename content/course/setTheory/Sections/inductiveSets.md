@@ -63,9 +63,9 @@ This example is a silly rule, but shows how you can get real creative with whate
 > **Definition**: $A$ is an **limiting set** of an inductive method iff
 >
 > 1. $\forall j\geq 0, A_j\subseteq A$
-> 2. $\forall x\in A, \exists j$ s.t. $x\in A_j$
+> 2. $\forall x\in A, \exists n$ s.t. $\forall j\geq n,x\in A_j$
 >
-> This is written as $$\bigcup_{j=0}^\infty A_j= A\iff\lim_{j\rightarrow\infty}A_j=A$$
+> This is written as $$\lim_{j\rightarrow\infty}A_j=A$$
 
 Congrats! You literally just theoretically defined a limit of sets in terms of foundational mathematics. Now we can make assertions about the limiting set of our process, which will eventually help us out.
 
