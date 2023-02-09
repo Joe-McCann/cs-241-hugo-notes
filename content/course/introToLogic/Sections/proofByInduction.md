@@ -48,6 +48,8 @@ We could go through enough  examples to satisfy that it always works, but as you
 
 Anyway, we do actually have a way to show some infinite theorems are true in a very slick way!
 
+---
+
 ## What is Induction?
 
 Say I put everyone in class into a line and had everyone hold hands with the two people next to them. I then say that we are going to play a game, close your eyes and if you ever feel someone let go of one of your hands, you let go of your other hand. So if someone in the middle feels the person to their left let go, they will then proceed to let go to the person to their right.
@@ -68,6 +70,8 @@ With this in mind, we can move into the realm of mathematics. Induction is the i
 In order to see a proof of this, see the [Standard Induction Theorem](/course/settheory/sections/inductivesets#standard_induction_theorem).
 
 This means that if we can show that $n=0$ is true, and that any statement implies the next one, then it also means that all of them are true.
+
+---
 
 ### Proving With Induction
 
@@ -101,6 +105,8 @@ $$
 \end{aligned}
 $$
 which is what we were trying to show. As such, we know that if $P(n)$ is true for some value of $n$, then it must also be true for $n+1$. Since it is true for $n=0$, we know it is true for all $n\in\mathbb{N}$.
+
+---
 
 ### Induction, but Stronger
 
@@ -143,6 +149,36 @@ $$
 $$
 Now this proves our claim. **Q.E.D.**
 
+---
+
 ## Practical Applications in Computer Science
 
+The ideas of induction actually have a very direct analog in computer science. If induction is the idea that you can use previous cases to prove the current case that you want to prove, this sounds *exactly* like how a recursive algorithm works.
+
+For recursion, we assume that our code can work a smaller version of our problem, and then use that to solve our current problem. Is this not literally how induction works? The **base case** of a recursive algorithm is even identically the same term as in induction 😆, literally the only difference is recursion is called the recursive step instead of the inductive step.
+
+### Recursion Example
+
+> **Example**: Given a binary tree $T$ and an integer value, write a function that returns **True** if a particular node in the tree contains the value.
+
+When approaching this problem, see that the children of the root node of a binary tree, are also just two binary trees. As such, say we knew how to solve any $n$ height binary tree, with that we could then solve any $n+1$ height binary tree by just seeing if the root node was what we were looking for, and then solving the two $n$ sized children! This algorithm is literally just induction.
+
+For the base case, if you are given an empty tree, then obviously it is not present in that. From this, we can see that our algorithm would be given by
+
+```python
+def depth_first_search(root, value):
+    if root == None:
+        # Empty tree
+        return False
+    if root.value == value:
+        return True
+    else:
+        # Check left and right sub-trees
+        return depth_first_search(root.left, value) or depth_first_search(root.right, value)
+```
+
+For a tree of $n$ nodes, this algorithm runs in $\mathcal{O}(n)$ time with $\mathcal{O}(n)$ space for an arbitray tree[^2].
+
 [^1]: We do not need to start with the base case of $P(0)$, we could have picked any other value of $k$, but just note that doing so would leave all cases $0\leq n < k$ unproven.
+
+[^2]: This is $\mathcal{O}(h)$ where $h$ is the height of the tree, but for any tree without restrictions, this is size $n$ in the worst case
