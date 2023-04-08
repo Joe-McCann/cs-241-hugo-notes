@@ -82,8 +82,30 @@ Bijections can be thought of as a perfect mapping, or relabeling. This means tha
 
 > **Theorem**: Let $A$, $B$ be sets. If there exists a bijective $f:A\rightarrow B$, then $|A|=|B|$.
 
-> **Example**: Let $f:\mathbb{R}\rightarrow\mathbb{R}$, $f(x)=x^3(x)$. Prove $f$ is bijective.
+> **Example**: Let $f:\mathbb{R}\rightarrow\mathbb{R}$, $f(x)=x^3$. Prove $f$ is bijective.
+<details>
+<summary>Proof</summary>
+To first show that $f$ is injective, we consider what happens if $$f(x)=f(y)\implies x^3=y^3$$. By just taking the cube root of both sides we can easily see that $x=y$ so $f$ must be injective.
+</br>
+Now to show its surjective, consider some $y\in\mathbb{R}$. If we want to find an $x$ such that $x^3=y$, just set $x=\sqrt[3]{y}$. Thus $f$ is also surjective. Since it is both, $f$ is bijective.
+</br>
+QED
+</details>
 
-## Bijective is the Bestjective
+## Inverse Functions: Uno Reverso
+
+Bijective functions are actually great to work with because they represent the idea that the two sets can be the same set up to some relabeling. We are pretty much taking every element of our one set and fully transferring it over onto our other set. Because of this, it appears that not only can we perform our function, but we should also be able to *reverse* our function too!
+
+You might remember from middle school that there are these things called inverse functions, that take what $f$ does and "undoes" the operation. So if $f(2)=3$, then the inverse of $3$ is $2$. We can notate this quite simply by saying
+
+> **Definition**: Given a function $f:A\rightarrow B$, $g:B\rightarrow A$ is the *inverse function* of $f$ iff for all $x\in A$, then $g(f(x))=x$. We notate this as $f^{-1}$
+
+Note that a simple definition gives us that if $g=f^{-1}$ for some $f$, then we also have $f=g^{-1}$.
+
+Why am I mentioning inverse functions here though? Sure its cool and whatever but what does it have to do with this lesson? Well it turns out that the following theorem is true.
+
+> **Theorem**: A function $f$ has an inverse iff $f$ is bijective.
+
+Before we do the proof, just take a moment to look at and think about this theorem, because it seems to run counter to things you've done before in classes like algebra and trig. 
 
 [^1]: "Onto" is such a dumb fucking term
