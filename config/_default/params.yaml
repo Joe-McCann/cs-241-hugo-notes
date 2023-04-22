@@ -6,6 +6,8 @@
 # Appearance
 
 appearance:
+  theme_day: minimal
+  theme_night: minimal
   font: minimal
   font_size: L
 
@@ -16,7 +18,8 @@ marketing:
     site_type: Person
     local_business_type: ''
     org_name: ''
-    description: 'Joe McCann is a Software Engineer, and Adjunct Professor at NJIT who likes to do math'
+    description: 'A highly-customizable Hugo academic resume theme powered by Wowchemy website builder.'
+    twitter: 'wowchemy'
   analytics:
     google_analytics: ''
     baidu_tongji: ''
@@ -32,7 +35,7 @@ header:
     align: l
     show_logo: true
     show_language: false
-    show_day_night: false
+    show_day_night: true
     show_search: true
     highlight_active_link: true
 
@@ -40,7 +43,12 @@ header:
 
 footer:
   copyright:
-    notice: 'Thank you to Roy Goodman for helping me set up this website'
+    notice: '© {year} Me. This work is licensed under {license}'
+    license:
+      enable: true
+      allow_derivatives: false
+      share_alike: true
+      allow_commercial: false
 
 # Localization
 
@@ -53,23 +61,16 @@ locale:
 
 features:
   syntax_highlighter:
-    enable: true
-    theme_light: xcode-light
-    theme_dark: xcode-dark
-    extra_languages:
-      - python
-      - bash
-      - git
+    theme_light: github-light
+    theme_dark: dracula
   math:
-    enable: true
-  diagram:
-    enable: true
+    enable: false
   privacy_pack:
     enable: false
   repository:
-    url: 'https://github.com/Joe-McCann/cs-241-hugo-notes'
+    url: 'https://github.com/<username>/<repository>'
     content_dir: content
-    branch: master
+    branch: main
   avatar:
     gravatar: false
     shape: circle
@@ -80,6 +81,11 @@ features:
       show_count: true
     commento:
       url: ''
+    giscus:
+      repo: ''
+      repo_id: ''
+      category: ''
+      category_id: ''
   search:
     provider: wowchemy
     algolia:
@@ -88,7 +94,7 @@ features:
       index_name: ''
       show_logo: false
   map:
-    provider: 'mapnik'
+    provider: ''
     api_key: ''
     zoom: 15
 
@@ -96,8 +102,13 @@ features:
 
 extensions:
   cms:
-    branch: master
+    branch: main
     local_backend: false
-    netlify_cms: true
   academicons:
     enable: true
+
+# Security
+
+security:
+  # Allow frame for embedding speaker notes in slides
+  allow_frame: true
