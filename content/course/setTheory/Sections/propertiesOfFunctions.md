@@ -83,6 +83,7 @@ Bijections can be thought of as a perfect mapping, or relabeling. This means tha
 > **Theorem**: Let $A$, $B$ be sets. If there exists a bijective $f:A\rightarrow B$, then $|A|=|B|$.
 
 > **Example**: Let $f:\mathbb{R}\rightarrow\mathbb{R}$, $f(x)=x^3$. Prove $f$ is bijective.
+{{% callout info %}}
 <details>
 <summary>Proof</summary>
 To first show that $f$ is injective, we consider what happens if $$f(x)=f(y)\implies x^3=y^3$$. By just taking the cube root of both sides we can easily see that $x=y$ so $f$ must be injective.
@@ -91,6 +92,9 @@ Now to show its surjective, consider some $y\in\mathbb{R}$. If we want to find a
 </br>
 QED
 </details>
+{{% /callout %}}
+
+---
 
 ## Inverse Functions: Uno Reverso
 
@@ -107,5 +111,15 @@ Why am I mentioning inverse functions here though? Sure its cool and whatever bu
 > **Theorem**: A function $f$ has an inverse iff $f$ is bijective.
 
 Before we do the proof, just take a moment to look at and think about this theorem, because it seems to run counter to things you've done before in classes like algebra and trig. 
+
+---
+
+### Inverse Functions You've Seen Before
+
+You might be thinking "how is it possible that $f$ can only have an inverse if it's bijective? I know a ton of not bijective functions with inverses!"
+
+For example, you might say $f(x)=x^2$ with $f:\mathbb{R}\rightarrow\mathbb{R}$ breaks this rule. Clearly $f$ is not bijective, as $f(1)=f(-1)$ and $1\neq -1$ so its not injective. Also, there are no real numbers you can plug into $f$ in order to get anything negative, so $f$ can't be surjective either! So then how is it that $f^{-1}(x)=\sqrt{x}$ if $f$ is not bijective?
+
+
 
 [^1]: "Onto" is such a dumb fucking term
