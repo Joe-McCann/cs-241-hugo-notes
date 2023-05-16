@@ -120,6 +120,32 @@ You might be thinking "how is it possible that $f$ can only have an inverse if i
 
 For example, you might say $f(x)=x^2$ with $f:\mathbb{R}\rightarrow\mathbb{R}$ breaks this rule. Clearly $f$ is not bijective, as $f(1)=f(-1)$ and $1\neq -1$ so its not injective. Also, there are no real numbers you can plug into $f$ in order to get anything negative, so $f$ can't be surjective either! So then how is it that $f^{-1}(x)=\sqrt{x}$ if $f$ is not bijective?
 
+This is because functions can be bijective on specific domains and codomains, think about what you remember the domain and range of $\sqrt{x}$ being back in the day. Well you're not allowed to input negative numbers, and its not possible to get negative numbers as an output. This is because $\sqrt{x}$ is the inverse of the $x^2$ when $x\geq 0$! So being more specific we would say that
+$$
+x^2:\\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}\rightarrow \\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}
+$$
+which makes
+$$
+\sqrt{x}:\\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}\rightarrow \\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}.
+$$
+By extension the negative half of $x^2$ has an inverse of $-\sqrt{x}$, which is why we say $x^2$ has an inverse of $\pm\sqrt{x}$, because there are actually two inverse functions depending on your input domain in which you are injective!
 
+With this we can actually come up with a way to remember all those really confusing domains and codomains for things like trig functions.
+
+> **Example**: Let $f(x)=\sin(x)$. What is the domain and codomain of $f^{-1}(x)=\arcsin(x)$?
+{{% callout info %}}
+<details>
+<summary>Answer</summary>
+In order for there to be an inverse function, we need $f(x)$ to be bijective on the whole domain. From there the domain and codomain of $f^{-1}(x)$ are just going to be flipping the input and outputs of $f$. 
+</br>
+Lets first find a domain for which $sin$ is injective. We want to make sure there are no two inputs that repeat the same output. As such we can see in a $\sin$ wave that if we start at $0$ and go past $\frac{\pi}{2}$, we will go back down and repeat values. Instead, we can start at $-\frac{\pi}{2}$ and go up to $\frac{\pi}{2}$ which will repeat nothing! This will be our domain, and our codomain will have to take on all the values so that our function will be surjective. $\sin$ goes from $-1$ to $1$ which gives us that $$\sin:\left[-\frac{\pi}{2}, \frac{\pi}{2}\right\]\rightarrow [-1,1]$$
+</br>
+Finally, we have from here that the domain and codomain of $\arcsin$ is $$\arcsin:[-1,1]\rightarrow \left[-\frac{\pi}{2}, \frac{\pi}{2}\right\]$$.
+</details>
+{{% /callout %}}
+
+---
+
+### Bijectivity and Inverses: A Proof
 
 [^1]: "Onto" is such a dumb fucking term
