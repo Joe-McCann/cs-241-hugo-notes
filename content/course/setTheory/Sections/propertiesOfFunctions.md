@@ -27,20 +27,22 @@ We have as a propery of functions that every input must have exactly one output,
 What this is saying is that the *only way* we can have the function give the same output, is if the function has the same input! Lets say that we have sets $A=\\{1,2,3\\}$ and $B=\\{1,2,3,4\\}$ and define function $f(x)$ to be
 
 $$
-\begin{aligned}
-f(1)&=3 \\\\
-f(2)&=2 \\\\
-f(3)&=4.
-\end{aligned}
+    \begin{aligned}
+        f(1)&=3 \\\\
+        f(2)&=2 \\\\
+        f(3)&=4.
+    \end{aligned}
 $$
 
 We can see that $f$ is injective because the same output is never repeated. Here is an example of a non injective function.
 
 > **Example**: Let $\sin:\mathbb{R}\rightarrow\mathbb{R}$. Prove $\sin(x)$ is not injective
-<details>
-<summary>Proof</summary>
-In order to show that this is not injective, we just need to show that we can find two different inputs of $\sin$ that have the same output. Since we know this is a $2\pi$ periodic function its easy to show by seeing that $\sin(0)=\sin(2\pi)=0$. Therefore $\sin$ is not injective.
-</details>
+{{% callout info %}}
+    <details>
+        <summary>Proof</summary>
+        In order to show that this is not injective, we just need to show that we can find two different inputs of $\sin$ that have the same output. Since we know this is a $2\pi$ periodic function its easy to show by seeing that $\sin(0)=\sin(2\pi)=0$. Therefore $\sin$ is not injective.
+    </details>
+{{% callout %}}
 
 Notice that since injective means that every item in $A$ has a unique output of $B$, we can get this nice little small theorem
 
@@ -61,12 +63,14 @@ As in, no matter what output you select from your codomain, you can always find 
 > **Theorem**: A function $f$ is surjective iff $codomain(f)=im(f)$.
 
 > **Example**: Let $f:\mathbb{R}\rightarrow\mathbb{R}$, $f(x)=x\cdot\cos(x)$. Prove $f$ is surjective.
-<details>
-<summary>Proof</summary>
-Suppose we choose some value $y\in\mathbb{R}$ and want to see if we can find some value $y=x\cos(x)$. Note that $x\cos(x)$ is continuous, so by the intermediate value theorem, if I have two points, $f$ will take all values of $y$ between those two points. If you don't remember calculus, just remember that since $f$ is continuous, if I want to get from $a$ to $b$ without lifting my pen, I have to cross every point between $a$ and $b$.
-</br>
-Remember that $\cos(x)$ is $1$ whenever you are at a value of $x=n\pi$ whenever $n$ is even, and is $-1$ whenever $n$ is odd. So if $y &lt n\pi$, we know that $f(n\pi) = n\pi \cdot 1 > y$
-</details>
+{{% callout info %}}
+    <details>
+        <summary>Proof</summary>
+        Suppose we choose some value $y\in\mathbb{R}$ and want to see if we can find some value $y=x\cos(x)$. Note that $x\cos(x)$ is continuous, so by the intermediate value theorem, if I have two points, $f$ will take all values of $y$ between those two points. If you don't remember calculus, just remember that since $f$ is continuous, if I want to get from $a$ to $b$ without lifting my pen, I have to cross every point between $a$ and $b$.
+        </br>
+        Remember that $\cos(x)$ is $1$ whenever you are at a value of $x=n\pi$ whenever $n$ is even, and is $-1$ whenever $n$ is odd. So if $y &lt n\pi$, we know that $f(n\pi) = n\pi \cdot 1 > y$
+    </details>
+{{% /callout %}}
 
 Similar to the previous section, if we know that there are enough items in $A$ to completely cover $B$, then there must be at least as many items in $A$ as in $B$.
 
@@ -84,14 +88,14 @@ Bijections can be thought of as a perfect mapping, or relabeling. This means tha
 
 > **Example**: Let $f:\mathbb{R}\rightarrow\mathbb{R}$, $f(x)=x^3$. Prove $f$ is bijective.
 {{% callout info %}}
-<details>
-<summary>Proof</summary>
-To first show that $f$ is injective, we consider what happens if $$f(x)=f(y)\implies x^3=y^3$$. By just taking the cube root of both sides we can easily see that $x=y$ so $f$ must be injective.
-</br>
-Now to show its surjective, consider some $y\in\mathbb{R}$. If we want to find an $x$ such that $x^3=y$, just set $x=\sqrt[3]{y}$. Thus $f$ is also surjective. Since it is both, $f$ is bijective.
-</br>
-QED
-</details>
+    <details>
+        <summary>Proof</summary>
+        To first show that $f$ is injective, we consider what happens if $$f(x)=f(y)\implies x^3=y^3$$. By just taking the cube root of both sides we can easily see that $x=y$ so $f$ must be injective.
+        </br>
+        Now to show its surjective, consider some $y\in\mathbb{R}$. If we want to find an $x$ such that $x^3=y$, just set $x=\sqrt[3]{y}$. Thus $f$ is also surjective. Since it is both, $f$ is bijective.
+        </br>
+        QED
+    </details>
 {{% /callout %}}
 
 ---
@@ -108,7 +112,7 @@ Note that a simple definition gives us that if $g=f^{-1}$ for some $f$, then we 
 
 Why am I mentioning inverse functions here though? Sure its cool and whatever but what does it have to do with this lesson? Well it turns out that the following theorem is true.
 
-> **Theorem**: A function $f$ has an inverse iff $f$ is bijective.
+> **Theorem** <a name="inverse_function_theorem">Inverse Function Theorem</a>: A function $f$ has an inverse iff $f$ is bijective.
 
 Before we do the proof, just take a moment to look at and think about this theorem, because it seems to run counter to things you've done before in classes like algebra and trig. 
 
@@ -122,30 +126,47 @@ For example, you might say $f(x)=x^2$ with $f:\mathbb{R}\rightarrow\mathbb{R}$ b
 
 This is because functions can be bijective on specific domains and codomains, think about what you remember the domain and range of $\sqrt{x}$ being back in the day. Well you're not allowed to input negative numbers, and its not possible to get negative numbers as an output. This is because $\sqrt{x}$ is the inverse of the $x^2$ when $x\geq 0$! So being more specific we would say that
 $$
-x^2:\\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}\rightarrow \\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}
+    x^2:\\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}\rightarrow \\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}
 $$
 which makes
 $$
-\sqrt{x}:\\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}\rightarrow \\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}.
+    \sqrt{x}:\\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}\rightarrow \\{x | x\in\mathbb{R} \text{ and } x\geq 0\\}.
 $$
 By extension the negative half of $x^2$ has an inverse of $-\sqrt{x}$, which is why we say $x^2$ has an inverse of $\pm\sqrt{x}$, because there are actually two inverse functions depending on your input domain in which you are injective!
 
-With this we can actually come up with a way to remember all those really confusing domains and codomains for things like trig functions.
+With this we can actually come up with a way to remember all those really confusing domains and codomains for things like trig functions[^2].
 
 > **Example**: Let $f(x)=\sin(x)$. What is the domain and codomain of $f^{-1}(x)=\arcsin(x)$?
 {{% callout info %}}
-<details>
-<summary>Answer</summary>
-In order for there to be an inverse function, we need $f(x)$ to be bijective on the whole domain. From there the domain and codomain of $f^{-1}(x)$ are just going to be flipping the input and outputs of $f$. 
-</br>
-Lets first find a domain for which $sin$ is injective. We want to make sure there are no two inputs that repeat the same output. As such we can see in a $\sin$ wave that if we start at $0$ and go past $\frac{\pi}{2}$, we will go back down and repeat values. Instead, we can start at $-\frac{\pi}{2}$ and go up to $\frac{\pi}{2}$ which will repeat nothing! This will be our domain, and our codomain will have to take on all the values so that our function will be surjective. $\sin$ goes from $-1$ to $1$ which gives us that $$\sin:\left[-\frac{\pi}{2}, \frac{\pi}{2}\right\]\rightarrow [-1,1]$$
-</br>
-Finally, we have from here that the domain and codomain of $\arcsin$ is $$\arcsin:[-1,1]\rightarrow \left[-\frac{\pi}{2}, \frac{\pi}{2}\right\]$$.
-</details>
+    <details>
+        <summary>Answer</summary>
+        In order for there to be an inverse function, we need $f(x)$ to be bijective on the whole domain. From there the domain and codomain of $f^{-1}(x)$ are just going to be flipping the input and outputs of $f$. 
+        </br>
+        Lets first find a domain for which $\sin$ is injective. We want to make sure there are no two inputs that repeat the same output. As such we can see in a $\sin$ wave that if we start at $0$ and go past $\frac{\pi}{2}$, we will go back down and repeat values. Instead, we can start at $-\frac{\pi}{2}$ and go up to $\frac{\pi}{2}$ which will repeat nothing! This will be our domain, and our codomain will have to take on all the values so that our function will be surjective. $\sin$ goes from $-1$ to $1$ which gives us that $$\sin:\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\rightarrow [-1,1]$$
+        </br>
+        Finally, we have from here that the domain and codomain of $\arcsin$ is $$\arcsin:[-1,1]\rightarrow \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$$.
+    </details>
 {{% /callout %}}
 
 ---
 
-### Bijectivity and Inverses: A Proof
+## Bijectivity and Inverses: A Proof
+
+To close out this section, we will prove the **Inverse Function Theorem** shown in the section above. 
+{{% callout info %}}
+    <details>
+        <summary>Proof</summary>
+        We first will prove the forward direction, that if a function is bijective then an inverse exists. Suppose $f(x)$ is bijective, then we know that every item in the codomain is uniquely mapped to by some item in the domain. As such we can simply "reverse" $f$ as our way to define $f^{-1}$. This might seem circular, but its enough to show existence
+        </br>
+        Now suppose we know an inverse function exists, we can use this to prove $f$ is bijective. First, suppose that $f$ was not injective. This would mean that there could not exist an inverse function as there would be some item of the codomain that $2$ different items mapped to under $f$. How could there be an inverse in that case, as what would the inverse give back?! For example if $f(2)=1$ and $f(3)=1$, then what would $f^{-1}(1)$ be? As such $f$ must be injective.
+        </br>
+        Next, imagine $f$ was not surjective. This would mean that there would exist items in the codomain that no input maps to, but this would also imply there is no inverse function, as a function must be defined over the **entire** domain! As such $f$ must be surjective.
+        </br>
+        Since $f$ is both injective and surjective, then $f$ is bijective. **Q.E.D.**
+    </details>
+{{% /callout %}}
+
 
 [^1]: "Onto" is such a dumb fucking term
+
+[^2]: I was never able to remember the domains and ranges of trig functions back in the middle school days, now it makes so much sense
