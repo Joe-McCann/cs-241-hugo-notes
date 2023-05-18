@@ -42,7 +42,7 @@ We can see that $f$ is injective because the same output is never repeated. Here
         <summary>Proof</summary>
         In order to show that this is not injective, we just need to show that we can find two different inputs of $\sin$ that have the same output. Since we know this is a $2\pi$ periodic function its easy to show by seeing that $\sin(0)=\sin(2\pi)=0$. Therefore $\sin$ is not injective.
     </details>
-{{% callout %}}
+{{% /callout %}}
 
 Notice that since injective means that every item in $A$ has a unique output of $B$, we can get this nice little small theorem
 
