@@ -105,17 +105,17 @@ print(h(500))           # outputs 0 as 500/10 has no remainder
 
 #### Bitcoin Mining
 
-Probably the most commonly found place for `hashing` in pop science is for the purposes of bitcoin mining. A discussion on what cryptocurrencies are used for and how they work[^3] is a discussion for another day, but the process of `mining` makes use of a special type of hashing algorithm called **Secure Hashing Algorithm 2**[^4] (aka SHA2), specifically $SHA256$. $SHA256$ takes in a bitstring of data, and converts said bytes into a $256$ bit long output.
+Probably the most commonly found place for `hashing` in pop science is for the purposes of bitcoin mining. A discussion on what cryptocurrencies are used for and how they work[^3] is a discussion for another day, but the process of `mining` makes use of a special type of hashing algorithm called **Secure Hashing Algorithm 2**[^4] (aka SHA2), specifically $\text{SHA}256$. $\text{SHA}256$ takes in a bitstring of data, and converts said bytes into a $256$ bit long output.
 
-If we let $B=\\{x | x\in\mathbb{N}, x<2^{256}\\}, then we can define
+If we let $B=\\{x | x\in\mathbb{N}, x<2^{256}\\}$, then we can define
 $$
-SHA256: \mathbb{N}\rightarrow B.
+\text{SHA}256: \mathbb{N}\rightarrow B.
 $$
-In this case, SHA was not designed to provide a hash for memory location, but rather to be a function that is so ridiculously convoluted, that if I am given some value of $y\in B$ and asked to find a value $x\in\mathbb{N}$ such that $y=SHA256(x)$, then the only feasible way to do it is via trial and error. This was for encryption reasons initially, but has since been coopted by crypto lmao.
+In this case, SHA was not designed to provide a hash for memory location, but rather to be a function that is so ridiculously convoluted, that if I am given some value of $y\in B$ and asked to find a value $x\in\mathbb{N}$ such that $y=\text{SHA}256(x)$, then the only feasible way to do it is via trial and error. This was for encryption reasons initially, but has since been coopted by crypto lmao.
 
 Specifically, bitcoin mining asks the following: given some bitstring $Y$ (that is determined by the blockchain algorithm), can you find some number $X$ that when concatonated to the bitstring to make $x=YX$ we find that
 $$
-SHA256(SHA256(x)) < T
+\text{SHA}256(\text{SHA}256(x)) < T
 $$
 where $T$ is some predetermined value. People also phrase this as "find an output that begins with $k$ zeroes"
 
