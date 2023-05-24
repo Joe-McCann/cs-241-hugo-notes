@@ -57,4 +57,6 @@ Anything external to the function that changes the manner of the rules can be co
 
 As such, this function definition holds fairly appropriately.
 
+We also will discuss some other applications of functions, but that will come later!
+
 [^1]: You might have heard this called the **range**, but this is an outdated term.
