@@ -3,7 +3,7 @@ title: Applications of Functions in CS
 linktitle: Applications of Functions in CS
 toc: true
 type: book
-date: 2023-01-24
+date: 2023-05-20
 draft: false
 tags:
     - cs241

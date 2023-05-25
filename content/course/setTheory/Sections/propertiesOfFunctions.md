@@ -69,6 +69,8 @@ As in, no matter what output you select from your codomain, you can always find 
         Suppose we choose some value $y\in\mathbb{R}$ and want to see if we can find some value $y=x\cos(x)$. Note that $x\cos(x)$ is continuous, so by the intermediate value theorem, if I have two points, $f$ will take all values of $y$ between those two points. If you don't remember calculus, just remember that since $f$ is continuous, if I want to get from $a$ to $b$ without lifting my pen, I have to cross every point between $a$ and $b$.
         </br>
         Remember that $\cos(x)$ is $1$ whenever you are at a value of $x=n\pi$ whenever $n$ is even, and is $-1$ whenever $n$ is odd. So if $y &lt n\pi$, we know that $f(n\pi) = n\pi \cdot 1 > y$
+        </br>
+        QED
     </details>
 {{% /callout %}}
 
