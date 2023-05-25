@@ -23,12 +23,12 @@ I feel that theres likely just a name attached to it so mathematicians don't for
 > Theorem **Pigeonhole Principle**: Suppose you want to place $m$ pigeons into $n$ holes. If you have more pigeons than holes, $m>n$, then at least one hole will have more than one pigeon.
 
 {{% callout info %}}
-    <details>
-        <summary>Proof</summary>
-        Let $P$ be the set of pigeons and $H$ be the set of holes. If $f:P\rightarrow H$ is a function that maps a pigeon to a hole, and $|P|>|H|$ (more pigeons than holes), then $f$ cannot be injective. Since $f$ is not injective there must exist at least one pair $x,y$ such that $x\neq y$ and $f(x)=f(y)$; this means there are at least two pigeons in the same hole.
-        </br>
-        QED
-    </details>
+<details>
+<summary>Proof</summary>
+Let $P$ be the set of pigeons and $H$ be the set of holes. If $f:P\rightarrow H$ is a function that maps a pigeon to a hole, and $|P|>|H|$ (more pigeons than holes), then $f$ cannot be injective. Since $f$ is not injective there must exist at least one pair $x,y$ such that $x\neq y$ and $f(x)=f(y)$; this means there are at least two pigeons in the same hole.
+</br>
+QED
+</details>
 {{% /callout %}}
 
 Why are people putting pigeons into holes? I have no idea, but hey its funny and mathematicians are goofballs.
