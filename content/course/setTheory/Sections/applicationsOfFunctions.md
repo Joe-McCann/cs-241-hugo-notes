@@ -58,7 +58,7 @@ Here given the string `"one"` we need to know what memory location to look at, s
 
 Clearly, we need to find a way to compress the set of all possible strings into our limited memory space. In this case `mem` is going to be a special type of function called a **hash** function.
 
-> Definition: A **hash function** $h$ is a function that takes in an input from a large input set, and converts it to a value from a smaller output set. In math terms, $h:A\rightarrow B$ where $|A|>|B|$.
+> **Definition**: A **hash function** $h$ is a function that takes in an input from a large input set, and converts it to a value from a smaller output set. In math terms, $h:A\rightarrow B$ where $|A|>|B|$.
 
 Something we will find later is that computer scientists are a weeee bit loosey goosey with their terminology, so when looking up **hash** functions, its referenced usually in terms of its application without really going into the theoretical weeds. For us, we can let $A$ be the set of all "hashable" objects that we want to potentially use as indeces. We can say that our `dictionary` is a function that is mapping input items $i\in A$ into items we store.
 
@@ -79,7 +79,7 @@ h:A\rightarrow M.
 $$
 Pretty clearly we can immediately see from our properties of functions that $h$ cannot be injective, as there are more items in $A$ than $M$. As such it is expected that we have a **collision** at some point
 
-> Definition: Given a hash function $h:A\rightarrow M$, a **collision** is a pair of inputs $x,y$ such that $x\neq y$ but $h(x)=h(y)$.
+> **Definition**: Given a hash function $h:A\rightarrow M$, a **collision** is a pair of inputs $x,y$ such that $x\neq y$ but $h(x)=h(y)$.
 
 These are two items that would be mapped to the same memory address which would get really confusing. If I inputted $x$ or $y$ into my function, how would I know which item I would want to retrieve from the memory address??
 
