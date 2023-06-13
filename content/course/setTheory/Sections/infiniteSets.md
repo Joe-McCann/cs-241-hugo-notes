@@ -26,14 +26,14 @@ Well for purpose of simplifying, lets say the empty set $\phi$ has $0$ items in 
 Well we know that $\\{1,2,3\\}$ has $3$ items, and from before we know that if two sets have a bijection between them, then the two sets have the same cardinality which was our way of defining a "number of items". So if we can find a bijection between our sets, then the two sets must have the same number of items! For example
 $$
 \begin{align}
-f(a)&=1 \\
-f(b)&=2 \\
+f(a)&=1 \\\\
+f(b)&=2 \\\\
 f(c)&=3 
 \end{align}
 $$
 In this case $f:\\{a,b,c\\}\rightarrow\\{1,2,3\\}$ is a bijection so we know they both must be the same size of $3$. Putting this into a nice theorem that we can use, we can say the following
 
-> Theorem: A set $A$ has cardinality $|A|=n$ iff there exists an $$f:A\rightarrow \\{1,2,\ldots, n\\}$ where $f$ is bijective.
+> Theorem: A set $A$ has cardinality $|A|=n$ iff there exists an $$f:A\rightarrow \\{1,2,\ldots, n\\}$$ where $f$ is bijective.
 
 This is well and good, but it gets very interesting once we move into the land of the infinite.
 
@@ -45,11 +45,11 @@ Well pretty clearly they are bigger than any finite set, because an infinite set
 
 ### Evens and Odds
 
-Let the even numbers be $E=\\{2,4,6,8,\ldots\\}$ and the odd numbers be $\\O=\\{1,3,5,7,\ldots\\}$. Are there more even numbers, odd numbers, or are they the same? Putting this in math notation, which of the following is true?
+Let the even numbers be $E=\\{2,4,6,8,\ldots\\}$ and the odd numbers be $O=\\{1,3,5,7,\ldots\\}$. Are there more even numbers, odd numbers, or are they the same? Putting this in math notation, which of the following is true?
 $$
 \begin{align}
-|E|&>|O| \\
-|E|&<|O| \\
+|E|&>|O| \\\\
+|E|&<|O| \\\\
 |E|&=|O|.
 \end{align}
 $$
@@ -81,4 +81,112 @@ If you think that's crazy, just watch this though!
 
 ### The Naturals and Countability
 
+Lets consider how the natural numbers $\mathbb{N}$^[2] interact in terms of size now with the even numbers that we just showed. For the sake of brevity, for this problem we will say that $E$ includes $0$. Clearly since
+$$
+\mathbb{N}=\\{0,1,2,3,4,5,6,7,\ldots\\}=E\cup O
+$$
+You would be tempted to say that $|\mathbb{N}|>|E|$, however what happens when we introduce the function
+$$
+\begin{align}
+f&:\mathbb{N}\rightarrow E \\\\
+f(n)&= 2n
+\end{align}
+$$
+
+This function is injective, as
+$$
+f(n_1)=f(n_2)\implies 2n_1=2n_2\implies n_1=n_2.
+$$
+It is also surjective as given any even number, we can just divide by $2$ to find a value of $n$ such that $f(n)$ equals the given even. Since $f$ is surjective and injective, it must be bijective too!
+
+But hold on a minute buckaroo, that means then that $|\mathbb{N}|=|E|$??? 
+
+Yes it does! In fact it also implies that $|\mathbb{N}|=|E|=|O|$! If we were to write out the function $f$, we would see this sort of pattern
+$$
+\begin{align}
+0&\rightarrow 0 \\\\
+1&\rightarrow 2 \\\\
+2&\rightarrow 4 \\\\
+3&\rightarrow 6 \\\\
+4&\rightarrow 8 \\\\
+&\vdots
+\end{align}
+$$
+It almost looks like we are counting the even numbers, such that if I asked you for the the fourth even number was, you could tell me that it was $8$ (starting with $0^{\text{th}}$). We will soon see this is a fundemental quantity and give a name for it.
+
+> **Definition**: Let $A$ be a set where $|A|=|\mathbb{N}|$. We say that $A$ is **countably infinite**, or **countable** for short, and is notated as $|A|=\aleph_0$
+
+Woah what is that symbol $\aleph_0$? So I've heard, the story goes that Georg Cantor after working on infinite cardinalites wanted to come up with a symbol for $|\mathbb{N}|$ but believed greek letters were too overused. As such he decided to use the hebrew letter *Aleph* to represent the cardinality of the naturals, sometimes called *aleph null*. Spoiler alert, using Hebrew letters did not catch on and mathematicians continued to oversaturate Greek letters, oops.
+
+There is a very interesting result involving $\aleph_0$ and how fundemental it is, but I will get to that later. For now lets prove a series of small results that lead up to something cool.
+
+> **Lemma**: Let $\mathbb{Z}_+=\\{1,2,3,4,5,ldots\\}$. $|\mathbb{N}|=|\mathbb{Z}_+|$.
+
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+Consider the function $f:\mathbb{N}\rightarrow \mathbb{Z}_+$ where
+$$
+f(x)=x+1.
+$$
+This function is bijective in the same way as the previous examples.
+</br>
+QED
+</details>
+{{% /callout %}}
+
+> **Lemma**: Let $\mathbb{Z}_-=\\{-1,-2,-3,-4,\ldots\\}$. $|\mathbb{Z}_-|=|\mathbb{Z}_+|$.
+
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+Consider the function $f:\mathbb{Z}_+\rightarrow \mathbb{Z}_-$ where
+$$
+f(x)=-x.
+$$
+This function is pretty clearly bijective as we are just taking the items and adding a negative sign lmao.
+</br>
+QED
+</details>
+{{% /callout %}}
+
+Notice how now we have a lot of sets that all have the same cardinality, $|\mathbb{N}|=|E|=|O|=|\mathbb{Z}_+|=|\mathbb{Z}_-|$. This actually translates, so we have that $|O|=|\mathbb{Z}_-|$ for example. Lets continue with this example for a second and write out some pairings
+$$
+\begin{align}
+-1&\rightarrow 1 \\\\
+-2&\rightarrow 3 \\\\
+-3&\rightarrow 5 \\\\
+-4&\rightarrow 7 \\\\
+&\vdots
+\end{align}
+$$
+but wait a second, notice that we can match up all the negative numbers with all the odd numbers. Earlier on we showed that
+$$
+\begin{align}
+0&\rightarrow 0 \\\\
+1&\rightarrow 2 \\\\
+2&\rightarrow 4 \\\\
+3&\rightarrow 6 \\\\
+4&\rightarrow 8 \\\\
+&\vdots
+\end{align}
+$$
+which means that we can match up all the positive numbers with all the even numbers. What if we combined these two lists together though
+$$
+\begin{align}
+0&\rightarrow 0 \\\\
+-1&\rightarrow 1 \\\\
+1&\rightarrow 2 \\\\
+-2&\rightarrow 3 \\\\
+2&\rightarrow 4 \\\\
+-3&\rightarrow 5 \\\\
+3&\rightarrow 6 \\\\
+-4&\rightarrow 7 \\\\
+4&\rightarrow 8 \\\\
+&\vdots
+\end{align}
+$$
+On the left hand side we are getting all the negative and positive integers, which is just $\mathbb{Z}$, and on the right we find that we have all the natural numbers $|\mathbb{N}|$.
 [^1]: Unless you said otherwise but I won't blame you infinity is tough 😝
+
+[^2]: Remember, this includes $0$
