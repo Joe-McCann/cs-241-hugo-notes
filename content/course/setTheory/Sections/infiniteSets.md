@@ -186,7 +186,20 @@ $$
 &\vdots
 \end{align}
 $$
-On the left hand side we are getting all the negative and positive integers, which is just $\mathbb{Z}$, and on the right we find that we have all the natural numbers $|\mathbb{N}|$.
+On the left hand side we are getting all the negative and positive integers, which is just $\mathbb{Z}$, and on the right we find that we have all the natural numbers $|\mathbb{N}|$. By combining these two functions, we have actually created a bijection between the integers and naturals! This means that the following theorem is true.
+
+> **Theorem**: $|\mathbb{N}|=|\mathbb{Z}|$
+
+This is kind of crazy, because even though the integers are infinite in two directions, we can still find a way to match everything up. For a set to be *countable*, what we effectively need is to find a way to list out every item of the set in a specified order, as then you can match up the naturals.
+
+### The Rationals and Countability
+
+Remember that the set of rational numbers $\mathbb{Q}$ is the set of all fractions $\frac{a}{b}$ where $a,b\in\mathbb{Z}$. Now since we have infinite choices for the top and the bottom, and there are even infinite fractions between any two integers[^3], you might think that $|\mathbb{Q}|>|\mathbb{N}|$. Since $\mathbb{N}\subset\mathbb{Q}$, we know that $|\mathbb{N}|\leq|\mathbb{Q}|$, but spoiling the results for you, we can show that
+
+> **Theorem**: $|\mathbb{N}| = |\mathbb{Q}|$
+
 [^1]: Unless you said otherwise but I won't blame you infinity is tough 😝
 
 [^2]: Remember, this includes $0$
+
+[^3]: Try proving this!
