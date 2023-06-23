@@ -37,11 +37,15 @@ In this case $f:\\{a,b,c\\}\rightarrow\\{1,2,3\\}$ is a bijection so we know the
 
 This is well and good, but it gets very interesting once we move into the land of the infinite.
 
+---
+
 ## Infinite Cardinalities
 
 Now that we can compare the sizes of sets and know what it means for a set to be a certain size (defining "size" as cardinality), we can reasonably ask the question *"How big are infinity sets?"*
 
 Well pretty clearly they are bigger than any finite set, because an infinite set will just keep going forever and a finite set will not, but can we compare them to each other?
+
+---
 
 ### Evens and Odds
 
@@ -78,6 +82,8 @@ Lets say that $E_2=\\{0,2,4,6\ldots\\}$. Now we have that $E\subset E_2$, so wil
 Lets consider a function $f:O\rightarrow E_2$ where $f(x)=x-1$. You might notice that $f$ is exactly the same as our previous proof, and by the same logic it actually turns out that $|E_2|=|O|=|E|$! This is crazy as we have a proper subset being the same cardinality as its superset! In essense here when we add $0$ into $E_2$, we are effectively "pushing" all the items down one, but that is ok because there is an infinite amount of them!
 
 If you think that's crazy, just watch this though!
+
+---
 
 ### The Naturals and Countability
 
@@ -192,11 +198,31 @@ On the left hand side we are getting all the negative and positive integers, whi
 
 This is kind of crazy, because even though the integers are infinite in two directions, we can still find a way to match everything up. For a set to be *countable*, what we effectively need is to find a way to list out every item of the set in a specified order, as then you can match up the naturals.
 
+---
+
 ### The Rationals and Countability
 
 Remember that the set of rational numbers $\mathbb{Q}$ is the set of all fractions $\frac{a}{b}$ where $a,b\in\mathbb{Z}$. Now since we have infinite choices for the top and the bottom, and there are even infinite fractions between any two integers[^3], you might think that $|\mathbb{Q}|>|\mathbb{N}|$. Since $\mathbb{N}\subset\mathbb{Q}$, we know that $|\mathbb{N}|\leq|\mathbb{Q}|$, but spoiling the results for you, we can show that
 
 > **Theorem**: $|\mathbb{N}| = |\mathbb{Q}|$
+
+The proof for this is fairly involved, but I will show you one way of listing out all the rational numbers that will in fact give you every single one. For the sake of simplicity we will only consider positive fractions, as negative fractions could just be inserted in between in the same way we did above for the integers. 
+
+The idea is that we will list off all fractions sorted by the sum of their numerator and denominator, so start with all that sum to $1$, then $2$, then $3$, etc. etc. For each of these options, theres actually only a finite number of ways to represent this, so at some point we will reach every fraction (which would make the function that follows this order surjective). If we ever come across a fraction who is already in this list (for example $\frac{2}{4}$ when $\frac{1}{2}$ is there) we skip it, which will make our function also injective. The list will look like the following
+$$
+\frac{0}{1},\frac{1}{1},\frac{1}{2},\frac{2}{1},\frac{1}{3},\frac{3}{1},\ldots
+$$
+Notice we skip fractions such as $\frac{0}{2}$ as that appears in the start and we proceed to skip it.
+
+This means that $\mathbb{Q}$ is also a countable even though it seems to be incredibly large! At this point you might be thinking *"Yeah but infinity is infinity, it's obvious they are all the same size"*, to which I say, just you wait for the next page
+
+---
+
+## Practice Problems
+
+> **Theorem**: There are an infinite number of rational numbers $q$ such that $0<q<1$
+
+> **Theorem**: The set of square numbers $\\{1,4,9,16,\ldots\\}$ is countable
 
 [^1]: Unless you said otherwise but I won't blame you infinity is tough 😝
 
