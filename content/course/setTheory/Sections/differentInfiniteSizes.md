@@ -54,11 +54,13 @@ QED
 
 Ok cool, so we can see that picking any two real numbers will have a rational between, and any two rationals will have a real in between. You might now think that this means the number line looks like *rational-real-rational-real-...*, which would totally be a valid way to think, however, the truth of the matter is that you are about to encounter one of the craziest mathematical results in history
 
+---
+
 ## The Reals and Uncountability
 
 One of the most famous theorems in all of mathematics has to do with the cardinality of the reals being *uncountable*
 
->**Theorem Uncountability of Reals:** $|\mathbb{Q}|<|\mathbb{R}|$
+>**Theorem (Uncountability of Reals):** $|\mathbb{Q}|<|\mathbb{R}|$
 
 Wait uh what the fuck? How is this possible we literally showed that between two reals there is a rational?? Yep, this is one of those mind boggling results that is tough to wrap your brain around. One way to envision why this might be true is to think of the sequence of rational numbers
 $$
@@ -118,7 +120,40 @@ As such $|\mathbb{N}|<|(0,1)|$ and by extension $|\mathbb{Q}|<|\mathbb{R}|$. **Q
 
 For those of you who take Analysis and measure theory in the future, it turns out that there are way, *way*, more real numbers than rational numbers. In fact, if you were to take the "percentage"[^2] of rationals vs reals, you would find that the rationals make up $0\%$ of the real numbers! This might seems fairly abstract, but there are real consequences to this!
 
+---
+
 ## A Real World Consequence of Uncountability for Computer Scientists
+
+Woah, not just a real world consequence, but a real world consequence for computer scientists specifically? Shit its like Christmas 🎅. The following material will be taught to you in CS $341$ (if you're an NJIT student), but its always fun to see how things can apply even if I abstract away some technical details.
+
+When we program, we are given some problem, and from there we have to write an algorithm to solve said problem. Lets look at a specific class of problems and define a way to represent them.
+
+> **Definition**: Let $B$ be the set of all finite binary sequences $\\{0,1,10,11,01,00,\ldots \\}$. Note that we allow for leading $0$s here.
+
+> **Definition**: A **decision problem** is set of finite binary strings $D=\\{t_1,t_2,\ldots\\}$ with $t_k\in B$. If some algorithm $A$ *decides* or *solves* $D$, then $A$ should output **TRUE** for any input string $t\in D$ and **FALSE** if $t\not\in D$
+
+Pretty much we are saying that a problem is defined as the set of all the inputs that you return true for. A decision problem $D$ for example could be *"the set of all inputs that start with $1$"* in which
+$$
+D=\\{1,10,11,101,110,\ldots \\}.
+$$
+
+Clearly, every decision problem $D\subset B$, as $B$ itself is just the decision problem that always returns true. In fact with this we can actually define the set of all possible decision problems
+
+> **Theorem**: Let $\mathbb{D}$ be the set of all decision problems, then $\mathbb{D}=\mathcal{P}(B)
+
+This is pretty straightforward from the definitions of $B$ and $D$. It turns out that $|B|=|\mathbb{N}|$ (which is a practice problem to prove), so by **Cantor's Theorem** we know that $|\mathbb{N}|<|\mathbb{D}|$.
+
+Now lets define what an algorithm is. This definition is actually missing a lot of technical details, but it will do us well enough to get us where we need to go.
+
+> **Definition**: An algorithm $A$ is a finite sequence of characters that describes the steps the algorithm takes.
+
+Again, this is super abridged, but one thing we can do with this is show
+
+> **Theorem**: Let $\mathbb{A}$ be the set of all algorithms. |\mathbb{A}|=|\mathbb{N}|
+
+## Practice Problems
+
+> **Theorem**: $|B|=|\mathbb{N}|$ where $B$ is the set of all finite binary strings.
 
 [^1]: It didn't
 [^2]: Theres more technical theory here I'm just grazing over it for brevity
