@@ -120,6 +120,24 @@ As such $|\mathbb{N}|<|(0,1)|$ and by extension $|\mathbb{Q}|<|\mathbb{R}|$. **Q
 
 For those of you who take Analysis and measure theory in the future, it turns out that there are way, *way*, more real numbers than rational numbers. In fact, if you were to take the "percentage"[^2] of rationals vs reals, you would find that the rationals make up $0\%$ of the real numbers! This might seems fairly abstract, but there are real consequences to this!
 
+### General Results
+
+A natural question to ask from here is if $\mathbb{R}$ is the biggest infinite set that we can come up, which is another question that Cantor answered for us with what is called **Cantor's Theorem**
+
+> **Cantor's Theorem**: Let $A$ be a set. Then $|A|<|\mathcal{P}(A)|$
+
+This actually shows us what spawned a whole other side field of ordinal numbers, as this means that there is *no largest set*! We can keep going to
+$$
+|\mathbb{R}| < |\mathcal{P}(\mathbb{R})| < |\mathcal{P}(\mathcal{P}(\mathbb{R}))| < \ldots
+$$
+In fact it can be shown that $|\mathbb{R}|=|\mathcal{P}(\mathbb{N})|$, but thats outside the scope of what we will show here.
+
+Well ok, so we can't have a largest infinite set, but is there a smallest infinite set? It turns out there is (kinda)!
+
+> **Smallest Infinity Theorem**: Let $A$ be an infinite set with $|A|=|\mathbb{N}|$. If $B$ is an infinite set and $B\subseteq A$ then $|B|=|\mathbb{N}|$
+
+This theorem shows us that $|\mathbb{N}|$ is the smallest size of infinity, because if we have any infinite subsets of it then they are the same size! This result is actually quite powerful, as from it we can sets like the prime numbers must also be countable as they are an infinite subset of the naturals.
+
 ---
 
 ## A Real World Consequence of Uncountability for Computer Scientists
@@ -149,7 +167,13 @@ Now lets define what an algorithm is. This definition is actually missing a lot 
 
 Again, this is super abridged, but one thing we can do with this is show
 
-> **Theorem**: Let $\mathbb{A}$ be the set of all algorithms. |\mathbb{A}|=|\mathbb{N}|
+> **Theorem**: Let $\mathbb{A}$ be the set of all algorithms. $|\mathbb{A}|=|\mathbb{N}|$
+
+If we use the **Smallest Infinity Theorem** this proof is super easy. Take the description of any algorithm and convert it into its ascii representation, which will give you a number in base $2$. Two different sequences of characters will give you different numbers, so this is a subset of $|\mathbb{N}|$, which immediately means that $|\mathbb{A}|=|\mathbb{N}|$ since there are infinite algorithms.
+
+Think about what this means though, we can now see that $|\mathbb{A}|<|\mathbb{D}|$ which tells us there are more computer problems than exist possible algorithms, so there must be problems that computers cannot solve! Even worse, $|\mathbb{D}|$ is uncountable which means that nearly every problem is impossible to solve, and we are just working in a very, very small subset of problems.
+
+You will learn more about this in CS$341$, but the most famous of these problems is called the **Halting Problem** and was discovered by Alan Turing in the mid $1900$s.
 
 ## Practice Problems
 
