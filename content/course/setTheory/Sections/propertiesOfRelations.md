@@ -191,6 +191,8 @@ In our examples, we had that $\leq$ was a total order, which is cool because the
 
 ## Practice Problems
 
+> **Example**: Let $R(\*)\subseteq A\times B$ be a symmetric relation and $R(\*)\neq\varnothing$. Prove $A=B$.
+
 > **Example**: We said above that *anti-symmetric* does not mean *not symmetric*. Is it possible for a relation to be both symmetric and anti-symmetric?
 
 > **Example**: Is isParent anti-symmetric?
