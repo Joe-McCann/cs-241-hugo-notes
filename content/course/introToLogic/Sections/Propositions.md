@@ -11,7 +11,7 @@ tags:
     - propositions
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 205
+weight: 105
 ---
 
 ## I want the truth!

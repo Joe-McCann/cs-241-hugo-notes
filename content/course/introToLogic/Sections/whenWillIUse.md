@@ -12,7 +12,7 @@ tags:
     - coding interviews
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 230
+weight: 130
 ---
 
 ## Proofs Seem so Hard, How do I get Better at Writing Them?

@@ -13,7 +13,7 @@ tags:
     - inductive sets
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 235
+weight: 135
 ---
 
 {{% callout info %}}

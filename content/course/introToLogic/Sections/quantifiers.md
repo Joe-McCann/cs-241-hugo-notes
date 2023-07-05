@@ -12,7 +12,7 @@ tags:
     - quantifiers
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 225
+weight: 125
 ---
 
 ## Simple Notation

@@ -11,7 +11,7 @@ tags:
     - proofs
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
-weight: 215
+weight: 115
 ---
 
 ## Why do we prove things?
