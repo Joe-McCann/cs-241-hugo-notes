@@ -75,5 +75,103 @@ def plus_two(x):
     return y
 ```
 
+This is pretty straightforward, as inside of our function we have $1$ assignment, $1$ aritmetic with addition, and $1$ return. As such, the total number of operations is as follows
+$$
+T(n) = 1+1+1 = 3.
+$$
+Woah woah there, what the fuck is that $T(n)$? We were just counting operations, how'd we get a function here? Don't worry I'll explain that eventually but for now we will stick with just putting it there with the number of operations. So running the code inside of `plus_two`, we would find ourselves with $3$ operations. Let's show another example.
+
+```python
+def square_plus_two(x):
+    y = x * plus_two(x)
+    return y
+```
+
+In this case we have $1$ arithmetic, $1$ assignment, $1$ return, and $1$ function call with `plus_two`. However, when we run `plus_two`, we have to include the operations that are run inside of that function too which is $3$! As such we find that we have
+$$
+T(n) = 1+1+1+1+3 = 7.
+$$
+
+---
+
+### Looping Examples 🔁
+
+So far these are very simple examples, but lets discuss our first control structure: the loop. 
+{{% callout info %}}
+For the purposes of counting operations, we are going to use `while` loops, as they are easier in `python` to see whats going on compared to a `for` loop.
+{{% /callout %}}
+
+Lets consider a simple loop that iterates a fixed number of times.
+
+```python
+def add_10(x):
+    i = 0
+    while i < 10:
+        x = x + 1
+        i = i + 1
+    
+    return x
+```
+
+Outside of the loop, we have $1$ assignment and $1$ return. Lets consider the loop, inside we have $2$ additions and $2$ assignments and we also have that we compare `i < 10` every time we iterate. This gives us $5$ operations that are run every loop. Finally, there is $1$ extra comparison that is run at the end when `i=10` to actually break out of the loop. Since we run the loop $10$ times, we can multiply our $5$ operations per loop by that to get us that 
+$$
+T(n) = 2+10\cdots (5) + 1 =53.
+$$
+
+Remember the extra $1$ at the end is for the final comparison. We're starting to get larger amounts of operations, but just wait cause you haven't seen nothin' yet. Lets consider the following interesting function
+
+```python
+def add_n(x, n):
+    i = 0
+    while i < n:
+        x = x + 1
+        i = i + 1
+    
+    return x
+```
+
+Well, ok this isn't really all that interesting of a function because it seems to be totally pointless, however whats interesting is how many operations we have, because its all the same as the previous function except instead of looping for $10$ times, we loop for some unknown amount $n$ times! We can use this as a variable in our function to get something that we can "plug in" the value of $n$ into!
+$$
+T(n) = 2+n\cdot(5)+1= 5n+3
+$$
+where $n$ denotes the numerical value of the parameter $n$. Notice that from this, if we set $n=10$, we get back our $T(10)=53$ from the previous problem, and nothing is stopping us from trying out other values of $n$ as well if we wanted.
+
+Before we move to the next control structure, lets consider an example of a nested loop.
+```python
+def square(n):
+    # Look at this horrible way to input n and get n^2 !
+    i = 0
+    total = 0
+
+    while i < n:
+        j = 0
+        while j < n:
+            total = total + 1
+            j = j + 1
+        i = i + 1
+    
+    return total
+```
+
+Lets start by counting the operations that are outside the loops, of which we have $2$ assignments and $1$ return. Now lets consider the outer loop; this loop contains the comparison `i<n`, the assignment `j=0` and $2$ operations in `i=i+1`, while also having a final comparison of the inner loop. We see though that every time the outer loop runs, so does the inner loop though, so however many operations the inner loop runs, we *also* need to multiply that by $n$. Our inner loop has $1$ comparison, $2$ assignments, and $2$ arithmetic.
+
+Holy fuck that was a lot, but if we write it all out we can find that
+$$
+T(n) = 3 + n\cdot\left[1+1+2+n\cdot\left(1+2+2\right)+1\right] + 1 = 5n^2+5n+4
+$$
+where $n$ represents the numerical value of the parameter $n$. This function grows quite fast, as plugging in for $T(10)=554$ which is a much larger number than we've seen so far. At $T(100)=50504$, which might give a scale that things are gonna get pretty fast pretty soon.
+
+### If-Else Examples
+
+Consider the following piece of code
+
+```python
+def divide_two(x):
+    if x % 2 == 0:
+        return x/2
+    else:
+        return x
+```
+
 [^1]: Have fun in CS$341$ 😂
 [^2]: These operations were given to me by a Facebook Engineer I used to TA, and I've found them to be a useful approximation. Here is a stack exchange link discussing their merits: https://cs.stackexchange.com/q/160969/81348
