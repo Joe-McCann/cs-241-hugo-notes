@@ -161,17 +161,74 @@ T(n) = 3 + n\cdot\left[1+1+2+n\cdot\left(1+2+2\right)+1\right] + 1 = 5n^2+5n+4
 $$
 where $n$ represents the numerical value of the parameter $n$. This function grows quite fast, as plugging in for $T(10)=554$ which is a much larger number than we've seen so far. At $T(100)=50504$, which might give a scale that things are gonna get pretty fast pretty soon.
 
-### If-Else Examples
+### If-Else Examples 🌴
 
 Consider the following piece of code
 
 ```python
-def divide_two(x):
+def make_even(x):
     if x % 2 == 0:
-        return x/2
-    else:
         return x
+    else:
+        return x+1
 ```
 
+In the event $x$ is divisible by $2$ which makes $x\%2=0$, then we would have $1$ comparison, $1$ arithmetic with $\%$, and $1$ return giving us $T(n)=3$ operations. However, in the event our number is not divisible by $2$, then we have all of that with an extra addition giving us $T(n)=4$ operations! So which one do we pick, $3$ or $4$?
+
+For most algorithms, we won't have a definitive single formula that defines exactly how many operations will occur because how the program behaves is often so incredibly dependent on the input. Most of the time we care specifically about the *worst* case and the *best* case, because then we know exactly the window of operations all of our code will run[^3].
+
+> **Definition**: Let $T(n)$ be an operations function. The *worst case* $W(n)$ is the "smallest" function such that $T(n)\leq W(n)$ for all possible inputs. The *best case* $B(n)$ is the "largest" function such that $B(n)\leq T(n)$ for all possible inputs.
+
+Note that I put the words "largest" and "smallest" in quotes, because those are definitely not mathematically rigorous definitions lmao. I use this because obviously $B(n)=0$ and something like $W(n)=n^{n^n}$ will be smaller and bigger (respectively) than any algorithm we think up, but these will not be useful for any discussion at all. *"No shit dude, I know your code runs slower than $0$, thats code that runs nothing"*. So for us, we will choose $B(n)$ and $W(n)$ to be functions that are the closest bounds we can represent[^4].
+
+In our example of `make_even`, we know that at best we run $3$ operations, and at worst we run $4$ operations. From this we can say that $B(n)=3$ and $W(n)=4$. Lets show a more practical example that will have a more complicated best and worst case.
+
+```python
+def maximum(arr):
+    # Given a non-empty list of numbers, find the largest
+    largest = arr[0]
+    length = len(arr)
+    i = 1
+    while i < length:
+        if arr[i] > largest:
+            largest = arr[i]
+        i = i + 1
+    
+    return largest
+```
+
+Let $n$ represent the length of the list. Also, we will say that `len(arr)` costs $1$ operation for the purposes of counting; clearly this isn't true, as it has to call the function, return, and actually compute the answer, but this margin of error is small enough to not matter to us. 
+
+Outside of the loop, we have $3$ assignment, $1$ array indexing, $1$ `len(arr)` call, and $1$ return which gives us $6$ operations. Now inside the loop, you can see that how many times the code inside of the if statement actually depends on the placement of the numbers inside of the array, so for us we are only going to try to find the *best* and *worst* case. These will be the cases in which we run the least number of operations possible, and the most operations possible.
+
+The best case is if we never actually run whats inside of the `if` statement; this happens when `arr[0]` is the maximum. In that case we have $2$ comparisons, $1$ assignment, $1$ addition, and $1$ indexing. This gives us a total of $5$ operations that loop $n-1$ times since we start at `i=1`. With the $1$ final comparison we get our best case that
+$$
+B(n)=6+(n-1)(5)+1=5n+2.
+$$
+For our worst case, this would happen if we ran the `if` statement every single time; this occurs if the array is in ascending sorted order. In this case our worst case is the same as the best case, however we run `largest=arr[i]` each loop wich is $2$ operations. This means
+$$
+W(n)=5n+2+(n-1)(2)=7n.
+$$
+Putting this together, we can show that for any list of size $n\geq 1$, the number of operations $T(n)$ is in the bounds
+$$
+5n+2\leq T(n)\leq 7n.
+$$
+
+Just a note though, the worst case scenario is incredibly unlikely for a random array, with probability $\frac{1}{n!}$, where the best case is much more frequent with probability $\frac{1}{n}$ (or better if duplicates exist). This motivates the idea of an "average case", but we'll discuss this later.
+
+---
+
+## Counting the Operations of Bad Sorting Algorithms
+
+Before moving on to defining what $O$ is, lets take a moment to look at a practical application of counting operations for the shitty $O(n^2)$ sorting algorithms you first learn about in intro coding classes. The three algorithms in particular are *insertion sort*, *selection sort*, and *bubble sort*, which you might have learned as "the confusing one", "the easy one", and "the garbage one" (at least thats how I felt).
+
+If you run these $3$ algorithms against each other though (without optimizations just to make it simpler), you'll find that *bubble sort*, even though it has the same Big-O as the other algorithms, is just *waaaaaaay* slower than the other two. What the hell is going on to make this the case?? Let's observe and count the operations of these functions to see whats happening here.
+
+### Insertion Sort
+
+I hate this sort
+
 [^1]: Have fun in CS$341$ 😂
-[^2]: These operations were given to me by a Facebook Engineer I used to TA, and I've found them to be a useful approximation. Here is a stack exchange link discussing their merits: https://cs.stackexchange.com/q/160969/81348
+[^2]: These operations were given to me by a Facebook Engineer I used to TA, and I've found them to be a useful approximation. Here is a stack exchange link discussing their merits: https://cs.stackexchange.com/q/160969/81348.
+[^3]: ACtually a ton of people only care about worst case but best case is also fine.
+[^4]: Note that sometimes you might not be able to actually explicitely write out $B(n)$ or $W(n)$, we will get into the notation we use that addresses this later.
