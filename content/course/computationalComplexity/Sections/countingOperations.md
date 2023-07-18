@@ -226,9 +226,120 @@ If you run these $3$ algorithms against each other though (without optimizations
 
 ### Insertion Sort
 
-I hate this sort
+I hate this sort, like literally its the most annoying shit. I'm not going to spend a ton of time to explain the algorithm since its covered in previous courses. The general idea is that we iterate through the array, and at every index we swap until we put the item into the correct spot. For example, if we had the array $[5,2,4,7,3]$ then the algorithm would go
+$$
+\begin{align}
+&[5,2,4,7,3] \\\\
+&[2,5,4,7,3] \\\\
+&[2,4,5,7,3] \\\\
+&[2,4,5,7,3] \\\\
+&[2,4,5,3,7]\implies [2,4,3,5,7]\implies [2,3,4,5,7]
+\end{align}
+$$
+in this case each line notes a particular index we look at. In the final iteration you see that we need to swap the $3$ several spots.In practice though we will swap $3$ at the end. Note that I fucking hate this algorithm, so I got it from GeeksForGeeks[^5]
+
+```python
+def insertion_sort(arr):
+    n = len(arr)
+    i = 1
+    if n <= 1:
+      return arr
+    while i < n: 
+        key = arr[i]
+ 
+        # Move elements of arr[0..i-1], that are
+        # greater than key, to one position ahead
+        # of their current position
+        j = i-1
+        while j >=0 and key < arr[j]:
+                arr[j+1] = arr[j]
+                j -= 1
+        arr[j+1] = key
+        i = i + 1
+
+    return arr
+```
+
+Lets $n$ be the length of the array. Outside of the loops, we will have $2$ assignments, $1$ call to `len(arr)`, $2$ comparisons with the final comparison, and $1$ return. This is $6$ guaranteed operations. Note that if $n=0$ or $n=1$ then we activate the first `if` statement and our operations are exactly $4$, so lets consider $n>1$.
+
+Our outer loop runs $n-1$ times. Lets start by considering our **best case** scenario, which occurs if we never run the inner loop ever. Note that we do not say our best case is $n=0$ or $n=1$ when we automatically return, we want to show the best case scenario as $n$ gets larger and larger (for reasons we'll show later). In this case we have $2$ operations in `key = arr[i]`, $2$ operations in `j = i-1`, $3$ in `arr[j+1] = key`, and $2$ in `i=i+1`. We also consider the $4$ operations in `j >=0 and key < arr[j]`. This gives us a best case scenario of
+$$
+B(n) = 6 + 11(n-1) = 11n-5
+$$
+when $n>1$. Now lets consider the worst case scenario. In this case we need to shift the item the whole way every time (which happens if the list is in descending order). There are $10$ operations that are run per iteration in the inner loop, however this inner loop changes how many times it runs each iteration of the outer loop! When $i=1$, $j=0$ and we run the inner loop $1$ time. When $i=2$, then $j=1$ and worst case we have $2$ iterations. This continues until when $i=n$ then $j=n-1$ and we run $n$ times. Lets add these operations to our worst case and see if we can simplify
+$$
+\begin{align}
+W(n) &= 11n-5 + 11(1)+11(2)+\ldots+11(n) \\\\
+&= 11n-5+11[1+2+\ldots+n].
+\end{align}
+$$
+But we actually know that $1+2+\ldots+n=\frac{n(n+1)}{2}$ from our [induction lesson](/course/introtologic/sections/proofbyinduction/#proving-with-induction)! This then simplifies to
+$$
+T(n)=11n-5+11\cdot\frac{n(n+1)}{2} = \frac{11}{2}n^2 + \frac{33}{2}n-5.
+$$
+As such we can say for any $n>1$, the number of operations of our insertion sort will be
+$$
+11n-5\leq T(n) \leq 5.5n^2 + 16.5n - 5.
+$$
+
+---
+
+### Selection Sort
+
+Unlike insertion sort, I like selection sort quite a bit because its so simple to understand. On each iteration we find the next biggest element and swap it to the end of the array. For example, on the first iteration we find the smallest element and swap it to the front of the array. Then on the second iteration we search the last $n-1$ items for the smallest item, and swap that to the $1$ spot, and continue as such. You could also do this with looking for the largest.
+
+This code I will actually write myself.
+```python
+def selection_sort(arr):
+    n = len(arr)
+    i = 0
+    if n <= 1:
+        return arr
+
+    while i < n:
+        index_of_min = i
+        j = i+1
+        while j < n:
+            if arr[j] < arr[index_of_min]:
+                index_of_min = j
+            j += 1
+
+        # Swap minimum to lowest slot
+        minimum = arr[index_of_min]
+        arr[index_of_min] = arr[i]
+        arr[i] = minimum
+
+        i += 1
+
+    return arr
+```
+
+Similar to before, outside of the $n=0$ or $n=1$ case we will start with the best case scenario. Outside the loops we have $6$ guaranteed operations (same as insertion). Now before looking at the inner loop, lets see the number of operations found in the outer loop; since we've done so much counting already imma skip to the point and tell you its $14$ (remember the final comparison of the inner loop).
+
+Unlike in our previous example though, our inner loop is guaranteed to run every single time! Our best case scenario doesn't skip any loop iterations we still run $n$, then $n-1$, then $n-2$, all the way down to $1$ times, rather here we get our best case by never activating the `if` condition (happens when the list is already sorted). By doing the same logic before to see we get $\frac{n(n+1)}{2}$ inner loop iterations, with $6$ operations inside gives us
+$$
+B(n) = 6 + 14n + 6\cdot\frac{n(n+1)}{2} = 3n^2+17n+6.
+$$
+
+Our worst case occurs in the event that we execute the `if` statement every single time. In this case our inner loop runs $7$ instead of $6$ operations giving us
+$$
+W(n) = 6 + 14n + 7\cdot\frac{n(n+1)}{2} = \frac{7}{2}n^2+\frac{35}{2}n+6.
+$$
+
+This gives us a final count of
+$$
+3n^2+17n+6 \leq T(n) \leq 3.5n^2 + 17.5n+6.
+$$
+
+Notice that this algorithm has a way worse best case than `insetion_sort`, however its way more consistent and better than insetion in the worst case!
+
+---
+
+### Bubble Sort
 
 [^1]: Have fun in CS$341$ 😂
 [^2]: These operations were given to me by a Facebook Engineer I used to TA, and I've found them to be a useful approximation. Here is a stack exchange link discussing their merits: https://cs.stackexchange.com/q/160969/81348.
 [^3]: ACtually a ton of people only care about worst case but best case is also fine.
 [^4]: Note that sometimes you might not be able to actually explicitely write out $B(n)$ or $W(n)$, we will get into the notation we use that addresses this later.
+[^5]: Link - https://www.geeksforgeeks.org/python-program-for-insertion-sort/
+
