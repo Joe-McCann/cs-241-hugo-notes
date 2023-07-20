@@ -337,9 +337,66 @@ Notice that this algorithm has a way worse best case than `insetion_sort`, howev
 
 ### Bubble Sort
 
+Finally, we get to bubble sort, the most garbage of the $n^2$ sorts. Why is this though? Lets look at bubble sort code. Bubble sort works by comparing items that are next to each other and swapping them if they are out of place.
+
+```python
+def bubble_sort(arr):
+    n = len(arr)
+    i = 0
+    if n <= 1:
+        return arr
+
+    while i < n:
+        j = 0
+
+        # The largest item is guaranteed to get to the end at the end of
+        # every iteration, so we can iterate one less each time
+        last_spot = n-i-1
+        while j < last_spot:
+            if arr[j] < arr[j+1]:
+                temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+            j += 1
+        i += 1
+    return arr
+```
+
+As we've gone through this before, I'll leave the operations work to you but I will put the answers here. For best case, we find $6$ operations outside the loop. We then have $8$ operations per outer loop, and $7$ operations per inner loop. We also only loop $n-1, n-2,\ldots, 1$ iterations of the inner loop instead of starting at $n$ (to avoid overflow of the array) which gives us a best case of
+$$
+B(n) = 6 + 8n + 7\cdot\frac{(n-1)n}{2} = \frac{7}{2}n^2 + \frac{9}{2}n + 6.
+$$
+Oh boy, this pretty clearly is not good, already we have a best case that is almost as bad as the worst case selection sort! The problem is that we are doing so much array indexing and comparing every iteration. However, its about to get way worse in the worst case. We have an additional $9$ operations if we run the `if` statement every single time!
+$$
+W(n) = 6 + 8n + 16\cdot\frac{(n-1)n}{2} = 8n^2 + 6.
+$$
+This is quite bad, as we see that we are **twice** as slow as the worst case of `selection_sort`, and about $25\\%$ worse than the worst case of insertion sort, giving us a final range of
+$$
+3.5n^2+4.5n+6\leq T(n)\leq 8n^2+6.
+$$
+
+Oooooof. 😵‍💫
+
+Remember this is an approximation, but we can run these pieces of code and see how well of an approximation we get. I ran these pieces of code all on their worst case of a list sorted in descending order with $n=50,000$. Our operations worst cases predict that insertion sort will take $13,750,824,995$, selection sort will take $8,750,875,006$, and bubble sort will take $20,000,000,006$.
+
+The time taken by the code is given as
+```
+Finished insertion sort in: 73.66s
+Finished selection sort in: 54.49s
+Finished bubble sort in: 129.46s
+```
+
+This is actually a fairly solid approximation, as the approximation says that bubble sort should take $1.45$ times as long as insertion and $2.29$ times as long as selection. In reality it takes $1.76$ times longer than insertion and $2.38$ times longer than selection. For how high level this guessing is, it does a really, really good job!!
+
+---
+
+## Practice Problems
+
+I'll do this later I've been working on this page for too long
+
 [^1]: Have fun in CS$341$ 😂
 [^2]: These operations were given to me by a Facebook Engineer I used to TA, and I've found them to be a useful approximation. Here is a stack exchange link discussing their merits: https://cs.stackexchange.com/q/160969/81348.
-[^3]: ACtually a ton of people only care about worst case but best case is also fine.
+[^3]: Actually a ton of people only care about worst case but best case is also fine.
 [^4]: Note that sometimes you might not be able to actually explicitely write out $B(n)$ or $W(n)$, we will get into the notation we use that addresses this later.
 [^5]: Link - https://www.geeksforgeeks.org/python-program-for-insertion-sort/
 
