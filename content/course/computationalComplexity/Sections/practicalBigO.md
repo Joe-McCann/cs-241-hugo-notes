@@ -86,7 +86,36 @@ Remember, these are not the true technical definitions, rather a way that comput
 
 ### The Biggest of $O$s ⭕
 
+Before we were saying that we want to be able to see what functions share a ratio as $n$ grows large. In order to do this we need *limits* from calculus! Our idea is that we are going to group all the functions that have this common ratio together into a set of functions.
 
+Big $O$ also is specifically referring to the **worst case** scenario for operations, which is why its so popular! When people want to know how long something is going to take, they don't want to hear the $1$ perfect case where it runs instantly, they want to know how bad can it get!
+
+> **Definition**: We say that function $T(n)\in\mathcal{O}(f(n))$ if the worst case function $W(n)$ satisfies $$0<\lim_{n\rightarrow\infty} \frac{W(n)}{f(n)}<\infty$$.
+
+What this definition is saying, is that we are creating this set $\mathcal{O}(f(n))$ and placing functions inside of it who's *worst case* operations functions have a ratio limit with $f(n)$ that is not $0$ or $\infty$
+
+We also can define a relation $\sim$ to relate functions together and make this notation easier
+
+> **Definition**: We say that two functions $f(n)\sim g(n)$ iff $$0<\lim_{n\rightarrow\infty} \frac{f(n)}{g(n)}<\infty$$
+
+This is a way of saying that the two functions grow at a comparable rate, and we can define our set $\mathcal{O}(f(n))$ to be the set of all operations functions $T(n)$ whos worst case $W(n)\sim f(n)$!
+
+Now lets do some examples
+
+> **Example**: Prove that $4n+5\in\mathcal{O}(2n)$ by showing $4n+5\sim 2n$
+
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+Using L'Hopital's Rule
+$$
+\lim_{n\rightarrow\infty}\frac{4n+5}{2n} = \lim_{n\rightarrow\infty}\frac{4}{2} = 2
+$$
+Since $0 < 2 < \infty$ we know that $4n+5\sim 2n$ and thus $4n+5\in\mathcal{O}(2n)$.
+</br>
+QED
+</details>
+{{% /callout %}}
 
 [^1]: No I'm totally not salty.
 
