@@ -407,13 +407,44 @@ $$
 \sqrt{n} << n^{.7} << n << n^{2.1} << 1.1^n << 2^n << e^n << 20^n
 $$
 
+Finally, I will show a very interesting result that should put into perspective just how *good* certain algorithms are!
+
+> **Example**: Given $p$ with $p>0$, $\log(n)\in o(n^p)$
+
+This is showing us that the function $\log(n)$ grows slower than literally every possible polynomial function, no matter how close to $0$ you go! Note btw that $\log_a(n)=\frac{1}{\log(a)}\log(n)\implies \log_a(n)\in\mathcal{O}(\log(n))$, so it doesn't matter what base of log you use. For us we will use the *natural log* or "log base $e$" which is notated as $\log(n)$. I know you've probably seen $\ln$ used for the natural log, but mathematicians don't use this notation so I won't either.  
+
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+$$
+\lim_{n\rightarrow\infty}\frac{\log(n)}{n^p}=\lim_{n\rightarrow\infty}\frac{\frac{1}{n}}{pn^{p-1}}}=\lim_{n\rightarrow\infty}\frac{1}{pn^{p}}}=0.
+$$
+Since $p>0$ we know this is true. Therefore $\log(n)\in o(n^p)$
+</br>
+QED
+</details>
+{{% /callout %}}
+
+With this we also can get information about things like $n\log(n)$, which is smaller than every polynomial power $>1$! So we can have a list like
+$$
+\log(n) << \sqrt{n} << n^{.7} << n << n\log(n) << n^{2.1} << 1.1^n << 2^n << e^n << 20^n.
+$$
+
+Feel free to play around with other functions you may find interesting.
+
 ---
 
 ## More Advanced Stuff
 
+Here I will discuss some more advanced things that specifically computer scientists do with big $O$ notation, that the normal person will not really interact with all that often
+
 ### Average Case
 
-### Ammortized Time
+*Will get to at a later time*
+
+### Non-Ammortized Time
+
+*will also get to at a later time*
 
 [^1]: No I'm totally not salty.
 

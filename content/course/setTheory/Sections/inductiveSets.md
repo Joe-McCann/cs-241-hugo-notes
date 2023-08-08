@@ -14,6 +14,10 @@ tags:
 weight: 225
 ---
 
+{{% callout warning %}} 
+This page needs some work done to it, as I feel its quality and explanations are not very good. Feel free to skip it for now
+{{% /callout %}}
+
 ## First Looks into Infinity
 
 The content of this section is going to appear pretty theoretical for the sake of nothing, but will hopefully make it so that a future idea that we cover will not be so confusing. This material comes from and is inspired by topics from the Munkres Topology first chapter[^1].

@@ -21,7 +21,7 @@ Of course there are a lot of ways that you can take in something and spit someth
 
 Also, if you define your function on some set of inputs, it has to be defined for every value in that set. You can't have the possibility of plugging something in and then going 🤷 *woops division by $0$ my bad*. These give us the definition
 
-> **Definition**: Let $f$ be an object that takes in an item in set $A$ and **maps** it to an item in set $B$, notated as $$f:A\rightarrow B$$. $f$ is a function iff $\forall a\in A$ there is **exactly one** $b\in B$ such that $f(a)=b$.
+> **Definition**: Let $f$ be an object that takes in an item in set $A$ and **maps** it to an item in set $B$, notated as $$f:A\rightarrow B.$$ $f$ is a function iff $\forall a\in A$ there is **exactly one** $b\in B$ such that $f(a)=b$.
 
 Some examples of functions are as follows
 
@@ -45,7 +45,7 @@ In our previous example $4$, our domain was the set $\mathcal{O}$ of people who 
 
 But notice that just because we specify something the be the codomain of our function, that does not mean that our function will reach it at any point! In example $1$, our codomain is all real numbers, but if we pick any negative number, there does not exist an $x$ such that $x^2<0$. As such we need a term for the set of all the values our domain can actual get to via the function.
 
-> **Definition**: The **image set** of a function $f:A\rightarrow B$ is the set of all outputs of $f$ from $A$. In set builder $$\im(f)=\\{f(x)|x\in A\\}.
+> **Definition**: The **image set** of a function $f:A\rightarrow B$ is the set of all outputs of $f$ from $A$. In set builder $$\text{im}(f)=\\{f(x)|x\in A\\}.$$
 
 So in example $1$, the codomain is $\mathbb{R}$, and the image set is the set of all non-negative real numbers. You might be wondering *"why did we pick $\mathbb{R}$ as codomain? Could we have picked the image set as codomain?"*, to which the answer is yes! You can set the codomain to anything so long as there are no outputs that point outside of it, as such nothing is stopping you from setting the codomain as the image. Sometimes, its just notationally easier to pick a set that is not the image, or it is unknown what the entire image is.
 
