@@ -10,7 +10,7 @@ authors:
 superuser: true
 
 # Role/position
-role: Software Engineer at American Express, Adjunct Professor at NJIT
+role: Product Analyst at American Express, Adjunct Professor at NJIT
 
 # Short bio (displayed in user profile at end of posts)
 bio: If it exists, mathematicians will find a way to do math with it
@@ -70,7 +70,4 @@ email: ""
 #- Visitors
 ---
 
-I work full time in Software Engineering at American Express, primarily focusing on autmation work of machine learning model
-deployment processes: a.k.a. being a certified lazy person. Once a week during the college semesters I teach CS 241 Discrete Mathematics
-at NJIT. I have a passion for mathematics and finding ways to insert mathematics into everything I do. I also make stupid little videos
-in my spare time to show people math is freaking cool.
+I work full time in Product Analytics at American Express for an AI Labs team. I'm going to be honest I just started this job and I'm still trying to find out a good way to describe what I'm doing on the daily. Prior to that I was a software engineer at American Express specializing in automation work of Machine Learning deployment processes: a.k.a. being a certified lazy person. Once a week during the college semesters I teach CS 241 Discrete Mathematics at NJIT. I have a passion for mathematics and finding ways to insert mathematics into everything I do. I also make stupid little videos in my spare time to show people math is freaking cool.
