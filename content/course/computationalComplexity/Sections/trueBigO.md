@@ -42,6 +42,8 @@ In this we are saying that for our limit that we are looking at, that our functi
 
 That was probably really confusing so lets actually get to the definition.
 
+---
+
 ### The Biggest of True Os
 
 The idea of Big $O$ is that we want to be able to answer the question *"I have some function $f(n)$, will it eventually be smaller than this other function $M\cdot g(n)$ where $M$ is a constant?"*. The reason why we are asking is because we want to be able to provide ourselves with some worst case rate for how we are growing over time so that we can say "ok yeah this is good enough".
@@ -92,6 +94,8 @@ $$
 $$
 for values of $n\geq 1000$. These values of $M$ are the *constant factors*, and we can see that if we get larger and larger values of $N$ selected, then our values get closer and closer to $2$.
 
+---
+
 ### The Biggest of True $\Omega$s and $\Theta$s
 
 The true definition of Big $\Omega^T$ is actually exactly the same as $\mathcal{O}^T$, except now we use $\geq$ instead of $\leq$.
@@ -103,3 +107,7 @@ This is saying that, if we find a large enough value of $N$, eventually $g(n)$ w
 > **Definition**: A function $f(n)\in\Theta^T(g(n))$ iff $f(n)\in\mathcal{O}^T(g(n))$ and $f(n)\in\Omega^T(g(n))$. 
 
 So, same definition as before, just using the true versions instead.
+
+## Practice Problems
+
+> **Problem**: Prove that $\mathcal{O}^T$ is **not** an equivalence relation. This is the biggest difference in the two versions!
