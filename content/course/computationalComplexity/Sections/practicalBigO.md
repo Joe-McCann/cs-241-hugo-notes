@@ -440,12 +440,42 @@ Here I will discuss some more advanced things that specifically computer scienti
 
 ### Average Case
 
-*Will get to at a later time*
+When people say things like "oh yeah, this algorithm is $O$ of $n$", often times they think they are referring to the *average* case instead of the worst case, which Big $O$ truly is. Like all of this things, "average" case has a really technical definition[^3].
+
+In the simplest terms, you would take all possible operation counts for all possible inputs (as a function of $n$) and take an average. But since this is in the section entitled **Advanced Stuff** I can fuck with y'all a little bit more who hate math lmfao. You see, before we assumed that all possible inputs were equally likely to appear when we just straight averaged, but what if one of our inputs is one million times less likely than all the others? Well we shouldn't consider that input at the same weight as all the others! We can actually weight our average then by a probability distribution of our input space.
+
+> **Definition**: Let $A$ be the set of all inputs to a particular piece of code, and $T:A\rightarrow\mathbb{Z}_+$ be an operations function that returns the number of operations for any $x\in A$. Consider the set of all inputs of size $n$ to be $A_n$, with elements of $A_n$ selected at random by probability distribution $p(x)$. Then the **average case** of an input of size $n$ is given as
+$$
+\mathbb{E}\left[T\right](n) = \sum_{x\in A_n} p(x)T(x)
+$$
+
+Remember from probability class that $\mathbb{E}$ represents *expected value*, and we're actually calculating it here the same way we always calculate it.
+
+Actually getting the average case can be pretty challenging, but I might as well provide you with an example. In our previous page we showed that Bubble Sort best case (using our implementation) performed
+$$
+B(n) = \frac{7}{2}n^2 + \frac{9}{2}n + 6
+$$
+operations. To perform a singular swap, we would then add $9$ operations to perform, so in order to find the average case of our bubble sort, we need to know what the expected number of swaps for a random array is. For our case, assume any particular array configuration has an equal chance of appearing. It turns out that the expected number of swaps per calculations shown [here](https://math.stackexchange.com/questions/245018/bubble-sorting-question?noredirect=1&lq=1) are $\frac{n(n-1)}{4}$. Multiplying by $9$ and adding to our equation we can find our average case is
+$$
+\mathbb{E}[T](n) = 3.5 n^2 + 4.5n + 6 + 9\cdot\frac{n(n-1)}{4} = 5.75n^2+2.25n+6.
+$$
 
 ### Non-Ammortized Time
 
-*will also get to at a later time*
+Consider the line of code `set.add(x)`, what is the big $O$ of this piece of code? From an algorithm cheat sheet, you would be told that insertion into a set is an $O(1)$ operation. However if you start learning more you'd find that in the event of a hash collision then set insertion becomes an $O(n)$ operation. Uh wait what, wasn't $O$ supposed to tell us the worst case in the first place?
+
+When we say that set insertion is $O(n)$, we are working with what is called *ammortized* time, and that's normally what most engineers refer to by big $O$. The idea of ammortized time is that you can average the entire function runtime to get a more realistic idea of the runtime. This is **not** the same as the average case, as average case deals with probability distributions.
+
+A good way to think of this would be if I ran a loop $n$ times, and each time only counted as $1$ operation except for one loop iteration that will take $n$ operations. If we don't know when this long loop will happen, then we might be inclined to say our worst case is $O(n^2)$ as any possible loop could be the $n$ one, however thats not realistic as that case will literally never happen. So instead of thinking every loop will run in $n$ time, we we can instead think about is that this is the same as every loop running $2$ operations, making it actually $O(n)$! 
+
+So when we say that set insertion is $O(1)$, that means that over the course of running your entire code, if you average all the times that you run set insertion, it will look as if it was $O(1)$ time, even though any one particular iteration could be $O(n)$.
+
+### Quasi-Polynomial Time
+
+*Will write this at a later date*
 
 [^1]: No I'm totally not salty.
 
 [^2]: Astute readers would realize that $T(n)$ actually isn't a function cause the same size inputs could have multiple outputs, but we're going to not go too hard with this.
+
+[^3]: In fact there are multiple definitions, but I'm going over the simplest.
