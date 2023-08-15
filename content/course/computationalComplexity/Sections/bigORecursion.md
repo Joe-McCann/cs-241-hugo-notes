@@ -3,7 +3,7 @@ title: How to do Big O with Recursion
 linktitle: Recursive Big O
 toc: true
 type: book
-date: 2023-07-03
+date: 2023-08-13
 draft: false
 tags:
     - cs241
@@ -334,9 +334,9 @@ What I am about to show you is the most insane, balls to the walls theorem that 
 This is kinda more of a theorem to look at to explain, but I'll provide some examples
 
 > **The Master Theorem**: Let $$T(n) = aT\left(\frac{n}{b}\right) + f(n)$$ where $a$ is the number of divisions per call, $b$ is how much you are dividing the input, and $f(n)$ is the work per call. Let $\varepsilon = \log_b(a)$, then
-1. If $f(n)\in\mathcal{O}(n^k)$, with $k < \varepsilon$ then $T(n)\in\Theta(n^\varepsilon)$
-2. If $f(n)\in\Theta(n^k)$, with $k = \varepsilon$ then $T(n)\in\Theta(n^\varepsilon\log(n))$
-3. If $f(n)\in\Omega(n^k)$, with $k > \varepsilon$ **and** $$0\leq\lim_{n\rightarrow\infty}\frac{af\left(\frac{n}{b}\right)}{f(n)} < 1,$$ then $T(n)\in\Theta(f(n))$
+> 1. If $f(n)\in\mathcal{O}(n^k)$, with $k < \varepsilon$ then $T(n)\in\Theta(n^\varepsilon)$
+> 2. If $f(n)\in\Theta(n^k)$, with $k = \varepsilon$ then $T(n)\in\Theta(n^\varepsilon\log(n))$
+> 3. If $f(n)\in\Omega(n^k)$, with $k > \varepsilon$ **and** $$0\leq\lim_{n\rightarrow\infty}\frac{af\left(\frac{n}{b}\right)}{f(n)} < 1,$$ then $T(n)\in\Theta(f(n))$
 
 Note that this theorem applies for both our practical and our true version of big $O$, but you just need to make sure that you are consistent.
 

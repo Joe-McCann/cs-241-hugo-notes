@@ -1,8 +1,8 @@
 ---
 # Course title, summary, and position.
 title: Intro to Logic and Proofs
-linktitle: Intro to Logic
-summary: Wanna get good at fighting with your words? Start here!
+linktitle: Logic and Proofs
+summary: Wanna get good at fighting with your words?
 weight: 1
 
 # Page metadata.

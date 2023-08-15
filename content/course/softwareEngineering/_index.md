@@ -3,7 +3,7 @@
 title: Software Engineering
 linktitle: Software Engineering
 summary: I have to learn all this stuff on the job 😭
-weight: 1
+weight: 20
 
 # Page metadata.
 date: "2021-01-23T00:00:00Z"

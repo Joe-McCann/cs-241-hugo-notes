@@ -3,7 +3,7 @@ title: What Do Software Engineers Mean By Big O?
 linktitle: Practical Big O
 toc: true
 type: book
-date: 2023-07-03
+date: 2023-07-15
 draft: false
 tags:
     - cs241

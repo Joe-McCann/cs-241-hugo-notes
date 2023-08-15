@@ -3,7 +3,7 @@ title: What Do Mathematicians Mean By Big O?
 linktitle: Mathematician's Big O
 toc: true
 type: book
-date: 2023-07-03
+date: 2023-07-20
 draft: false
 tags:
     - cs241

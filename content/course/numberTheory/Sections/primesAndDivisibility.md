@@ -3,7 +3,7 @@ title: Primes and Divisibility
 linktitle: Primes and Divisibility
 toc: true
 type: book
-date: 2023-01-16
+date: 2023-08-15
 draft: false
 tags:
     - cs241

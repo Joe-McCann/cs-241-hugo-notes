@@ -1,4 +1,6 @@
 ---
+# Discussion on how this block works found here
+# https://wowchemy.com/blocks/portfolio/
 widget: portfolio
 weight: 100
 title: Topics
@@ -19,6 +21,9 @@ content:
       tag: cs241
 
   filter_default: 0
+  # Sort by page weight
+  sort_by: 'Weight'
+  sort_ascending: true
 design:
   columns: '1'
   view: masonry

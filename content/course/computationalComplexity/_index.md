@@ -3,7 +3,7 @@
 title: Computational Complexity
 linktitle: Computational Complexity
 summary: How slow can you go?
-weight: 1
+weight: 10
 
 # Page metadata.
 date: "2021-07-06T00:00:00Z"

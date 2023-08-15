@@ -3,7 +3,7 @@
 title: Set Theory
 linktitle: Set Theory
 summary: Putting things into groups? How hard could that be?
-weight: 2
+weight: 5
 
 # Page metadata.
 date: "2021-01-16T00:00:00Z"

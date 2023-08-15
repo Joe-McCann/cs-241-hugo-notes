@@ -3,7 +3,7 @@
 title: Number Theory
 linktitle: Number Theory
 summary: This is 5th grade material, how hard could it be?
-weight: 2
+weight: 15
 
 # Page metadata.
 date: "2021-01-19T00:00:00Z"
