@@ -108,6 +108,12 @@ This is saying that, if we find a large enough value of $N$, eventually $g(n)$ w
 
 So, same definition as before, just using the true versions instead.
 
+---
+
+## How the True Version Relates to our Version
+
+*do this later pleaseeeee*
+
 ## Practice Problems
 
 > **Problem**: Prove that $\mathcal{O}^T$ is **not** an equivalence relation. This is the biggest difference in the two versions!
