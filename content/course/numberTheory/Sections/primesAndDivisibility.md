@@ -179,11 +179,11 @@ In order to prove this, we will find a sequence of not prime numbers that is $N$
 Consider the number $(N+1)!=1\cdot 2\cdot 3\cdot \ldots \cdot (N+1)$. We know by definition that for every $2\leq k\leq N+1$ that $k|(N+1)!$. As such by divisibility rules we know
 $$
 \begin{align}
-2&|(N+1)!+2 \\
-3&|(N+1)!+3 \\
-4&|(N+1)!+4 \\
-&\vdots \\
-N+1&|(N+1)!+(N+1) \\
+2&|(N+1)!+2 \\\\
+3&|(N+1)!+3 \\\\
+4&|(N+1)!+4 \\\\
+&\vdots \\\\
+N+1&|(N+1)!+(N+1) \\\\
 \end{align}
 $$
 since this sequence of $N$ numbers are all composite, we know that the gap between the primes before and after this sequence must be $\geq N$
@@ -215,7 +215,7 @@ The theorem involves some more high powered number theory, so I am not going to 
 
 > **Theorem**: Proof that there are infinite primes $p$ such that there exists a $k\in\mathbb{Z}_+$ such that $p=4k+3$
 
-> **Theorem**: Prove that for every value $n\geq 1$, there exists a prime $p$ such that $n^2 < p < (n+1)^2
+> **Theorem**: Prove that for every value $n\geq 1$, there exists a prime $p$ such that $n^2 < p < (n+1)^2$
 
 [^1]: You thought we were done with relations hahaha.
 [^3]: Kinda, theres another super important theorem too.
