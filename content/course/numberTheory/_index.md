@@ -23,7 +23,7 @@ __William Joe McCann__
 
 Unlike other sections, we will not assign a strict "chapter" number to this material in the same way that we say that the other material is "Chapter 1" or "Chapter 2", as we will use Number Theory sporadically through the course to provide insights into applications that the material we go over provides. Also, Number Theory can provide a ton of simple examples to go over proofs with, and has a lot of direct applications to computer science.
 
-Number Theory is a broad range of topics that describe properties of our number systems and the numbers within them. Prime numbers? Thats number theory. Rational vs. irrational? Thats number theory. For discussion of these topics, the primary resource I will be referencing is __An Introduction to the Theory of Numbers__[^1], with my own personal spin of course.
+Number Theory is a broad range of topics that describe properties of our number systems and the numbers within them. Prime numbers? Thats number theory. Rational vs. irrational? Thats number theory. For discussion of these topics, the primary resource I will be referencing is __An Introduction to the Theory of Numbers__[^1], with my own personal spin of course. I also use [brilliant.org](https://brilliant.org/) as a phenomenal reference. Highly recommend their site for some of these topics.
 
 Get ready for a world of fun and pain as you experience a field in which the easy problems, and hard problems look identical and you don't know which is which until you have already wasted several weeks working on it :clown_face:
 

@@ -39,7 +39,7 @@ a = qb + r
 $$
 and $0 \leq r < |b|$.
 
-Damn, y'all probably are already sick of existence and uniqueness theorems huh? Lets first prove existence. We will be proving existence for $a,b > 0$, however this is sufficient to prove the claim as explained [here](https://en.wikipedia.org/wiki/Euclidean_division#Existence)
+Damn, y'all probably are already sick of existence and uniqueness theorems huh? Lets first prove existence. We will be proving existence for $a,b > 0$, however this is sufficient to prove the claim as explained [here](https://en.wikipedia.org/wiki/Euclidean_division#Existence)[^1]
 {{% callout info %}}
 <details>
 <summary>Existence Proof</summary>
@@ -80,3 +80,33 @@ since $b\neq 0$. As such we know that $q_1=q_2$ and $r_1=r_2$ contradicting our 
 {{% /callout %}}
 
 ## The Greatest Common Divisor
+
+Divisibility is cool, but sadly in terms of relations its only a *partial* ordering because sometimes you just have numbers that don't divide each other. For example $24\nmid 16$ and $16\nmid 24$. However, it might be cool to define some way to measure the divisibility of the two numbers, even when they aren't actually divisible by each other.
+
+In fact, for our previous example, both $16,24$ are divisible by $8$, whereas a pair of numbers like $5,7$ seemingly have nothing in common. This motivates the idea we have for the following definition
+
+> **Definition**: The **greatest common divisor** of two numbers $a,b$ is the largest integer $n$ such that $n|a$ and $n|b$, notated as $\gcd(a,b)=n$.
+
+Sometimes people call this the *greatest common factor*. It is also often notated using the horrible notation $(a,b)=n$ which is some serious abuse of notation in my eyes. For our purposes I will write it out fully.
+
+Note the requirement of *largest* there. Even though $4|24$ and $4|16$, the $\gcd(16,24)=8$ as $8$ divides both *and* $8>4$.
+
+It turns out that this is incredibly useful and a lot of powerful results depend on the $\gcd$, however, before we dive into some let us talk about some more terminology.
+
+> **Definition**: If $\gcd(a,b)=1$ then $a,b$ are **relatively prime** or **coprime**
+
+We call these "relatively prime" as the numbers themselves may not be prime, but from the perspective of each other they share no common factors so they might as well be. $\gcd(15,16)=1$ so $15,16$ are relatively prime.
+
+> **Corollary**: $1$ is coprime with every integer
+
+This follows immediately from the definition.
+
+---
+
+## Practice Problems
+
+> **Theorem**: $\gcd(a,b)=a$ iff $a|b$
+
+> **Theorem**: $n$ and $n+1$ are always relatively prime
+
+[^1]: Also the location I got this proof from, although if I ever try to put all this stuff into a real book one day I'll get a real published source. 
