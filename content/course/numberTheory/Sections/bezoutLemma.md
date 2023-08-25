@@ -159,6 +159,29 @@ Now that we have access to Bezout's Lemma, we now have the tools that we need to
 *But first* before we actually explain what that is, we need to prove something called Euclid's Lemma first. Funny enough this little Lemma is why we need Bezout's Lemma, if we just took it by assumption then we could have skipped all this effort LOL. Crazier, Euclid proved this shit using fucking Geometry what a psychopath 🔪🩸
 
 > **Euclid's Lemma**: Let $p$ be a prime number. If $p|ab$ then $p|a$ or $p|b$.
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+In order to prove this, we will show that if $p\nmid a$ then its required that $p|b$ which is sufficient to prove, as if $p|a$ then we're done. We know that $p|ab$ which means that$$
+ab = kp.$$
+Since $p|a$ and $p$ is prime, then $\gcd(a,p)=1$ since the only factor of $p$ is $p$ and $1$. As such by Bezout's Lemma we know that $$
+px + ay = 1$$ has a solution. Multiply both sides by $b$ to get that $$
+pbx + aby = b.$$ Notice before that we said $ab=kp$ so we can substitute to get that $$
+pbx + kpy = b \implies p(bx+ky)=b$$ which means that $p|b$ as we know a solution exists and otherwise $\frac{b}{p}$ would not be an integer. This proves our claim. 
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+With this result we are now ready to tackle the Fundemental Theorem.
+
+> **Fundemental Theorem of Arithmetic**: For every integer $n>1$, there exists a unique product of primes
+$$
+n = p_1^k_1p_2^k\ldots p_mk^m.
+$$
+In other words, every number has a prime factorization.
+
+This is how we know that every number can be broken up into prime factors! Now like many theorems, this one has two pieces. The first is showing that a factorization always exists, and the second is showing that every number has only one factorization[^2]. We will do these two proofs seperately; existence is easy, uniqueness is hard (kinda).
 
 ---
 
@@ -169,3 +192,4 @@ Now that we have access to Bezout's Lemma, we now have the tools that we need to
 > **Theorem**: Let $\gcd(n,a)=1$ and $n|ab$. Then $n|b$
 
 [^1]: Term mathematicians use to describe the idea that we have clean ways of doing and describing things
+[^2]: Shuffling the terms is considered the same product
