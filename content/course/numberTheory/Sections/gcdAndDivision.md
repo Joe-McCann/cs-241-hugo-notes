@@ -186,6 +186,12 @@ There is actually a [webpage](http://www.prothsearch.com/fermat.html) dedicated 
 
 ---
 
+### Prime Definition and the LCM
+
+*Complete this at a later date*
+
+---
+
 ## An Algorithm for Computing the GCD
 
 Suppose we are given two numbers $a,b$ and are asked to find the $\gcd(a,b)$. Well one super straightforward way that we could do this be to just iterate down, starting at the smaller of the two numbers, and the first number we find that divides them both is the answer. This brute force implementation 

@@ -152,6 +152,30 @@ $$
 
 so $x=18$ and $y=20$ is another valid solution.
 
+---
+
+### Silly Results with Bezout's Lemma
+
+The solving of integer equations opens us up to some funny results as we can create word problems for them. One that I used personally was
+
+> **Example**: One trip on the PATH train with a metrocard costs $\$2.75$. Suppose our card currently has $\$M$ on it. Every time we do not have enough money on the card for a trip, we refil it with $\$20$. For what values of $x$ will the card eventually reach $\$0$ with no leftover money?
+
+{{% callout info %}}
+<details>
+<summary>Solution</summary>
+First, represent all values in terms of cents, so we don't need to worry about decimals. So $M$ is in cents, it costs $275$ per trip, and we refill with $2000$. If we refill $x$ times, and take $y$ trips, we want to find values $x,y$ such that
+$$
+M + 2000x-275y = 0\implies 2000x-275y=-M.$$
+By Bezout's Lemma we know that a solution exists if and only if $\gcd(275, 2000)|M$ and since the $\gcd$ is $25$, the value on the card will reach $0$ if $M$ contains any dollar amount with $0,25,50,75$ cents.
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+Fun little side thing is that if the $\gcd$ of the amount you refill and $275$ is $1$, then any value of $M$ will eventually reach $0$! In order to do this just be unhinged as fuck and refill with $6.79$ every time since $275=5^2\cdot 11$.
+
+---
+
 ## The Fundemental Theorem of Arithmetic
 
 Now that we have access to Bezout's Lemma, we now have the tools that we need to easily prove the Fundemental Theorem of Arithmetic, which forms the basis of number theory and why we really care so much about prime numbers.
@@ -175,13 +199,44 @@ pbx + kpy = b \implies p(bx+ky)=b$$ which means that $p|b$ as we know a solution
 
 With this result we are now ready to tackle the Fundemental Theorem.
 
-> **Fundemental Theorem of Arithmetic**: For every integer $n>1$, there exists a unique product of primes
+> **Fundemental Theorem of Arithmetic**: For every integer $n>1$, either $n$ is prime, or there exists a unique product of primes
 $$
-n = p_1^k_1p_2^k\ldots p_mk^m.
+n = p_1^{k_1}p_2^{k_2}\ldots p_m^{k_m}.
 $$
 In other words, every number has a prime factorization.
 
 This is how we know that every number can be broken up into prime factors! Now like many theorems, this one has two pieces. The first is showing that a factorization always exists, and the second is showing that every number has only one factorization[^2]. We will do these two proofs seperately; existence is easy, uniqueness is hard (kinda).
+
+The existence proof comes from the way that we often ourselves do factoring. Suppose I wanted to factor $244$, well I could see that $2|244$, so dividing I'd find that $244=2\cdot 122$ and now our problem is reduced to finding the factors of $122$! This is effectively strong induction which is why we will use strong induction to prove.
+{{% callout info %}}
+<details>
+<summary>Existence Proof</summary>
+Our base case is $n=2$ which is prime. We will now perform the induction step. Consider some value of $n>2$ and assume that all integers less than $n$ satisfy our hypothesis. If $n$ is prime then we are done. If $n$ is not prime, then there is some number $1 < k < n$ such that $k|n$ which means $n = kx$ for some value of $x$. Since both $k,x < n$ by our strong induction hypothesis we know that they both have prime factorizations. As such we can multiply these prime factorizations to get a prime factorization for $n$.
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+Now to prove uniqueness we will do exactly the same thing we do for all uniqueness proofs; assume there are two different versions and then prove that they must be the same.
+{{% callout info %}}
+<details>
+<summary>Uniqueness Proof</summary>
+Suppose that for some value of $n$ we have two distinct prime products
+$$
+n = p_1^{k_1}p_2^{k_2}\ldots p_m^{k_m},$$
+and
+$$
+n = q_1^{j_1}q_2^{j_2}\ldots q_r^{j_r},$$
+Where values of $p,q$ are prime. Let us begin by first observing that $p_1|n$ by definition, so
+$$
+p_1 | q_1^{j_1}q_2^{j_2}\ldots q_r^{j_r}$$
+and since $p_1$ is prime, by Euclid's Lemma we know that $p_1$ must divide some $q_i^{j_i}$. For the sake of convenience say that $p_1 | q_1^{j_1}$ since $q_1$ is also prime, we can see that $p_1 | q_1$ which means that $p_1=q_1$. We can continually apply this process to see that in fact every prime $p_i=q_i$ and $m=r$ which makes the two factorizations the same, proving our claim.
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+This result actually is quite massive, as it shows us that we can always factorize any integer[^3]. Perhaps this result is boring to the people who were already aware that you could factorize integers and didn't really care why it was why it was. *In the future I will put a section here on algorithms for prime factorizing*
 
 ---
 
@@ -191,5 +246,8 @@ This is how we know that every number can be broken up into prime factors! Now l
 
 > **Theorem**: Let $\gcd(n,a)=1$ and $n|ab$. Then $n|b$
 
+> **Theorem**: Let $p$ be prime and $p|a^n$. Then $p|a$
+
 [^1]: Term mathematicians use to describe the idea that we have clean ways of doing and describing things
 [^2]: Shuffling the terms is considered the same product
+[^3]: For negative numbers you just include $-1$ as a factor, which is why I've seen $-1$ referenced as "the prime at infinity" even though that doesn't entirely make sense but whatevs 🤷
