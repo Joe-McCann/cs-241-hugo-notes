@@ -96,6 +96,7 @@ where $a_j$ may not necessarily be the least residue, then
 $$
 \mathbb{Z}/n\mathbb{Z} = \left\\{[ka_1],[ka_2],\ldots,[ka_n]\right\\}.
 $$
+This means that the function $f:\mathbb{Z}/n\mathbb{Z}\rightarrow \mathbb{Z}/n\mathbb{Z}$ with $f([x])=[kx]$ is bijective
 
 This theorem is actually insanely easy to prove based on the previous lemma we have. However the hardest part is saying what this theorem is actually doing. Pretty much just take all the equivalence classes of the quotient set, and if you multiply by a number prime to $n$ then you will still have all items of your quotient set. For $n=5$ and $k=7$ then
 $$
@@ -107,7 +108,73 @@ $$
 \end{align}
 $$
 
+---
+
 ### Prime Residues
+
+Getting all the integers mod some number is cool, but sometimes its useful to work with a specific subset of those integers. There are often certain residues that have special properties that make them desireable to study in bulk. To avoid beating around the bush any longer, we will observe the idea of all residues that are relatively prime to $n$. Let us consider
+$$
+\mathbb{Z}/6\mathbb{Z}=\\{[0],[1],[2],[3],[4],[5]\\}.
+$$
+We will define the set $R_6$ to be the classes of all values relatively prime to $6$, so
+$$
+R_6=\\{[1],[5]\\}.
+$$
+All items inside of these classes are also coprime to $n$ by definition since all items in the set are equivalent to each other, none of which share a common factor with $n$. Also notice that $[0]\not\in R_6$, which might seem weird, but observing other members of the class it makes sense. $6\in [0]$ and $\gcd(6,6)\neq 1$. In reality $\gcd(0,6)=6$ as $\frac{0}{6}$ has no remainder.
+
+Also, $1$ by definition is relatively prime to every number as $\gcd(1,n)=1$ which is the definition of relatively prime. So $[1]$ will always be an element. Similarly, we know[^3] that $\gcd(n-1,n)=1$ always, so $[n-1]$ will also be included in $R_n$. Lets provide two more examples, however for the sake of brevity I will not write the brackets for equivalence classes, but remember that they are
+$$
+\begin{align}
+R_5 &= \\{1,2,3,4\\} \\\\
+R_{14} &= \\{1,3,5,9,11,13\\}
+\end{align}
+$$
+
+Now I will define the term that we are using here
+
+> **Definition**: The **complete system of residues prime to $n$,** $R_n\subset \mathbb{Z}/n\mathbb{Z}$ is the set of all equivalence classes whos members are coprime to $n$. In set notation
+$$
+R_n = \left\\{[x] | [x]\in\mathbb{Z}/n\mathbb{Z} \text{ and } \gcd(x,n)=1\right\\}.
+$$
+
+Similar to with the normal system of residues, we have the following theorem about multiplying another relatively prime item
+
+> **Lemma**: Let $[x],[y]\in R_n$ be two different prime residue classes, and let $\gcd(k,n)=1$. Then $[kx],[ky]\in R_n$ are also prime residue classes, and $[kx]\neq [ky]$
+
+This is actually the same exact theorem as before, with just a minor additional caveat that if you multiply $[kx]$ then the classes will still be prime residue classes and won't (somehow) start sharing common factors.
+
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+By the previous theorem we already know that $[kx]\neq [ky]$. Now we will show that multiplying $[kx]$ will keep it as a prime residue class. Choose some $a\in [x]$, we know that $\gcd(a,n)=1=\gcd(k,n)$. This is enough to see that $\gcd(kx, n)=1$ as the product will also share no common factors as $n$ by the definition of $\gcd$
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+So if we were to multiply all the classes in $R_{14}$ by $3$ we would have.
+$$
+\begin{align}
+R_{14} &= \\{1,3,5,9,11,13\\} \\\\
+R_{14} &= \\{3\cdot 1,3\cdot3,3\cdot5,3\cdot9,3\cdot11,3\cdot13\\} \\\\
+R_{14} &= \\{3,9,15,27,33,39\\} \\\\
+R_{14} &= \\{3,9,1,13,5,11\\}
+\end{align}
+$$
+which is correct!
+
+We can even get the same corollary
+> **Corollary**: If $\gcd(k,n)=1$ and
+$$
+R_n = \left\\{[a_1],[a_2],\ldots,[a_i]\right\\},
+$$
+where $a_j$ may not necessarily be the least residue, then 
+$$
+R_n = \left\\{[ka_1],[ka_2],\ldots,[ka_i]\right\\}.
+$$
+This means that the function $f:R_n\rightarrow R_n$ with $f([x])=[kx]$ is bijective.
+
+This is also very straightforward using the pigeonhole principle so I will leave it at that.
 
 ---
 
@@ -115,5 +182,8 @@ $$
 
 > **Example**: Write out $4$ residues of $29\mod 13$, including the least residue
 
+> **Example**: Write out the residues prime to $36$
+
 [^1]: Of course it can't just be remainder that would be too easy obviously
 [^2]: Note that we are doing math on the representative for the sake of brevity, but this can be proven rigorously using mod math
+[^3]: Via a practice problem on the [GCD Intro Page](/course/settheory/sections/inductivesets#standard_induction_theorem)

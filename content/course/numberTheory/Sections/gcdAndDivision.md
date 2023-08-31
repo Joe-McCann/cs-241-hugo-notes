@@ -266,6 +266,8 @@ Since the numbers of the Fibonacci sequence grow at a rate of $\mathcal{O}(\phi^
 
 > **Corollary**: Let $k\geq 0$. For all $a,b$ $\gcd(a+kb, b)=\gcd(a,b)$ 
 
+> **Theorem**: $\gcd(n-1,n)=1$ 
+
 [^1]: Also the location I got this proof from, although if I ever try to put all this stuff into a real book one day I'll get a real published source. 
 [^2]: In case you are wondering how someone thought of this, a lot of trial and error most likely with a bit of creative inspiration
 [^3]: Note this is psuedo-polytime as its $\mathcal{O}(n)$ with respect to the *value* of $n$ rather than the number of digits of $n$.
