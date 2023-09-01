@@ -126,7 +126,11 @@ Woah what is that symbol $\aleph_0$? So I've heard, the story goes that Georg Ca
 
 There is a very interesting result involving $\aleph_0$ and how fundemental it is, but I will get to that later. For now lets prove a series of small results that lead up to something cool.
 
-> **Lemma**: Let $\mathbb{Z}_+=\\{1,2,3,4,5,ldots\\}$. $|\mathbb{N}|=|\mathbb{Z}_+|$.
+> **Lemma**: Let 
+$$
+\mathbb{Z}_+=\left\\{1,2,3,4,5,\ldots\right\\}
+$$ 
+then $|\mathbb{N}|=|\mathbb{Z}_+|$.
 
 {{% callout info %}}
 <details>
@@ -156,7 +160,7 @@ QED
 </details>
 {{% /callout %}}
 
-Notice how now we have a lot of sets that all have the same cardinality, $|\mathbb{N}|=|E|=|O|=|\mathbb{Z}_+|=|\mathbb{Z}_-|$. This actually translates, so we have that $|O|=|\mathbb{Z}_-|$ for example. Lets continue with this example for a second and write out some pairings
+Notice how now we have a lot of sets that all have the same cardinality, $|\mathbb{N}|=|E|=|O|$ and these are also equal to the positive and negative integers. This actually translates, so we have that the set of odd numbers and negative integers are the same size for example. Lets continue with this example for a second and write out some pairings
 $$
 \begin{align}
 -1&\rightarrow 1 \\\\

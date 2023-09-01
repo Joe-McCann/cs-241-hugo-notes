@@ -70,4 +70,6 @@ email: ""
 #- Visitors
 ---
 
-I work full time in Product Analytics at American Express for an AI Lab team. On the day to day this amounts to brainstorming and figuring out how we can use the tech that we already have to address problems we've been seeing users encountering. Prior to that I was a software engineer at American Express specializing in automation work of Machine Learning deployment processes: a.k.a. being a certified lazy person. Once a week during the college semesters I teach CS 241 Discrete Mathematics at NJIT. I have a passion for mathematics and finding ways to insert mathematics into everything I do. I also make stupid little videos in my spare time to show people math is freaking cool.
+I work full time in Product Analytics at American Express for an AI Lab team. This amounts to a lot of planning, meeting, researching, and more planning. Prior to that I was a software engineer at American Express specializing in automation work of Machine Learning deployment processes: a.k.a. being a certified lazy person. Obviously the views and statements I make on this website and the internet in general are mine and not the company's; this is obvious since I'm insane and unhinged.
+
+Once a week during the college semesters I teach CS 241 Discrete Mathematics at NJIT. I have a passion for mathematics and finding ways to insert mathematics into everything I do. I also make stupid little videos in my spare time to show people math is freaking cool.

@@ -122,6 +122,7 @@ A clever computer scientist might be able to use this to their advantage to spee
 The proof is shockingly simple.
 
 *Proof:*
+
 For any value of $n$, let
 $$
 R_n = \left\\{[x_1],[x_2],\ldots,[x_{\phi(n)}]\right\\},
