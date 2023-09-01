@@ -123,3 +123,60 @@ Thats it! Its actually super simple, and we are going to work through an example
 ### An Example of RSA
 
 Let $p=11$ and $q=13$, we will manually run through an example so you can see how it really works. Let it be known though, in practice these prime numbers that we are dealing with can be several hundred digits long.
+
+For preprocessing we calculate $n=11\cdot 13=143$ and $\phi(11\cdot 13)=10\cdot 12=120$. We now need to find a number $e$ that is relatively prime with $120$. For your purposes you can just loop starting at $3$ until you find a number that works, but for a more sophisticated system you might wanna pick something bigger. The smallest number relatively prime to $120$ is $7$ so we will set $e=7$.
+
+For our final step, we need to find a value $d$ that satisfies $7d\equiv 1\mod 120$, which we can do by completing the extended Euclidean algorithm. I will be running through that by hand, but if you have a calcuator its fine to do that. We need to find values $x,y$ such that
+$$
+7x-120y = 1
+$$
+and then $d$ will be the least residue of the solution $x\mod 120$. We will run through the algorithm a litte quicker
+$$
+\begin{align}
+r_0 = 7, x_0=1, y_0=0 &\implies 7(1)-120(0) = 7 \\\\
+r_1 = -120, x_1=0, y_1=1 &\implies 7(0)-120(1) = -120.
+\end{align}
+$$
+Since $|r_0| < |r_1|$ the first step of our algorithm will actually swap the values for us. We get that $7=-120(0)+7$ so we find that $q_1=0$ and $r_2=7$. This makes $x_2=x_0-q_1x_1=1$ and $y_2=y_0-q_1y_1=0$ so
+$$
+r_2=7, x_2=1, y_2=0 \implies 7(1)-120(0) = 7,
+$$
+which looks good and dandy so far. $-120=7(-17)-1$ so $q_2=-17$ and $r_3=-1$. We get that $x_3=x_1-q_2x_2=17$ and $y_3=y_1-q_2y_2=1$ so we get that
+$$
+r_3=-1, x_3=17, y_3=1 \implies 7(17)-120(1)=-1
+$$
+which is true. We see that $r_3=-1$ which means that we can get our solution for our problem by multiplying both sides by $-1$ to get that
+$$
+r = 1, x=-17, y=-1 \implies 7(-17)-120(-1)=1,
+$$
+so our solution is $-17$. The final step of our algorithm is to convert our solution to the least residue which involves just taking it to be $x\mod 120$ which gives us that $d=103$ which if you plug in to our equation to verify you will see is correct.
+
+We are now good to have that our public key is the number pair $(143, 7)$ and our private key is $103$.
+
+My sister has received the public key and now takes her message. She wants to send me the capital letter I, which in ascii is `73` so $m=73$
+
+{{% callout warning %}}
+Note that when performing the encryption decryption the message $m$ **must** be less than $n$, so if you have a longer message you need to break it up into smaller pieces.
+{{% /callout %}}
+
+She will take her message and perform the encryption scheme
+$$
+73^{7}\equiv 83 \mod 143
+$$
+so $\sigma=83$ and she would return that back to me. Funny thing is that `83` is the code for a capital S, so if someone intercepted the message, that is what they would see.
+
+To perform the decryption scheme, we would perform
+$$
+83^{103}\equiv 73 \mod 143
+$$
+which gets us back our message.
+
+And there you go, now you know how to perform RSA ecnryption yourself :D 
+
+---
+
+## Practice Problems
+
+> **Example**: Prove that if you want to be able to send a $m$ bit string as a message $m$ encrypted by RSA, you need to pick primes $p,q$ such that $2^m \leq pq$
+
+> **Example**: Choose two primes $p,q$ so that you can encrypt the message `Hi` by concatonating the ascii encodings, then perform the encryption algorithm and see what characters you get.
