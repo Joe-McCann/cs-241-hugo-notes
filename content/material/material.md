@@ -16,7 +16,7 @@ content:
 
   filter_button:
     - name: All Material
-      tag: '.js-id-cs241, .js-id-previous'
+      tag: '.js-id-cs241, .js-id-previous, .js-id-unsolved'
     - name: CS 241
       tag: cs241
 
