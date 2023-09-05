@@ -32,7 +32,7 @@ No seriously, in mathematics we are working with simplified rules and numbers to
 
 For example, there are multiple different types of geometry, and some of which have their differences in how parallel lines interact with each other; classically they never cross, but what if they did [^projective_geometry]?
 
-> __Definition__: An __axiom__ is a statement that is assumed to be true, generally with the purpose of proving other statements.
+> **Definition**: An **axiom** is a statement that is assumed to be true, generally with the purpose of proving other statements.
 
 For our class, we will not be referencing Axioms very regularly, however if you are curious you could check out several resources that mention the axioms they use, my personal favorite being Terry Tao's [Analysis I](https://www.amazon.com/Analysis-Third-Texts-Readings-Mathematics/dp/9380250649) book.
 
@@ -40,24 +40,26 @@ For our class, we will not be referencing Axioms very regularly, however if you 
 
 ## The Direct Proof
 
-Now that we have explained *why* we prove things, lets actually show how you would go about proving something. The most simple proof that we can do is called the __Direct Proof__, which is the way that you are likely most familiar with proving things to people in speech. We begin by starting with some statement we know to be true, and then continually make steps that we know to be true to bring us to our next true statement. From the *IMPLIES* [truth table](/course/introtologic/sections/logicaloperators/#implies) we know that if $P=1$ and $(P\rightarrow Q)=1$ then the only row that this occurs is $Q=1$. As such we can make chains of statements starting at $P$ that eventually reach to our end goal that we wish to claim.
+Now that we have explained *why* we prove things, lets actually show how you would go about proving something. The most simple proof that we can do is called the **Direct Proof**, which is the way that you are likely most familiar with proving things to people in speech. We begin by starting with some statement we know to be true, and then continually make steps that we know to be true to bring us to our next true statement. From the *IMPLIES* [truth table](/course/introtologic/sections/logicaloperators/#implies) we know that if $P=1$ and $(P\rightarrow Q)=1$ then the only row that this occurs is $Q=1$. As such we can make chains of statements starting at $P$ that eventually reach to our end goal that we wish to claim.
 
-> __Definition__: A direct proof is a proof that starts with some initial true statement $P$, before moving down a true set of implications $$P\rightarrow P_1\rightarrow P_2 \rightarrow\ldots\rightarrow P_n \rightarrow Q$$ where $P_i$ represents some intermediate step and $Q$ is the end goal.
+> **Definition**: A direct proof is a proof that starts with some initial true statement $P$, before moving down a true set of implications $$P\rightarrow P_1\rightarrow P_2 \rightarrow\ldots\rightarrow P_n \rightarrow Q$$ where $P_i$ represents some intermediate step and $Q$ is the end goal.
 
 ---
 
 ### A Not Mathy Direct Proof
 
 In order to show you that a direct proof is literally just a written out explanation of steps that eventually lead you to an end goal, lets consider a funny little minor example to see what a proof looks like.
-> __Example 1__: Prove that if there are no people on an escalator, the escalator is always faster than taking the stairs.
+> **Example 1**: Prove that if there are no people on an escalator, the escalator is always faster than taking the stairs.
+{{% callout info %}}
 <details>
-  <summary>Answer</summary>
-    <i>Proof</i>: Imagine that the fastest rate you could climb the stairs was $v$. Since the escalator is just a staircase with no people on it you can run up the escalator at speed $v$. However the escalator is also moving up at speed $v_e$, therefore you are moving up the escalator at speed $v+v_e$. 
+  <summary>Proof</summary>
+    Imagine that the fastest rate you could climb the stairs was $v$. Since the escalator is just a staircase with no people on it you can run up the escalator at speed $v$. However the escalator is also moving up at speed $v_e$, therefore you are moving up the escalator at speed $v+v_e$. 
     <br/> Since $v_e>0$ in order to move up, we can say that
     $$v < v+v_e$$
     which proves our claim.<br/>
     <b>Q.E.D.</b>
 </details>
+{{% /callout %}}
 
 You might think *"Wow thats pretty wordy for a math class, don't we deal with numbers?"* to which my answer is that you best get used to the words cause higher level math involves a shitton of proofs and text. Even in a more mathy example we'll find ourselves using a surprising amount of text. Speaking of which
 
@@ -67,11 +69,11 @@ You might think *"Wow thats pretty wordy for a math class, don't we deal with nu
 
 We can't put it off forever and its finally time to do some math. Don't psych yourself out though, just move along in steps of what is true.
 
-> __Example 2__: $(P\rightarrow Q) \equiv (\bar{Q}\rightarrow\bar{P})$, where $\equiv$ means the two expressions are equivalent to each other.
+> **Example 2**: $(P\rightarrow Q) \equiv (\bar{Q}\rightarrow\bar{P})$, where $\equiv$ means the two expressions are equivalent to each other.
+{{% callout info %}}
 <details>
-  <summary>Answer</summary>
-    <i>Proof</i>: If two expressions are equivalent, that means that they will always have the same output as each other if given the same input. Since a truth table is literally listing out all the different input output pairs, if the truth tables are equivalent then the expressions are.
-    {{< math >}}
+  <summary>Proof</summary>
+   If two expressions are equivalent, that means that they will always have the same output as each other if given the same input. Since a truth table is literally listing out all the different input output pairs, if the truth tables are equivalent then the expressions are.
     $$\begin{array}{c c|c|c c|c}
     P & Q & P\rightarrow Q & \bar{Q} & \bar{P} & \bar{Q}\rightarrow\bar{P} \\\hline
     0 & 0 & 1 & 1 & 1 & 1 \\
@@ -79,10 +81,10 @@ We can't put it off forever and its finally time to do some math. Don't psych yo
     1 & 0 & 0 & 1 & 0 & 0 \\
     1 & 1 & 1 & 0 & 0 & 1
     \end{array},$$
-    {{< /math >}}
     note that we included intermediate steps to make the work more clear. Since the two truth tables are the same, the expressions are equal.</br>
     <b>Q.E.D.</b>
 </details>
+{{% /callout %}}
 
 ---
 
@@ -90,23 +92,25 @@ We can't put it off forever and its finally time to do some math. Don't psych yo
 
 In the previous section we proved that $\bar{Q}\rightarrow\bar{P}$ was the exact same expression as $P\rightarrow Q$, as such if we want to prove that $P\rightarrow Q$, we are completely allowed to prove $\bar{Q}\rightarrow\bar{P}$ instead.
 
-This is called a *Proof by Contrapositive* as the expression $\bar{Q}\rightarrow\bar{P}$ is called the __contrapositive__ of the original expression. While this might seem weird and unique, just know that it's literally just a direct proof.
+This is called a *Proof by Contrapositive* as the expression $\bar{Q}\rightarrow\bar{P}$ is called the **contrapositive** of the original expression. While this might seem weird and unique, just know that it's literally just a direct proof.
 
-> __Example 3__: What is the contrapositive of the statement "If it rains, I will cancel my plans"?
+> **Example 3**: What is the contrapositive of the statement "If it rains, I will cancel my plans"?
+{{% callout info %}}
 <details>
   <summary>Answer</summary>
     Reading our statement, we can see that $P=$"it is raining" and $Q=$"I cancel my plans" which makes $P\rightarrow Q$ our original statement. To turn this into the contrapositive we flip the order and invert the statements. This gives us "If I don't cancel my plans, then it is not raining".
 </details>
+{{% /callout %}}
 
 {{% callout warning %}}
-Be careful when changing around your statements for proofs, $\bar{P}\rightarrow\bar{Q}$ is __not__ equivalent to the contrapositive!
+Be careful when changing around your statements for proofs, $\bar{P}\rightarrow\bar{Q}$ is **not** equivalent to the contrapositive!
 {{% /callout %}}
 
 ---
 
 ### What the heck is Q.E.D.?
 
-Q.E.D. is an abbreviation of the latin phrase *quod erat demonstrandum* which translates to "what was to be shown". Back in ye-onder days Greek mathematicians would end all their proofs with the phrase as a sort of mathematical mic drop. People eventually shorted it to __Q.E.D.__ and have been using it to mention that the proof is complete since.
+Q.E.D. is an abbreviation of the latin phrase *quod erat demonstrandum* which translates to "what was to be shown". Back in ye-onder days Greek mathematicians would end all their proofs with the phrase as a sort of mathematical mic drop. People eventually shorted it to **Q.E.D.** and have been using it to mention that the proof is complete since.
 
 More modern notation[^qed_meme] has people mostly using a box, either $\square$ or $\blacksquare$ because its easier to write on a board, but you can use any symbol you want. I'm actually quite partial to seeing students complete their proofs with funny stupid little images.
 
@@ -114,4 +118,4 @@ More modern notation[^qed_meme] has people mostly using a box, either $\square$ 
 
 [^haters_meme]: Feel free to send memes to add to the pages. If its not funny I'll publicly shame you
 
-[^qed_meme]: __Q.E.D.__ is actually infinitely meme-able as it is a phenomenal way to stunt on someone you're fighting with
+[^qed_meme]: **Q.E.D.** is actually infinitely meme-able as it is a phenomenal way to stunt on someone you're fighting with

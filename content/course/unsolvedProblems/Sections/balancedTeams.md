@@ -45,12 +45,22 @@ as one team will have $5$ values of $1$ summing to $5$, but the other team will 
 
 Mathematicians tend to rather pressed about math problems that are not super well defined, so I will do that here. Let $P$ be a list of integers with $0 < P_j \leq M$. We define a "team" to be a set of indices of $P$ called $T$. We define the general balanced team problem to be
 
-> **General Balanced Team Problem**: What is the smallest value $n$ such that given any list $P$ of size $n$ where each $0 < P_j \leq M$, we can find two sets of indices $T_1, T_2$ such that $T_1\cap T_2=\null$ and
+> **General Balanced Team Problem**: What is the smallest value $n$ such that given any list $P$ of size $n$ where each $0 < P_j \leq M$, we can find two sets of indices $T_1, T_2$ such that $T_1\cap T_2=\varnothing$ and
 $$
 \sum_{i\in T_1} P_i = \sum_{i\in T_2} P_i
 $$
 
-### General Results
+---
+
+### Current Status to Work On
+
+> **Question**: Is the solution for the League of Legends Problem $B(100,5)=18$?
+
+> **Question**: It is shown that for $K=2$ the problem can be reduced down to finding the size of the Sidon Sequence[^2] less than $M$. Is there a closed expression or computationally efficient way to calculate these?
+
+---
+
+## General Results
 
 > **Lemma 1**: Given $M,K$, $B(M,K) \leq M\cdot (2k-1) +1$
 {{% callout info %}}
@@ -90,7 +100,7 @@ By a cute little corollary we can see that
 
 which we get by just using the same argument we had before.
 
-Computationally on MathOverflow, it was shown that for the League Problem $n > 17$ and the user who discovered that actually conjectured that $n=18$.
+Computationally on MathOverflow, it was shown that for the League Problem $n > 17$ and the user who discovered that actually conjectured that $n=18$. On the same post[^1] it was shown that $n <35$ as well.
 
 ---
 
@@ -142,4 +152,8 @@ Oh shit I think I figured it out. Let $U$ be the largest list where all the numb
 
 > **Definition**: Let $S(i)=n$ be the largest amount of items such that there exists an $S$ with $1\leq x_1 < x_2 < \ldots < x_n \leq i$ with $x_j\in S$, such that no pairs of items $x,y\in S$ share a sum with any other pair of items.
 
-Then we have the solution to $B(M,K)=S(M)+3$, and the maximal list that has no balanced teams is $S(M)+2$
+Then we have the solution to $B(M,K)=S(M)+3$, and the maximal list that has no balanced teams is $S(M)+2$. This problem turns out to be called Sidon Sequences[^2]
+
+[^1]: [Link](https://mathoverflow.net/questions/448083/how-many-players-are-needed-so-that-two-evenly-matched-teams-can-be-picked) to post with proofs
+
+[^2]: [Sidon Sequences](https://en.wikipedia.org/wiki/Sidon_sequence)

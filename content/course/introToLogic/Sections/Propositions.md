@@ -18,9 +18,9 @@ weight: 105
 
 Since logic is all about the study of true and false, we need some sort of basic type of
 object that will represent and store these true and false values. The most basic of this
-is called a __proposition.__
+is called a **proposition.**
 
-> __Definition__: A *proposition* $P$ is an object that has an objectively true or false value
+> **Definition**: A *proposition* $P$ is an object that has an objectively true or false value
 
 The important part of this definition is the idea that the proposition must have an objectively true
 or false value. This means that it cannot be open to interpretation based on who is being asked the
@@ -42,7 +42,7 @@ it is a scientist using experiments to justify conjectures, engineers trying to 
 its a good idea to perform yearly inspections, or you trying to lie to your mom that you didn't get a tattoo[^1].
 Compared to our previous math example, these examples are based on the idea of adding propositions into
 our sentences and arguments. A proposition that has a linguistic meaning because of words used inside of
-it are called __statements__; note that the proposition here is the true or false evaluation of our statement
+it are called **statements**; note that the proposition here is the true or false evaluation of our statement
 based on its meaning. This is all much more philosophical than our monke applied brains really care for,
 so for our purposes we will use these terms interchangeably (which we literally did in the first paragraph),
 but feel free to check some resources that [explain the difference](https://philosophy.stackexchange.com/a/10896)
@@ -57,26 +57,32 @@ then provide whether they are true or false
 ---
 
 >*Example 1:* Let $P=$"NJIT is a university in New Jersey". Is $P$ a proposition? If so is it true?
+{{% callout info %}}
 <details>
   <summary>Answer</summary>
   Yes, $P$ is a proposition as it has an objective truth value, of which it is true because NJIT is a school inside of NJ.
 </details>
+{{% /callout %}}
 
 ---
 
 >*Example 2:* Let $P=$"The Sun is a planet". Is $P$ a proposition? If so is it true?
+{{% callout info %}}
 <details>
   <summary>Answer</summary>
   Yes, $P$ is a proposition as it has an objective truth value, however this proposition is not true as the sun is a star, not a planet. Don't ask about pluto though 😢
 </details>
+{{% /callout %}}
 
 
 ---
 
 >*Example 3:* Let $P=$"Rain is terrible weather". Is $P$ a proposition? If so is it true?
+{{% callout info %}}
 <details>
   <summary>Answer</summary>
   No, $P$ is not a proposition because its truth might change depending on who is being asked. I personally think the rain is amazing, however there are a non-negligable amount of losers out there who dislike the rain for some reason.
 </details>
+{{% /callout %}}
 
 [^1]: Fun fact, I do have a tattoo. It was an impulse decision and I thought my parents at the time would be surprised, but they literally could not have cared less. 

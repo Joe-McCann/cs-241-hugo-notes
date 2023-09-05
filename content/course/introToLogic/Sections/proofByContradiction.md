@@ -26,7 +26,7 @@ This is the general jist of reduction to the absurd, if you start with something
 Remember! Proving something false counts as proving the statement!
 {{% /callout %}}
 
-A specific funny example that I like comes as a [clip](https://www.youtube.com/watch?v=3LAnmnS0-9g) from the 1996 Comedy Film  __Happy Gilmore__,
+A specific funny example that I like comes as a [clip](https://www.youtube.com/watch?v=3LAnmnS0-9g) from the 1996 Comedy Film  **Happy Gilmore**,
 
 > Shooter: You're in big trouble, I eat little pieces of shit like you for breakfast
 >
@@ -40,9 +40,9 @@ Gilmore points out that Shooter eating literal shit for breakfast is ridiculous 
 
 ### Proving Things, but Indirectly
 
-This absurism stuff is all well and good sure, but what if I don't want to prove some claim is false, what if I want to prove a claim is true? This is where we will use the *indirect proof* which, when used in conjunction with *reductio ad absurdum* is called the __proof by contradiction__. This is by far the most powerful tool that mathematicians have ever used; to this day things are constantly getting proved using contradiction because it is so easy to do. If you can master the Proof by Contradiction, you will be unstoppable in internet debates I guarantee 💯
+This absurism stuff is all well and good sure, but what if I don't want to prove some claim is false, what if I want to prove a claim is true? This is where we will use the *indirect proof* which, when used in conjunction with *reductio ad absurdum* is called the **proof by contradiction**. This is by far the most powerful tool that mathematicians have ever used; to this day things are constantly getting proved using contradiction because it is so easy to do. If you can master the Proof by Contradiction, you will be unstoppable in internet debates I guarantee 💯
 
-> __Definition__: A __Proof by Contradiction__ is a proof in which you start with some statement $P$ of unknown truth value and progress with $$P\rightarrow P_1\rightarrow\ldots\rightarrow P_n\rightarrow Q$$ where $Q=0$. Since a true statement can never imply a false statement, by extension $P$ must also be false.
+> **Definition**: A **Proof by Contradiction** is a proof in which you start with some statement $P$ of unknown truth value and progress with $$P\rightarrow P_1\rightarrow\ldots\rightarrow P_n\rightarrow Q$$ where $Q=0$. Since a true statement can never imply a false statement, by extension $P$ must also be false.
 
 Note that since all implications are true, no intermediate $P_i$ can be the first false one, as if $P$ was true it could never lead to any false $P_i$, as such $P$ *must* be false.
 
@@ -50,12 +50,14 @@ Now what do we do if we want to prove $P$ true by using a proof by contradiction
 
 Now lets work through the easiest math example such that you can see a proof by contradiction in action.
 
-> __Theorem__ <a name="no_largest_number_theorem">No Largest Number</a>: Let $n$ be an integer, there is no largest $n$ such that for all other integers $m$, $n>m$
+> **Theorem** <a name="no_largest_number_theorem">No Largest Number</a>: Let $n$ be an integer, there is no largest $n$ such that for all other integers $m$, $n>m$
+{{% callout info %}}
 <details>
   <summary>Proof</summary>
   Proof: Let us assume that the negation of $P$ is true, and there is in fact a largest integer we will call $n$. We now will consider the integer $n+1$. Since $n$ is the largest number, we know that $n+1 < n$. We can subtract $n$ from both sides to get that $1 < 0$. This is clearly false which has led us to a contradiction, and as such our initial statement that there is a largest number $n$ is false.
   </br>
   <b>Q.E.D.</b>
 </details>
+{{% /callout %}}
 
 [^girlfriend_fights]: I promise this isn't coming from experience 💀

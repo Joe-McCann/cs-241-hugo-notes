@@ -32,7 +32,7 @@ Of course the best, and most unhelpful, advice on getting better at proofs is to
 
 Here is a good step by step proof-writing process that I like to follow whenever I tackle a new problem. Feel free to adjust this process to however you feel best fits you and your style of thinking though. Suppose we wanted to prove the following theorem
 
-> __Theorem__: Let $n>2$, if $n$ is prime then $n$ is odd.[^3]
+> **Theorem**: Let $n>2$, if $n$ is prime then $n$ is odd.[^3]
 
 We haven't gotten into a discussion of primes, even, odd, but I hope that these are enough of grade school topics that I can discuss them at a surface level at least to show how we'd solve the problem.
 
@@ -46,7 +46,7 @@ Like all problem solving processes, the first step should always be one of gathe
 
 #### Step 2: Try Some Examples
 
-Now that you understand the problem, its good to try some examples to prove to yourself that the statement you are proving is in fact true (or false). __Remember that doing out examples is not enough to prove the statement__[^2], however they are goo ways to get grips on problems and get a good understanding of what may be going on. For our problem we might observe some primes $>2$ and see we have
+Now that you understand the problem, its good to try some examples to prove to yourself that the statement you are proving is in fact true (or false). **Remember that doing out examples is not enough to prove the statement**[^2], however they are goo ways to get grips on problems and get a good understanding of what may be going on. For our problem we might observe some primes $>2$ and see we have
 $$3,5,7,11,13,17,19,23,\ldots$$
 that these are all odd. From here we would think *"ok I can see this true, now whats the underlying mechanism"*
 
@@ -72,7 +72,7 @@ Obviously, if you find yourself stuck and hitting a wall, it might be time to go
 
 I've been stringing you along for long enough to finally say exactly how we can use this in an everyday career. The proof solving technique that I described above is literally the general problem solving technique, and in CS its how you tackle algorithm design challenges!
 
-If you'd like something that's a little more tangible, __solving proofs is done the same way as solving coding interview problems__. Proofs are literally problem solving boiled down to the most basic essence, there is no external overhead or frills, rather you just take true things and manipulate them to make more true things[^4]. This is why I like to say to my students that if you get good at proofs, you will get good at solving coding challenge problems.
+If you'd like something that's a little more tangible, **solving proofs is done the same way as solving coding interview problems**. Proofs are literally problem solving boiled down to the most basic essence, there is no external overhead or frills, rather you just take true things and manipulate them to make more true things[^4]. This is why I like to say to my students that if you get good at proofs, you will get good at solving coding challenge problems.
 
 ---
 
@@ -80,7 +80,7 @@ If you'd like something that's a little more tangible, __solving proofs is done 
 
 Now sure I can just make up an excuse for you to care about my class, but lets actually run through a interview problem and see how we can go about it using the problem solving technique.
 
-> __Example__ Missing Number Problem: Write a function that takes in an unsorted list of $n-1$ unique numbers where every number $x$ in the list is $1\leq x\leq n$, and returns the number in the range $1$ to $n$ that is missing from the list.
+> **Example** Missing Number Problem: Write a function that takes in an unsorted list of $n-1$ unique numbers where every number $x$ in the list is $1\leq x\leq n$, and returns the number in the range $1$ to $n$ that is missing from the list.
 
 First thing we need to do when seeing this problem is to observe all information we are provided. First, we can see that our list contains only *unique* numbers, so we will only have $1$ missing number. We do not need to worry about duplicates. Next, we see that our list is *unsorted*, which means that we cannot use fast searching algorithms.
 

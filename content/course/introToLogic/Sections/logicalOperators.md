@@ -53,16 +53,20 @@ P & \bar{P} \\ \hline
 {{< /math >}}
 
 >*Example 1:* Let $P=$"NJIT is a university in New Jersey". Negate $P$
+{{% callout info %}}
 <details>
   <summary>Answer</summary>
   The negation in "NJIT is not a university in New Jersey", which has the opposite truth value of the original, as the negation is false.
 </details>
+{{% /callout %}}
 
 >*Example 2:* Given $P=1$, what is $\bar{\bar{P}}$??
+{{% callout info %}}
 <details>
   <summary>Answer</summary>
   First we get the $\bar{P}$, which is $0$ since $P=1$. We then negate that which brings us back to the solution, which is $\bar{\bar{P}}=1$
 </details>
+{{% /callout %}}
 
 ---
 
@@ -94,10 +98,12 @@ P & Q & P\cdot Q \\ \hline
 {{< /math >}}
 
 >*Example 3:* Let $P=$"CS 241 is a CS class" and $Q=$"NJIT is a NY college". Is $P\cdot Q$ true?
+{{% callout info %}}
 <details>
   <summary>Answer</summary>
   No, it is not true because while $P$ is true, $Q$ is not
 </details>
+{{% /callout %}}
 
 ---
 
@@ -131,10 +137,12 @@ P & Q & P+Q \\ \hline
 {{< /math >}}
 
 >*Example 4:* Let $P=$"CS 241 is a CS class" and $Q=$"NJIT is a NY college". Is $P+Q$ true?
+{{% callout info %}}
 <details>
   <summary>Answer</summary>
     Yes, because even though NJIT is an NJ college, CS 241 is in fact a CS course. 
 </details>
+{{% /callout %}}
 
 ---
 
@@ -166,10 +174,12 @@ I have a friend Lake who was teased for flaking always at plans[^3] to the point
 Practically, implications are useful because they form the basis of proofs, for reasons we will later get to. However it's also important to realize that this is just an operator that we defined via a truth table, so we need to be careful to assign meaning to it when sometimes the statement can be nonsense: for example
 
 >*Example 5:* Let $P=$"CS 241 is a CS class" and $Q=$"NJIT is a NJ college". Is $P\rightarrow Q$ true?
+{{% callout info %}}
 <details>
   <summary>Answer</summary>
     Yes it is true. Even though it doesn't really make sense from a linguistic perspective, both $P,Q$ are true which means the implication is true as well.
 </details>
+{{% /callout %}}
 
 ---
 
