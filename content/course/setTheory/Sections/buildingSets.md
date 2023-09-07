@@ -18,11 +18,11 @@ weight: 210
 
 Look at an example of a set
 
->__Example__: Let $\mathbb{D}$ be the set of all NJIT dorm buildings.
+>**Example**: Let $\mathbb{D}$ be the set of all NJIT dorm buildings.
 
-This is way better than writing out every individual building, but its still pretty verbose. What we want (because we are lazy mathematicians) is to be able to make things even more concise, *especially* when dealing with mathematical things. This is where we need __set builder notation__.
+This is way better than writing out every individual building, but its still pretty verbose. What we want (because we are lazy mathematicians) is to be able to make things even more concise, *especially* when dealing with mathematical things. This is where we need **set builder notation**.
 
->__Definition__: __Set Builder Notation__ is a way of writing out sets in a way that generates the set based on some conditions. Written as $$A=\\{f(x)|P(x)\\}$$ where $A$ is the set, $f(x)$ is the item inserted into the set as a function of $x$, and $P(x)$ is a condition to insert $f(x)$.
+>**Definition**: **Set Builder Notation** is a way of writing out sets in a way that generates the set based on some conditions. Written as $$A=\\{f(x)|P(x)\\}$$ where $A$ is the set, $f(x)$ is the item inserted into the set as a function of $x$, and $P(x)$ is a condition to insert $f(x)$.
 
 Note that in set builder notation $|$ means "such that", although its often replaced with by $:$ to avoid confusing notation. 
 
@@ -75,7 +75,7 @@ A = \\{E | E=\\{x\\} \text{where x is even}\\}
 $$
 which will create us a set that contains smaller sets that contain only one number that is even. There is even a special term[^1] for sets that contain other sets!
 
->__Definition__: A set whos elements are also sets is a __collection__.
+>**Definition**: A set whos elements are also sets is a **collection**.
 
 Note that all collections are sets, but not all sets are collections.
 
@@ -97,10 +97,10 @@ however literally any of our previous examples from other sections also would wo
 $$
 D = \\{A | A\not\in A\\} = \\{\mathbb{N},\mathbb{Z},\phi,\ldots\\}.
 $$
-Alright thats fine, but wait, $D$ is a set, so does $D$ contain itself or not? Well say that $D$ __does__ contain itself, then $D\in D$, but $D$ is all the sets that __do not__ contain themselves which would mean $D\not\in D$.
+Alright thats fine, but wait, $D$ is a set, so does $D$ contain itself or not? Well say that $D$ **does** contain itself, then $D\in D$, but $D$ is all the sets that **do not** contain themselves which would mean $D\not\in D$.
 
-Wait ok so that clearly doesn't work, what about if $D$ __does not__ contain itself? In that case then $D\not\in D$ but then that means $D$ should be in $D$! So this doesn't work either, as not matter what happens we reach a contradiction. This means that under this set of axioms we cannot build this set, and as such this axiom is __not true__.
+Wait ok so that clearly doesn't work, what about if $D$ **does not** contain itself? In that case then $D\not\in D$ but then that means $D$ should be in $D$! So this doesn't work either, as not matter what happens we reach a contradiction. This means that under this set of axioms we cannot build this set, and as such this axiom is **not true**.
 
-This is known as __Russell's Paradox__ in honor of the guy who figured it out and literally rendered two volumes of work by Frege worthless 😬
+This is known as **Russell's Paradox** in honor of the guy who figured it out and literally rendered two volumes of work by Frege worthless 😬. Modern set theory avoids this by not allowing sets to contain themselves just saying.
 
 [^1]: This term is not frequently used

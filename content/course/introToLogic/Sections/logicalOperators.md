@@ -39,7 +39,7 @@ $$
 Personally, I prefer the notation $\bar{P}$, which is what we will be using in this website.
 However, a true first-order logic class would use $\lnot P$.
 
->__Definition__: The __negation__ of a proposition $P$, notated as $\bar{P}$, is the opposite truth value of $P$. $\bar{P}$ is sometimes called the compliment of $P$.
+>**Definition**: The **negation** of a proposition $P$, notated as $\bar{P}$, is the opposite truth value of $P$. $\bar{P}$ is sometimes called the compliment of $P$.
 
 Finally, we can write out what is called a *truth table* for our expression. This is just the
 act of listing out all possible inputs with their associated outputs[^1].
@@ -74,8 +74,8 @@ P & \bar{P} \\ \hline
 
 In our previous operation of $NOT$, we saw that there was one input (which is called a unary operation), and now we will explore
 our first operation that takes in two inputs: $AND$. Just as before, we can first consider what this does when we speak in English.
-If I was to tell you that I have a cat __and__ I have a dog, you could infer that individually the statements "I have a cat" and "I have a dog"
-are both true. In essence that is what $AND$ does, it takes in two truth values, and evaluates to true __if and only if__ both inputs
+If I was to tell you that I have a cat **and** I have a dog, you could infer that individually the statements "I have a cat" and "I have a dog"
+are both true. In essence that is what $AND$ does, it takes in two truth values, and evaluates to true **if and only if** both inputs
 are true. If $P,Q$ are propositions, notationally we can see a few ways of writing this
 $$
     P\cdot Q, P\land Q, PQ, P and Q
@@ -83,7 +83,7 @@ $$
 For me I will be sticking with the $P\cdot Q$ as it has a nice bit of analog to multiplication, which makes remembering it easier. However
 the logical notation is $P\land Q$.
 
-> __Definition__: The $AND$ operation takes in two truth values $P,Q$ and returns true if both $P,Q$ are true, and false in all other cases
+> **Definition**: The $AND$ operation takes in two truth values $P,Q$ and returns true if both $P,Q$ are true, and false in all other cases
 
 The truth table for $AND$ looks as follows, note that now we have two inputs so there are four possible input cases
 
@@ -122,7 +122,7 @@ $$
 $$
 and I will use $P+Q$ for this class, again to make things simpler.
 
-> __Definition__: The $OR$ operation takes in two truth values $P,Q$ and returns true at least one of $P,Q$ is true.
+> **Definition**: The $OR$ operation takes in two truth values $P,Q$ and returns true at least one of $P,Q$ is true.
 
 The truth table is given as
 
@@ -163,13 +163,13 @@ P & Q & P\rightarrow Q \\ \hline
 \end{array}$$
 {{< /math >}}
 
-By "If $P$, then $Q$" is true, you might assume this means "If $P$ (is true), then $Q$ (is true)", but thats not really the case. In fact, we really only say that this implication is False if the implication leads to a __contradiction__, which is when a true statement leads to a false statement. A good way to think of this is that we will say $P\rightarrow Q = 0$ if the sentence makes someone a "liar". Heres an example to explain whats going on
+By "If $P$, then $Q$" is true, you might assume this means "If $P$ (is true), then $Q$ (is true)", but thats not really the case. In fact, we really only say that this implication is False if the implication leads to a **contradiction**, which is when a true statement leads to a false statement. A good way to think of this is that we will say $P\rightarrow Q = 0$ if the sentence makes someone a "liar". Heres an example to explain whats going on
 
 I have a friend Lake who was teased for flaking always at plans[^3] to the point she was called Flakey Lake. Suppose we make plans to go to a park and she tells us *"If it's not raining, then I won't flake"* where in this case $P=$"It was not raining" and $Q=$"I didn't flake", with $P,Q$ being past tense so we can say this is some next morning flame session or something. Now consider the following cases and remember that $P\rightarrow Q=0$ if Lake is a liar.
 
-1. If $P$ is true and $Q$ is true, then Lake __is not__ a liar because it means that it did not rain and she didn't flake, keeping to her word.
-2. If $P$ is true and $Q$ is false, then Lake __is__ a liar because even though it didn't rain she still flaked.
-3. If $P$ is false, then regardless of the value of $Q$ Lake is not a liar because he statement __only applied to when it wasn't raining__, she did not say what would happen if it was!
+1. If $P$ is true and $Q$ is true, then Lake **is not** a liar because it means that it did not rain and she didn't flake, keeping to her word.
+2. If $P$ is true and $Q$ is false, then Lake **is** a liar because even though it didn't rain she still flaked.
+3. If $P$ is false, then regardless of the value of $Q$ Lake is not a liar because he statement **only applied to when it wasn't raining**, she did not say what would happen if it was!
 
 Practically, implications are useful because they form the basis of proofs, for reasons we will later get to. However it's also important to realize that this is just an operator that we defined via a truth table, so we need to be careful to assign meaning to it when sometimes the statement can be nonsense: for example
 
@@ -192,9 +192,9 @@ $$
 
 is defined in terms of other operators. I usually use iff when I'm writing because its so freaking cool holy crap.
 
-> __Definition__: The __if and only if__ operation is defined as $P\iff Q := (P\rightarrow Q)\cdot (Q\rightarrow P)$[^4]
+> **Definition**: The **if and only if** operation is defined as $P\iff Q := (P\rightarrow Q)\cdot (Q\rightarrow P)$[^4]
 
-We say this is a bidirectional implication because both $P,Q$ imply each other. When we get to proving claims if you see the statement iff then you know that you actually have to prove __both__ directions of the implication.
+We say this is a bidirectional implication because both $P,Q$ imply each other. When we get to proving claims if you see the statement iff then you know that you actually have to prove **both** directions of the implication.
 
 *Note: hopefully this section makes sense I'm hella tired right now and am probably speaking nonsense* 😬
 
