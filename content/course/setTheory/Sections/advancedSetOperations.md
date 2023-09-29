@@ -86,7 +86,7 @@ There are theoretical ways to represent tuples as sets (so everything eventually
 
 Now that we have tuples, we want ways to generate lots of them. For example, say I want to create a set of all ordered pairs of integers, as a way of writing down a nice integer grid. I could in theory start by just writing out examples, or set builder notation, but this idea actually appears frequently enough where it's useful to give it some notation!
 
-> **Definition**: Let $A,B$ be sets. The **Cartesian Product**, notated as $A\times B$ is given as the set of all ordered pairs who's first item is an element of $A$, and who's second is an element of $B$. In set builder notation $$A\times B=\\{(a,b)|a\in A, b\in B\\}.
+> **Definition**: Let $A,B$ be sets. The **Cartesian Product**, notated as $A\times B$ is given as the set of all ordered pairs who's first item is an element of $A$, and who's second is an element of $B$. In set builder notation $$A\times B=\\{(a,b)|a\in A, b\in B\\}.$$
 
 So if we wanted to get that set of all ordered pairs of integers, we would just do
 $$

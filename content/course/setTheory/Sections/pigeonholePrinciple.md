@@ -88,3 +88,9 @@ Maybe that one was easy too for you, but how about I leave this one for you that
 And then if you think that one is easy, try this cool little theorem
 
 > **Theorem**:  Let $A$ be a finite set and $f:A\rightarrow A$. Define the sequence $$x_0, x_1, x_2, x_3\ldots $$ to be $$ x_0\in A, x_{n+1} = f(x_n).$$ There exists a value of $N$ such that if $n>N$ then $x_n$ is guaranteed to be inside of an infinitely repeating cycle of the sequence. 
+
+---
+
+## Practice Problems
+
+> **No Compression Theorem**: Any compression algorithm that shortens at least one file, must also make at least one file bigger.
