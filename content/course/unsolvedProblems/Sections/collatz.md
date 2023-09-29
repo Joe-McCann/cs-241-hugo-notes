@@ -1,6 +1,6 @@
 ---
-title: Collatz Conjecture
-linktitle: Collatz Conjecture
+title: Collatz Conjecture 💀
+linktitle: Collatz Conjecture ☠️
 toc: true
 type: book
 date: 2023-09-27

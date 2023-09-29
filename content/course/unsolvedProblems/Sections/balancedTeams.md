@@ -1,6 +1,6 @@
 ---
-title: Balanced Teams - The League of Legends Problem
-linktitle: Balanced Teams
+title: Balanced Teams - The League of Legends Problem ⚖️
+linktitle: Balanced Teams ⚖️
 toc: true
 type: book
 date: 2023-01-16

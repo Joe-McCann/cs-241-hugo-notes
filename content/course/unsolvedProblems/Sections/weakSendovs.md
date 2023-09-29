@@ -1,6 +1,6 @@
 ---
-title: Weak Sendov Conjecture
-linktitle: Weak Sendov Conjecture
+title: Weak Sendov Conjecture 0️⃣
+linktitle: Weak Sendov Conjecture 0️⃣
 toc: true
 type: book
 date: 2023-01-16

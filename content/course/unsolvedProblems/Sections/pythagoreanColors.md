@@ -1,6 +1,6 @@
 ---
-title: Coloring Pythagorean Triples
-linktitle: Coloring Pythagorean Triples
+title: Coloring Pythagorean Triples 🟥🟦
+linktitle: Coloring Pythagorean Triples 🟥🟦
 toc: true
 type: book
 date: 2023-01-16

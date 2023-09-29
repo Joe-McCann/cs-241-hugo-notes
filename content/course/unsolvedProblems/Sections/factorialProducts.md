@@ -1,6 +1,6 @@
 ---
-title: Factorial Products
-linktitle: Factorial Products
+title: Factorial Products ❗
+linktitle: Factorial Products ❗
 toc: true
 type: book
 date: 2023-01-16
