@@ -19,4 +19,4 @@ This problem is one that I have tinkered around with a lot, and work that I am a
 
 Before we can actually formulate Robin's Inequality, we need to define ourselves a function $\sigma$ where $\sigma(n)$ is the *sum of divisors function*.
 
-> **Definition**: Let $\sigma(n):\mathbb{Z}_+\rightarrow\mathbb{Z}_+$ be the sum of all positive integers $k < n$ such that $n$ is divisible by $k$
+> **Definition**: Let $\sigma(n):\mathbb{N}\rightarrow\mathbb{N}$ be the sum of all positive integers $k < n$ such that $n$ is divisible by $k$
