@@ -151,7 +151,11 @@ $$
 $$
 which I will spare us the details of, but the solution is of the minimal $k$
 $$
-$k_{\text{min}} = -\frac{1}{\log(2)}\left(\alpha_n + W_{-1}\left(-\frac{1}{q_ne^{\alpha_n}}\right)\right)
+k_{\text{min}} = -\frac{1}{\log(2)}\left(\alpha_n + W_{-1}\left(-\frac{1}{q_ne^{\alpha_n}}\right)\right)
+$$
+which is "simplified" to
+$$
+k_{\text{min}} = -\frac{1}{\log(2)}\left(\sum_{j=1}^mk_j\log(p_j) + W_{-1}\left(-e^\gamma\prod_{j=1}^m\frac{p_j-1}{p_j^{k_j+1}-1}\right)\right)
 $$
 
 [^1]: Lagarias, J. C. (2002). An elementary problem equivalent to the Riemann hypothesis. The American Mathematical Monthly, 109(6), 534-543.
