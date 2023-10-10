@@ -68,7 +68,7 @@ This might seem like its making it more difficult, but its actually making it so
 
 ---
 
-## Other People's Progress
+## Current Progress
 
 I am (obviously) not the first person to be looking into the mechanics of this inequality, and some types of numbers have already been proven to be true. From prior research[^1], we know these lemma's are true assuming $n > 5040$
 
@@ -84,7 +84,11 @@ I am (obviously) not the first person to be looking into the mechanics of this i
 
 > **Odd Lemma**: If $n$ is odd then Robin's Inequaility is true for $n$.
 
-There are also now insane bounds on how large a counter example must be, which I won't write out here. 
+There are also now insane bounds on how large a counter example must be, which I won't write out here. The following lemmas are things that I have shown and talk about on this page
+
+> **Large Prime Lemma**: Let $n=p_1^{k_1}p_2^{k_2}\ldots p_m^{k_m}$ be a number that satisfies Robin's Inequality, then if $N=P_1^{k_1}P_2^{k_2}\ldots P_m^{k_m}$ with every $p_j\leq P_j$, then $N$ also satisfies Robin's inequality.
+
+> **Sufficiently Large Powers Lemma**: Let $n=p_1^{k_1}p_2^{k_2}\ldots p_m^{k_m}$ be an odd number, then there exists a $K_n$ such that for all $k > K_n$, then $2^kn$ satisfies Robin's Inequality.
 
 ---
 
@@ -116,7 +120,10 @@ $$
 $$
 but $\log\left(k\log(2)\right)$ is unbounded.
 
-### Worst Case Values
+---
+
+### Notation
+
 
 Before we get into something that I haven't seen in another paper 🤞 I will introduce some new notation. This is usually a terrible idea but the expressions in this page are so long you'll thank me. Lets define for some $n=p_1^{k_1}p_2^{k_2}\ldots p_m^{k_m}$
 $$
@@ -135,6 +142,53 @@ $$
 \delta_n = \log(\alpha_n) - q_n
 $$
 which means that Robin's Inequality is to show that for all $n>5040$ that $\delta_n > 0$.
+
+---
+
+### Prime Spoofing
+
+Interesting thing that I was thinking of regarding the *Sum of Squares Lemma* that I call "prime spoofing". The thought process is that we can know that increasing powers of $2$ can be "safe" and since powers of $2$ actually increase $q$ more than other prime powers, and increases $\alpha$ slower than other prime powers, we can use this to help us. Lets actually write some of this out.
+
+Suppose we know that $$n=2^{k_1}3^{k_2}\ldots p_j^{k_j}\ldots p_m^{k_m}$$ is a value $n$ for which Robin's inequality holds. Specifically assume that the *Sum of Squares Lemma* holds so all primes congruent to $3$ $\mod 4$ have even powers. Since $2$ is congruent to $2\mod 4$, we know that if we increase powers of $2$, then Robin's inequality will still hold by this Lemma.
+
+Now consider that we want to raise the power of $p_j$ by $1$, where $p_j$ is congruent to $3\mod 4$. So our new number will be $$n=2^{k_1}3^{k_2}\ldots p_j^{k_j+1}\ldots p_m^{k_m}$$ where $k_j\geq 0$.
+
+The idea is to raise powers of $2$ of our original number, until that version that is true provides a bound on the equation. In essense we are asking to find a value $x$ such that 
+$$
+\log(x\log(2)+\alpha_n) \leq \log(\log(p_j)+\alpha_n)
+$$
+and
+$$
+\frac{2^{k_1+1}-1}{2^{k_1}}\cdot\frac{p_j^{k_j+2}-1}{p_j^{k_j+1}(p_j-1)} \leq \frac{2^{k_1+x+1}-1}{2^{k_1+x}}\cdot\frac{p_j^{k_j+1}-1}{p_j^{k_j}(p_j-1)}.
+$$
+Note that since all other parts are constant, we can cancel out the additional parts of the $q_n$. This shouldn't seem too out of the question, as $\frac{2^{k_1+1}-1}{2^{k_1}}$ is actually a dominating term and for very large prime numbers, $\frac{p_j^{k_j+1}-1}{p_j^{k_j}(p_j-1)}$ will be very close to $1$.
+
+Lets just grind through the calculations. From our first equation, we can see that we have
+$$
+\begin{align}
+\log(x\log(2)+\alpha_n) &\leq \log(\log(p_j)+\alpha_n) \\\\
+x\log(2)+\alpha_n &\leq \log(p_j)+\alpha_n \\\\
+x\log(2) &\leq \log(p_j) \\\\
+2^x &\leq p_j
+\end{align}
+$$
+so long as this inequality is satisfied then if the $2$ spoofed version of the inequality holds, then the true one should too. Now to grind through the second inequality
+$$
+\begin{align}
+\frac{2^{k_1+1}-1}{2^{k_1}}\cdot\frac{p_j^{k_j+2}-1}{p_j^{k_j+1}(p_j-1)} &\leq \frac{2^{k_1+x+1}-1}{2^{k_1+x}}\cdot\frac{p_j^{k_j+1}-1}{p_j^{k_j}(p_j-1)} \\\\
+\frac{p_j^{k_j+2}-1}{p_j(p_j^{k_j+1}-1)} &\leq \frac{2^{k_1+x+1}-1}{2^x(2^{k_1+1}-1)}
+\end{align}
+$$
+which simplifies to
+$$
+-\log_2\left(2^{k_1+1}-(2^{k_1+1}-1)\cdot \frac{p_j^{k_j+2}-1}{p_j(p_j^{k_j+1}-1)}\right) \leq x.
+$$
+
+With this we can actually prove some interesting stuff.
+
+---
+
+### Worst Case Values
 
 Suppose now that we have some value $n$ which is odd. We know by the **Odd Lemma** that $n$ satisfies, so $\delta_n > 0$. Let us now consider the new number $2^k\cdot n$ for variable values of $k\geq 1$. In order to find potential counter-examples, we want to find the value of $k$ that gives us the smallest $\delta$, so we will let
 $$

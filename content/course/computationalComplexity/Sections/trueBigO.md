@@ -112,7 +112,56 @@ So, same definition as before, just using the true versions instead.
 
 ## How the True Version Relates to our Version
 
-*do this later pleaseeeee*
+It turns out that we can relate our true and practical versions of notation through some theorems, so you can tailor how you are talking to different people, and actually understand how they are related to each other.
+
+### Relating the Practical to the Mathematical
+
+> **Theorem**: Let $T(n)$ be an operations function with worst case $W(n)$ and best case $B(n)$. Then
+> 1. If $T(n)\in\mathcal{O}(g(n))$ then $T(n)\in\mathcal{O}^T(g(n))$
+> 2. If $T(n)\in\Omega(g(n))$ then $T(n)\in\Omega^T(g(n))$
+> 3. If $T(n)\in\Theta(g(n))$ then $T(n)\in\Theta^T(g(n))$
+
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+Let us first prove claim $1$. For this we will be using the technical definition of a limit from analysis (so you may not know this if you haven't taken that course). Since we know $T(n)\in\mathcal{O}(g(n))$, we know that
+$$
+\lim_{n\rightarrow\infty}\frac{W(n)}{g(n)}=L
+$$
+where $0< L < \infty$. In the technical definition we can say that for every value of $\varepsilon > 0$, we can find an $N$ such that if $n > N$ then
+$$
+\lvert\frac{W(n)}{g(n)}-L\rvert < \varepsilon.
+$$
+We only need for our purposes that
+$$
+\frac{W(n)}{g(n)} < \varepsilon + L \implies W(n) < (\varepsilon+L)g(n).
+$$
+Now if we choose some particular value of $\varepsilon$ and get the assosiated $N$, since $T(n)\leq W(n)$ we know that if $M=(\varepsilon+L)$ and $n>N$ that
+$$
+T(n) < Mg(n) \implies T(n)\in\mathcal{O}^T(g(n)).
+$$
+</br>
+For claim $2$ assume that $T(n)\in\Omega(g(n))$, then we can say that for every $\varepsilon$ there is a value of $N$ such that if $n>N$ then
+$$
+\lvert\frac{B(n)}{g(n)}-L\rvert < \varepsilon
+$$
+with $L$ being the limit. We can then say that
+$$
+L-\varepsilon < \frac{B(n)}{g(n)}
+$$
+and then perform the same steps as in case $1$ to prove our claim. This shows that $T(n)\in\Omega^T(g(n))$.
+</br>
+Claim $3$ then follows from claims $1,2$.
+</br>
+QED
+</details>
+{{% /callout %}}
+
+### Relating the Mathematical to the Practical.
+
+The forward direction that we just showed is actually quite easy because when we already know that the limit is defined, it makes things very straightforward to work with. The technical definition is much less restrictive, so we will need to be very mindful of different scenarios that we can encounter. I will prove each claim independently
+
+> **Theorem**: If $T(n)\in\mathcal{O}^T(g(n))$ then $T(n)\in\mathcal{O}(g(n))$ or $T(n)\in o(g(n))$.
 
 ## Practice Problems
 
