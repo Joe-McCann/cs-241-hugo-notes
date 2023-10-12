@@ -36,7 +36,9 @@ Now we can provide the statement of the conjecture
 $$
 \sigma(n) < e^\gamma n\log(\log(n))
 $$
-where $\gamma=.57721\ldots$ is the Euler-Mascroni constant. In this post we are just going to say "all values of" when actually talking about values of $n>5040$.
+where $\gamma=.57721\ldots$ is the Euler-Mascroni constant. 
+
+In this post we are just going to say "all values of" when actually talking about values of $n>5040$.
 
 ### Problem in Terms of Prime Products
 
@@ -89,6 +91,8 @@ There are also now insane bounds on how large a counter example must be, which I
 > **Large Prime Lemma**: Let $n=p_1^{k_1}p_2^{k_2}\ldots p_m^{k_m}$ be a number that satisfies Robin's Inequality, then if $N=P_1^{k_1}P_2^{k_2}\ldots P_m^{k_m}$ with every $p_j\leq P_j$, then $N$ also satisfies Robin's inequality.
 
 > **Sufficiently Large Powers Lemma**: Let $n=p_1^{k_1}p_2^{k_2}\ldots p_m^{k_m}$ be an odd number, then there exists a $K_n$ such that for all $k > K_n$, then $2^kn$ satisfies Robin's Inequality.
+
+> **First Step Spoof Lemma**: Let $n=2^{k_1}3^{k_2}\ldots p_j^{k_j}\ldots p_m^{k_m}$ satisfy Robin's Inequality when $k_1=1,2$. Then if $p_j\neq 3,5$ then $n=2^{k_1}3^{k_2}\ldots p_j^{k_j+y}\ldots p_m^{k_m}$ satisfies Robin's Inequality for all values of $y\geq 1$. If $p_j=3$ and $k_j\geq 1$, then Robin's Inequality is satisfied for all values of $y\geq 1$. If $p_j=5$ and Robin's Inequality is valid for $k_1=3$, then Robin's Inequality is satisfied for all values of $y\geq 1$.
 
 ---
 
@@ -151,40 +155,73 @@ Interesting thing that I was thinking of regarding the *Sum of Squares Lemma* th
 
 Suppose we know that $$n=2^{k_1}3^{k_2}\ldots p_j^{k_j}\ldots p_m^{k_m}$$ is a value $n$ for which Robin's inequality holds. Specifically assume that the *Sum of Squares Lemma* holds so all primes congruent to $3$ $\mod 4$ have even powers. Since $2$ is congruent to $2\mod 4$, we know that if we increase powers of $2$, then Robin's inequality will still hold by this Lemma.
 
-Now consider that we want to raise the power of $p_j$ by $1$, where $p_j$ is congruent to $3\mod 4$. So our new number will be $$n=2^{k_1}3^{k_2}\ldots p_j^{k_j+1}\ldots p_m^{k_m}$$ where $k_j\geq 0$.
+Now consider that we want to raise the power of $p_j$ by $y$, where $p_j$ is congruent to $3\mod 4$. So our new number will be $$n=2^{k_1}3^{k_2}\ldots p_j^{k_j+y}\ldots p_m^{k_m}$$ where $k_j\geq 0$.
 
 The idea is to raise powers of $2$ of our original number, until that version that is true provides a bound on the equation. In essense we are asking to find a value $x$ such that 
 $$
-\log(x\log(2)+\alpha_n) \leq \log(\log(p_j)+\alpha_n)
+\log(x\log(2)+\alpha_n) \leq \log(y\log(p_j)+\alpha_n)
 $$
 and
 $$
-\frac{2^{k_1+1}-1}{2^{k_1}}\cdot\frac{p_j^{k_j+2}-1}{p_j^{k_j+1}(p_j-1)} \leq \frac{2^{k_1+x+1}-1}{2^{k_1+x}}\cdot\frac{p_j^{k_j+1}-1}{p_j^{k_j}(p_j-1)}.
+\frac{2^{k_1+1}-1}{2^{k_1}}\cdot\frac{p_j^{k_j+y+1}-1}{p_j^{k_j+y}(p_j-1)} \leq \frac{2^{k_1+x+1}-1}{2^{k_1+x}}\cdot\frac{p_j^{k_j+1}-1}{p_j^{k_j}(p_j-1)}.
 $$
 Note that since all other parts are constant, we can cancel out the additional parts of the $q_n$. This shouldn't seem too out of the question, as $\frac{2^{k_1+1}-1}{2^{k_1}}$ is actually a dominating term and for very large prime numbers, $\frac{p_j^{k_j+1}-1}{p_j^{k_j}(p_j-1)}$ will be very close to $1$.
 
 Lets just grind through the calculations. From our first equation, we can see that we have
 $$
 \begin{align}
-\log(x\log(2)+\alpha_n) &\leq \log(\log(p_j)+\alpha_n) \\\\
-x\log(2)+\alpha_n &\leq \log(p_j)+\alpha_n \\\\
-x\log(2) &\leq \log(p_j) \\\\
-2^x &\leq p_j
+\log(x\log(2)+\alpha_n) &\leq \log(y\log(p_j)+\alpha_n) \\\\
+x\log(2)+\alpha_n &\leq y\log(p_j)+\alpha_n \\\\
+x\log(2) &\leq y\log(p_j) \\\\
+2^x &\leq p_j^y
 \end{align}
 $$
 so long as this inequality is satisfied then if the $2$ spoofed version of the inequality holds, then the true one should too. Now to grind through the second inequality
 $$
 \begin{align}
-\frac{2^{k_1+1}-1}{2^{k_1}}\cdot\frac{p_j^{k_j+2}-1}{p_j^{k_j+1}(p_j-1)} &\leq \frac{2^{k_1+x+1}-1}{2^{k_1+x}}\cdot\frac{p_j^{k_j+1}-1}{p_j^{k_j}(p_j-1)} \\\\
-\frac{p_j^{k_j+2}-1}{p_j(p_j^{k_j+1}-1)} &\leq \frac{2^{k_1+x+1}-1}{2^x(2^{k_1+1}-1)}
+\frac{2^{k_1+1}-1}{2^{k_1}}\cdot\frac{p_j^{k_j+y+1}-1}{p_j^{k_j+y}(p_j-1)} &\leq \frac{2^{k_1+x+1}-1}{2^{k_1+x}}\cdot\frac{p_j^{k_j+1}-1}{p_j^{k_j}(p_j-1)} \\\\
+\frac{p_j^{k_j+y+1}-1}{p_j^y(p_j^{k_j+1}-1)} &\leq \frac{2^{k_1+x+1}-1}{2^x(2^{k_1+1}-1)}
 \end{align}
 $$
 which simplifies to
 $$
--\log_2\left(2^{k_1+1}-(2^{k_1+1}-1)\cdot \frac{p_j^{k_j+2}-1}{p_j(p_j^{k_j+1}-1)}\right) \leq x.
+-\log_2\left(2^{k_1+1}-(2^{k_1+1}-1)\cdot \frac{p_j^{k_j+y+1}-1}{p_j^y(p_j^{k_j+1}-1)}\right) \leq x.
 $$
 
 With this we can actually prove some interesting stuff.
+
+> **First Step Spoof Lemma**: Let $n=2^{k_1}3^{k_2}\ldots p_j^{k_j}\ldots p_m^{k_m}$ satisfy Robin's Inequality when $k_1=1,2$. Then if $p_j\neq 3,5$ then $n=2^{k_1}3^{k_2}\ldots p_j^{k_j+y}\ldots p_m^{k_m}$ satisfies Robin's Inequality for all values of $y\geq 1$. If $p_j=3$ and $k_j\geq 1$, then Robin's Inequality is satisfied for all values of $y\geq 1$. If $p_j=5$ and Robin's Inequality is valid for $k_1=3$, then Robin's Inequality is satisfied for all values of $y\geq 1$.
+
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+Suppose that $p_j\neq 3,5$. We know that
+$$
+\frac{p_j^{k_j+y+1}-1}{p_j^y(p_j^{k_j+1}-1)} \leq \frac{p_j+1}{p_j} \leq \frac{8}{7}
+$$
+so we need
+$$
+-\log_2\left(2^{2}-(2^2-1)\frac{8}{7}\right) \approx .8 < x.
+$$
+As such since Robin's Inequality is still true when we raise two by $1 > .8$, then it must be true for all values of $y$.
+</br>
+If $p_j=5$ then $\frac{6}{5}$ makes
+$$
+-\log_2\left(2^{2}-(2^2-1)\frac{6}{5}\right) \approx 1.3 < x
+$$
+so $x=2$ is needed, and since $k_1=3$ is true, then we are true for all values of $y$.
+</br>
+Finally, if $p_j=3$ and $k_j\geq 1$ then
+$$
+\frac{p_j^{k_j+y+1}-1}{p_j^y(p_j^{k_j+1}-1)} \leq \frac{3^3-1}{3^3-3} = \frac{26}{24}
+$$
+which performing the same method will be true for all values $y$. Note that for all these cases, the inequality for $2^x\leq p_j^y$ holds trivially.
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+
 
 ---
 
