@@ -78,7 +78,7 @@ Notice that unlike the compliment, the union did not depend on our choice of uni
 
 What do you call the area that two roads connect to each other at, where often there is a traffic light? If you said an intersection, then you would be right! When it comes to sets, the intersection works the same way in that you have two sets, and you see where those two overlap. This is similar to a logical AND, but for sets.
 
-> **Definition**: The **intersection** of sets $A, B$, notated as $A\cap B$ is the set of all items in $A$ and $B$. In set builder notation $$A\cup B=\\{x|x\in A\text{ and }x\in B\\}$$
+> **Definition**: The **intersection** of sets $A, B$, notated as $A\cap B$ is the set of all items in $A$ and $B$. In set builder notation $$A\cap B=\\{x|x\in A\text{ and }x\in B\\}$$
 
 {{< figure library="true" src="setTheory/intersection.png" title="Venn Diagram Representation of $A\cap B$" lightbox="true" >}}
 

@@ -16,7 +16,7 @@ weight: 310
 
 ## You Can Go Your Own Way 🎵 🎶
 
-In this page I will explain one way of proving that two sets or set identities are equal. Obviously, there is never exclusively one way to do these things, so if you (for example) devide to learn algebraic identities for sets, then you are totally free to do so. This is just the way I learned it and I find it easy to understand.
+In this page I will explain one way of proving that two sets or set identities are equal. Obviously, there is never exclusively one way to do these things, so if you (for example) decide to learn algebraic identities for sets, then you are totally free to do so. This is just the way I learned it and I find it easy to understand.
 
 ### Worked Example
 
@@ -26,7 +26,7 @@ The purpose of this section is to walk through proving this law, and then provid
 
 In order to first show that $$\overline{(A\cup B)}\subseteq\overline{A}\cap\overline{B}$$, we want to show that if there is any item that is on the left hand side, that item must also be on the right hand side. Suppose we pick some item $x\in\overline{(A\cup B)}$.
 
-We know by the definition of compliment that this means that $x\not\in (A\cup B)$. As such, $x\not\in A$ **and** $x\not\in B,$ otherwise $x$ would be in the union. We can get from this that $x\in\overline{A}$ and $x\in\overline{B}$ which means that $$x\in\overline{A}\cap\overline{B}.$$ This proves the left side is a subset of the right side.
+We know by the definition of complement that this means that $x\not\in (A\cup B)$. As such, $x\not\in A$ **and** $x\not\in B,$ otherwise $x$ would be in the union. We can get from this that $x\in\overline{A}$ and $x\in\overline{B}$ which means that $$x\in\overline{A}\cap\overline{B}.$$ This proves the left side is a subset of the right side.
 
 Now we have to show that $$\overline{A}\cap\overline{B}\subseteq\overline{(A\cup B)}.$$
 
@@ -41,7 +41,7 @@ $$
 \end{aligned}
 $$
 
-Since the two sets are subsets of each other, then we know that the two sets must be equal, **Q.E.D.**.
+Since the two sets are subsets of each other, then we know that the two sets must be equal, **Q.E.D.**
 
 This method (while bland), is a very straightforward and easy way to show sets are equal to each other.
 
