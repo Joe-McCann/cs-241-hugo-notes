@@ -136,7 +136,7 @@ For the reverse direction that $A\subseteq B\implies A-B=\varnothing$, suppose t
 
 The symmetric difference, like the set difference, is designed in terms of other operations. Unlike set difference though it is not used super frequently, rather it is occasionally used for the theorem that we will prove at the bottom of this section. Also, the notation is baller as fuck.
 
-> **Definition**: The **symmetric difference** of sets $A, B$, notated as $A\triangle B$ is defined to be $$A\triangle B = (A-B)\cup (B-A) = (A\cup B) - (A\cap B)
+> **Definition**: The **symmetric difference** of sets $A, B$, notated as $A\triangle B$ is defined to be $A\triangle B = (A-B)\cup (B-A) = (A\cup B) - (A\cap B)$
 
 {{< figure library="true" src="setTheory/symmdiff.png" title="Venn Diagram Representation of $A\triangle B$" lightbox="true" >}}
 
