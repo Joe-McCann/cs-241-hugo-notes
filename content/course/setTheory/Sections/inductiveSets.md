@@ -26,7 +26,7 @@ We are going to go a little off the rails to describe a few sets and how we can 
 
 ### Inductive Sets
 
-Lets imagine the following game, pick some numbers to have in a set of numbers. Then add $1$ to all the numbers in the set and insert them into the set. Repeat this process infinitely. I suppose this isn't actually a game, as its
+Let's imagine the following game, pick some numbers to have in a set of numbers. Then add $1$ to all the numbers in the set and insert them into the set. Repeat this process infinitely. I suppose this isn't actually a game, as its
 
 1. Without a goal
 2. Not fun in the slightest
@@ -73,7 +73,7 @@ This example is a silly rule, but shows how you can get real creative with whate
 
 Congrats! You literally just theoretically defined a limit of sets in terms of foundational mathematics. Now we can make assertions about the limiting set of our process, which will eventually help us out.
 
-> **Theorem** <a name="standard_induction_theorem">(Standard Induction Theorem)</a>: Let $A_0={0}$ and $f(x)=x+1$, The limiting set of the inductive method defined by $A_0, f(x)$ $$\lim_{j\rightarrow\infty}A_j = \mathbb{N}
+> **Theorem** <a name="standard_induction_theorem">(Standard Induction Theorem)</a>: Let $A_0={0}$ and $f(x)=x+1$, The limiting set of the inductive method defined by $A_0, f(x)$ $$\lim_{j\rightarrow\infty}A_j = \mathbb{N}$$
 <details>
   <summary>Proof</summary>
   Proof: Let us assume for the sake of argument that
@@ -96,7 +96,7 @@ $$
 
 ### Stronger Inductive Methods
 
-Lets consider some more challenging examples of ways to generate $\mathbb{N}$. Lets go through an idea in which $A_0=\\{0,1\\}$ and $f(x)=x+2$.
+Let's consider some more challenging examples of ways to generate $\mathbb{N}$. Lets go through an idea in which $A_0=\\{0,1\\}$ and $f(x)=x+2$.
 $$
 \begin{aligned}
 A_0&=\\{0,1\\} \\\\
@@ -108,7 +108,7 @@ A_3&=\\{0,1,2,3,4,5,6,7\\} \\\\
 $$
 Notice that for every individual number we are only adding $2$, which means that we are constantly skipping numbers, but since we have our $A_0$ contain *both* $0,1$, those two initial conditions cover the entirety of $\mathbb{N}$! We can do the following
 
-> **Theorem**: Let $A_0=\\{0,1,2,3,\ldots,k-1\\}, f(x)=x+k$. $$\lim_{j\rightarrow\infty}A_j = \mathbb{N}.
+> **Theorem**: Let $A_0=\\{0,1,2,3,\ldots,k-1\\}, f(x)=x+k$. $$\lim_{j\rightarrow\infty}A_j = \mathbb{N}.$$
 <details>
   <summary>Proof</summary>
   Proof: The proof goes pretty much exactly the same as the previous one.
@@ -137,7 +137,7 @@ In case that description is confusing, what we are doing is instead of just plug
 
 ## Examples
 
-> **Theorem**: Let $A_0=\\{0\\}$ and $f(x)=\\{2x, 2x+1\\}$. $$\lim_{j\rightarrow\infty} A_j=\mathbb{N}
+> **Theorem**: Let $A_0=\\{0\\}$ and $f(x)=\\{2x, 2x+1\\}$. $$\lim_{j\rightarrow\infty} A_j=\mathbb{N}$$
 
 [^1]: Munkres, J. Topology James Munkres Second Edition.
 [^2]: Inductive Set is actually an abused term, as it appears many authors have [different uses](https://mathworld.wolfram.com/InductiveSet.html) for it, and in the modern frame of mathematics nobody really uses it at all. I am including it solely because I think it will assist with understanding induction by adding an additional step.

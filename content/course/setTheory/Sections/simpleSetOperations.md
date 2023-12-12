@@ -67,7 +67,7 @@ One way to create the set of all New York football teams would be to take the se
 > **Example**: Let $A=\\{1,2,3,4,5\\}$ and $B=\\{5,6,7\\}$, what is $A\cup B$?
 <details>
 <summary>Answer</summary>
-$A\cup B=\{1,2,3,4,5,6,7\}. As for all sets duplicates are only counted once.
+$A\cup B=\{1,2,3,4,5,6,7\}$. As for all sets duplicates are only counted once.
 </details>
 
 Notice that unlike the compliment, the union did not depend on our choice of universe. This will be the case for all future operations.

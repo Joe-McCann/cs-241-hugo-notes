@@ -26,13 +26,13 @@ Given some item $x$ inside of our set $A$, we can take all the items that are eq
 
 > **Definition**: Let $R(\approx)\subseteq A\times A$ be an equivalence relation. For any $x\in A$, define the **equivalence class** of $x$ to be the set of all $y\in A$ that are equivalent to $x$, notated as $$[x]=\\{y | x\approx y\\}$$
 
-Equivalence classes pop up *everywhere* in mathematics, and they form a central role in anything that defines its own version of equality. You wanna study number theory? Modular math is equivalence relation. Graph Theory or algorithms? Isomorphisms create equivalence classes of graphs. Linear algebra? Hope you like vector spaces. Because they are so fundemental with some very useful results, its a good idea to discuss them here.
+Equivalence classes pop up *everywhere* in mathematics, and they form a central role in anything that defines its own version of equality. You wanna study number theory? Modular math is equivalence relation. Graph Theory or algorithms? Isomorphisms create equivalence classes of graphs. Linear algebra? Hope you like vector spaces. Because they are so fundamental with some very useful results, its a good idea to discuss them here.
 
 Notice though that we chose any $x$ and then created the class $[x]$, since we are writing the class with $x$ in the brackets, we call $x$ the *representative* of the equivalence class. However, if some item $y\in [x]$ then there is no reason we couldn't have written the class as $[y]$ since all items are equivalent. Lets provide an example to show what we mean.
 
 > **Example**: Define the equivalence classes for the relation $a\equiv b\mod 2$ where $a,b\in\mathbb{N}$. Remember that $a\equiv b\mod 2$ is true when $a,b$ have the same remainder when divided by $2$.
 
-Lets start by listing out numbers and seeing what would have the same remainders. The first number of $\mathbb{N}$ is $0$, and there is no remainder when divided by $2$. So all the items equivalent to $0$ would be any other number with no remainder, which is any even number! Our first equivalence class is
+Let's start by listing out numbers and seeing what would have the same remainders. The first number of $\mathbb{N}$ is $0$, and there is no remainder when divided by $2$. So all the items equivalent to $0$ would be any other number with no remainder, which is any even number! Our first equivalence class is
 $$
 [0]=\\{0,2,4,6,8,\ldots\\}.
 $$

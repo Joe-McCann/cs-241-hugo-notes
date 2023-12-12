@@ -1,6 +1,6 @@
 ---
-title: Supplimental Material
-linktitle: Supplimental Material
+title: Supplemental Material
+linktitle: Supplemental Material
 toc: false
 type: book
 date: 2023-08-15

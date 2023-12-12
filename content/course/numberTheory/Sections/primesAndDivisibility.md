@@ -54,7 +54,7 @@ as there is seemingly no pattern at all. Many, many, mathematicians have spent m
 
 ### Properties of Divisibility
 
-Lets look at the relation[^1] $b|a$ when $a,b\in\mathbb{Z}$. We can begin with properties of relations
+Let's look at the relation[^1] $b|a$ when $a,b\in\mathbb{Z}$. We can begin with properties of relations
 
 > **Theorem**: For all $a\in\mathbb{Z}$, $a|a$. This means divisibility is reflexive.
 

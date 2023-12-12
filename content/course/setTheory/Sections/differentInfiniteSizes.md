@@ -21,7 +21,7 @@ On the previous page we showed (kinda) how the rationals $\mathbb{Q}$ was a coun
 
 ### Density
 
-Lets begin by looking at a theorem that should be fairly obvious
+Let's begin by looking at a theorem that should be fairly obvious
 
 > **Theorem**: Let $a,b\in\mathbb{Q}$ and $a\neq b$. Then there exists a $x\in\mathbb{R}$ such that $a<x<b$
 

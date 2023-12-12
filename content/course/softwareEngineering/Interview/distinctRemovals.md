@@ -22,7 +22,7 @@ This problem comes from an interview given to a student of mine (who's name I ne
 
 > **Minimum Distinct Items Problem**: Given a list of integers[^1] `arr` and an integer $M \geq 0$, provide the minimum possible amount of unique items after removing at most $M$ items from the list.
 
-Lets run through some examples
+Let's run through some examples
 
 > **Example**: `arr=[1,1,4,6,7]`, $M=2$
 

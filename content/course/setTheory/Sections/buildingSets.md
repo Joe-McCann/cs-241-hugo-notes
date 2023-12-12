@@ -75,7 +75,7 @@ A = \\{E | E=\\{x\\} \text{where x is even}\\}
 $$
 which will create us a set that contains smaller sets that contain only one number that is even. There is even a special term[^1] for sets that contain other sets!
 
->**Definition**: A set whos elements are also sets is a **collection**.
+>**Definition**: A set who's elements are also sets is a **collection**.
 
 Note that all collections are sets, but not all sets are collections.
 

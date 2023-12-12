@@ -26,7 +26,7 @@ Remember that equivalence $\mod n$ is literally an equivalence relation, that me
 
 > **Example**: Write all equivalence classes of the integers modulo $5$, which is the quotient set of the integers $\mod 5$
 
-Lets write out the quotient set starting with $[0]$ which is all the items equivilent to $0\mod n$. This is
+Let's write out the quotient set starting with $[0]$ which is all the items equivilent to $0\mod n$. This is
 $$
 [0]=\\{0, 5, -5, 10, -10, 15, \ldots\\}
 $$
@@ -132,7 +132,7 @@ $$
 
 Now I will define the term that we are using here
 
-> **Definition**: The **complete system of residues prime to $n$,** $R_n\subset \mathbb{Z}/n\mathbb{Z}$ is the set of all equivalence classes whos members are coprime to $n$. In set notation
+> **Definition**: The **complete system of residues prime to $n$,** $R_n\subset \mathbb{Z}/n\mathbb{Z}$ is the set of all equivalence classes who's members are coprime to $n$. In set notation
 $$
 R_n = \left\\{[x] | [x]\in\mathbb{Z}/n\mathbb{Z} \text{ and } \gcd(x,n)=1\right\\}.
 $$

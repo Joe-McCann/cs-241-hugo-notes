@@ -47,4 +47,4 @@ This method (while bland), is a very straightforward and easy way to show sets a
 
 ## More Examples
 
-> **Theorem**: $$\mathcal{P}(A\cap B) = \mathcal{P}(A)\cap\mathcal{P}(B)
+> **Theorem**: $$\mathcal{P}(A\cap B) = \mathcal{P}(A)\cap\mathcal{P}(B)$$

@@ -21,7 +21,7 @@ Before we can actually formulate Robin's Inequality, we need to define ourselves
 
 > **Definition**: Let $\sigma(n):\mathbb{N}\rightarrow\mathbb{N}$ be the sum of all positive integers $k \leq n$ such that $n$ is divisible by $k$
 
-Lets give some examples of values of $\sigma(n)$. For example we can have that
+Let's give some examples of values of $\sigma(n)$. For example we can have that
 $$
 \begin{align}
 \sigma(6) &= 1 + 2 + 3 + 6 = 12 \\\\
@@ -167,7 +167,7 @@ $$
 $$
 Note that since all other parts are constant, we can cancel out the additional parts of the $q_n$. This shouldn't seem too out of the question, as $\frac{2^{k_1+1}-1}{2^{k_1}}$ is actually a dominating term and for very large prime numbers, $\frac{p_j^{k_j+1}-1}{p_j^{k_j}(p_j-1)}$ will be very close to $1$.
 
-Lets just grind through the calculations. From our first equation, we can see that we have
+Let's just grind through the calculations. From our first equation, we can see that we have
 $$
 \begin{align}
 \log(x\log(2)+\alpha_n) &\leq \log(y\log(p_j)+\alpha_n) \\\\

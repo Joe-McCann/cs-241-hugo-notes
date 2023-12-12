@@ -20,7 +20,7 @@ weight: 125
 Before we get into the discussion of quantifiers, lets take a little breather to show some math notation and say what it means. The crazy thing is that mathematicians are lazy af and will take the opportunity to write things in shorthand. Here are some symbols that I use every now and then
 
 1. $\therefore$ - Therefore
-2. $P(x)$ - A statement whos truth depends on an input $x$
+2. $P(x)$ - A statement who's truth depends on an input $x$
 3. $:=$ - Defined to be
 4. $wlog$ - Without loss of generality
 5. $\because$ - Because[^because]

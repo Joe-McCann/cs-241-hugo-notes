@@ -101,7 +101,7 @@ So far these are very simple examples, but lets discuss our first control struct
 For the purposes of counting operations, we are going to use `while` loops, as they are easier in `python` to see whats going on compared to a `for` loop.
 {{% /callout %}}
 
-Lets consider a simple loop that iterates a fixed number of times.
+Let's consider a simple loop that iterates a fixed number of times.
 
 ```python
 def add_10(x):
@@ -153,7 +153,7 @@ def square(n):
     return total
 ```
 
-Lets start by counting the operations that are outside the loops, of which we have $2$ assignments and $1$ return. Now lets consider the outer loop; this loop contains the comparison `i<n`, the assignment `j=0` and $2$ operations in `i=i+1`, while also having a final comparison of the inner loop. We see though that every time the outer loop runs, so does the inner loop though, so however many operations the inner loop runs, we *also* need to multiply that by $n$. Our inner loop has $1$ comparison, $2$ assignments, and $2$ arithmetic.
+Let's start by counting the operations that are outside the loops, of which we have $2$ assignments and $1$ return. Now lets consider the outer loop; this loop contains the comparison `i<n`, the assignment `j=0` and $2$ operations in `i=i+1`, while also having a final comparison of the inner loop. We see though that every time the outer loop runs, so does the inner loop though, so however many operations the inner loop runs, we *also* need to multiply that by $n$. Our inner loop has $1$ comparison, $2$ assignments, and $2$ arithmetic.
 
 Holy fuck that was a lot, but if we write it all out we can find that
 $$
@@ -260,7 +260,7 @@ def insertion_sort(arr):
     return arr
 ```
 
-Lets $n$ be the length of the array. Outside of the loops, we will have $2$ assignments, $1$ call to `len(arr)`, $2$ comparisons with the final comparison, and $1$ return. This is $6$ guaranteed operations. Note that if $n=0$ or $n=1$ then we activate the first `if` statement and our operations are exactly $4$, so lets consider $n>1$.
+Let's $n$ be the length of the array. Outside of the loops, we will have $2$ assignments, $1$ call to `len(arr)`, $2$ comparisons with the final comparison, and $1$ return. This is $6$ guaranteed operations. Note that if $n=0$ or $n=1$ then we activate the first `if` statement and our operations are exactly $4$, so lets consider $n>1$.
 
 Our outer loop runs $n-1$ times. Lets start by considering our **best case** scenario, which occurs if we never run the inner loop ever. Note that we do not say our best case is $n=0$ or $n=1$ when we automatically return, we want to show the best case scenario as $n$ gets larger and larger (for reasons we'll show later). In this case we have $2$ operations in `key = arr[i]`, $2$ operations in `j = i-1`, $3$ in `arr[j+1] = key`, and $2$ in `i=i+1`. We also consider the $4$ operations in `j >=0 and key < arr[j]`. This gives us a best case scenario of
 $$

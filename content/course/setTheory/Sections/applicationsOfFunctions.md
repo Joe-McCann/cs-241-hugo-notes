@@ -30,7 +30,7 @@ $$
 $$
 if we let $\mathbb{S}$ be the set of all possible strings. Clearly arrays must be a function, as every index has only one associated item, and picking an index outside your domain will throw an `Out of Bounds` error. If you want to get even more technical, you can consider this the composition of two functions, where one converts the index into a memory location, and the second converts a memory location into an item!  
 
-Lets represent the function `mem` to be the one in which you input an index and get a memory value, and `item` to be the function where you look up a memory value and get an item. Then we would have
+Let's represent the function `mem` to be the one in which you input an index and get a memory value, and `item` to be the function where you look up a memory value and get an item. Then we would have
 $$
 \begin{align}
 \text{mem}&: I\rightarrow \mathbb{N} \\\\

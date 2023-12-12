@@ -85,10 +85,10 @@ We can also show that $n\leq 101$ by clever application of pigeonhole principle
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
-Since $101 > 100$, by pigeonhole principle, we know that there must be at least two of the same numbers in the list, take those two numbers and put them in differing teams. Our problem is now equivalent to finding two equal teams of $K=4$ with $n=99$. Note that if we had $99$ unqiue numbers, then we could group up the numbers into pairs that have equal sums $(1,100),(2,99),\ldots,(50,51)$ we can take two of each of these equal pairs onto a team. As such, if we were to want to avoid creating two balanced teams, we would have to double up some numbers.
+Since $101 > 100$, by pigeonhole principle, we know that there must be at least two of the same numbers in the list, take those two numbers and put them in differing teams. Our problem is now equivalent to finding two equal teams of $K=4$ with $n=99$. Note that if we had $99$ unique numbers, then we could group up the numbers into pairs that have equal sums $(1,100),(2,99),\ldots,(50,51)$ we can take two of each of these equal pairs onto a team. As such, if we were to want to avoid creating two balanced teams, we would have to double up some numbers.
 </br>
 </br>
-Notice though that if we have $4$ values that include duplicates, we could just put one of each of those values on a team and create two balanced teams from there. In fact, in order to minimize the number of unique values we have, we would have one specific value with $7$ copies, as that would not be enough to split into two teams, however that would still give us at least $92$ unqiue numbers which is guaranteed to give us $4$ balanced teams. 
+Notice though that if we have $4$ values that include duplicates, we could just put one of each of those values on a team and create two balanced teams from there. In fact, in order to minimize the number of unique values we have, we would have one specific value with $7$ copies, as that would not be enough to split into two teams, however that would still give us at least $92$ unique numbers which is guaranteed to give us $4$ balanced teams. 
 </br>
 <b>Q.E.D.</b>
 </details>
@@ -134,7 +134,7 @@ In order to build our teams in this case, we just need enough players to fill ou
 
 ### $K=2$
 
-Lets just try to work through the problem when $K=2$ for various cases. I think there are different situations when $M < K$ compared to the other way around sooooo lets just grind. This is kinda like a working page I'm just going to type my thoughts.
+Let's just try to work through the problem when $K=2$ for various cases. I think there are different situations when $M < K$ compared to the other way around sooooo lets just grind. This is kinda like a working page I'm just going to type my thoughts.
 $$
 B(1,2) = 4
 $$

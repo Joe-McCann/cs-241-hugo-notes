@@ -144,7 +144,7 @@ With this we can actually come up with a way to remember all those really confus
 <summary>Answer</summary>
 In order for there to be an inverse function, we need $f(x)$ to be bijective on the whole domain. From there the domain and codomain of $f^{-1}(x)$ are just going to be flipping the input and outputs of $f$. 
 </br>
-Lets first find a domain for which $\sin$ is injective. We want to make sure there are no two inputs that repeat the same output. As such we can see in a $\sin$ wave that if we start at $0$ and go past $\frac{\pi}{2}$, we will go back down and repeat values. Instead, we can start at $-\frac{\pi}{2}$ and go up to $\frac{\pi}{2}$ which will repeat nothing! This will be our domain, and our codomain will have to take on all the values so that our function will be surjective. $\sin$ goes from $-1$ to $1$ which gives us that $$\sin:\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\rightarrow [-1,1]$$
+Let's first find a domain for which $\sin$ is injective. We want to make sure there are no two inputs that repeat the same output. As such we can see in a $\sin$ wave that if we start at $0$ and go past $\frac{\pi}{2}$, we will go back down and repeat values. Instead, we can start at $-\frac{\pi}{2}$ and go up to $\frac{\pi}{2}$ which will repeat nothing! This will be our domain, and our codomain will have to take on all the values so that our function will be surjective. $\sin$ goes from $-1$ to $1$ which gives us that $$\sin:\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]\rightarrow [-1,1]$$
 </br>
 Finally, we have from here that the domain and codomain of $\arcsin$ is $$\arcsin:[-1,1]\rightarrow \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$$.
 </details>

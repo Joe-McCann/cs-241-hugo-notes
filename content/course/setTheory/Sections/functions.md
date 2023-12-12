@@ -15,7 +15,7 @@ weight: 230
 
 ## We're Still on Grade School Stuff
 
-Remember back in grade school when the teachers taught you about *functions*? They were always represented as $f(x)$ (which apparently is according to Euler? Idk some YouTube video said its his notation) and were discussed as some sort of "input/output machine". The jist of the idea was that you can input some item into this *thing*, and then it would output something accoridng to some rule. Deadass, this is the same exact way functions are defined in advanced math, just with a bit more mathy talk.
+Remember back in grade school when the teachers taught you about *functions*? They were always represented as $f(x)$ (which apparently is according to Euler? Idk some YouTube video said its his notation) and were discussed as some sort of "input/output machine". The jist of the idea was that you can input some item into this *thing*, and then it would output something according to some rule. Deadass, this is the same exact way functions are defined in advanced math, just with a bit more mathy talk.
 
 Of course there are a lot of ways that you can take in something and spit something else out, but there are certain rules that you have to follow in order to be considered a function. First, every input needs to have exactly $1$ output. You are allowed to output things like sets or tuples, but if you enter the same input twice, then you must get the same output twice.
 
@@ -43,7 +43,7 @@ There are a ton of terms to describe functions, so lets define some. Suppose we 
 
 In our previous example $4$, our domain was the set $\mathcal{O}$ of people who own dogs, and our codomain was the set $D$ of all dogs. Note that we cannot select the set of all people as our domain, as some people do not have dogs and our function must be defined for every input in the domain. Should we want to do so, we would have to add an item such as "no dog" to $D$.
 
-But notice that just because we specify something the be the codomain of our function, that does not mean that our function will reach it at any point! In example $1$, our codomain is all real numbers, but if we pick any negative number, there does not exist an $x$ such that $x^2<0$. As such we need a term for the set of all the values our domain can actual get to via the function.
+But notice that just because we specify something to be the codomain of our function, that does not mean that our function will reach it at any point! In example $1$, our codomain is all real numbers, but if we pick any negative number, there does not exist an $x$ such that $x^2<0$. As such we need a term for the set of all the values our domain can actual get to via the function.
 
 > **Definition**: The **image set** of a function $f:A\rightarrow B$ is the set of all outputs of $f$ from $A$. In set builder $$\text{im}(f)=\\{f(x)|x\in A\\}.$$
 

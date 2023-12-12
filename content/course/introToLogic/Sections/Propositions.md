@@ -51,7 +51,7 @@ but feel free to check some resources that [explain the difference](https://phil
 
 ## You can't handle the truth!
 
-Lets give some example problems to identify if the objects are or aren't propositions, and if they are,
+Let's give some example problems to identify if the objects are or aren't propositions, and if they are,
 then provide whether they are true or false
 
 ---

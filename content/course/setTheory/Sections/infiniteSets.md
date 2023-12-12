@@ -77,9 +77,9 @@ QED
 
 The intuition was right[^1]! You might have noticed though that we started our even numbers with $2$, and well $0$ is an even number, so does that impact anything?
 
-Lets say that $E_2=\\{0,2,4,6\ldots\\}$. Now we have that $E\subset E_2$, so will $|E_2|>|E|=|O|$?
+Let's say that $E_2=\\{0,2,4,6\ldots\\}$. Now we have that $E\subset E_2$, so will $|E_2|>|E|=|O|$?
 
-Lets consider a function $f:O\rightarrow E_2$ where $f(x)=x-1$. You might notice that $f$ is exactly the same as our previous proof, and by the same logic it actually turns out that $|E_2|=|O|=|E|$! This is crazy as we have a proper subset being the same cardinality as its superset! In essense here when we add $0$ into $E_2$, we are effectively "pushing" all the items down one, but that is ok because there is an infinite amount of them!
+Let's consider a function $f:O\rightarrow E_2$ where $f(x)=x-1$. You might notice that $f$ is exactly the same as our previous proof, and by the same logic it actually turns out that $|E_2|=|O|=|E|$! This is crazy as we have a proper subset being the same cardinality as its superset! In essense here when we add $0$ into $E_2$, we are effectively "pushing" all the items down one, but that is ok because there is an infinite amount of them!
 
 If you think that's crazy, just watch this though!
 
@@ -87,7 +87,7 @@ If you think that's crazy, just watch this though!
 
 ### The Naturals and Countability
 
-Lets consider how the natural numbers $\mathbb{N}$^[2] interact in terms of size now with the even numbers that we just showed. For the sake of brevity, for this problem we will say that $E$ includes $0$. Clearly since
+Let's consider how the natural numbers $\mathbb{N}$^[2] interact in terms of size now with the even numbers that we just showed. For the sake of brevity, for this problem we will say that $E$ includes $0$. Clearly since
 $$
 \mathbb{N}=\\{0,1,2,3,4,5,6,7,\ldots\\}=E\cup O
 $$

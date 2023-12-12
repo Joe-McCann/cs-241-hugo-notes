@@ -84,7 +84,7 @@ if you expand your idea of "divisibility" a bit lmao.
 
 Mod is cool and all, but in order to do really any mathematics, we are going to want to do some identities so we can work with it and do some cool stuff later down the line. Lets start with easy shit and then work our way into some harder ones. We will then parlay this into an algorithm to calculate insanely large modulus values.
 
-Lets start with some easy equality stuff
+Let's start with some easy equality stuff
 
 > **Theorem**: If $a\equiv b\mod n$ then $ka\equiv kb\mod n$
 {{% callout info %}}
@@ -320,7 +320,7 @@ Holy shit come on be honest is that not a rush completing something like that? B
 1. Use extended Euclidean Algorithm to solve $kx-ny=l$ for some values of $x,y$. Take $x\equiv t\mod n$ such that $0\leq t < n$. Save the $\gcd(k,n)=d$.
 2. Find all other solutions $t+id$ for all values $0\leq i < d$
 
-Lets run through the example from previous page to see this idea in action. Solve for all solutions
+Let's run through the example from previous page to see this idea in action. Solve for all solutions
 $$
 134x\equiv 12 \mod 120
 $$

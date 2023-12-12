@@ -71,7 +71,7 @@ Hopefully you can see the pattern here in that every iteration we are adding a f
 
 This type of recurrance relation is called a *first order* relation because it only goes back one step into $n-1$, and since we are continually multiplying by the same number over and over again, we can assume that our solution probably should look something like $f_n=Cr^n$ where $C$ is some constant that depends on the initial condition. Why we can make this assumption should be fairly obvious in this first order case (multiply by the same number $n$ times gives $r^n$), but I will justify it later on with more advanced, abliet uneccessary for CS, math.
 
-Lets consider a more general example
+Let's consider a more general example
 
 > **Example**: Let $f_n = kf_{n-1}$ with initial condition $f_0$. Find an equation in terms of $n$ for $f_n$
 

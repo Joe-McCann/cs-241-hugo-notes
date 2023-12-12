@@ -70,7 +70,7 @@ Before we can define this next operator, we must first discuss a new type of mat
 
 ### Tuples
 
-When we dealt with sets, we described a type of way to house objects that contained *unqiue* and *unordered* items. In computer science, this lends itself to the very useful `set` datastructure, however, this is not the most common type of datastructure that we encounter in the day-to-day of programming.
+When we dealt with sets, we described a type of way to house objects that contained *unique* and *unordered* items. In computer science, this lends itself to the very useful `set` datastructure, however, this is not the most common type of datastructure that we encounter in the day-to-day of programming.
 
 Quite often we want to be able to duplicate items, and sometimes the order matters! Suppose I wanted to collect all the first names of my students in alphabetical order. This would not be possible with a set, as we need to be able to alphabatize, rather than just check membership, and my students very often share first names! As such we need something that allows us to do this.
 
@@ -122,5 +122,5 @@ If take the cartesian product of the same set $k$ times, we notate as $A^k$
 > **Theorem**: $$|A\times B|=|A|\cdot|B|$$
 
 [^1]: When writing this page I was exhausted on an airplane so sorry if its a little low effort.
-[^2]: Immutable means its cannot be changed once you create it.
+[^2]: Immutable means it cannot be changed once you create it.
 [^3]: We say that the Cartesian product is not *commutative*

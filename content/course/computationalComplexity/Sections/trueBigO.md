@@ -54,7 +54,7 @@ This is actually going to be best explained using examples and the definition, s
 
 What this definition is saying is that if we multiply our function $g(n)$ by some constant of **our choice** $M$, we can find a value of $N$ such that for any value of $n$ that we choose past that, our function times $M$ will be larger than $f(n)$.
 
-Lets first show an example where we don't need $M$ so we can get a good idea of whats going on here. In later examples, choices of $M$ will actually make proofs easier though.
+Let's first show an example where we don't need $M$ so we can get a good idea of whats going on here. In later examples, choices of $M$ will actually make proofs easier though.
 
 > **Example**: Prove $\frac{1}{2}n^2 + 5n + 10\in\mathcal{O}^T(n^2)$.
 {{% callout info %}}

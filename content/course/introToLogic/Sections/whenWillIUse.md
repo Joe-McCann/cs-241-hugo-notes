@@ -84,7 +84,7 @@ Now sure I can just make up an excuse for you to care about my class, but lets a
 
 First thing we need to do when seeing this problem is to observe all information we are provided. First, we can see that our list contains only *unique* numbers, so we will only have $1$ missing number. We do not need to worry about duplicates. Next, we see that our list is *unsorted*, which means that we cannot use fast searching algorithms.
 
-Lets look at some examples of possible given lists
+Let's look at some examples of possible given lists
 $$
 [1,2,4], [3,5,2,1], [6,5,2,4,3,8,7].
 $$

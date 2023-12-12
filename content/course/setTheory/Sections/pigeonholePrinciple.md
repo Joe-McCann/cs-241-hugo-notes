@@ -63,7 +63,7 @@ Alright that one was pretty straightforward, but try this problem.
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
-Lets first start off this proof by thinking of just how many pairs of numbers actually add up to 2023. Well you can have
+Let's first start off this proof by thinking of just how many pairs of numbers actually add up to 2023. Well you can have
 $$
 \begin{align}
 1+2022&=2023 \\

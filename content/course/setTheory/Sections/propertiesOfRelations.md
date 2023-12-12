@@ -21,11 +21,11 @@ Now that we have relations, we can define some properties about them and see how
 
 ### Reflexivity
 
-Lets start with a motivating example, consider standard equality $=$ and any item $x\in\mathbb{R}$. Is $x=x$? Yes, by definition any value is always equal to itself! However, for some other relations like $<$ we cannot have $x<x$. Relations where every item is always related to itself are called *reflexive*.
+Let's start with a motivating example, consider standard equality $=$ and any item $x\in\mathbb{R}$. Is $x=x$? Yes, by definition any value is always equal to itself! However, for some other relations like $<$ we cannot have $x<x$. Relations where every item is always related to itself are called *reflexive*.
 
 > **Definition**: A relation $\*$ is **reflexive** if and only if for every $a\in A$, $a\*a$. In other words, every item is related to itself.
 
-Lets go through our examples and determine if they are reflexive.
+Let's go through our examples and determine if they are reflexive.
 
 > **Example**: Is $a\equiv a \mod n$?
 
@@ -58,9 +58,9 @@ No, its not possible to be your own parent, so isParent is not reflexive.
 
 When we think about standard equality, notice that the order in which we perform our relation doesn't actually matter. If I tell you that $x=y$ is true, you automatically know that $y=x$ is also true. This property isn't always the case for a general relation (try thinking of one that isn't!), and we will call relations that are *symmetric*.
 
-> **Definition**: A relation $\*$ is **symmetric** if and only if for every $a,b\in A$, $a\*b\implies b\*a$. In other words, the order in which you related items doesn't effect the truth.
+> **Definition**: A relation $\*$ is **symmetric** if and only if for every $a,b\in A$, $a\*b\implies b\*a$. In other words, the order in which you related items doesn't affect the truth.
 
-Lets go through our examples and determine if they are symmetric.
+Let's go through our examples and determine if they are symmetric.
 
 > **Example**: Let $a\equiv b\mod n$. Does this imply that $b\equiv a\mod n$? 
 

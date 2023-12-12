@@ -24,7 +24,7 @@ The way that we are going to do this is that I am going to explain to you how co
 
 ### \#Ratio'd
 
-Lets look at some operations functions and put them into a table
+Let's look at some operations functions and put them into a table
 $$
 $$\begin{array}{c|c|c|c|c}
 n & 6n-5 & n+20 & n^2-n+2 & 8n^2+6 \\\\ \hline
@@ -98,7 +98,7 @@ We also can define a relation $\sim$ to relate functions together and make this 
 
 > **Definition**: We say that two functions $f(n)\sim g(n)$ iff $$0<\lim_{n\rightarrow\infty} \frac{f(n)}{g(n)}<\infty$$
 
-This is a way of saying that the two functions grow at a comparable rate, and we can define our set $\mathcal{O}(f(n))$ to be the set of all operations functions $T(n)$ whos worst case $W(n)\sim f(n)$!
+This is a way of saying that the two functions grow at a comparable rate, and we can define our set $\mathcal{O}(f(n))$ to be the set of all operations functions $T(n)$ who's worst case $W(n)\sim f(n)$!
 
 Now lets do some examples
 
