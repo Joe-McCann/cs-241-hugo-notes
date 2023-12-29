@@ -37,7 +37,7 @@ In this case we could remove any two of $4,6,7$ to get our answer. If I remove $
 
 As with all coding interview problems, its always a good idea to go through the brute force solution at least to talk through. In this case, the brute force solution is quite bad, so I won't code it since its not worth it.
 
-In order to brute force, we can iterate through all possible selections of $M$ numbers to remove, and see which one is the best. This would require checking all $M$ item combinations from our list which would mean that our algorithm would have to check $\binom{n}{M}$ options if $n$ is the length of the array. As $n$ grows large this means that our algorithm would be at best $\Omega^T\left(n^M\right)$[^2] and for values of $M$ that can be big this just isn't an option. As such lets walk through how to think of this.
+In order to brute force, we can iterate through all possible selections of $M$ numbers to remove, and see which one is the best. This would require checking all $M$ item combinations from our list which would mean that our algorithm would have to check $\binom{n}{M}$ options if $n$ is the length of the array. As $n$ grows large this means that our algorithm would be at best $\Omega^T\left(n^M\right)$[^2] and for values of $M$ that can be big this just isn't an option.
 
 We wouldn't need to prove this solution though, as anything returned is guaranteed to be optimal by definition.
 

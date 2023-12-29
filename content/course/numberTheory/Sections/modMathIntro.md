@@ -340,6 +340,12 @@ We set $t=18$ and also $\gcd(134,120)=2$ from the same page, which makes $n_1=\f
 
 > **Example**: Find all solutions to $35x\equiv 14\mod 21$
 
+> **Theorem**: Let $n\in\mathbb{N}$ be $n = d_{m}d_{m-1}\ldots d_1d_0$ where the values $d_k$ represent the digits of the number $n$ in base $10$. Then $$n \equiv d_{m}+d_{m-1}+\ldots+d_1+d_0 \mod 9$$Note this proves the divisibility rule of $9$ that a number $n$ is divisible by $9$ iff the sum of its digits are divisible by $9$
+
+> **Jordan's Corollary**[^4]: Let $n$ a number divisible by $3$. Define the following process: start with some number and add all the digits together. Repeat that step until you end with a single digit number. For example $$583837\rightarrow 34\rightarrow 7$$ When the 
+process is applied to the product of $n-1, n+1$ then the result will always be $8$
+
 [^1]: You're **still** never done with relations mwahahaha
 [^2]: Picking $n=100$ kinda makes my "do it by hand" argument hold less water as you could in theory be doing $99^2$ by hand but if you're clever you can do some FOIL method to simplify it.
 [^3]: By 🔥 here I mean you're in hell and totally fucked so good luck.
+[^4]: I call this Jordan's Corollary after a student of mine who used a version of this as their final project
