@@ -77,9 +77,9 @@ def plus_two(x):
 
 This is pretty straightforward, as inside of our function we have $1$ assignment, $1$ aritmetic with addition, and $1$ return. As such, the total number of operations is as follows
 $$
-T(n) = 1+1+1 = 3.
+T(x) = 1+1+1 = 3.
 $$
-Woah woah there, what the fuck is that $T(n)$? We were just counting operations, how'd we get a function here? Don't worry I'll explain that eventually but for now we will stick with just putting it there with the number of operations. So running the code inside of `plus_two`, we would find ourselves with $3$ operations. Let's show another example.
+Woah woah there, what the fuck is that $T(x)$? We were just counting operations, how'd we get a function here? Don't worry I'll explain that eventually but for now we will stick with just putting it there with the number of operations. So running the code inside of `plus_two`, we would find ourselves with $3$ operations. Let's show another example.
 
 ```python
 def square_plus_two(x):
@@ -115,7 +115,7 @@ def add_10(x):
 
 Outside of the loop, we have $1$ assignment and $1$ return. Lets consider the loop, inside we have $2$ additions and $2$ assignments and we also have that we compare `i < 10` every time we iterate. This gives us $5$ operations that are run every loop. Finally, there is $1$ extra comparison that is run at the end when `i=10` to actually break out of the loop. Since we run the loop $10$ times, we can multiply our $5$ operations per loop by that to get us that 
 $$
-T(n) = 2+10\cdots (5) + 1 =53.
+T(x) = 2+10\cdots (5) + 1 =53.
 $$
 
 Remember the extra $1$ at the end is for the final comparison. We're starting to get larger amounts of operations, but just wait cause you haven't seen nothin' yet. Lets consider the following interesting function
@@ -132,9 +132,9 @@ def add_n(x, n):
 
 Well, ok this isn't really all that interesting of a function because it seems to be totally pointless, however whats interesting is how many operations we have, because its all the same as the previous function except instead of looping for $10$ times, we loop for some unknown amount $n$ times! We can use this as a variable in our function to get something that we can "plug in" the value of $n$ into!
 $$
-T(n) = 2+n\cdot(5)+1= 5n+3
+T(x, n) = 2+n\cdot(5)+1= 5n+3
 $$
-where $n$ denotes the numerical value of the parameter $n$. Notice that from this, if we set $n=10$, we get back our $T(10)=53$ from the previous problem, and nothing is stopping us from trying out other values of $n$ as well if we wanted.
+where $n$ denotes the numerical value of the parameter $n$. Notice that from this, if we set $n=10$, we get back our $T(x)=53$ from the previous problem, and nothing is stopping us from trying out other values of $n$ as well if we wanted.
 
 Before we move to the next control structure, lets consider an example of a nested loop.
 ```python
@@ -173,13 +173,17 @@ def make_even(x):
         return x+1
 ```
 
-In the event $x$ is divisible by $2$ which makes $x\%2=0$, then we would have $1$ comparison, $1$ arithmetic with $\%$, and $1$ return giving us $T(n)=3$ operations. However, in the event our number is not divisible by $2$, then we have all of that with an extra addition giving us $T(n)=4$ operations! So which one do we pick, $3$ or $4$?
+In the event $x$ is divisible by $2$ which makes $x\%2=0$, then we would have $1$ comparison, $1$ arithmetic with $\%$, and $1$ return giving us $T(x)=3$ operations. However, in the event our number is not divisible by $2$, then we have all of that with an extra addition giving us $T(x)=4$ operations! So which one do we pick, $3$ or $4$?
 
 For most algorithms, we won't have a definitive single formula that defines exactly how many operations will occur because how the program behaves is often so incredibly dependent on the input. Most of the time we care specifically about the *worst* case and the *best* case, because then we know exactly the window of operations all of our code will run[^3].
 
-> **Definition**: Let $T(n)$ be an operations function. The *worst case* $W(n)$ is the "smallest" function such that $T(n)\leq W(n)$ for all possible inputs. The *best case* $B(n)$ is the "largest" function such that $B(n)\leq T(n)$ for all possible inputs.
+> **Definition**: Let $T(x)$ be an operations function where $x$ is the input (or inputs) of the function you are counting. Let $n$ represent the "size" of an input $x$. The *worst case* $W(n)$ is the "smallest" function such that $T(x)\leq W(n)$ for all possible inputs if $x$ is of size $n$. The *best case* $B(n)$ is the "largest" function such that $B(n)\leq T(x)$ for all possible inputs of size $n$.
 
-Note that I put the words "largest" and "smallest" in quotes, because those are definitely not mathematically rigorous definitions lmao. I use this because obviously $B(n)=0$ and something like $W(n)=n^{n^n}$ will be smaller and bigger (respectively) than any algorithm we think up, but these will not be useful for any discussion at all. *"No shit dude, I know your code runs slower than $0$, thats code that runs nothing"*. So for us, we will choose $B(n)$ and $W(n)$ to be functions that are the closest bounds we can represent[^4].
+In this definition we notice that we are comparing the function that counts the number of operations for a possible input, to the
+worst case and best case scenario for all possible inputs of a particular size. So for example, if $x$ was an array and we were defining the "size" to be how long the array is, then $W(10)$ and $B(10)$ would represent the most and least amount of operations our
+code could possibly run on an array of size $10$
+
+Note that I put the words "largest" and "smallest" in quotes, because those are definitely not mathematically rigorous definitions lmao. I use this because obviously $B(n)=0$ and something like $W(n)=n^{n^n}$ will be smaller and bigger (respectively) than any algorithm we think up, but these will not be useful for any discussion at all. *"No shit dude, I know your code runs slower than $0$, thats code that runs nothing"*. So for us, we will choose $B(n)$ and $W(n)$ to be functions that are the closest bounds we can represent[^4]. If we lived in a perfect world, we might be able to represent all possible perfect worst and best case bounds in a nice pretty closed form, however we can't, so we gotta approximate. 
 
 In our example of `make_even`, we know that at best we run $3$ operations, and at worst we run $4$ operations. From this we can say that $B(n)=3$ and $W(n)=4$. Lets show a more practical example that will have a more complicated best and worst case.
 
@@ -211,7 +215,7 @@ W(n)=5n+2+(n-1)(2)=7n.
 $$
 Putting this together, we can show that for any list of size $n\geq 1$, the number of operations $T(n)$ is in the bounds
 $$
-5n+2\leq T(n)\leq 7n.
+5n+2\leq T(x)\leq 7n.
 $$
 
 Just a note though, the worst case scenario is incredibly unlikely for a random array, with probability $\frac{1}{n!}$, where the best case is much more frequent with probability $\frac{1}{n}$ (or better if duplicates exist). This motivates the idea of an "average case", but we'll discuss this later.
@@ -275,11 +279,11 @@ W(n) &= 11n-5 + 11(1)+11(2)+\ldots+11(n) \\\\
 $$
 But we actually know that $1+2+\ldots+n=\frac{n(n+1)}{2}$ from our [induction lesson](/course/introtologic/sections/proofbyinduction/#proving-with-induction)! This then simplifies to
 $$
-T(n)=11n-5+11\cdot\frac{n(n+1)}{2} = \frac{11}{2}n^2 + \frac{33}{2}n-5.
+W(n)=11n-5+11\cdot\frac{n(n+1)}{2} = \frac{11}{2}n^2 + \frac{33}{2}n-5.
 $$
 As such we can say for any $n>1$, the number of operations of our insertion sort will be
 $$
-11n-5\leq T(n) \leq 5.5n^2 + 16.5n - 5.
+11n-5\leq T(x) \leq 5.5n^2 + 16.5n - 5.
 $$
 
 ---
@@ -328,7 +332,7 @@ $$
 
 This gives us a final count of
 $$
-3n^2+17n+6 \leq T(n) \leq 3.5n^2 + 17.5n+6.
+3n^2+17n+6 \leq T(x) \leq 3.5n^2 + 17.5n+6.
 $$
 
 Notice that this algorithm has a way worse best case than `insetion_sort`, however its way more consistent and better than insetion in the worst case!
@@ -372,7 +376,7 @@ W(n) = 6 + 8n + 16\cdot\frac{(n-1)n}{2} = 8n^2 + 6.
 $$
 This is quite bad, as we see that we are **twice** as slow as the worst case of `selection_sort`, and about $25\\%$ worse than the worst case of insertion sort, giving us a final range of
 $$
-3.5n^2+4.5n+6\leq T(n)\leq 8n^2+6.
+3.5n^2+4.5n+6\leq T(x)\leq 8n^2+6.
 $$
 
 Oooooof. 😵‍💫
