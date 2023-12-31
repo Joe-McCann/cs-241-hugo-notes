@@ -80,7 +80,7 @@ Notice that we are not saying anything about which function at any point is the 
 
 ## The Computer Scientist's Playbook
 
-For the following sections, we will use this information for our problems, just so we don't need to keep referencing it over and over and over again. Let $B(n)\leq T(n)\leq W(n)$ be strictly positive operations functions, with $B(n),W(n)$ being the best case and worst case functions. Let $n$ represent the "size" of a given input[^2].
+For the following sections, we will use this information for our problems, just so we don't need to keep referencing it over and over and over again. Let $B(n)\leq T(x)\leq W(n)$ be strictly positive operations functions, with $B(n),W(n)$ being the best case and worst case functions. Let $n$ represent the "size" of a given input $x$.
 
 Remember, these are not the true technical definitions, rather a way that computer scientists and software engineers generally use them.
 
@@ -90,7 +90,7 @@ Before we were saying that we want to be able to see what functions share a rati
 
 Big $O$ also is specifically referring to the **worst case** scenario for operations, which is why its so popular! When people want to know how long something is going to take, they don't want to hear the $1$ perfect case where it runs instantly, they want to know how bad can it get!
 
-> **Definition**: We say that function $T(n)\in\mathcal{O}(f(n))$ if the worst case function $W(n)$ satisfies $$0<\lim_{n\rightarrow\infty} \frac{W(n)}{f(n)}<\infty.$$
+> **Definition**: We say that function $T(x)\in\mathcal{O}(f(n))$ if the worst case function $W(n)$ satisfies $$0<\lim_{n\rightarrow\infty} \frac{W(n)}{f(n)}<\infty.$$
 
 What this definition is saying, is that we are creating this set $\mathcal{O}(f(n))$ and placing functions inside of it who's *worst case* operations functions have a ratio limit with $f(n)$ that is not $0$ or $\infty$
 
@@ -98,7 +98,7 @@ We also can define a relation $\sim$ to relate functions together and make this 
 
 > **Definition**: We say that two functions $f(n)\sim g(n)$ iff $$0<\lim_{n\rightarrow\infty} \frac{f(n)}{g(n)}<\infty$$
 
-This is a way of saying that the two functions grow at a comparable rate, and we can define our set $\mathcal{O}(f(n))$ to be the set of all operations functions $T(n)$ who's worst case $W(n)\sim f(n)$!
+This is a way of saying that the two functions grow at a comparable rate, and we can define our set $\mathcal{O}(f(n))$ to be the set of all operations functions $T(x)$ who's worst case $W(n)\sim f(n)$!
 
 Now lets do some examples
 
@@ -125,7 +125,7 @@ Dividing out
 $$
 \lim_{n\rightarrow\infty}\frac{8n^2+6}{n^2} = \lim_{n\rightarrow\infty}8+\frac{6}{n^2}=8
 $$
-Which we can do because $\frac{6}{n^2}$ goes to $0$ as $n$ gets large. Since $0 < 8 < \infty$ we know that $8n^2+6\sim n^2$ so $T(n)\in\mathcal{O}(n^2)$ for bubble sort!  
+Which we can do because $\frac{6}{n^2}$ goes to $0$ as $n$ gets large. Since $0 < 8 < \infty$ we know that $8n^2+6\sim n^2$ so $T(x)\in\mathcal{O}(n^2)$ for bubble sort!  
 </br>
 QED
 </details>
@@ -135,7 +135,7 @@ QED
 
 Notice before that Big $O$ represented the *worst case* scenario for us, however we didn't only have a worst case, we also had a best case scenario too! That is the idea of Big $\Omega$, its literally the same as Big $O$ but for best case instead of worst case!
 
-> **Definition**: We say that function $T(n)\in\Omega(f(n))$ if the best case function $B(n)$ satisfies $$0<\lim_{n\rightarrow\infty} \frac{B(n)}{f(n)}<\infty.$$ Also defined as $B(n)\sim f(n)$
+> **Definition**: We say that function $T(x)\in\Omega(f(n))$ if the best case function $B(n)$ satisfies $$0<\lim_{n\rightarrow\infty} \frac{B(n)}{f(n)}<\infty.$$ Also defined as $B(n)\sim f(n)$
 
 Since this is pretty much the same as Big $O$, we can show examples in the same way
 
@@ -147,7 +147,7 @@ Dividing out
 $$
 \lim_{n\rightarrow\infty}\frac{11n-5}{n} = \lim_{n\rightarrow\infty}11-\frac{5}{n}=11
 $$
-Which we can do because $\frac{5}{n}$ goes to $0$ as $n$ gets large. Since $0 < 11 < \infty$ we know that $11n-5\sim n$ so $T(n)\in\Omega(n^2)$ for insertion sort!  
+Which we can do because $\frac{5}{n}$ goes to $0$ as $n$ gets large. Since $0 < 11 < \infty$ we know that $11n-5\sim n$ so $T(x)\in\Omega(n^2)$ for insertion sort!  
 </br>
 QED
 </details>
@@ -171,9 +171,9 @@ Based on our previous sorting functions, we can see that our implementation of B
 
 In this section we will review and prove some commonly discussed properties of the $\sim$ relation of functions that we defined earlier. Since $\sim$ is used for both Big $O$ and $\Omega$, its better to talk about it than either of these alone, but the examples we will be using are going to be Big $O$.
 
-Now also, for the following sections we are going to assume that $f(n)$ is a "simple" function that we can write out, such as polynomials or exponentials or logs. Now I put "simple" because remember that this definition of Big $O$ is our practical definition and has some loose questions around it. For example, you might say, *"hey wait, why did insertion sort have no $\Theta$ when it could have just been $\Theta(T(n))$?"* which is a fair question, as the limit of $\frac{T(n)}{T(n)}$ is $1$.
+Now also, for the following sections we are going to assume that $f(n)$ is a "simple" function that we can write out, such as polynomials or exponentials or logs. Now I put "simple" because remember that this definition of Big $O$ is our practical definition and has some loose questions around it. For example, you might say, *"hey wait, why did insertion sort have no $\Theta$ when it could have just been $\Theta(T(x))$?"* which is a fair question, as the limit of $\frac{T(x)}{T(x)}$ is $1$.
 
-The boring answer is that having $\Theta(T(n))$ is kinda a useless metric that tells us nothing if we cannot easily express $T(n)$ without a range, so we ignore it and focus on the nice functions that surround it instead.
+The boring answer is that having $\Theta(T(x))$ is kinda a useless metric that tells us nothing if we cannot easily express $T(x)$ without a range, so we ignore it and focus on the nice functions that surround it instead.
 
 ### Properties of the Relation
 
@@ -305,11 +305,11 @@ We can refer to this with Little-$o$ notation, which isn't explicitely used in s
 
 In a shocking twist, the technical and practical definitions are the same.
 
-> **Definition**: Let $T(n)$ be an operations function. $T(n)\in o(f(n))$ iff $$\lim_{n\rightarrow\infty}\frac{T(n)}{f(n)}=0.$$ Also notated as $T(n) << f(n)$
+> **Definition**: Let $T(x)$ be an operations function and $n$ be the size of the input of $x$. $T(x)\in o(f(n))$ iff $$\lim_{n\rightarrow\infty}\frac{T(x)}{f(n)}=0.$$ Also notated as $T(x) << f(n)$
 
-This tells us that the function $T(n)$ shares no ratio with $f(n)$, and as we increase $n$ $f(n)$ will get very big very quickly comparatively. We also by extension have little $\omega$
+This tells us that the function $T(x)$ shares no ratio with $f(n)$ **regardless of best or worst case**, and as we increase $n$ $f(n)$ will get very big very quickly comparatively. We also by extension have little $\omega$
 
-> **Definition**: Let $T(n)$ be an operations function. $T(n)\in \omega(f(n))$ iff $$\lim_{n\rightarrow\infty}\frac{f(n)}{T(n)}=0.$$ Also notated as $T(n) >> f(n)$ 
+> **Definition**: Let $T(x)$ be an operations function and $n$ be the size of the input of $x$. $T(x)\in \omega(f(n))$ iff $$\lim_{n\rightarrow\infty}\frac{f(n)}{T(x)}=0.$$ Also notated as $T(x) >> f(n)$ 
 
 Which we can see means that $f(n)$ as a lower bound is on a completely different order.
 
@@ -475,7 +475,5 @@ So when we say that set insertion is $O(1)$, that means that over the course of 
 *Will write this at a later date*
 
 [^1]: No I'm totally not salty.
-
-[^2]: Astute readers would realize that $T(n)$ actually isn't a function cause the same size inputs could have multiple outputs, but we're going to not go too hard with this.
 
 [^3]: In fact there are multiple definitions, but I'm going over the simplest.

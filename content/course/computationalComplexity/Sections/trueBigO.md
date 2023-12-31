@@ -78,7 +78,7 @@ But then why do we need to have the factor of $M$ be considered at all? Can't we
 
 Well these two functions grow at the same rate, so it would be nice if we could do the same thing as before and handwave to say "yeah its just $\mathcal{O}^T(n)$ no worries", but in this case $2n\not\leq n$ for any value of $n>0$, so we need to use our value of $M$. If we set $M=3$ for example, then we can say that $2n\leq 3n$ for every $n>0$, which would prove us true. Note though, that our choice of $M$ was not unique, and we could have made infinite selections. In fact, sometimes a choice of $M$ can depend on your choice of $N$!
 
-> **Example**: Prove $2n^2+2n-10\in\mathcal{O}(n^2)$
+> **Example**: Prove $2n^2+2n-10\in\mathcal{O}^T(n^2)$
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
@@ -114,17 +114,23 @@ So, same definition as before, just using the true versions instead.
 
 It turns out that we can relate our true and practical versions of notation through some theorems, so you can tailor how you are talking to different people, and actually understand how they are related to each other.
 
+{{% callout info %}}
+In this section we will be comparing the $mathcal{O}$ and $\Omega$ of the operations function $T(x)$, however, from the perspective of theoretical sense, we do not need to do this. You can define the $\mathcal{O}$ and $\Omega$ of whatever you want. For example, you can consider the worst case function $W(n)$ and then say that $W(n)\in\Omega^T(f(n))$ which means the lower bound of the worst case is $f(n)$. Similarly, you will often see the best case denoted as $\mathcal{O}^T(f(n))$
+
+I personally dislike this, as I feel it muddies the waters, however you can think of it like this.
+{{% /callout %}}
+
 ### Relating the Practical to the Mathematical
 
-> **Theorem**: Let $T(n)$ be an operations function with worst case $W(n)$ and best case $B(n)$. Then
-> 1. If $T(n)\in\mathcal{O}(g(n))$ then $T(n)\in\mathcal{O}^T(g(n))$
-> 2. If $T(n)\in\Omega(g(n))$ then $T(n)\in\Omega^T(g(n))$
-> 3. If $T(n)\in\Theta(g(n))$ then $T(n)\in\Theta^T(g(n))$
+> **Theorem**: Let $T(x)$ be an operations function with worst case $W(n)$ and best case $B(n)$. Then
+> 1. If $T(x)\in\mathcal{O}(g(n))$ then $T(x)\in\mathcal{O}^T(g(n))$
+> 2. If $T(x)\in\Omega(g(n))$ then $T(n)\in\Omega^T(g(n))$
+> 3. If $T(x)\in\Theta(g(n))$ then $T(n)\in\Theta^T(g(n))$
 
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
-Let us first prove claim $1$. For this we will be using the technical definition of a limit from analysis (so you may not know this if you haven't taken that course). Since we know $T(n)\in\mathcal{O}(g(n))$, we know that
+Let us first prove claim $1$. For this we will be using the technical definition of a limit from analysis (so you may not know this if you haven't taken that course). Since we know $T(x)\in\mathcal{O}(g(n))$, we know that
 $$
 \lim_{n\rightarrow\infty}\frac{W(n)}{g(n)}=L
 $$
