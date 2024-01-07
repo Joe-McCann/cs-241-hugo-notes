@@ -1,6 +1,6 @@
 ---
-title: The Forbidden Math
-linktitle: The Forbidden Math
+title: The Forbidden Math 🚫
+linktitle: The Forbidden Math 🚫
 toc: true
 type: book
 date: 2023-12-30
@@ -50,7 +50,7 @@ which should make sense because that's literally the definition of the problem t
 
 Plugging in $m=1$ we find that $n=25$ which is the solution we know previously. Plugging in $m=2$ we find our answer to be $n=200+\frac{1+\sqrt{801}}{2}\approx 214.65$. 
 
-The fact that this irrational though makes it not as fun, can we do something to see how often this is an integer as a solution? Since $1+8\cdot 10^m$ is always odd, it is enough to ask if $\sqrt{1+8\cdot 10^m}\mathbb{Z}$ for any value of $m>1$? Unfortunately as we will show, the answer is *no*.
+The fact that this irrational though makes it not as fun, can we do something to see how often this is an integer as a solution? Since $1+8\cdot 10^m$ is always odd, it is enough to ask if $\sqrt{1+8\cdot 10^m}\in\mathbb{Z}$ for any value of $m>1$? Unfortunately as we will show, the answer is *no*.
 
 > **Theorem**: If $m>1$ then $\sqrt{1+8\cdot 10^m}$ is not an integer.
 {{% callout info %}}
@@ -69,6 +69,50 @@ However, $q-1$ and $q+1$ must have a difference of $2$. The only time that $2, 2
 <b>Q.E.D.</b>
 </details>
 {{% /callout %}}
+
+### First Digit in Other Bases
+
+We can easily expand this to other bases $b>2$ by slightly adjusting the equation. Note that when representing a number in base $b$ I'll state it with a subscript $b$ such as $10_b$.
+
+> **Problem**: Find all integer equations $x^2 = n$ such that $n \geq 10_b$[^1] and $n = 2\cdot b^m + \sqrt{n}$ with $m$ being the number of digits of $n$ (starting at $0$).
+
+Following the same process as the prior example we can get
+$$
+n = 2\cdot b^m + \frac{1 + \sqrt{1+2^3\cdot b^m}}{2}.
+$$
+
+Right off the bat we get this nice lemma that shows us that this is not special to base $10$, rather there are infinite bases that have this problem with solutions.
+
+> **Lemma**: There are infinite bases $b$ for which there exists at least one $m\geq 1$ with an integer solution to the problem
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+We can see that we just need to prove that $x^2 = 1+8b^m$ has infinite integer solutions which is very easy. Just select $m=1$ for sake of argument so we can solve for $b$ in terms of $x$, to see that our equation is now $x^2 = 1+8b$ which we can adjust to $b = \frac{x^2-1}{8}$. Any odd $x\geq 3$ will provide an integer solution for $b$ which proves the claim.
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+A more meaningful question to ask now is if it is possible to have multiple solutions occur in the same base for different values of $m$. Clearly, each value of $m$ can only have at most one solution (one equation with one unknown), but can we have a situation where one base has many working values of $m$?
+
+> **Question**: Does there exist a value of $b\in\mathbb{N}$ such that there exists more than one integer solution to $$x^2 = 1+8\cdot b^m$$ with $m\geq 1$.
+
+From [this](https://math.stackexchange.com/questions/4838113/does-there-exist-an-integer-b2-such-that-the-equation-x2-18-cdot-by-ha?noredirect=1#comment10304073_4838113) answer on math stack exchange, the answer is **yes** for $b=6$ both $m=1,2$ are solutions. In the same thread it is shown that for $m\geq 3$ there does not exist any base with a solution.
+
+The bases in which $m=1$ has a solution are all bases of the form $\frac{q^2-1}{8}$ where $q$ is an odd number $>5$, so
+$$
+6,10,15,21,\ldots
+$$
+which actually turns out to be the triangular numbers (which can be seen by plugging $2n+1=q$)! The solutions for when $m=2$ is the recurrance equation $b_{j+1}=6b_{j+1}-b_j$ which can be got from Pell's Equation. The solutions are 
+$$
+6,35,204,\ldots
+$$
+
+To close this out we ask the following question
+
+> **Conjecture**: Let $b_{j+2}=6b_{j+1}-b_j$ with $b_0=6$ and $b_1=35$. The only term of this sequence that is a triangular number is $6$.
+
+---
 
 ### Any Digits
 
