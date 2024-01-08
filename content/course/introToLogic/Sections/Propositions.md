@@ -20,7 +20,7 @@ Since logic is all about the study of true and false, we need some sort of basic
 object that will represent and store these true and false values. The most basic of this
 is called a **proposition.**
 
-> **Definition**: A *proposition* $P$ is an object that has an objectively true or false value
+> **Definition**: A *proposition* $P$ is an object that has an objectively true or false value. In computer science terms you can think of it as a boolean variable.
 
 The important part of this definition is the idea that the proposition must have an objectively true
 or false value. This means that it cannot be open to interpretation based on who is being asked the
@@ -42,10 +42,7 @@ it is a scientist using experiments to justify conjectures, engineers trying to 
 its a good idea to perform yearly inspections, or you trying to lie to your mom that you didn't get a tattoo[^1].
 Compared to our previous math example, these examples are based on the idea of adding propositions into
 our sentences and arguments. A proposition that has a linguistic meaning because of words used inside of
-it are called **statements**; note that the proposition here is the true or false evaluation of our statement
-based on its meaning. This is all much more philosophical than our monke applied brains really care for,
-so for our purposes we will use these terms interchangeably (which we literally did in the first paragraph),
-but feel free to check some resources that [explain the difference](https://philosophy.stackexchange.com/a/10896)
+it are called **statements** (note that all the examples we have provided have been statements); note that the proposition here is the true or false evaluation of our statement based on its meaning. This is all much more philosophical than our monke applied brains really care for, so for our purposes we will use these terms interchangeably (which we literally did in the first paragraph), but feel free to check some resources that [explain the difference](https://philosophy.stackexchange.com/a/10896)
 
 ---
 
@@ -54,7 +51,6 @@ but feel free to check some resources that [explain the difference](https://phil
 Let's give some example problems to identify if the objects are or aren't propositions, and if they are,
 then provide whether they are true or false
 
----
 
 >*Example 1:* Let $P=$"NJIT is a university in New Jersey". Is $P$ a proposition? If so is it true?
 {{% callout info %}}
@@ -64,7 +60,6 @@ then provide whether they are true or false
 </details>
 {{% /callout %}}
 
----
 
 >*Example 2:* Let $P=$"The Sun is a planet". Is $P$ a proposition? If so is it true?
 {{% callout info %}}
@@ -74,8 +69,6 @@ then provide whether they are true or false
 </details>
 {{% /callout %}}
 
-
----
 
 >*Example 3:* Let $P=$"Rain is terrible weather". Is $P$ a proposition? If so is it true?
 {{% callout info %}}
