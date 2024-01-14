@@ -117,6 +117,22 @@ If take the cartesian product of the same set $k$ times, we notate as $A^k$
 
 ## Examples
 
+> **Example**: Let $A=\{1,2,3\}$ and $B=\{3,4,5\}$, what is $A\times B$?
+{{% callout info %}}
+<details>
+  <summary>Answer</summary>
+  $A\times B=\{(1,3),(1,4),(1,5),(2,3),(2,4),(2,5),(3,3),(3,4),(3,5)\}$
+</details>
+{{% /callout %}}
+
+> **Example**: Let $A=\{1,2,3\}$, what is $\mathcal{P}(A)$?
+{{% callout info %}}
+<details>
+  <summary>Answer</summary>
+  $\mathcal{P}(A)=\{\varnothing, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$
+</details>
+{{% /callout %}}
+
 > **Example**: Write out a deck of playing cards as a Cartesian Product of two sets, where each card is represented as a tuple of a value (number or face) and a suit. For example the $9$ of hearts would be ($9$, Hearts).
 
 > **Theorem**: $$|A\times B|=|A|\cdot|B|$$

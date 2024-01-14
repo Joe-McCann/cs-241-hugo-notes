@@ -36,7 +36,7 @@ In this case we could remove any two of $4,6,7$ to get our answer. If I remove $
 Now before we get into the solutions, there is an important thing to notice that will help with our algorithm. Hopefully this is obvious to notice, but the optimal solution is going to use the maximum amount of removals possible. We're going to prove this, but that should make sense because if we don't use every removal, we could either do better or the same by using those extra ones.
 
 > **Lemma**: If $n \leq M$ the optimal solution is to remove every item. Otherwise there is an optimal solution that will use all $M$ removals.
-{{% callout tip %}}
+{{% callout info %}}
 <details>
 <summary>Proof</summary>
 For the first part, if $n\leq M$ then we can remove every item which will provide $0$ unique items. This must be the optimal solution in this case.
@@ -46,6 +46,8 @@ In the event $n > M$, assume that an optimal solution only removes $m < M$ items
 <Q.E.D.>
 </details>
 {{% /callout %}} 
+
+---
 
 ### A Brute Force Solution
 
@@ -82,7 +84,11 @@ The amount of work per loop iteration is $\Theta(n)$ and there are $\binom{n}{M}
 
 ## Getting to the Solution
 
-The solution is pretty straightforward to get to in this problem. The thing about removals is that for each removal, we want to get the most "bang for our buck", which we can achieve by at all points by removing the least common item.
+The solution is pretty straightforward to get to in this problem. The thing about removals is that for each removal, we want to get the most "bang for our buck", which we can achieve by at all points by removing the least common item. Lets consider the example we had before of `arr=[1,1,4,6,7]` and $M=2$. Clearly there would be no reason to remove the two $1$'s which would only remove one distinct item, when we could remove two items that are only appearing once each. This will lead us to our optimal algorithm
+
+1. Count how many each item in the array appears
+2. Continually remove the lowest appearing item until you cannot remove any more items
+3. Return the remaining amount of items.
 
 
 
