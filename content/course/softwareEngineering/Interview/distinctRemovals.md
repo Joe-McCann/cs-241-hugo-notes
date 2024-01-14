@@ -90,6 +90,8 @@ The solution is pretty straightforward to get to in this problem. The thing abou
 2. Continually remove the lowest appearing item until you cannot remove any more items
 3. Return the remaining amount of items.
 
+Coding this up we can do it by counting each item occurance, sorting based on the count, and then removing the least common item each iteration will 
+
 
 
 [^1]: List doesn't need to be integers but I put it here just for simplicity
