@@ -48,7 +48,7 @@ footer:
       enable: true
       allow_derivatives: false
       share_alike: true
-      allow_commercial: false
+      allow_commercial: true
 
 # Localization
 
