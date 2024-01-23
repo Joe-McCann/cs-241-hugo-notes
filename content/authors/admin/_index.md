@@ -70,6 +70,6 @@ email: ""
 #- Visitors
 ---
 
-I work full time in Product Analytics at American Express for an AI Lab team. This amounts to a lot of planning, meeting, researching, and more planning. Prior to that I was a software engineer at American Express specializing in automation work of Machine Learning deployment processes: a.k.a. being a certified lazy person. Obviously the views and statements I make on this website and the internet in general are mine and not the company's; this is obvious since I'm insane and unhinged.
+Welcome to the blog / course notes website written by me. In order to get to the pages and material, select the Material header which will bring you to a collection of pages providing tutorials on each topic. 
 
-Once a week during the college semesters I teach CS 241 Discrete Mathematics at NJIT. I have a passion for mathematics and finding ways to insert mathematics into everything I do. I also make stupid little videos in my spare time to show people math is freaking cool.
+I am currently working as a Product Analyst for American Express, having previously been a Software Engineer for American Express that specialized in Machine Learning Operations. Once a week during the Spring and Fall I teach a night class at NJIT, currently CS 241 Discrete Mathematics. 
