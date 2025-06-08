@@ -16,9 +16,11 @@ content:
 
   filter_button:
     - name: All Material
-      tag: '.js-id-cs241, .js-id-previous, .js-id-unsolved'
+      tag: '.js-id-cs241, .js-id-previous, .js-id-unsolved, .js-id-cs356'
     - name: CS 241
       tag: cs241
+    - name: CS 356
+      tag: cs356
 
   filter_default: 0
   # Sort by page weight
