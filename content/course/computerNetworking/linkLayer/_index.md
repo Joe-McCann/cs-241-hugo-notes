@@ -1,9 +1,9 @@
 ---
 # Course title, summary, and position.
-title: Computer Networking
-linktitle: Computer Networking
-summary: How does the internet work?
-weight: 25
+title: The Link Layer
+linktitle: Link Layer
+summary: Getting From One Place to Another
+weight: 2
 
 # Page metadata.
 date: "2025-06-8T00:00:00Z"
@@ -11,9 +11,6 @@ lastmod: "2025-06-8T00:00:00Z"
 draft: false  # Is this a draft? true/false
 toc: false  # Show table of contents? true/false
 type: book  # Do not modify.
-tags: 
-- software engineering
-- cs356
 
 ---
 
