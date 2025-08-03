@@ -60,13 +60,21 @@ The most obvious way to link all of our hosts together would be to physically st
 
 For $2$ hosts you need $1$ cable, for $3$ you need $3$, for $4$ you need $6$, and the trend continues with the formula
 $$
-\text{edge}(K_n)=\frac{n(n-1)}{2}
+E(K_n)=\frac{n(n-1)}{2}
 $$
-where $n$ is the number of hosts in our system. Note that the symbol $K_n$ is from graph theory in which this represents the [complete graph](https://mathworld.wolfram.com/CompleteGraph.html) of $n$ vertices: a graph where every vertice is connected to all others. The function "edges" counts how many edges we have between vertices. 
+where $n$ is the number of hosts in our system. Note that the symbol $K_n$ is from graph theory in which this represents the [complete graph](https://mathworld.wolfram.com/CompleteGraph.html) of $n$ vertices: a graph where every vertice is connected to all others. The function $E$ counts how many edges we have between vertices in the graph. 
 
 This is bad as we scale $\Theta(n^2)$ as we add more and more hosts into our system. In a world with $1$ million hosts (of which there are many more in the modern world) we would need around $10^{12}$ links between devices! This is not feasible and thus we need another way. 
 
 The (hopefully obvious) solution is to use intermediate devices in our network that are able to take in incoming data, and route it off in the correct direction to its destination. Think of this like the network of roads that connect houses together: every house does not have a private road to every other house, rather there are many shared roads (links) that then connect to intersections (switches) where you can adjust you path to get to your destination.
+
+{{< figure library="true" src="computerNetworking/page1_roads.png" title="Different Ways to Connect Houses Via Roads" lightbox="true" >}}
+
+> **Definition**: A network switch is a device in between end host devices that has the role of forwarding data to its final destination. 
+
+Addition of these switches makes us able to connect orders of magnitude more devices, however now the process of routing becomes significantly more complicated!
+
+Observing how the network is an interconnected graph of hosts and switches, we form the **topology** view of the network. Two components that the book distiguishes between is the **Network Core**, which is the piece of the network in the center, controlled by companies, that has incredibly high speed links and carries all network traffic, and the **Network Edge** which consists of pieces that allow individual hosts to access the network. Access networks are often slower than the core, as the only serve traffic to and from a very specific location. You can think of the network edge to be like neighborhood roads connecting a house to the highway system, and the core to be the network of fast highways.  
 
 [^1]: Ever since there have been two humans, there has been a need to comunicate and make said communication work. 
 [^2]: This line can get blurry with something like your smart phone with a mobile hotspot, which can act as both a host and intermediate switch. As such we will clarify when something is acting like a host or switch if it's ambiguous. 
