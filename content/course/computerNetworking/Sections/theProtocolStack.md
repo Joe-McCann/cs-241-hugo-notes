@@ -34,7 +34,7 @@ For example, if I am writing a website, why should I care if my user is connecte
 
 The theoretical model of the protocol stack that was designed is called the OSI model[^2]. The designers came up with $7$ different layers that they believed to be the most clear division between how network protocols should be defined. 
 
-However, they took to long, and their model/protocols weren't free, so nobody used them. Instead people came up with the TCP/IP system which designed two protocols (TCP for transport, and IP for network), and said "I literally don't give a fuck what happens outside of this, you do you". Since then, the ideas of the OSI model have bled and merged with the TCP/IP model, to the point that people still refer to them as "layers", and some "layers" from the OSI model were pulled over. Our book uses the TCP/IP model.
+However, they took to long, and their model/protocols weren't free, so nobody used them[^3]. Instead people came up with the TCP/IP system which designed two protocols (TCP for transport, and IP for network), and said "I literally don't give a fuck what happens outside of this, you do you". Since then, the ideas of the OSI model have bled and merged with the TCP/IP model, to the point that people still refer to them as "layers", and some "layers" from the OSI model were pulled over. Our book uses the TCP/IP model.
 
 {{< figure library="true" src="computerNetworking/page2_osi_tcp.png" title="Two Different Protocol Stacks" lightbox="true" >}}
 
@@ -48,5 +48,9 @@ For the TCP/IP model, the layers can be summarized as follows
 
 If you would like a description of the OSI Model's Presentation and Session layers, be sure to check out the reference links provided, however for out purposes all of that is contained within the Application Layer.
 
+Now note, that this is a bit of wishful thinking. It turns out that with all abstractions, they evetually leak into each other[^4] and not all designs fall so neatly into them. As we progress through class, we will see many instances where the various layers blend in leak in ways that break the fundementals.
+
 [^1]: https://www.cloudflare.com/learning/network-layer/what-is-a-protocol/
 [^2]: https://en.wikipedia.org/wiki/OSI_model
+[^3]: https://networkengineering.stackexchange.com/a/6381/101399
+[^4]: https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
