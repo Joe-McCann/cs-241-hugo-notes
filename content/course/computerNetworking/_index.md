@@ -27,5 +27,16 @@ In this way we can think of the development of computer networks as this chaotic
 
 In this class, we will go over this problem recognizing and solving process, so that you will be able to apply what you learn when you encounter a networking problem in the future. This material will be heavily based on the book **Computer Networking: A Top Down Approach** by Kurose and Ross[^2]. Free resources from this book can be found [here](https://gaia.cs.umass.edu/kurose_ross/index.php)
 
+---
+
+### Terminology
+
+In this page, we will also be listing off different pieces of notation and terminology so that you have a singular reference in case you get confused.
+
+#### Data Sizes
+
+A **byte** is $8$ **bits**. If you see a lowercase $b$, then that means the unit is in bits, if it is an uppercase B then that means the unit is in bytes. If you see units like *kilo*, *mega*, *giga*, etc this is the standard metric units that go in powers of $10$. So *kilo* is $10^3$, *mega* is $10^6$, and so forth. There was a time that people used powers of $2$, but this is **wrong**[^3]
+
 [^1]: Surprising as in its the only one most people knowingly interact with.
 [^2]: [ISBN-10: 9356061319](https://www.amazon.com/Computer-Networking-Top-Down-James-Kurose/dp/9356061319)
+[^3]: According to [US Law](https://en.wikipedia.org/wiki/Gigabyte#Consumer_confusion) and standards bodies

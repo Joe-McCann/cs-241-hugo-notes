@@ -148,7 +148,37 @@ The final point of delay is so complicated, and so variable, that an entire bran
 
 As far as I am aware, I am not going to ask computational questions regarding queueing delay, because the amount of time you wait in a line is dependent on how much traffic is on the network at any given point in time. Also note that in switches there are **two** places you may need to wait in line: before processing or before transmitting. 
 
-This delay should make sense, think about having to wait in line for Taylor Swift tickets (impossible) vs. Black Eyed Peas (without Fergie), one is going to be a longer process than the other. Perhaps if I decide to torture future students I will go over some Queueing theory, but for now, we will just leave it as is.
+This delay should make sense, think about having to wait in line for Taylor Swift tickets (impossible) vs. Black Eyed Peas (without Fergie), one is going to be a longer process than the other. 
+
+In queueing theory, we measure the rate of arrival of objects (bits for us, cars for traffic models, people for lines, etc) as the *arrival rate* $\lambda$ measured in objects/second. The amount of objects that can be processed in one second is called the *servicing rate* $\mu$ and is also measured in the amount of objects/second.[^6]
+
+> **Definition**: **Traffic Intensity**, notated as $\rho$, is a quantity expressed to help measure how much queue delay should be expected, with formula $$\rho=\frac{\lambda}{\mu}.$$ 
+
+Notice that if $\rho > 1$ then the queue will grow infinitely, as objects arrive faster than they can be processed. If $\rho=1$ then the queue will stay exactly the same. If $\rho<1$ then queue will shrink over time. 
+
+For outgoing router links, if each packet is of length $L$ bits (even though in reality packets are variable length), and arrive at a rate of on average $a$ packets/second, then our traffic intensity is
+$$
+\rho = \frac{aL}{R}
+$$
+where $R$ is the transmission rate of the outgoing link in bits/second.
+
+Of course, note that queues cannot be infinitely long, so what happens to a packet if the queue is full? **Death** 💀 - packet is dropped.
+
+> **Example**: At the start of each second $4$ packets arrive near simulatenously to an outgoing link. Each packet is $1$KB long, and the outgoing link has a transmission rate of $10$KB/s. What is the traffic intensity and average queueing delay for this link? 
+{{% callout info %}}
+<details>
+<summary>Answer</summary>
+Since each packet is $1$KB, and the link has transmission rate of $10$KB, it will take $.1$s to transmit each packet. Using the traffic intensity formula we find
+$$
+\rho=\frac{4\cdot 1}{10}=.4.
+$$
+In order to find the average queueing delay, we need to just average all the queueing delays that each packet will experience. The first packet will experience no delay, the second will need to wait $.1$s, third will wait $.2$s, and the last will wait $.3$s, meaning
+$$
+d_{\text{queue,avg}}=\frac{0+.1+.2+.3}{4}=.15
+$$
+so on average, the packets will experience $.15$s of queueing delay.
+</details>
+{{% /callout %}}
 
 ---
 
@@ -163,3 +193,4 @@ Imagine we have someone taking NJ Transit at NY Penn Station[^5]. In order to ca
 [^3]: http://www.ecs.umass.edu/ece/wolf/pubs/globecom2004.pdf : Ramaswamy, R., Weng, N., & Wolf, T. (2004, November). Characterizing network processing delay. In IEEE Global Telecommunications Conference, 2004. GLOBECOM'04. (Vol. 3, pp. 1629-1634). IEEE.
 [^4]: https://en.wikipedia.org/wiki/Queueing_theory
 [^5]: For anyone who is not familiar with this process, let me tell you that it is a horrible, agonizing process.
+[^6]: https://web.mit.edu/1.041/www/lectures/L8-queuing-models-2024sp.pdf

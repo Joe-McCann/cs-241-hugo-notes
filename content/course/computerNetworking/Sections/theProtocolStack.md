@@ -24,6 +24,8 @@ In fact, it is just as effective to consider the links of the network to form so
 
 To see an example of a protocol in action, consider what happens when you connect your phone to Wi-Fi in a classroom. Your phone is sending messages back and forth between a wireless access point. But if your message is long, how do you split it up? If your message gets corrupted along the way, how do you recover? Is the data sent encrypted or not? All of these things are decided beforehand dependent on the selected protocol, which in the case of Wi-Fi is `IEEE 802.11`. 
 
+For networking purposes, new protocols are discussed using *Requests for Comments* "RFC"s[^5]
+
 ### The Protocol Stack
 
 Computer Networks are *complicated*, and the problem is that there are so many different aspects that need to be addressed when creating protocols. These aspects could be super high level, such as determining what method of encryption your data will use, or super low level, such as how fast the electrical pulses will be to represent $1$'s and $0$'s. However, with all thats going on, it would be wonderful if we could just worry about whatever area of our network and specific problem we are working on, and then take every other aspect for granted. 
@@ -54,3 +56,4 @@ Now note, that this is a bit of wishful thinking. It turns out that with all abs
 [^2]: https://en.wikipedia.org/wiki/OSI_model
 [^3]: https://networkengineering.stackexchange.com/a/6381/101399
 [^4]: https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
+[^5]: https://www.rfc-editor.org/
