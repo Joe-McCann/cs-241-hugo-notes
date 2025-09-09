@@ -30,4 +30,6 @@ Here are some questions that we will discuss in this chapter:
 5. How do we make sure multiple devices don't corrupt each others messages by talking at the same time without using an intermediate device?
 6. How can we figure out if a message has been corrupted?
 
-Hopefully by the end of this chapter you can understand some proposed solutions to some of these ideas.
+Hopefully by the end of this chapter you can understand some proposed solutions to some of these ideas. Note that the solutions to these problems at the end of the day will be determined by *you* whenever you want to design your hypothetical network. These protocols and algorithms that we discuss are not the required ways of doing things, they are options that people have decided on in certain situations. 
+
+Rather than saying, "this is what must be done", you should think of these in the same way you think of sorting algorithms. One isn't necessarily the best, its all dependent on your circumstance that you find yourself in.
