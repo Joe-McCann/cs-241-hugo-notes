@@ -73,6 +73,16 @@ A row in the ARP table will contain
 2. A MAC Address
 3. A Time to Live (TTL) of how long this record entry is good for
 
+For example[^7]
+
+| IP Address     | MAC Address         | TTL (seconds) |
+|----------------|---------------------|---------------|
+| 192.168.1.1    | 00-1a-2b-3c-4d-5e  | 1200          |
+| 192.168.1.10   | 00-1c-42-2e-60-4a  | 1100          |
+| 192.168.1.20   | 00-1f-29-3b-7c-8d  | 900           |
+| 192.168.1.100  | 08-00-27-ab-cd-ef  | 600           |
+| 192.168.1.200  | 3c-97-0e-12-34-56  | 300           |
+
 Since devices can enter and leave a network on a whim, we use the TTL to get rid of unneeded entries, and prevent problems from occurring if a device leaves the network, and its IP Address is reassigned afterwards. If you'd like to check your ARP table on your device try `arp -a` in your terminal.
 
 If the IP Address we are looking for is not inside of the ARP Table, we will proceed with the ARP protocol. The intricate details of what goes inside of ARP packets is not useful for the purposes of this course, but the flow of how ARP communication works definitely is, if not because of how silly it is. In terms of important information, each ARP packet will have
@@ -117,3 +127,4 @@ Also, in this first protocol, we see already that multiple layers can be blended
 [^4]: NICs are also manufactured separately from the device they are attached to, and often are given their MAC at manufacturing time. As such they would not be able to coordinate giving the same MAC to all NICs on the same device anyway.
 [^5]: https://www.rfc-editor.org/rfc/rfc826
 [^6]: Modern iPhones for example have dynamic MAC addresses on startup.
+[^7]: Thanks ChatGPT for quickly generating this table so I didn't need to write it out myself lol
