@@ -85,7 +85,36 @@ You might think that ditching the slots would make things better, of which the a
 
 When we decide to utilize a broadcasting algorithm that has the potential for collisions, there is are two insanely obvious enchancements that we can add our algorithm to make it more efficient immediately. Remember that a NIC actually listens and sends simultaneously, so if we notice that someone else is sending a message, why don't we just not?
 
-1. Collision Avoidance: If you detect another node on the network broadcasting, wait until they are done before speaking.
+1. Collision Avoidance (Carrier Sensing): If you detect another node on the network broadcasting, wait until they are done before speaking.
 2. Collision Detection: If you detect another node broadcasting while you are currently broadcasting, then a collision has occurred and stop broadcasting.
 
+Protocols that use these "algorithms"[^2] are called *Carrier Sense Multiple Access (CSMA)* Protocols or *Carrier Sense Multiple Access Protocols with Collision Detection (CSMA/CD)* Protocols. 
+
+#### Exponential Backoffs
+
+What happens though if we collide though? In the previous example of ALOHA we just provided a value $p$ that represents the probability of retransmission, however if we want our networks to scale, we don't want to pick just one value of $p$ and be stuck with it. Also, this would require all devices to be synced to what the value of $p$ is!
+
+In this way, many protocols use **exponential backoffs**. Every time that a node tries to transmit a packet, it keeps track of how many times it experiences a collision while trying to transmit that specific packet. When it is trying to randomly decide how long to wait before attempting to retransmit, it selects a value $k$ randomly in the range
+$$
+0 \leq k < 2^n-1
+$$
+where $n$ is the number of collisions experienced. So the first collision, the node will randomly wait $k\in\\{0,1\\}$ units of time. Afterwards, the node will randomly wait $k\in\\{0,1,2,3\\}$ units of time. So on and so forth. As we go on, this gets larger and larger, so that the chances are that the colliding nodes will no longer do so. By "unit" of time, that will be defined by the network.
+
+#### Efficiency of CSMA/CD
+
+In the book they point to a paper that I do not have the time to read that derives an approximation of the efficiency of a network utilizing CSMA/CD. The metric provided is 
+$$
+P(\text{successful transmission}) = \frac{1}{1+5\cdot\frac{d_\text{prop}}{d_\text{trans}}}
+$$
+where $d_\text{prop}$ is the max propogration delay between two nodes in the LAN, and $d_\text{trans}$ is the maximum possible transmission delay of a node pushing a packet onto the LAN.
+
+You might be wondering, why is this not just $1$? If devices don't transmit until they ensure that there is no traffic on the network, then clearly they should never collide? The problem is that information does not transmit instantly, and it is entirely possible that before one node realizes the other has started broadcasting, that it starts broadcasting itself. As such, the smaller the $d_\text{prop}$ is, the faster data arrives between nodes, the less of a chance this has to occur. 
+
+### Hidden Terminals and Taking Turns
+
+When dealing with broadcasting over EM Waves (ie Wi-fi), there is an additional problem: because signal strength degrades quite rapidly over time, it is very possible that some of the nodes on the network will not be able to hear each other for CSMA/CD purposes, but still will collide and cause packets to be screwed up. This is called the **hidden terminal** or hidden node problem, because the nodes that are colliding to not notice that a collision is occuring.
+
+Different protocols have different ways of dealing with it. For example, Wi-Fi has the idea of "Request to Send (RTS)" where a node will first ask the Wireless Access Point for permission to communicate, upon which it will be provided with a "Clear to Send (CTS)" if it is. Bluetooth, on the other hand, performs polling in which the bluetooth main node tells all of the child nodes on the network who is allowed to speak at any given point in time. 
+
 [^1]: Proof in the textbook
+[^2]: They are really more like rules
