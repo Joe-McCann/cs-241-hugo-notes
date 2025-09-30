@@ -111,9 +111,37 @@ $$
 $$
 and thus would discard it for having an error.
 
-It can be proven that $n$ bit checksums will miss $\frac{1}{2^n}$ errors, which is pretty good! However, we still want to do better, but the final method is evil
+It can be proven that $n$ bit checksums will miss $\frac{1}{2^n}$ errors, which is pretty good! However, we still want to do better, but the final method is evil.
 
-### Cyclic Redundency Checks (CRCs) : The Most Despised Algorithm by Students
+## Cyclic Redundency Checks (CRCs) : The Most Despised Algorithm by Students
+
+This next method is so dastardly, that I am first going to describe the algorithm before giving the mathematics that explains why we are doing what we are doing. This algorithm is built around the `XOR` operation. Remember that `1 XOR 1` is $0$.
+
+The algorithm for an $n$ bit CRC goes as follows. 
+
+1. Before a message is sent, both the receiver and sender agree on a $n$ bit generator. This generator will be often decided on a per-protocol basis so that it is initialized on startup.
+
+2. The sender takes its data $D$ and appends $n$ $0$s to the end of the message, which we will denote as $D'$
+
+3. The sender performs long division using `XOR` (emphasis, instead of subtraction we use `XOR`) using $1\circ G$ ($G$ with a $1$ appended to the front) on $D'$, and stores the remainder $R$ (which should be $n$ bits) in the last $n$ digits of $D'$ that were previously our appended $0$s. $D'$ now becomes the packet that we send $P$
+
+4. The receiver gets the transmitted packet $P'$ and divides it by $G$ using the same `XOR` division.
+    1. If the remainder is $0$, state that there is no error
+    2. If the remainder is not $0$, discard as there is an error
+
+uh WHAT? What the hell does `XOR` long division even mean? Lets go through some examples of `XOR` long division first. 
+
+`insert long division here`
+
+So now we know that if we were to divide $10110$ by $111$ we would get a quotient of $111$ with a remainder of $10$.
+
+To be specific, lets say that we have message $10101$ and want to perform a $3$ bit CRC with generator $011$. First, we append $3$ bits to out data to get $10101000$ then divide it by $1011$ to get a remainder of $101$. As such, our final data we send to the receiver is $P=10101101$. When you divide $P$ by $1011$ you will find that there is no remainder. I encourage you to try this out by modifying to by modifying the error and seeing that the error is caught. 
+
+CRCs are widely used because they have a high chance of catching errors, for any specific error the chance of catching it is $\frac{1}{2^n}$ for an $n$ bit CRC, HOWEVER, special CRC generators can be selected to catch errors that have certain forms. For example, no "burst" errors less than $n$ bits long will ever be missed, or all errors that contain less than $6$ flipped bits will be caught. Etc etc. 
+
+### Why does this work? 
+
+Get ready for a deep dive into some hardcore abstract algebra.
 
 
 [^1]: Technically, these codes are put in the middle of the message, not the end, but thats not important for our purposes.
