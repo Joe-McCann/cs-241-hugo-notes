@@ -31,7 +31,7 @@ Note, any packet that finds *no* matches is discarded.
 
 With this in mind, we need to find out ways in which we will actually be able to compute all of these routing tables. In this page we will discuss the idea of a *centralized* routing algorithm, and then later we will find a way to do a decentralized algorithm
 
-> **Definition**: A **routing algorithm** is an algorithm that finds the optimal path between two points for usage of calculating forwarding tables. A **centralized** algorithm performs all the computations from one main node that has a full view of the entire network and all conditions, whereas a **decentralized** algorithm performs computations individually from each node, with only the information of the device itself and all its neighbors.
+> **Definition**: A **routing algorithm** is an algorithm that finds the optimal path between two points for usage of calculating forwarding tables. A **centralized** algorithm performs all the computations from one main node, whereas a **decentralized** algorithm performs computations individually from each node. An **link state** algorithm is one that has full knowledge of the entire network when performing computations, and a **distance vector** algorithm is one that only knows about its immediate neighbors. A **load sensitive** algorithm factors in traffic load, whereas a **load insensitive** algorithm does not.
 
 ## Graph Theory
 
@@ -57,4 +57,9 @@ The holy grail of centralized routing algorithms is Dijkstra's algorithm. In ord
 
 Traditionally, centralized algorithms were very *very* frowned upon, because the idea of having a single point of failure was one of the big things the designers of the early nets were trying to avoid. Nowadays, networking is reliable enough where a centralized server within the ISP can perform this calculations, and if something was to go wrong, one of several backup servers could kick in. As such, the main server is in communication with the routers on the network, constantly getting and giving updates regarding what the plan should be.
 
+I am so behind on notes, so I will take the cop out and provide this really nice animation video of how Dijkstra's algorithm works: https://www.youtube.com/watch?v=EFg3u_E6eHU
+
+An example of a protocol that utilizes Dijkstra's for its routing is *Open Shortest Path First* (OSPF)[^2]
+
 [^1]: This notation means that $w$ is a function that maps edges in $E$ to real numbers $\mathbb{R}$
+[^2]: https://en.wikipedia.org/wiki/Open_Shortest_Path_First
