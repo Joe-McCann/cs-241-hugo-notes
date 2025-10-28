@@ -45,9 +45,68 @@ Ok, so if this is the garbage method that is just a YOLO, what is the point of u
 2. Minimal overhead allows for more data sent with fewer packets
 3. Low overhead means developer is able to be flexible and add their own functionality in
 
-### Python Socket Programming with UDP
+## Python Socket Programming with UDP
 
-Lets actually code up a simple text message program, so we can see UDP sockets working in action.
+Lets actually code up a simple text message program, so we can see UDP sockets working in action. In this, we will just have a simple message sending client, and a server that prints it out. We will also be using Python for the purposes of our code, so hopefully you know some python fundementals. 
+
+### UDP Client
+
+To begin, lets observe how we actually can send messages to each other over UDP. We will create a UDP Client class that takes a user string input and fires it out to some servers IP address and Port
+
+```python3
+import socket
+
+serverName = "127.0.0.1"
+serverPort = 12500
+
+with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as clientSocket:
+    while True:
+        message = input()
+        clientSocket.sendto(message.encode(), (serverName, serverPort))
+```
+
+Lets walk through what this is doing line by line. First we import the necessary library functions in `import socket`. Next we set variables to represent the IP address and port that we want to send our messages to
+
+```python3
+serverName = "127.0.0.1"
+serverPort = 12500
+```
+
+Remember that `127.0.0.1` means "send this message to this device. Next we open our UDP socket that we would like to send messages through using
+```python3
+with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as clientSocket:
+```
+where you can note that the `with` keyword is the same one that you can use for a file stream, just enhancing the comparison. 
+`socket.AF_INET` means that we are using IPv4 and `socket.SOCK_DGRAM` means that our transport protocol is UDP. If you'd like to use IPv6 then use `AF_INET6`. The `while` loop and `message=input()` should be self explanatory. 
+
+Finally we send the message using
+```python3
+clientSocket.sendto(message.encode(), (serverName, serverPort))
+```
+The tuple of `(serverName, serverPort)` shows our socket who to send the packet to, and `message.encode()` converts our string into a binary sequence with a default encoding of UTF-8.
+
+But wait, where do we set our own IP addresses and Ports? For this purpose it doesn't matter because we are sending the message. So we just let the library handle that shit for us so we don't have to worry about it.
+
+### UDP Server
+
+Now we will write the code to actually receive these messages that we are sending. Just as before I'll put the code first and then walk through it
+
+```python3
+import socket
+
+serverPort = 12500
+
+serverSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+serverSocket.bind(("", serverPort))
+print("Starting Server")
+try:
+    while True:
+        message, clientAddress = serverSocket.recvfrom(2048)
+        print(message.decode(), clientAddress)
+finally:
+    serverSocket.close()
+    print("Socket Closed")
+```
 
 [^1]: https://en.wikipedia.org/wiki/Two_Generals%27_Problem
 [^2]: The fact that Laurel has no entrence/exit in the back is criminal
