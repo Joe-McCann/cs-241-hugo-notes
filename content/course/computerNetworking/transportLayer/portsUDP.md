@@ -108,6 +108,18 @@ finally:
     print("Socket Closed")
 ```
 
+Just like before, we are setting port number and then creating a socket. However, now instead of just firing off a message to the server IP and port, we are now going to set our socket to listen for incoming messages using the `bind` function. The empty string at the start means "listen on this IP address" and the provided port tells us where to listen to. 
+
+Now we are going to infinitely loop to listen for messages. The `recvfrom` function **WAITS** until it receives a message and then sends the **BITSTRING** into the `message` variable, as well as the sender's information into the `clientAddress` variable. I emphasize that the socket waits because its not like we are going to be printing a million empty lines, the next bit of code will not execute until we get a message. I also emphasize that its a bitstring because that is why we need to `.decode()` before we print. 
+
+Inside the receive function, you will see a `2048`, this represents the number of bits that we are willing to pull up from our input buffer. If we have more than `2048` bits in our buffer, then we will read the first `2048`, and then the next iteration of the loop will pick up the next ones.
+
+We also close the socket at the end to make sure its not leaking and hogging up our resources. 
+
+In order to run both the client and server on your device, open up two python terminals, run the server in one, and the client in the other. You should be able to see the message appear on the server. 
+
+Btw, the command to run in the terminal is `python <file>` or `python3 <file>` depending on your OS.
+
 [^1]: https://en.wikipedia.org/wiki/Two_Generals%27_Problem
 [^2]: The fact that Laurel has no entrence/exit in the back is criminal
 [^3]: https://stackoverflow.com/questions/16233193/what-exactly-is-socket
