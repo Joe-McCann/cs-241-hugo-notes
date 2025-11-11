@@ -79,6 +79,18 @@ Congestion control is *extremely* implementation specific, but I will go over on
 
 ### Bufferbloat
 
+Taking a quick dip back into the discussion about the Network layer[^3] (so scandy to bring up Network on a Transport page I know), we had briefly discussed about how routers had buffers to store incoming packets that were waiting inside of queues. These queues could form while both the packets were waiting to be processed, and while they were waiting to be transmitted to the outgoing link. As memory and storage became cheaper in the 2000s, people began to make routers have larger and larger buffers for queues: this was so that they could have less packets be dropped due to full queues, and thus less retransmissions, less traffic, and overall a faster internet. However, in some cases it appeared that increasing buffer sizes actually made people's `ping` speeds **slower**! How could this be possible?
+
+Its possible to see how a large queue could lead to a slowdown. A longer queue means each packet needs to wait longer in line, but how is this really a problem if this was all data that needed to be sent anyway?
+
+It turns out that TCP and its congestion control methods were to blame. Imagine that we have a WAP router that can process $2$ packets per second inside our house. We are playing a game of League of Legends that sends one packet per second, in normal times we would have no problems here. However, now your sister uploads a video to Google Drive, this process will be performed over TCP Sockets. If your queue is $1000$ packets long, through TCP congestion control, we will first begin to send `1`, then `2`, then `4`, so on and so forth packets at a time. Notice the problem is that our router can only actually handle $2$ packets a second, but because congestion control won't kick in until a packet is dropped our TCP sender will keep dumping more and more data! By the time the sender finally shuts up, the queue is way too long and will cause so much delay.
+
+An analogy is when you are in a group talking, and one person won't shut up and the backlog of discussion topics will keep growing and growing. The solution for this is for one person to realize that this conversation is going on too long, and cutting them off so that they can take the hint. 
+
+This is the idea of **Active Queue Management** or **Smart Queue Management**, in which a router understands what its throughput should be, and starts killing packets if it sees that one device is getting a little too talkative. In this way, a TCP connection would learn what the proper speed that data should be sent at is, sooner than on schedule.
+
+In fact, when I turned on AQM (called QoS in my router) on my router at home, my ping speed from my house to Newark dropped from `50ms` to `15ms` 😰
+
 ### Cumulative ACKs
 
 In most versions of TCP, we utilize what are called *cumulative ACKs*. This means that if I send out packets with sequence numbers `100, 200, 300` (remember this means that each packet would have $100$ bytes of data) then even if the ACKs for `100` and `200` get dropped, as long as I get the ACK for `300` (which would have ACK number $301$) I can mark all of that data as acknowledged because `ACK 301` means that everything prior to `301` has been received a-ok.
@@ -92,6 +104,8 @@ In TCP, there is a similar handshake to close a connection. The sender will init
 ## Choosing Initial Sequence Numbers
 
 ## TCP Code
+
+Here we will go over some simple TCP code in python to allow us to send messages between each other.
 
 ### TCP Client
 
@@ -142,3 +156,4 @@ finally:
 
 [^1]: We increase the ACK number by $1$ because we are acknowledging the first packet being sent which contains the syn. 
 [^2]: https://en.wikipedia.org/wiki/Silly_window_syndrome
+[^3]: Unfortunately, TCP and IP are linked pretty tightly because they were originally designed as one protocol. So yeah it sucks
