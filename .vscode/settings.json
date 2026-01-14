@@ -1,3 +1,16 @@
 {
-    "r.lsp.promptToInstall": false
+    "r.lsp.promptToInstall": false,
+    "cSpell.words": [
+        "bijective",
+        "Egan",
+        "Engen",
+        "Haruhi",
+        "injective",
+        "superpermuation",
+        "superpermutation",
+        "superpermutations",
+        "surjective",
+        "Suzumiya",
+        "Vatter"
+    ]
 }

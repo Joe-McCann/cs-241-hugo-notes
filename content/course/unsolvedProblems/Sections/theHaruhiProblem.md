@@ -18,7 +18,7 @@ weight: 5007
 
 How is it possible that genuine mathematical research could be gleamed from the depths of anime fandoms and anonymous message boards? The world of mathematics is bonkers and insights of ingenuity can come from anywhere, even if it takes some time for the genius to be appreciated  
 
-Given $n$ objects or symbols, we know from intro combinitorics that there are $n!$ ways that we can arrange the objects in different permuations, where
+Given $n$ objects or symbols, we know from intro combinatorics that there are $n!$ ways that we can arrange the objects in different permutations, where
 $$
 n!=\prod_{k=1}^n k = n\cdot(n-1)\cdot\ldots 2\cdot 1 
 $$
@@ -29,7 +29,7 @@ $$
 12,21.
 $$
 
-Now imagine that I wanted to write a sequnce of the characters $1,2$, allowing repeats, where every single permutation can be found within the sequence. For example
+Now imagine that I wanted to write a sequence of the characters $1,2$, allowing repeats, where every single permutation can be found within the sequence. For example
 $$
 s=12221
 $$
@@ -44,16 +44,16 @@ Readers familiar with computer science will recognize this as the familiar notat
 
 It is a natural question to ask what the shortest string would be that covers all possible permutations for $n$ characters. Specifically, this is called the **superpermutations** problem. 
 
-In our previous example of $12221$ we can see this string is garbage and sucks because there is a ton of uneccesary $2$s. In fact, we can simply concatonate all permutations together to improve our sequence to only $4$ characters
+In our previous example of $12221$ we can see this string is garbage and sucks because there is a ton of unnecessary $2$s. In fact, we can simply concatenate all permutations together to improve our sequence to only $4$ characters
 $$
 s=1221.
 $$
 
-But even this sucks, because there is no rule that says our permuations cannot overlap! As such, the following string is actually optimal
+But even this sucks, because there is no rule that says our permutations cannot overlap! As such, the following string is actually optimal
 $$
 s = 121.
 $$
-As we can see, the permuation $12$ is covered by $s_{1:2}$ and $21$ is covered by $s_{2:3}$. Of course, this is not the only optimal string, as we can create another one via relabeling $212$. We can see that this string has a length of $3$ characters, which we will measure with the following function
+As we can see, the permutation $12$ is covered by $s_{1:2}$ and $21$ is covered by $s_{2:3}$. Of course, this is not the only optimal string, as we can create another one via relabeling $212$. We can see that this string has a length of $3$ characters, which we will measure with the following function
 
 > **Definition**: Let $L:S\rightarrow \mathbb{N}[^3]$ be the function that takes a string as an input and returns the length of said string
 
@@ -100,9 +100,9 @@ Here we will include some basic lemmas and theorems that will we use later on in
 
 I will label these with **SE** to refer to "stupid easy" for when referenced in the future.
 
-The first two are related to what actually consititutes a permutation in our string, and when we can expect to find one. For more casual readers who the language of the proof might get a bit technical, just know that we are proving
+The first two are related to what actually constitutes a permutation in our string, and when we can expect to find one. For more casual readers who the language of the proof might get a bit technical, just know that we are proving
 1. You can't cover a permutation with some sequence if you are missing a character or contain a duplicate
-2. Any sequence of $n$ characters cannot more than one permuation at a time
+2. Any sequence of $n$ characters cannot more than one permutation at a time
 
 > **Lemma SE1**: A string $s$ that contains $n$ characters covers a permutation if and only if all $n$ characters are present within the string exactly once. 
 
@@ -118,7 +118,7 @@ $$
 s:\mathbb{Z}/n\rightarrow \mathbb{Z}/n
 $$
 </br>
-For the forward direction, consider that we know that $s$ covers a permuation. This means by definition that $s$ is bijective and thus is both injective (every character appears only once) and surjective (no characters are missing). 
+For the forward direction, consider that we know that $s$ covers a permutation. This means by definition that $s$ is bijective and thus is both injective (every character appears only once) and surjective (no characters are missing). 
 </br>
 For the reverse direction, if $s$ contains every character exactly once, this means that it is both injective and surjective, and by extension is a permutation
 </br>
@@ -130,7 +130,7 @@ For the reverse direction, if $s$ contains every character exactly once, this me
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
-From <b>Lemma SE1</b> we know that if all characters are not represnted exactly once, then there will be $0$ permutations covered. As such, let us now consider what happens when all characters are covered exactly one time, and thus a permutation is covered. 
+From <b>Lemma SE1</b> we know that if all characters are not represented exactly once, then there will be $0$ permutations covered. As such, let us now consider what happens when all characters are covered exactly one time, and thus a permutation is covered. 
 </br>
 Assume that our string $s$ covers at least two distinct permutations $p_1$ and $p_2$ where $p_1\neq p_2$. However, since $s$ covers the permutations we know that
 $$
@@ -153,9 +153,9 @@ We now have enough to create our first simple bounds
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
-For the lower bound, we know that there are $n!$ permuations, and since by <b>SE2</b> we know that no sequence of $n$ characters can cover more than $1$ permutations then we must have at least $1$ character added for each permutation so $n!\leq L(s)$
+For the lower bound, we know that there are $n!$ permutations, and since by <b>SE2</b> we know that no sequence of $n$ characters can cover more than $1$ permutations then we must have at least $1$ character added for each permutation so $n!\leq L(s)$
 </br>
-For the upper bound, we know that we can create a valid string that covers all permutations by concatonating them all, which would create a string $L(s)\leq n\cdot n!$
+For the upper bound, we know that we can create a valid string that covers all permutations by concatenating them all, which would create a string $L(s)\leq n\cdot n!$
 </br>
 <b>Q.E.D.</b>
 </details>
@@ -199,13 +199,13 @@ $$
 \end{align}
 $$
 
-It is fascinating that the OP (original poster) correctly determined the length of the minimal superpermuation string for $n\leq 4$, however, it appears that there was likely an earlier thread that led to this problem being discussed, as we can see from this anonymous comment
+It is fascinating that the OP (original poster) correctly determined the length of the minimal superpermutation string for $n\leq 4$, however, it appears that there was likely an earlier thread that led to this problem being discussed, as we can see from this anonymous comment
 
 > *Anonymous Response*: OH FUCK YEAH YOU AGAIN. I'm still working on computer homework though, good luck man.
 
 although later it is implied by OP that this is part of a series of effectively mathematical challenge brain teasers, which could be what this user is referring to.
 
-As is with all internet dicussions, including those relating to science and mathematics, the conversation remained professional and collaborative the entire time
+As is with all internet discussions, including those relating to science and mathematics, the conversation remained professional and collaborative the entire time
 
 > *Anonymous Response*: you didn't even get your own problem. the answer is not 14!, but rather 14*14!, because you are asking for the number of episodes you would need to watch. sage
 >
@@ -305,7 +305,7 @@ As such, I wish to attempt to clean up the 4chan argument and present it in a pr
 
 The proof follows a straightforward structure, we will imagine that we have some superpermutation string $s$ and then look at increasing sequences of characters. As we increase and add more characters to the subsequence that we are looking at, we will be keeping track of some counters, and will then show that those counters must always be smaller than the length of $s$. This will help us bound the string size.
 
-We will start with the simplist bound, which is just a slightly improved version of **B1**. Steps one and two will be used almost as stepping stones to get us to the eventual desired bound, so I will not label them. 
+We will start with the simplest bound, which is just a slightly improved version of **B1**. Steps one and two will be used almost as stepping stones to get us to the eventual desired bound, so I will not label them. 
 
 > **Lemma**: Let $s$ be a superpermuation string of $n$ characters, then
 $$
@@ -314,7 +314,7 @@ $$
 
 We will first define a function that counts the number of unique permutations contained within a string
 
-> **Definition**: Given a string $s$, let $P(s)$ represent the number of unique permuations covered by that string
+> **Definition**: Given a string $s$, let $P(s)$ represent the number of unique permutations covered by that string
 
 *Note* that in the original 4chan post, Anon represented this quantity as $N_0$, however I think the different letters will help differentiate for teaching purposes.
 
@@ -329,7 +329,7 @@ $$
 L(s_{1:n-1})-P(s_{1:n-1}) = n-1
 $$
 
-*Note* that the 4chan user calls $L(s)-P(s)=X_0(s)$, but I believe this additional notation to be unecessary. 
+*Note* that the 4chan user calls $L(s)-P(s)=X_0(s)$, but I believe this additional notation to be unnecessary. 
 
 We now consider what happens when we move from $s_{1:k}$ to $s_{1:k+1}$ with respect to $L$ and $P$. Since we are increasing our string by one character, $L$ must increase by $1$. However, $P$ may increase by $1$, but will not increase if we do not complete a permutation. As such we can perform some algebra to show that
 $$
@@ -344,7 +344,7 @@ $$
 \end{align}
 $$
 
-However, since $s$ is a superpermutation string, we know it must cover all possible permuations. Therefore
+However, since $s$ is a superpermutation string, we know it must cover all possible permutations. Therefore
 $$
     L(s) \geq n! + n - 1
 $$
