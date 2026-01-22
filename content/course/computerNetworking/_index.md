@@ -21,7 +21,7 @@ __William Joe McCann__
 
 ### How We Communicate with Each Other
 
-In this material, we will cover the fundementals of computer networking, with a specific emphasis on its application with regards to the Internet (which is surprisingly[^1] not the only computer network). These fundementals were created many times out of necessity rather than strict planning: a problem was encountered by people who needed to perform a certain task, and solutions were created for said problems. 
+In this material, we will cover the fundamentals of computer networking, with a specific emphasis on its application with regards to the Internet (which is surprisingly[^1] not the only computer network). These fundamentals were created many times out of necessity rather than strict planning: a problem was encountered by people who needed to perform a certain task, and solutions were created for said problems. 
 
 In this way we can think of the development of computer networks as this chaotic process in which engineers and researchers just did things to fit their needs, and other people took hold of those creations to fit their needs. What we find is this insane patchwork of many different protocols, technologies, and architectures for various purposes. Those, of course, just being the ones we know of too, when in reality there are likely just as many secret solutions being used by engineers in companies all across the world!
 

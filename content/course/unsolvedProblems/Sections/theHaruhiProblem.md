@@ -22,7 +22,7 @@ Given $n$ objects or symbols, we know from intro combinatorics that there are $n
 $$
 n!=\prod_{k=1}^n k = n\cdot(n-1)\cdot\ldots 2\cdot 1 
 $$
-is the *factorial* function. For this page, we will restrict our "characters" to the numbers $1,2,3,\ldots, n$ for the purpose of simplicity.
+is the *factorial* function. For this page, we will restrict our "objects" and "characters" to the numbers $1,2,3,\ldots, n$ for the purpose of simplicity. In more math-y terminology we would say that our "alphabet" $\Sigma_n=\\{1,2,3,4,\ldots,n\\}$ and that all finite strings made up of these characters are $\Sigma_n^*$
 
 If we have objects $1,2$ and we wanted to write down all possible permutations, we would see that there are $2!=2$ of them
 $$
@@ -33,7 +33,7 @@ Borrowing some wonderful notation from algebra and group theory, we will define 
 
 >**Definition**: The set of all permutations of the characters $1,2,3,\ldots,n$ is $S_n$
 
-There is a lot of deeper literature and theory related to what permutations are and the set $S_n$, but that is outside the scope of this page.
+There is a lot of deeper literature and theory related to what permutations are and the set $S_n$, but that is outside the scope of this page. Normally permutations are described as functions, but for us we can just think of them as rearrangements of strings.
 
 Now imagine that I wanted to write a sequence of the characters $1,2$, allowing repeats, where every single permutation can be found within the sequence. For example
 $$
@@ -50,6 +50,8 @@ Readers familiar with computer science will recognize this as the familiar notat
 
 It is a natural question to ask what the shortest string would be that covers all possible permutations for $n$ characters. Specifically, this is called the **superpermutations** problem. 
 
+> **Definition**: A string $s\in\Sigma_n^*$ **covers** all permutations, or is a **superpermutation string**, if for every permutation $p\in S_n$, we can find some index $i$ such that $s_{i:i+n-1}=p$.
+
 In our previous example of $12221$ we can see this string is garbage and sucks because there is a ton of unnecessary $2$s. In fact, we can simply concatenate all permutations together to improve our sequence to only $4$ characters
 $$
 s=1221.
@@ -61,15 +63,15 @@ s = 121.
 $$
 As we can see, the permutation $12$ is covered by $s_{1:2}$ and $21$ is covered by $s_{2:3}$. Of course, this is not the only optimal string, as we can create another one via relabeling $212$. We can see that this string has a length of $3$ characters, which we will measure with the following function
 
-> **Definition**: Let $L:S\rightarrow \mathbb{N}[^3]$ be the function that takes a string as an input and returns the length of said string
+> **Definition**: Let $L:\Sigma_n^*\rightarrow \mathbb{N}$[^3] be the function that takes a string as an input and returns the length of said string
 
 So $L(123)=3$ and $L(5437548)=7$
 
 I'm now going to commit a cardinal sin here by introducing my own notation, but I think it will be helpful later so 🤷
 
-> **Definition**: Let $\sigma_n$ be the set of all minimal strings of $n$ characters that cover all permutations. 
+> **Definition**: Let $\sigma_n\subset\Sigma_n^*$ be the set of all minimal superpermutation strings. 
 
-More formally we would say that if $s$ is a string that covers all permutations, and $s'\in\sigma_n$, then 
+More formally we would say that if $s\in\Sigma_n^*$ is a superpermutation string, and $s'\in\sigma_n$, then 
 $$
 L(s')\leq L(s).
 $$
@@ -110,7 +112,7 @@ The first two are related to what actually constitutes a permutation in our stri
 1. You can't cover a permutation with some sequence if you are missing a character or contain a duplicate
 2. Any sequence of $n$ characters cannot more than one permutation at a time
 
-> **Lemma SE1**: A string $s$ that contains $n$ characters covers a permutation if and only if all $n$ characters are present within the string exactly once. 
+> **Lemma SE1**: A string $s\in\Sigma_n^*$ covers a permutation if and only if all $n$ characters are present within the string exactly once. 
 
 {{% callout info %}}
 <details>
@@ -127,16 +129,16 @@ This follows directly from the definition of a permutation as a shuffling of a l
 <summary>Proof</summary>
 From <b>Lemma SE1</b> we know that if all characters are not represented exactly once, then there will be $0$ permutations covered. As such, let us now consider what happens when all characters are covered exactly one time, and thus a permutation is covered. 
 </br>
-Assume that our string $s$ covers at least two distinct permutations $p_1$ and $p_2$ where $p_1\neq p_2$. However, since $s$ covers the permutations we know that
+Assume that our string $s$ covers at least two distinct permutations $u$ and $v$ where $u\neq v$. However, since $s$ covers the permutations we know that
 $$
 \begin{align}
-p_1(1)=&s(1)=p_2(1) \\
-p_1(2)=&s(2)=p_2(2) \\
+u_1=&s_1=v_1 \\
+u_2=&s_2=v_2 \\
 &\vdots \\
-p_1(n)=&s(n)=p_2(n)
+u_n=&s_n=p_n
 \end{align}
 $$
-which means that $p_1=p_2$ contradicting our claim that they are two distinct permutations.
+which means that $u=v$ contradicting our claim that they are two distinct permutations.
 </br>
 <b>Q.E.D.</b>
 </details>
@@ -220,7 +222,7 @@ It is important to note that this was determined heuristically by them, but not 
 
 He also then goes on to prove the following theorem
 
-> **Theorem Recursive Bound B2**: Let $s$ be an $n$ character super permutation string generated by the recursive algorithm, then 
+> **Theorem Recursive Bound B2**: Let $s\in\Sigma_n^*$ be a superpermutation string generated by the recursive algorithm, then 
 $$
 L(s) = \sum_{k=1}^n k! = 1!+2!+\ldots+n!
 $$
@@ -264,13 +266,15 @@ Since this provided lower bound is significantly lower than the sum of factorial
 
 Note, Johnston did not link to the original 4chan thread, rather the version that was migrated to the /sci/ wiki page. This migration does imply that the users present in the 4chan thread, despite not providing much commentary on the lower bound, felt it worthwhile to polish, format, and publish to the Wiki page. The page was created by user [Renaldo Moon](https://mathsci.fandom.com/wiki/User:Renaldo_Moon) who also made the majority of contributions early in the page history. One can speculate on this user's involvement in the original thread, as well as the owner of this document [here](https://docs.google.com/document/d/1AXXx1516LLq3wpiIZT_FayLnp6Q7xw8JlmFqsyyoy8Y/edit?tab=t.0) where the proof was typed up, but there is no definitive evidence. 
 
-On August 21st, 2014 Robin Houston published a document to arXiv providing a counterexample for **C1**[^8] when $n=6$ and proving it false for $n\geq 6$. However, according to Michael Engen and Vincent Vatter in their 2019 article **Containing All Permuations**[^14] it was not truly recognized in the community as serious
+On August 21st, 2014 Robin Houston published a document to arXiv providing a counterexample for **C1**[^8] when $n=6$ and proving it false for $n\geq 6$. 
+
+This meant that the problem had been blown wide open, and that the 4Chan lower bound could be considered something feasible. However, according to Michael Engen and Vincent Vatter in their 2019 article **Containing All Permutations**[^14] it was not truly recognized in the community as serious
 
 > *Michael Engen and Vincent Vatter*: At least since a 2013 blog post of Johnston, it had been known that there was an argument (on a website devoted to anime) claiming to improve on the lower bound ... However, the argument was far from what most mathematicians would consider a proof, and there had been no efforts to make it into one, in part because the claimed lower bound was so far from what was thought to be the correct answer at the time. However, Egan’s \[2018\] breakthrough quickly inspired several participants of the Superpermutators group to re-examine the argument.
 
 The breakthrough of Egan at described in Engen and Vatter's was to create an algorithm that was able to create superpermutation strings of the following length
 
-> **Theorem Egan Bound B3**: Let $s$ be a superpermutation string of $n$ characters generated by Egan's Algorithm[^2]. Then
+> **Theorem Egan Bound B3**: Let $s\in\Sigma_n^*$ be a superpermutation string generated by Egan's Algorithm[^2]. Then
 $$
 L(s) = n!+(n-1)!+(n-2)!+(n-3)!+n-3
 $$
@@ -302,14 +306,16 @@ The proof follows a straightforward structure, we will imagine that we have some
 
 We will start with the simplest bound, which is just a slightly improved version of **B1**. Steps one and two will be used almost as stepping stones to get us to the eventual desired bound, so I will not label them. 
 
-> **Lemma Bound B4**: Let $s$ be a superpermuation string of $n$ characters, then
+> **Lemma Bound B4**: Let $s\in\Sigma_n^*$ be a superpermuation string, then
 $$
 L(s) \geq n! + n - 1
 $$
 
 We will first define a function that counts the number of unique permutations contained within a string
 
-> **Definition**: Given a string $s$, let $P(s)$ represent the number of unique permutations covered by that string
+> **Definition**: Given a string $s\in\Sigma_n^*$, let $P(s)$ represent the number of unique permutations covered by that string. 
+
+Formally $P(s)$ is the number of items $p\in S_n$ such that we can find some index $i$ where $s_{i:i+n-1}=p$. Also note that $P(s)$ depends on $n$, however for brevity of notation we will represent as $P(s)$ instead of $P_n(s)$
 
 *Note* that in the original 4chan post, Anon represented this quantity as $N_0$, however I think the different letters will help differentiate for teaching purposes.
 
@@ -319,16 +325,19 @@ By **Lemma SE1**, we know that a permutation can only be covered if all characte
 $$
 P(s_{1:n-1})=0
 $$
-and thus by extension
+and thus by extension[^17]
 $$
-L(s_{1:n-1})-P(s_{1:n-1}) \geq n-1[^17]
+L(s_{1:n-1})-P(s_{1:n-1}) \geq n-1
 $$
 
 *Note* that the 4chan user calls $L(s)-P(s)=X_0(s)$, but I believe this additional notation to be unnecessary. 
 
 We now consider what happens when we move from $s_{1:k}$ to $s_{1:k+1}$ with respect to $L$ and $P$. Since we are increasing our string by one character, $L$ must increase by $1$. However, $P$ may increase by $1$, but will not increase if we do not complete a permutation. As such we can perform some algebra to show that
 $$
-L(s_{1:k+1}) - P(s_{1:k+1}) \geq \left(L(s_{1:k})+1\right) - \left(P(s_{1:k})+1\right) = L(s_{1:k})-P(s_{1:k}).
+\begin{align}
+L(s_{1:k+1}) - P(s_{1:k+1}) &\geq \left(L(s_{1:k})+1\right) - \left(P(s_{1:k})+1\right) \\\\
+&\geq L(s_{1:k})-P(s_{1:k}).
+\end{align}
 $$
 This means that as we increase the length of our string, the gap between $L$ and $P$ is non-decreasing, which means we can set
 $$
@@ -359,9 +368,13 @@ It is also important to note that $1234$ and $3412$ are **not** connected via a 
 $$
 1234\xrightarrow{2} 3421
 $$
-because in $123421$ we take two characters to reach $3421$ and $2342$ is not a permutation. We have the following Lemmas
+because in $123421$ we take two characters to reach $3421$ and $2342$ is not a permutation. To put this into a precise definition
 
-> **Lemma 4C1**: For every permutation string $s$ there is exactly one permutation $t$ such that $s\xrightarrow{1} t$
+> **Definition**: Permutations $p_1, p_2\in S_n$ are connected via a $k$-edge from $p_1$ to $p_2$ if and only if you can create string $s$ by concatenating $k$ characters to $p_1$ such that $s_{1:n}=p_1$, $s_{k+1:n+k}=p_2$ but for all $1 \leq i < k$ then $s_{i+1:n+i}\not\in S_n$.
+
+We have the following Lemmas
+
+> **Lemma 4C1**: For every permutation $s\in S_n$ there is exactly one permutation $t\in S_n$ such that $s\xrightarrow{1} t$
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
@@ -375,7 +388,7 @@ This proof shows us that the *only* way to take a $1$-edge out of a permutation 
 
 Now the reason that the previous Lemma worked intuitively is that the only character that can be tacked on to the end to create a new permutation is the first one, and that's because any other character would be too close to it other appearance and cause a repeat. In the same way, if we want to tack $2$ characters on to the back to create a $2$ edge we have to use the first $2$ characters in our permutation. This might make you think that we have two possible options for a $2$-edge out of any particular permutation, but that is actually not the case! Surprisingly
 
-> **Lemma 4C2**: For every permutation string $s$ there is exactly one permutation $t$ such that $s\xrightarrow{2} t$
+> **Lemma 4C2**: For every permutation $s\in S_n$ there is exactly one permutation $t\in S_n$ such that $s\xrightarrow{2} t$
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
@@ -392,13 +405,15 @@ $$
 
 > **Definition**: A cycle created by a sequence of $1$-edges is a $1$-cycle. 
 
-> **Lemma 4C3**: Let $s$ be a permutation of $n$ characters. Taking $n$ $1$-edges will cover $n$ permutations (including $s$) before ending on the permutation covered by $s$.
+> **Lemma 4C3**: Let $s\in S_n$. Taking $n$ $1$-edges will cover $n$ permutations (including $s$) before ending on the permutation covered by $s$.
 
 This just states that the cycle contains $n$ items, and this can be proven many ways. My preferred thought is to use modular arithmetic, however I encourage the reader to think of their own specialty 🧑‍🍳.
 
 Since taking a $1$-edge while inside of a $1$-cycle will keep you inside of it, if you want to jump to a different $1$-cycle then you **must** take a $k$-edge out when $k>1$. Note that this means that we are "wasting" a character, as it will be added to the string but will not cover a new permutation.
 
-> **Definition**: Let $C_1$ be the set of all $1$-cycles, where $c\in C_1$ is a set of permutations covered by the represented cycle.
+> **Definition**: Let $C_1$ be the set of all $1$-cycles, where $c\in C_1$ is a $n$-tuple of permutations covered by the represented cycle in order.
+
+Note that since this is a cyclic structure, the choice of first element is not important, rather that the elements follow each other in sequence.
 
 > **Lemma 4C4**: $C_1$ is a partition of the set of permutations of $n$ characters.
 {{% callout info %}}
@@ -418,14 +433,14 @@ Also, we know that because each $1$-cycle contains $n$ permutations, there must 
 
 We now have enough information to prove the next bound in our sequence
 
-> **Lemma Bound B5**: Let $s$ be a superpermuation string of $n>2$ characters, then
+> **Lemma Bound B5**: Let $s\in\Sigma_n^*$ be a superpermuation with $n>2$ characters, then
 $$
 L(s) \geq n! + (n-1)! + n - 2
 $$
 
 In order to help us, we will define the following quantity
 
-> **Definition**: Given a $n$ character string $s$, let $N(s)$ represent the number of distinct $1$-cycles that have had an element of theirs appear within permutations of $s$[^16].
+> **Definition**: Given $s\in\Sigma_n^*$, let $N(s)$ represent the number of distinct $1$-cycles that have had an element of theirs appear within permutations of $s$[^16].
 
 Being more formal, we would say that $N(s)$ is the amount of elements $c\in C_1$ such that there exists an index $i$ such that 
 $$
@@ -479,7 +494,9 @@ s=12345123415234125341235412345
 $$
 which uses $29$ characters ($27$ if you exclude the last $4,5$ which covers the existing first permutation) to cover $20$ permutations. We will provide the following definition
 
-> **Definition**: The cycle of $1$-cycles formed by taking successive $2$-edges after taking $n-1$ $1$-edges in a $1$-cycle is called a $2$-cycle.
+> **Definition**: The cycle of $1$-cycles formed by taking successive $2$-edges after taking $n-1$ $1$-edges in a $1$-cycle is called a $2$-cycle, with set $C_2$ being the set of all $2$-cycles with $c\in C_2$ being the $n\cdot (n-1)$-tuple of permutations with the first element being one of the entrypoints of $c$.
+
+Soon we will discuss what we mean by "entrypoints", however let us first show why a $2$-cycle contains $n\cdot (n-1)$ elements.
 
 > **Lemma 4C5**: Let $n$ be the number of characters of our permutations, let $c_1, c_2, c_3,\ldots, c_n\in C_1$ be the sequence of $1$-cycles formed by starting with some $p\in c_1$, taking each $1$-cycle to all permutations via $n-1$ $1$-edges, and then moving to a new $1$-cycle via a $2$-edge. Then $c_1=c_n$.
 
@@ -515,28 +532,26 @@ Now we need to discuss the big difficulty when it comes to $2$-cycles, they are 
 
 > **Definition**: Let $s$ be a string that contains only $1$-cycle $c\in C_1$, then the **entrypoint** of $c$ is the first covered permutation by $s_{1:n}$. 
 
-> **Definition**: Let $C_2$ be the set of all $2$-cycles, where $c\in C_2$ has $c=\\{p_1,p_2,\ldots,p_{n-1}\\}$ with $p_1,p_2,\ldots, p_{n-1}\in S_n$ are the *entrypoints* for the $1$-cycles present within the $2$-cycle.
+> **Definition**: Let $E_2$ be the set of all $2$-cycles entrypoints, where for each $c\in C_2$ we have $e=(p_1,p_2,\ldots,p_{n-1})\in E_2$ with $p_1,p_2,\ldots, p_{n-1}\in S_n$ are the *entrypoints* for the $1$-cycles present within the $c$ in the order that they appear within $c$.
 
-> **Lemma 4C6**: $C_2$ forms a partition of the set $S_n$
+> **Lemma 4C6**: $E_2$ forms a partition of the set $S_n$
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
-For all $p\in S_n$, it is trivial to show that there must exist some $c\in C_2$ such that $p\in c$. Simply start with $p$ and perform the process described in <b>4C5</b> to create a $2$-cycle. This then will correspond to an element of $c$.
+For all $p\in S_n$, it is trivial to show that there must exist some $e\in E_2$ such that $p\in e$. Simply start with $p$ and perform the process described in <b>4C5</b> to create a $2$-cycle. This then will correspond to an element of $C_2$.
 </br>
-In order to show uniqueness, assume that there are some values $c_1, c_2\in C_2$ such that $c_1\neq c_2$ but there is some $p_1\in c_1, c_2$. Since $c_1,c_2$ both contain $p_1$ as an entrypoint, we may start both of them using $p_1$. Since $1$-cycles form a partition per <b>4C4</b> we can know that both $c_1,c_2$ must share the same initial $1$-cycle and will complete this $1$-cycle on the same permutation. However, taking a $2$-edge to the next entrypoint will create the same permutation $p_2$ for both $c_1,c_2$ meaning that $p_2\in c_1, c_2$. Repeating the same process as before until we complete the $2$-cycle shows that we contradict the initial claim that $c_1\neq c_2. 
+In order to show uniqueness, assume that there are some values $e_1, e_2\in E_2$ with corresponding elements $c_1, c_2\in C_2$ such that $e_1\neq e_2$ but there is some $p_1\in e_1\cap e_2$. Since $e_1,e_2$ both contain $p_1$ as an entrypoint, we may start both of them using $p_1$. Since $1$-cycles form a partition per <b>4C4</b> we can know that both $c_1,c_2$ must share the same initial $1$-cycle and will complete this $1$-cycle on the same permutation. However, taking a $2$-edge to the next entrypoint will create the same permutation $p_2$ for both $c_1,c_2$ meaning that $p_2\in e_1, e_2$. Repeating the same process as before until we complete the $2$-cycle shows that we contradict the initial claim that $e_1\neq e_2. 
 <b>Q.E.D.</b>
 </details>
 {{% /callout %}}
 
-This is nice because we now can see that while each individual permutation $p\in S_n$ is a part of $n$ $2$-cycle processes, each permutation can be the entrypoint of exactly $1$ $2$-cycle. In the original 4Chan proof, the anonymous user considers the $2$-cycle as defined by the full sequence of permutations which does not form a partition of $S_n$. We hope here this makes it a little easier to understand what is going on. 
+This is nice because we now can see that while each individual permutation $p\in S_n$ is a part of $n$ $2$-cycle processes, each permutation can be the entrypoint of exactly $1$ $2$-cycle. In the original 4Chan proof, the anonymous user does not consider this partition $E_2$ and only works with $C_2$, we hope that our additional definition will make things easier to work with.
 
-To be very specific, we will say that the $2$-cycle $c\in C_2$ itself is the **full** sequence of permutations that you get by starting at some $p\in c$, and then applying the process of repeatedly taking $n-1$ $1$-edges, followed by a $2$-edge until a subsequent $2$-edge would bring us back to $p$. In this sense the $2$-cycle is "completed" when the full sequence of permutations has been covered. To bring it home, the $2$-cycle is the sequence of permutations from this process, which itself can be uniquely defined by any of the entrypoints found inside $c$. Any arbitrary permutation will be found in $n$ $2$-cycles, however can be an entrypoint for exactly $1$ $2$-cycle.
-
-As stated prior, $|C_2|=n\cdot (n-2)!$ which is straightforward via **4C6** since each element $c\in C_2$ contains $n-1$ items. 
+As stated prior, $|E_2|=|C_2|=n\cdot (n-2)!$ which is straightforward via **4C6** since each element $c\in E_2$ contains $n-1$ items and there is a correspondence between $E_2,C_2$. 
 
 Still, this makes things more challenging, and as such we will need to observe more cases to prove our final theorem
 
-> **Theorem 4Chan Bound B6**: Let $s$ be a superpermutation string, then
+> **Theorem 4Chan Bound B6**: Let $s\in\Sigma_n^*$ be a superpermutation string, then
 $$
 L(s) \geq n! + (n-1)! + (n-2)! + n - 3
 $$
@@ -545,7 +560,7 @@ Similar to prior, we will define a counting quantity that will help us get to th
 
 > **Definition**: Let $T(s)$ be the number of distinct $2$-cycles that we have entered into. 
 
-Note that when we say $2$-cycles that we have entered into, we can only increase $T(s)$ if we observe a new **entrypoint** of a $1$-cycle that is not already found. In order to formalize it, we will say that $T(s)$ is equal to the number of elements $d\in C_2$ with the following property. There exists a $p\in d$, where $p\in c$ with $c\in C_1$, such that we can find some substring $p=s_{i:i+n-1}$ but $s_{i-1:i+n-2}\not\in c$. In words, mark some permutation as "seen" inside its $C_2$ element if we got to it via taking something other than a $1$-edge, thus making it an entrypoint. The beauty of this is that we cannot increase $T(s)$ more than one time for each $2$-cycle. This also provides us an analog to $N$ in **Step 2** where we said we were counting "observed" $1$-cycles. 
+Note that when we say $2$-cycles that we have entered into, we can only increase $T(s)$ if we observe a new **entrypoint** of a $1$-cycle that is not already found. In order to formalize it, we will say that $T(s)$ is equal to the number of elements $d\in E_2$ with the following property. There exists a $p\in d$, where $p\in c$ with $c\in C_1$, such that we can find some substring $p=s_{i:i+n-1}$ but $s_{i-1:i+n-2}\not\in c$. In words, mark some permutation as "seen" inside its $C_2$ element if we got to it via taking something other than a $1$-edge, thus making it an entrypoint. The beauty of this is that we cannot increase $T(s)$ more than one time for each $2$-cycle. This also provides us an analog to $N$ in **Step 2** where we said we were counting "observed" $1$-cycles. 
 
 We will observe similar to the previous two cases, the quantity
 $$

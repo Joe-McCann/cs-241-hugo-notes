@@ -5,12 +5,18 @@
         "Egan",
         "Engen",
         "Haruhi",
+        "hotspot",
         "injective",
+        "lightbox",
+        "linktitle",
         "superpermuation",
         "superpermutation",
         "superpermutations",
         "surjective",
         "Suzumiya",
         "Vatter"
-    ]
+    ],
+    "cSpell.enabledFileTypes": {
+        "markdown": true
+    }
 }

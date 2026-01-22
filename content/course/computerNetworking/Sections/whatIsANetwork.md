@@ -7,7 +7,7 @@ date: 2025-06-8
 draft: false
 tags:
     - cs356
-    - network fundementals
+    - network fundamentals
     - computer networks
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
@@ -52,7 +52,7 @@ When we send "data" over a computer network, that data is represented in a group
 
 How will we describe these units though? Consider sending a letter over mail. To me, the most straightforward "unit" would be one letter. However, to the mail carrier they might consider an entire bag of letters to be one unit of measurement since from their perspective they just transport bags of mail between distribution centers. Some other people might consider individual words of the letter to be distinct units. 
 
-I bring this up to explain that different use cases and different users might have different ideas *and* terms for what "one unit" of measurement is considered. *Most often,* one unit of data sent over a network is called a **packet**. For all sections, if I use the term "packet", that will just mean one generic chunk of data sent for our purposes, however, other terms may be used interchangibly depending on the purpose.
+I bring this up to explain that different use cases and different users might have different ideas *and* terms for what "one unit" of measurement is considered. *Most often,* one unit of data sent over a network is called a **packet**. For all sections, if I use the term "packet", that will just mean one generic chunk of data sent for our purposes, however, other terms may be used interchangeably depending on the purpose.
 
 ### The need for switches
 
@@ -62,7 +62,7 @@ For $2$ hosts you need $1$ cable, for $3$ you need $3$, for $4$ you need $6$, an
 $$
 E(K_n)=\frac{n(n-1)}{2}
 $$
-where $n$ is the number of hosts in our system. Note that the symbol $K_n$ is from graph theory in which this represents the [complete graph](https://mathworld.wolfram.com/CompleteGraph.html) of $n$ vertices: a graph where every vertice is connected to all others. The function $E$ counts how many edges we have between vertices in the graph. 
+where $n$ is the number of hosts in our system. Note that the symbol $K_n$ is from graph theory in which this represents the [complete graph](https://mathworld.wolfram.com/CompleteGraph.html) of $n$ vertices: a graph where every vertex is connected to all others. The function $E$ counts how many edges we have between vertices in the graph. 
 
 This is bad as we scale $\Theta(n^2)$ as we add more and more hosts into our system. In a world with $1$ million hosts (of which there are many more in the modern world) we would need around $10^{12}$ links between devices! This is not feasible and thus we need another way. 
 
@@ -74,7 +74,7 @@ The (hopefully obvious) solution is to use intermediate devices in our network t
 
 Addition of these switches makes us able to connect orders of magnitude more devices, however now the process of routing becomes significantly more complicated!
 
-Observing how the network is an interconnected graph of hosts and switches, we form the **topology** view of the network. Two components that the book distiguishes between is the **Network Core**, which is the piece of the network in the center, controlled by companies, that has incredibly high speed links and carries all network traffic, and the **Network Edge** which consists of pieces that allow individual hosts to access the network. Access networks are often slower than the core, as the only serve traffic to and from a very specific location. You can think of the network edge to be like neighborhood roads connecting a house to the highway system, and the core to be the network of fast highways.  
+Observing how the network is an interconnected graph of hosts and switches, we form the **topology** view of the network. Two components that the book distinguishes between is the **Network Core**, which is the piece of the network in the center, controlled by companies, that has incredibly high speed links and carries all network traffic, and the **Network Edge** which consists of pieces that allow individual hosts to access the network. Access networks are often slower than the core, as the only serve traffic to and from a very specific location. You can think of the network edge to be like neighborhood roads connecting a house to the highway system, and the core to be the network of fast highways.  
 
-[^1]: Ever since there have been two humans, there has been a need to comunicate and make said communication work. 
+[^1]: Ever since there have been two humans, there has been a need to communicate and make said communication work. 
 [^2]: This line can get blurry with something like your smart phone with a mobile hotspot, which can act as both a host and intermediate switch. As such we will clarify when something is acting like a host or switch if it's ambiguous. 

@@ -7,7 +7,7 @@ date: 2025-07-14
 draft: false
 tags:
     - cs356
-    - network fundementals
+    - network fundamentals
     - computer networks
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
@@ -44,13 +44,13 @@ For the TCP/IP model, the layers can be summarized as follows
 
 1. Physical Layer: Physical mediums that are responsible for how the data physically travels between devices.
 2. Link Layer: Layer that describes protocols regarding how devices move from one node in the network to the next
-3. Network Layer: Layer that describes protocols regarding movement between artibtrary nodes in the network
+3. Network Layer: Layer that describes protocols regarding movement between arbitrary nodes in the network
 4. Transport Layer: Layer that describes protocols regarding how data is transmitted from one process on a host to another
 5. Application Layer: Layer that contains all applications that utilize the network
 
 If you would like a description of the OSI Model's Presentation and Session layers, be sure to check out the reference links provided, however for out purposes all of that is contained within the Application Layer.
 
-Now note, that this is a bit of wishful thinking. It turns out that with all abstractions, they evetually leak into each other[^4] and not all designs fall so neatly into them. As we progress through class, we will see many instances where the various layers blend in leak in ways that break the fundementals.
+Now note, that this is a bit of wishful thinking. It turns out that with all abstractions, they eventually leak into each other[^4] and not all designs fall so neatly into them. As we progress through class, we will see many instances where the various layers blend in leak in ways that break the fundamentals.
 
 [^1]: https://www.cloudflare.com/learning/network-layer/what-is-a-protocol/
 [^2]: https://en.wikipedia.org/wiki/OSI_model

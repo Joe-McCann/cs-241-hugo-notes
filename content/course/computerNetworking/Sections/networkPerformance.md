@@ -7,7 +7,7 @@ date: 2025-08-02
 draft: false
 tags:
     - cs356
-    - network fundementals
+    - network fundamentals
     - computer networks
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
@@ -19,7 +19,7 @@ weight: 113
 The most common shared experience of users of the internet is when the network is moving slowly, and you get the urge to throw your device out a window[^1]. Examples that will cause PTSD in students are many of the following:
 
 1. When you want to watch a movie on Netflix, but it seems to keep buffering every 5 seconds, so in reality you feel like you are watching stop motion video
-2. When you are playing League of Legends and your ping spikes during the middle of a teamfight, and now suddently the game freezes, and by the time you reconnect to the game you are dead.
+2. When you are playing League of Legends and your ping spikes during the middle of a teamfight, and now suddenly the game freezes, and by the time you reconnect to the game you are dead.
 3. When you are watching livestream and suddenly it cuts out during a cool moment, and by the time it comes back you've jumped past the cool moment and the chat is going crazy without you.
 4. When you are trying to have a virtual job interview, but your interviewer cannot seem to see or hear you because of your connection issues. 
 
@@ -33,7 +33,7 @@ The simplest measure of network performance is packet Round Trip Time (RTT), whi
 
 > **Definition**: The **round trip time** (also known as **ping time**) from Host $A$ to Host $B$ is the amount of time it takes for Host $A$ to receive a response from Host $B$ after sending data, notated as $RTT(A,B)$ 
 
-RTT is the best friend metric of gamers everywhere as very often "ping" is the most important statistic. This is because most online video games don't send a large amount of data back and forth between you and the server at any moment in time. As such, we don't really care if our network is able to handle giant dumps of data at a time, but instead want to make sure that our data reaches its destination as fast as possible. For some games, a ping time of even $100$ms can feel disasterous. 
+RTT is the best friend metric of gamers everywhere as very often "ping" is the most important statistic. This is because most online video games don't send a large amount of data back and forth between you and the server at any moment in time. As such, we don't really care if our network is able to handle giant dumps of data at a time, but instead want to make sure that our data reaches its destination as fast as possible. For some games, a ping time of even $100$ms can feel disastrous. 
 
 > **Example**: If Host $A$ is sending a packet to Host $B$, it takes $20$ms to reach $B$, $5$ms for $B$ to process the packet, and $30$ms for the response from $B$ to reach $A$, what is the Round Trip Time?
 {{% callout info %}}
@@ -56,21 +56,21 @@ In this case $98\\%$ of the RTT is actually the ChatGPT processing time! From yo
 
 A good analogy of this would be if you were watching your friend at a marathon in which the start and finish line were at the same location, and you stayed there to time them start and finish. If your friend takes a super long time to finish, you have no idea if they just suck and are a slow runner, or maybe they are a fast runner but just stopped midway through the race to buy and eat a hot dog. 
 
-As such the RTT time is often measured in practice using the `ping` command on terminal, because if Host $A$ sends a `ping` to Host $B$, $B$ will immediately fire back a `ping` response to $A$, which minimizes the processing time and gives a good insight into the underlying network performance. Note however, that *technically* `ping` time and RTT for a process are not the same, as `ping` uses a special type of packet (Internet Control Message Protocol, which we will discuss in the futurue), and may be treated differently for this reason. In practice though, `ping` gives a good enough metric to get an idea of network performance.
+As such the RTT time is often measured in practice using the `ping` command on terminal, because if Host $A$ sends a `ping` to Host $B$, $B$ will immediately fire back a `ping` response to $A$, which minimizes the processing time and gives a good insight into the underlying network performance. Note however, that *technically* `ping` time and RTT for a process are not the same, as `ping` uses a special type of packet (Internet Control Message Protocol, which we will discuss in the future), and may be treated differently for this reason. In practice though, `ping` gives a good enough metric to get an idea of network performance.
 
 So we know that there is delay in moving from point $A$ to point $B$, but where does this delay come from? There are $4$ main types of delay that cause problems that we will discuss, that have varying degrees of difficulty to calculate or estimate.
 
-### Propogation Delay
+### Propagation Delay
 
-The most fundemental type of delay is probably the most straightforward to understand in that any time we send data, the data actually needs to *physically* travel to the destination. 
+The most fundamental type of delay is probably the most straightforward to understand in that any time we send data, the data actually needs to *physically* travel to the destination. 
 
-> **Definition**: The *propogation delay* of a packet sent along a network, is the amount of time the data spends traveling along links, notated as $d_{\text{prop}}$
+> **Definition**: The *propagation delay* of a packet sent along a network, is the amount of time the data spends traveling along links, notated as $d_{\text{prop}}$
 
 This speed at which a message travels is heavily reliant on how you are sending it; for example, if you sent a piece of paper mail via USPS, it would probably arrive faster than via horseback. In the same way, Wi-Fi, Copper Cables, Fiber Optic, etc. all send their information at different speeds. This is (apparently) represented in terms of the percent at which data travels at the speed of light called the "velocity factor"[^2]. 
 
 Fiber Optic cable, for example, transmits its data at $\frac{2}{3}$ the speed of light. However, for our purposes we know that nothing can travel faster than the speed of light, so this will provide a fine enough lower bound.
 
-> **Example**: Originally, the League of Legends servers were hosted in Los Angeles. If I played from Newark NJ, provide a lower bound of the propogation delay I could experience (ie: no matter how good my connection is, assuming there is literally no other source of delay, what can my `ping` time never be better than)
+> **Example**: Originally, the League of Legends servers were hosted in Los Angeles. If I played from Newark NJ, provide a lower bound of the propagation delay I could experience (ie: no matter how good my connection is, assuming there is literally no other source of delay, what can my `ping` time never be better than)
 {{% callout info %}}
 <details>
 <summary>Answer</summary>
@@ -164,7 +164,7 @@ where $R$ is the transmission rate of the outgoing link in bits/second.
 
 Of course, note that queues cannot be infinitely long, so what happens to a packet if the queue is full? **Death** 💀 - packet is dropped.
 
-> **Example**: At the start of each second $4$ packets arrive near simulatenously to an outgoing link. Each packet is $1$KB long, and the outgoing link has a transmission rate of $10$KB/s. What is the traffic intensity and average queueing delay for this link? 
+> **Example**: At the start of each second $4$ packets arrive near simultaneously to an outgoing link. Each packet is $1$KB long, and the outgoing link has a transmission rate of $10$KB/s. What is the traffic intensity and average queueing delay for this link? 
 {{% callout info %}}
 <details>
 <summary>Answer</summary>
@@ -184,9 +184,9 @@ so on average, the packets will experience $.15$s of queueing delay.
 
 ### An Analogy for Delay Types
 
-With all these different forms of delay, it can sometimes become easy to get confused regarding which is which. As such I find it to be a good excercise to go through the effort of describing in terms of analogies different ways to think of these network delays. I will provide one, but I suggest going through the effort of coming up with one of your own as well.
+With all these different forms of delay, it can sometimes become easy to get confused regarding which is which. As such I find it to be a good exercise to go through the effort of describing in terms of analogies different ways to think of these network delays. I will provide one, but I suggest going through the effort of coming up with one of your own as well.
 
-Imagine we have someone taking NJ Transit at NY Penn Station[^5]. In order to catch their train, they arrive at the train station and proceed to figure out what track they need to go to (*processing delay*). They then need to take an escalator down to the track, however there are so many people that they need to wait in line to get on the escalator (*queueing delay*). After waiting in line they take the escalator down (*transmission delay*), and then get on the train which takes them to their destination (*propogation delay*).
+Imagine we have someone taking NJ Transit at NY Penn Station[^5]. In order to catch their train, they arrive at the train station and proceed to figure out what track they need to go to (*processing delay*). They then need to take an escalator down to the track, however there are so many people that they need to wait in line to get on the escalator (*queueing delay*). After waiting in line they take the escalator down (*transmission delay*), and then get on the train which takes them to their destination (*propagation delay*).
 
 [^1]: Is this just me?
 [^2]: https://en.wikipedia.org/wiki/Velocity_factor

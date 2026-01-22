@@ -7,7 +7,7 @@ date: 2025-08-05
 draft: false
 tags:
     - cs356
-    - network fundementals
+    - network fundamentals
     - computer networks
 
 # Prev/next pager order (if `docs_section_pager` enabled in `params.toml`)
@@ -20,11 +20,11 @@ In the previous section we discussed all about how we can measure different form
 
 Much more important to users is the *quantity* of data that is being sent, for purposes such as file transportation or video streaming. We might be able to transmit more data at once, even if it takes longer to reach the destination. 
 
-To understand why, consider the analogy of cars going down a highway. Each car represents a packet of data, and it takes some amount of time to go from $A$ to $B$. If you are on a backcountry, single-lane road then you might be able to travel quite fast, as there will not be all that much traffic. However, not that many cars can fit on a single lane road at once. Comparitively, on a highway traffic might cause each car to take longer, but many, many cars can use the road simultaneously. This is a roundabout way to describe network throughput. 
+To understand why, consider the analogy of cars going down a highway. Each car represents a packet of data, and it takes some amount of time to go from $A$ to $B$. If you are on a backcountry, single-lane road then you might be able to travel quite fast, as there will not be all that much traffic. However, not that many cars can fit on a single lane road at once. Comparatively, on a highway traffic might cause each car to take longer, but many, many cars can use the road simultaneously. This is a roundabout way to describe network throughput. 
 
 > **Definition**: *Network throughput*, notated $TP$, is the amount of data sent within a given window of time, often measured in bits/second. *Network bandwidth*, notated $B$, is the maximum throughput of the network.
 
-Now "throughput" is a bit of a loose term, because depending on what application we are measuring, we might be computing it differently. For example, are we considering throughput of the entire network, or just one link? A end user whos video streaming may only care about the overall network performance, but a network admin might want to know where a problem lies.
+Now "throughput" is a bit of a loose term, because depending on what application we are measuring, we might be computing it differently. For example, are we considering throughput of the entire network, or just one link? A end user who's video streaming may only care about the overall network performance, but a network admin might want to know where a problem lies.
 
 Do we count packet overhead (additional information used for routing purposes) as part of the "data" or no? Counting the packet overhead will give a clearer picture on performance, but may obscure things for the end user.
 
@@ -43,7 +43,7 @@ which is $333$ Megabits per second.
 </details>
 {{% /callout %}}
 
-For nearly all users of modern computer networks, throughput is the most important measure of network performance. Consider most things people use the internet for: video streaming, downloading files, thirsting over people on insta. All of that requires the transmission of sometimes large quantities of data over your network, and it is *very* noticable when that data can not be transmitted quickly.
+For nearly all users of modern computer networks, throughput is the most important measure of network performance. Consider most things people use the internet for: video streaming, downloading files, thirsting over people on Insta. All of that requires the transmission of sometimes large quantities of data over your network, and it is *very* noticeable when that data can not be transmitted quickly.
 
 For example, imagine we want to watch a $4$K video at $60$ frames per second. An **uncompressed**[^1] $4$K image is $24$MB according to Google, which means that in one second we need to receive at least
 $$
