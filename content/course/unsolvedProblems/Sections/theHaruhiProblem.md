@@ -22,12 +22,18 @@ Given $n$ objects or symbols, we know from intro combinatorics that there are $n
 $$
 n!=\prod_{k=1}^n k = n\cdot(n-1)\cdot\ldots 2\cdot 1 
 $$
-is the *factorial* function. 
+is the *factorial* function. For this page, we will restrict our "characters" to the numbers $1,2,3,\ldots, n$ for the purpose of simplicity.
 
 If we have objects $1,2$ and we wanted to write down all possible permutations, we would see that there are $2!=2$ of them
 $$
 12,21.
 $$
+
+Borrowing some wonderful notation from algebra and group theory, we will define the set of all permutations as follows
+
+>**Definition**: The set of all permutations of the characters $1,2,3,\ldots,n$ is $S_n$
+
+There is a lot of deeper literature and theory related to what permutations are and the set $S_n$, but that is outside the scope of this page.
 
 Now imagine that I wanted to write a sequence of the characters $1,2$, allowing repeats, where every single permutation can be found within the sequence. For example
 $$
@@ -96,7 +102,7 @@ which covers all permutations.
 
 ### Simple Theorems Relating to Permutation Strings
 
-Here we will include some basic lemmas and theorems that will we use later on in the page. Perhaps a real mathematician, or someone with half of a functioning brain, might find these so obvious they're not even worth writing down, much less proving. Sadly, I am neither a real mathematician, no a person with more than $2$ functioning brain cells, and thus I find it quite helpful to formally write them to reference later. 
+Here we will include some basic lemmas and theorems that will we use later on in the page. Feel free to skip them or their proofs should you desire, however for teaching purposes I will use them as warm-up.
 
 I will label these with **SE** to refer to "stupid easy" for when referenced in the future.
 
@@ -109,18 +115,7 @@ The first two are related to what actually constitutes a permutation in our stri
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
-For simplicity sake, we will define that the characters of our string are the digits $1,2,\ldots, n$ which is the set $\mathbb{Z}/n$. We first being by stating that a permutation $p$ is a bijection 
-$$
-p:\mathbb{Z}/n\rightarrow \mathbb{Z}/n
-$$
-where we can think of this mapping our indexes to the items in those indexes. If it is a permutation, then it must shuffle everything around, but still include everything, hence being a bijection. For the remainder of the proof, we will consider any given string as a function $s$
-$$
-s:\mathbb{Z}/n\rightarrow \mathbb{Z}/n
-$$
-</br>
-For the forward direction, consider that we know that $s$ covers a permutation. This means by definition that $s$ is bijective and thus is both injective (every character appears only once) and surjective (no characters are missing). 
-</br>
-For the reverse direction, if $s$ contains every character exactly once, this means that it is both injective and surjective, and by extension is a permutation
+This follows directly from the definition of a permutation as a shuffling of a list of items.
 </br>
 <b>Q.E.D.</b>
 </details>
@@ -149,7 +144,7 @@ which means that $p_1=p_2$ contradicting our claim that they are two distinct pe
 
 We now have enough to create our first simple bounds
 
-> **Trivial Bounds B1**: Let $s\in\sigma_n$, then $n! \leq L(n) \leq n\cdot n!$
+> **Trivial Bounds B1**: Let $s\in\sigma_n$, then $n! \leq L(s) \leq n\cdot n!$
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
@@ -307,7 +302,7 @@ The proof follows a straightforward structure, we will imagine that we have some
 
 We will start with the simplest bound, which is just a slightly improved version of **B1**. Steps one and two will be used almost as stepping stones to get us to the eventual desired bound, so I will not label them. 
 
-> **Lemma**: Let $s$ be a superpermuation string of $n$ characters, then
+> **Lemma Bound B4**: Let $s$ be a superpermuation string of $n$ characters, then
 $$
 L(s) \geq n! + n - 1
 $$
@@ -318,7 +313,7 @@ We will first define a function that counts the number of unique permutations co
 
 *Note* that in the original 4chan post, Anon represented this quantity as $N_0$, however I think the different letters will help differentiate for teaching purposes.
 
-> **Example**: If $n=3$ $P(12312)=3$
+> **Example**: If $n=3$, $P(12312)=3$
 
 By **Lemma SE1**, we know that a permutation can only be covered if all characters are present, as such we know that
 $$
@@ -326,7 +321,7 @@ P(s_{1:n-1})=0
 $$
 and thus by extension
 $$
-L(s_{1:n-1})-P(s_{1:n-1}) = n-1
+L(s_{1:n-1})-P(s_{1:n-1}) \geq n-1[^17]
 $$
 
 *Note* that the 4chan user calls $L(s)-P(s)=X_0(s)$, but I believe this additional notation to be unnecessary. 
@@ -339,8 +334,8 @@ This means that as we increase the length of our string, the gap between $L$ and
 $$
 \begin{align}
  L(s) - P(s) &\geq L(s_{1:n-1})-P(s_{1:n-1}) \\\\
- L(s) - P(s) &\geq n-1 \\\\
- L(s) &\geq P(s) + n -1.
+ \implies L(s) - P(s) &\geq n-1 \\\\
+ \implies L(s) &\geq P(s) + n -1.
 \end{align}
 $$
 
@@ -348,9 +343,250 @@ However, since $s$ is a superpermutation string, we know it must cover all possi
 $$
     L(s) \geq n! + n - 1
 $$
-proving our Lemma. Q.E.D.
+proving our **Lemma Bound B4**. Q.E.D.
 
 ### Step Two
+
+In order to move up to the next stage, we need to understand the concept of "weighted edges" that the author comes up with. Specifically they envisioned a graph where each permutation is represented by a node, and nodes $u,v$ are connected via a directed edge if you can add additional characters to the end of the permutation represented by $u$ to get the permutation represented by $v$ *without passing through any additional permutations*. The "weight" or "cost" of this edge will be the number of characters required to be added. The author calls an edge with weight $k$ a $k$-edge.
+
+For example, this would be a sequence of $1$-edges
+$$
+1234\xrightarrow{1} 2341\xrightarrow{1} 3412\xrightarrow{1} 4123
+$$
+because the string $1234123$ only adds one character at a time, but connects those permutations together. Comparatively, if we were to do $12342$, adding that $2$ to the end of $1234$ does not connect any permutations together, because $2342$ is not a permutation.
+
+It is also important to note that $1234$ and $3412$ are **not** connected via a $2$-edge, even though it takes two characters to move between them. This is because $2341$ is intermediate between those two permutations, and thus they are instead connected via a path of two $1$-edges. A proper $2$-edge would look like instead 
+$$
+1234\xrightarrow{2} 3421
+$$
+because in $123421$ we take two characters to reach $3421$ and $2342$ is not a permutation. We have the following Lemmas
+
+> **Lemma 4C1**: For every permutation string $s$ there is exactly one permutation $t$ such that $s\xrightarrow{1} t$
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+Let $s$ be a $n$ character string that contains only a single permutation, and is thus $n$ characters long. We will then concatenate a character $c$ to the end $s$ so that $s'=s\cdot c$. In order to be a $1$-edge, this means that $s'_{2:n+1}$ must be a permutation, and since $s'_{1:n}$ is also a permutation the only valid option for $c$ that satisfies this is $s_1$.
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+This proof shows us that the *only* way to take a $1$-edge out of a permutation is to move the first character of that permutation to the end. 
+
+Now the reason that the previous Lemma worked intuitively is that the only character that can be tacked on to the end to create a new permutation is the first one, and that's because any other character would be too close to it other appearance and cause a repeat. In the same way, if we want to tack $2$ characters on to the back to create a $2$ edge we have to use the first $2$ characters in our permutation. This might make you think that we have two possible options for a $2$-edge out of any particular permutation, but that is actually not the case! Surprisingly
+
+> **Lemma 4C2**: For every permutation string $s$ there is exactly one permutation $t$ such that $s\xrightarrow{2} t$
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+Let $s$ be a $n$ character string that contains only a single permutation, and is thus $n$ characters long. We will then concatenate two characters $c_1c_2$ to the end $s$ so that $s'=s\cdot c_1\cdot c_2$. In order to be a $2$-edge, this means that $s'_{3:n+2}$ must be a permutation and $s'_{2:n+1}$ must not be a permutation. Similar to the previous argument, we know that $c_1,c_2$ must be the first two characters of $s$ however, $c_1$ cannot be $s_1$, otherwise that would be a $1$-edge and thus $s'_{2:n+1}$ would be a permutation. As such, we know that $c_2$ must be $s_1$ and $c_1$ must be $s_2$.
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+Now with these two Lemmas, we can start considering how one might build a superpermutation string efficiently. Clearly, if it was possible we would always want to $1$-edges, as those increase our permutation count by $1$ while only using $1$ character. Unfortunately, we cannot take only $1$-edges as those actually form a cycle. We can see this from our previous example if we take one more $1$ edge
+$$
+1234\xrightarrow{1} 2341\xrightarrow{1} 3412\xrightarrow{1} 4123\xrightarrow{1} 1234
+$$
+
+> **Definition**: A cycle created by a sequence of $1$-edges is a $1$-cycle. 
+
+> **Lemma 4C3**: Let $s$ be a permutation of $n$ characters. Taking $n$ $1$-edges will cover $n$ permutations (including $s$) before ending on the permutation covered by $s$.
+
+This just states that the cycle contains $n$ items, and this can be proven many ways. My preferred thought is to use modular arithmetic, however I encourage the reader to think of their own specialty 🧑‍🍳.
+
+Since taking a $1$-edge while inside of a $1$-cycle will keep you inside of it, if you want to jump to a different $1$-cycle then you **must** take a $k$-edge out when $k>1$. Note that this means that we are "wasting" a character, as it will be added to the string but will not cover a new permutation.
+
+> **Definition**: Let $C_1$ be the set of all $1$-cycles, where $c\in C_1$ is a set of permutations covered by the represented cycle.
+
+> **Lemma 4C4**: $C_1$ is a partition of the set of permutations of $n$ characters.
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+Given any permutation, we know via <b>4C1</b> that there is exactly one $1$-edge out. As such, we know that given any permutation we can use a $1$-edge to create a new one. Via <b>4C3</b> if we perform $n$ $1$-edges, we will make it back to our original permutation. As such, we are guaranteed that all permutations are contained within at least $1$ $1$-cycle.
+</br>
+However, since there is exactly $1$ $1$-edge from each permutation, it is not possible to have the same permutation be contained within two different $1$-cycles. If there was an overlap, the sequence of $1$-edges would be identical, and thus the same cycle. This means that all cycles are disjoint and cover the set of permutations. 
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+Since all $1$-cycles are $n$ permutations long, there could be future insights gleaned from the world of Algebra, considering this as as it relates to group theory and the symmetric group $S_n$, however that is for another day.
+
+Also, we know that because each $1$-cycle contains $n$ permutations, there must be $(n-1)!$ distinct $1$-cycles.
+
+We now have enough information to prove the next bound in our sequence
+
+> **Lemma Bound B5**: Let $s$ be a superpermuation string of $n>2$ characters, then
+$$
+L(s) \geq n! + (n-1)! + n - 2
+$$
+
+In order to help us, we will define the following quantity
+
+> **Definition**: Given a $n$ character string $s$, let $N(s)$ represent the number of distinct $1$-cycles that have had an element of theirs appear within permutations of $s$[^16].
+
+Being more formal, we would say that $N(s)$ is the amount of elements $c\in C_1$ such that there exists an index $i$ such that 
+$$
+s_{i:i+n-1}\in c.
+$$
+
+Similar to the previous step, we will consider what happens now to the quantity $L(s)-P(s)-N(s)$. Since each permutation requires $n$ characters, we know that
+$$
+L(s_{1:n})-P(s_{1:n})-N(s_{1:n}) \geq n - 1 - 1 = n - 2
+$$
+
+Again, we consider what happens when we increase the substring that we look at from $s_{1:k}$ to $s_{1:k+1}$.  
+
+1. We could have taken a $1$-edge to a new permutation. This would increase $L$ by $1$, increase $P$ by $1$, but not increase $N$. This is because a $1$-edge can not switch you to a new $1$-cycle via **4C3**.
+2. We could have taken a $1$-edge to an already covered permutation. This would only increase $L$ by $1$.
+3. We could have completed a $2$-edge to a permutation we have already covered. This would only increase $L$ by $1$.
+4. We could have completed a $2$-edge to a permutation we have not covered in a $1$-cycle we have already seen before. This would increase $L$ by $1$, increase $P$ by $1$, but not increase $N$.
+5. We could have completed a $2$-edge to a permutation in a new $1$-cycle. This would increase $L$ by $1$, $P$ by $1$, and $N$ by $1$. However, since we completed a $2$-edge, this means that the character $s_k$ would *not* have completed a new permutation and would have only increased $L$ by $1$. As such, completion of this $2$-edge will decrease by $1$, but that will just bring the total value to the same as when $s_{1:k-1}$ was observed. 
+
+Summarizing this, we can see that 
+1. If a $1$-edge is taken, then $$L(s_{1:k+1})-P(s_{1:k+1})-N(s_{1:k+1})\geq L(s_{1:k})-P(s_{1:k})-N(s_{1:k})$$
+2. If a $2$-edge is taken, then $$L(s_{1:k+1})-P(s_{1:k+1})-N(s_{1:k+1})\geq L(s_{1:k-1})-P(s_{1:k-1})-N(s_{1:k-1})$$
+
+We do not need to consider any higher order edges as of now, because they would for **B5** fall into a similar argument as point (5) above. 
+
+Since all $1$-edges and $2$-edges will not decrease our total, we can state that for our final string $s$
+$$
+\begin{align}
+L(s) - P(s) - N(s) &\geq L(s_{1:n})-P(s_{1:n})-N(s_{1:n}) \\\\
+\implies L(s) - n! - (n-1)! &\geq n - 2 \\\\
+\implies L(s) &\geq n! + (n-1)! + n - 2
+\end{align}
+$$
+since at completion we will have seen every permutation, which completely covers every $1$ cycle. **Q.E.D.**
+
+### Step Three
+
+In this final step, we will prove the desired bound that to this day is still the best lower bound that we have. In this step we take a further look at what happens when we take a $2$-edge out of a specific $1$-cycle. Watch what happens in the following example when $n=5$
+$$
+\begin{align}
+&12345\xrightarrow{1}23451\xrightarrow{1}34512\xrightarrow{1}45123\xrightarrow{1}51234 \\\\
+\xrightarrow{2}&23415\xrightarrow{1}34152\xrightarrow{1}41523\xrightarrow{1}15234\xrightarrow{1}52341\\\\
+\xrightarrow{2}&34125\xrightarrow{1}41253\xrightarrow{1}12534\xrightarrow{1}25341\xrightarrow{1}53412\\\\
+\xrightarrow{2}&41235\xrightarrow{1}12354\xrightarrow{1}23541\xrightarrow{1}35412\xrightarrow{1}54123\\\\
+\xrightarrow{2}&12345
+\end{align}
+$$
+after traversing $4$ $1$-cycles, we end up back in our original permutation! By taking repeated $2$-edges, we have created this cycle of cycles. Btw, in case you were curious, the full string for this cycle would look like the following
+$$
+s=12345123415234125341235412345
+$$
+which uses $29$ characters ($27$ if you exclude the last $4,5$ which covers the existing first permutation) to cover $20$ permutations. We will provide the following definition
+
+> **Definition**: The cycle of $1$-cycles formed by taking successive $2$-edges after taking $n-1$ $1$-edges in a $1$-cycle is called a $2$-cycle.
+
+> **Lemma 4C5**: Let $n$ be the number of characters of our permutations, let $c_1, c_2, c_3,\ldots, c_n\in C_1$ be the sequence of $1$-cycles formed by starting with some $p\in c_1$, taking each $1$-cycle to all permutations via $n-1$ $1$-edges, and then moving to a new $1$-cycle via a $2$-edge. Then $c_1=c_n$.
+
+This Lemma is saying two things: first that $2$-edges actually create cycles, and that those cycles contain $n-1$ $1$-cycles within them.
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+The following argument works for any initial permutation, so without loss of generality, lets assume that our initial permutation of $n$ characters is 
+$$
+12345\ldots (n-1)n.
+$$
+After completing $n-1$ $1$-edges, we have shifted the first character to the end $n-1$ times which means our resulting final permutation will begin with what the final character was at the beginning of the $1$-cycle. In this case that would be here
+$$
+n1234\ldots (n-1).
+$$
+The $2$-edge of the permutation takes the first character of the string and moves it to last, the second character and moves it to second last, and shifts all other characters left by $2$. Since we are taking the two edge at the end of the $1$-cycle, the first character will be whatever was last in the initial permutation, in this case $n$, and the second character will be whatever was first in the initial permutation, in this case $1$. 
+</br>
+However, notice that we have now entered into a new $1$-cycle after taking the $2$-edge with $n$ as the last character. This means that after completion of this $1$-cycle and taking a $2$-edge to the next one, $n$ will again be the final character in the first permutation of that following $1$-cycle. As such, we can say that the first permutation of every $1$-cycle within our larger $2$-cycle has $n$ as its last character.
+</br>
+Since the first permutation of each $1$-cycle will have as the second-to-last character the first character of the previous $1$-cycle, with all others shifted left, we can see that this actually forms a cycle for the other $n-1$ characters. We can visualize this easier by observing when $n=5$ the sequence of first permutations of the $1$-cycles in our $2$-cycle.
+$$
+12345\rightarrow 23415\rightarrow 34125\rightarrow 41235\rightarrow 12345.
+$$
+We can see that $5$ remains invariant, whereas the other characters form a cyclic rotation after each $1$-cycle. In order to return to the first permutation, we need to ask how many steps would be required in order to cycle through $n-1$ characters, which is $n-1$. From this we know that eventually we will cycle back to the initial permutation after completing $n-1$ $1$-cycles.
+</br>
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+A potential future direction of inquiry would be to observe that those first permutations of their respective $1$-cycles form a $1$-cycle itself with the first $n-1$ characters. Perhaps some insights could be gleaned from this recursive structure, but that's for another day.
+
+Now we need to discuss the big difficulty when it comes to $2$-cycles, they are actually not distinct from each other. From the above proof of **4C5**, we can see that the first permutation of each $1$-cycle will have the same final character, however all the other characters will be shifted. This means that the $1$-cycle that you enter in after the $2$-edge depends on whatever the permutation you started the $1$-cycle on was[^18], and thus every $1$-cycle is part of $n$ different $2$-cycles! In total there are $n\cdot (n-2)!$ different $2$-cycles that overlap with each other. From this we will define the following two terms
+
+> **Definition**: Let $s$ be a string that contains only $1$-cycle $c\in C_1$, then the **entrypoint** of $c$ is the first covered permutation by $s_{1:n}$. 
+
+> **Definition**: Let $C_2$ be the set of all $2$-cycles, where $c\in C_2$ has $c=\\{p_1,p_2,\ldots,p_{n-1}\\}$ with $p_1,p_2,\ldots, p_{n-1}\in S_n$ are the *entrypoints* for the $1$-cycles present within the $2$-cycle.
+
+> **Lemma 4C6**: $C_2$ forms a partition of the set $S_n$
+{{% callout info %}}
+<details>
+<summary>Proof</summary>
+For all $p\in S_n$, it is trivial to show that there must exist some $c\in C_2$ such that $p\in c$. Simply start with $p$ and perform the process described in <b>4C5</b> to create a $2$-cycle. This then will correspond to an element of $c$.
+</br>
+In order to show uniqueness, assume that there are some values $c_1, c_2\in C_2$ such that $c_1\neq c_2$ but there is some $p_1\in c_1, c_2$. Since $c_1,c_2$ both contain $p_1$ as an entrypoint, we may start both of them using $p_1$. Since $1$-cycles form a partition per <b>4C4</b> we can know that both $c_1,c_2$ must share the same initial $1$-cycle and will complete this $1$-cycle on the same permutation. However, taking a $2$-edge to the next entrypoint will create the same permutation $p_2$ for both $c_1,c_2$ meaning that $p_2\in c_1, c_2$. Repeating the same process as before until we complete the $2$-cycle shows that we contradict the initial claim that $c_1\neq c_2. 
+<b>Q.E.D.</b>
+</details>
+{{% /callout %}}
+
+This is nice because we now can see that while each individual permutation $p\in S_n$ is a part of $n$ $2$-cycle processes, each permutation can be the entrypoint of exactly $1$ $2$-cycle. In the original 4Chan proof, the anonymous user considers the $2$-cycle as defined by the full sequence of permutations which does not form a partition of $S_n$. We hope here this makes it a little easier to understand what is going on. 
+
+To be very specific, we will say that the $2$-cycle $c\in C_2$ itself is the **full** sequence of permutations that you get by starting at some $p\in c$, and then applying the process of repeatedly taking $n-1$ $1$-edges, followed by a $2$-edge until a subsequent $2$-edge would bring us back to $p$. In this sense the $2$-cycle is "completed" when the full sequence of permutations has been covered. To bring it home, the $2$-cycle is the sequence of permutations from this process, which itself can be uniquely defined by any of the entrypoints found inside $c$. Any arbitrary permutation will be found in $n$ $2$-cycles, however can be an entrypoint for exactly $1$ $2$-cycle.
+
+As stated prior, $|C_2|=n\cdot (n-2)!$ which is straightforward via **4C6** since each element $c\in C_2$ contains $n-1$ items. 
+
+Still, this makes things more challenging, and as such we will need to observe more cases to prove our final theorem
+
+> **Theorem 4Chan Bound B6**: Let $s$ be a superpermutation string, then
+$$
+L(s) \geq n! + (n-1)! + (n-2)! + n - 3
+$$
+
+Similar to prior, we will define a counting quantity that will help us get to the desired bound
+
+> **Definition**: Let $T(s)$ be the number of distinct $2$-cycles that we have entered into. 
+
+Note that when we say $2$-cycles that we have entered into, we can only increase $T(s)$ if we observe a new **entrypoint** of a $1$-cycle that is not already found. In order to formalize it, we will say that $T(s)$ is equal to the number of elements $d\in C_2$ with the following property. There exists a $p\in d$, where $p\in c$ with $c\in C_1$, such that we can find some substring $p=s_{i:i+n-1}$ but $s_{i-1:i+n-2}\not\in c$. In words, mark some permutation as "seen" inside its $C_2$ element if we got to it via taking something other than a $1$-edge, thus making it an entrypoint. The beauty of this is that we cannot increase $T(s)$ more than one time for each $2$-cycle. This also provides us an analog to $N$ in **Step 2** where we said we were counting "observed" $1$-cycles. 
+
+We will observe similar to the previous two cases, the quantity
+$$
+L(s_{1:n})-P(s_{1:n})-N(s_{1:n})-T(s_{1:n}) \geq n-3
+$$
+and now we must show that our sum here increases overall. Let us consider what happens when we increase our characters from some substring $s_{1:k}$. $T(s)$ can only increase when we have entered into a new $2$-cycle, which means that in the event that we have not done so, then we can refer to the proof of **Step 2** to show that our quantity must not decrease between $s_{1:k}\rightarrow s_{1:k+1}$ if taking a $1$-edge or $s_{1:k-1}\rightarrow s_{1:k+1}$ if taking a $2$-edge.
+
+We can now limit our cases to when we are increasing the value of $T(s)$. The scenarios in which we can increase $T$ are
+1. We take a $3$-edge or higher to a new $2$-cycle. In this case we see a new permutation, $1$-cycle, and $2$-cycle, however we increase $L$ by at least $3$. This means that $L(s_{k-2})-P(s_{k-2})-N(s_{k-2})-T(s_{k-2})\leq L(s_{k+1})-P(s_{k+1})-N(s_{k+1})-T(s_{k+1})$ is non-decreasing in the $3$-edge case[^19]. 
+2. We take a $2$-edge from a permutation from our current $1$-cycle $c\in C_1$ that we have already seen and looped back around to repeat. This $2$-edge will increase $P,N,T$ by $1$, and $L$ by only $2$, however since we are moving from a permutation that we had previously already seen, that would not have increased $P,N,T$ but would have increased $L$. Thus we can say  $L(s_{k-2})-P(s_{k-2})-N(s_{k-2})-T(s_{k-2})\leq L(s_{k+1})-P(s_{k+1})-N(s_{k+1})-T(s_{k+1})$
+
+However, now we find a snag and the most difficult part. What happens if we exit the current $2$-cycle we are in early by taking a $2$-edge out to a new $2$-cycle? In this case we increase $P,N,T$ by $1$ but $L$ by only $2$! This screws up our whole idea of non-decreasing! This is a direct consequence of us adjusting the 4Chan definition of $N$ to make it slightly less ambiguous.
+
+The way we will get around this is to show that if we "start" at $s_{1:n}$ then when we complete our process at $s$, then we will not have dipped down below that initial amount, by showing all those steps that decrease our sum must have some corresponding step that strictly increases it.
+
+Suppose we are in some $2$-cycle and we exit it before completing it, which means that at some other location in $s$ we must have already covered the remaining permutations of this $2$-cycle. If we wanted to leave this $2$-cycle at the end of one of its corresponding $1$-cycles, then we would be unable to do so via a $2$-edge as it would keep us in the same $2$-cycle, which places us into point (1) from above, and as such we only need to consider what happens to the "leftover" permutations of a $1$-cycle that we exit in the middle of[^20].
+
+It is clear that these leftover permutations that we leave behind from exiting our $1$-cycle early must be consecutive within the $1$-cycle. If we were to cover these permutations via the same $2$-cycle, then we are done, as we would need to cover at least one permutation that we have already covered in order to get to the leftovers, which will increase $L$ by $1$ but not $P,N,T$, which would sufficiently offset the previous deficit. The same would be the case for any $2$-cycle that has an entrypoint within the $1$-cycle of the leftovers that has already been covered. We can now limit all our remaining scenarios to $2$-cycles who's entrypoints have not been covered yet.
+
+If we have already seen the $2$-cycle which has a leftover permutation as an entrypoint, then taking at least a $2$-edge into the $1$-cycle with our leftover permutation will increase $L$ by at least $2$, but only $P$, which sufficiently offsets the previous deficit. This finally means that we now only need to consider when we are entering a new $2$-cycle into one of our leftover permutations as the initial entrypoint. In this case both $P,T$ increase, so if we take a higher order edge than $2$ into this $2$-cycle then we are done. 
+
+If we enter into our $2$-cycle with initial entrypoint being our leftover permutation via a $2$-edge, then we could have case (2) from the list above, however $N$ would not be increased, which offsets our deficit. Our only remaining option is to exit some other $1$-cycle midway through via $2$-edge, which would then keep our sum neutral and *not* offset the deficit. However, notice what we just did here: we actually just created more leftover permutations for ourselves! In the same vein, depending on our entrypoint, we may have "split" our original leftover permutations such that you would need to traverse the entire $1$-cycle to cover them all; in this scenario you either need to travel through already covered permutations, or exit the $2$-cycle which creates more "leftovers", which we will explain below. Note that throughout all of these situations the deficit by these leftovers associated with the original cycle we did not complete has not raised greater than $1$.
+
+Imagine that we continually repeat this process, creating new leftovers to cover the old ones. Eventually we must cover the final set of leftovers, however this cannot be done via a $2$-edge in the middle of a $1$-cycle (as that would create new leftovers and these are the last ones) which means that the only other options we have to deal with them are options that offset the deficit.
+
+With this, we can finally say that the quantity of our final string
+$$
+L(s)-P(s)-N(s)-T(s)\geq L(s_{1:n})-P(s_{1:n})-N(s_{1:n})-T(s_{1:n}) \geq n-3.
+$$
+Since each $2$-cycle covers at most $n\cdot (n-1)$ permutations, then we must see **at least** $\frac{n!}{n\cdot (n-1)}=(n-2)!$ distinct $2$-cycles occur, thus
+$$
+\begin{align}
+L(s)-P(s)-N(s)-T(s) \geq L(s)-n!-(n-1)!-(n-2)! &\geq n-3 \\\\
+\implies L(s) &\geq n!+(n-1)!+(n-2)!+n-3
+\end{align}
+$$
+
+**Q.E.D.**
+
+Holy fuck that was brutal.
+
 
 
 
@@ -370,3 +606,8 @@ proving our Lemma. Q.E.D.
 [^13]: https://mathsci.fandom.com/wiki/The_Haruhi_Problem
 [^14]: Engen, M., & Vatter, V. (2021). Containing All Permutations. The American Mathematical Monthly, 128(1), 4–24. https://doi.org/10.1080/00029890.2021.1835384
 [^15]: I will personally get on my soapbox that this might get to me due to my own background as a hobbyist in mathematics, as well as my persistent observation that mathematicians are incredibly quick to discard the ideas of anyone who's not in the tight problem space community without its customs and language. 
+[^16]: This is a slightly different formulation than the original proof, however we do so to account for the scenario in which we are consistently starting new $1$-cycles without completing them.
+[^17]: We have this as greater than or equal to to show that its possible the first $n$ characters may not contain a permutation at all.
+[^18]: You could also say that it depends on the final permutation prior to the $2$-edge, whichever representation you prefer.
+[^19]: Adjust as needed if the edge is larger than $3$.
+[^20]: In the event that, for example, you perform $3$ $1$-cycles in some particular $2$-cycle, you would need to take a higher order edge out, and then cover that $1$-cycle at some other point, in some other $2$-cycle. So limiting ourselves to just these straggler permutations is not a problem.
