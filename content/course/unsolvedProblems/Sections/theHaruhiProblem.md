@@ -48,6 +48,8 @@ $$
 
 Readers familiar with computer science will recognize this as the familiar notation of the Python slice operator[^1] with the key difference being that in Python the right endpoint is excluded, whereas here it is not. I decided this as I felt it would be less confusing for readers without prior familiarity with Python.
 
+> **Definition**: We say some string $s\in\Sigma_n^*$ **covers** some $p\in S_n$ if and only if you can find some index $i$ such that $s_{i:i+n-1}=p$.
+
 It is a natural question to ask what the shortest string would be that covers all possible permutations for $n$ characters. Specifically, this is called the **superpermutations** problem. 
 
 > **Definition**: A string $s\in\Sigma_n^*$ **covers** all permutations, or is a **superpermutation string**, if for every permutation $p\in S_n$, we can find some index $i$ such that $s_{i:i+n-1}=p$.
@@ -157,6 +159,8 @@ For the upper bound, we know that we can create a valid string that covers all p
 <b>Q.E.D.</b>
 </details>
 {{% /callout %}}
+
+---
 
 ## The Haruhi Problem Backstory
 
@@ -292,6 +296,8 @@ which shrunk the upper bound by around $4$ million.
 
 This is *finally* when the 4chan proof was formalized and accepted into the cannon of the problem, $7$ years later!
 
+---
+
 ## The 4chan Proof
 
 I will now attempt to explain the 4chan proof of the lower bound here, sticking as close to the original argument and terminology as possible. In the paper by Engen and Vatter they "formalize" the proof by modifying the language to fit that of the literature.
@@ -353,6 +359,8 @@ $$
     L(s) \geq n! + n - 1
 $$
 proving our **Lemma Bound B4**. Q.E.D.
+
+---
 
 ### Step Two
 
@@ -476,6 +484,8 @@ L(s) - P(s) - N(s) &\geq L(s_{1:n})-P(s_{1:n})-N(s_{1:n}) \\\\
 $$
 since at completion we will have seen every permutation, which completely covers every $1$ cycle. **Q.E.D.**
 
+---
+
 ### Step Three
 
 In this final step, we will prove the desired bound that to this day is still the best lower bound that we have. In this step we take a further look at what happens when we take a $2$-edge out of a specific $1$-cycle. Watch what happens in the following example when $n=5$
@@ -562,11 +572,18 @@ Similar to prior, we will define a counting quantity that will help us get to th
 
 Note that when we say $2$-cycles that we have entered into, we can only increase $T(s)$ if we observe a new **entrypoint** of a $1$-cycle that is not already found. In order to formalize it, we will say that $T(s)$ is equal to the number of elements $d\in E_2$ with the following property. There exists a $p\in d$, where $p\in c$ with $c\in C_1$, such that we can find some substring $p=s_{i:i+n-1}$ but $s_{i-1:i+n-2}\not\in c$. In words, mark some permutation as "seen" inside its $C_2$ element if we got to it via taking something other than a $1$-edge, thus making it an entrypoint. The beauty of this is that we cannot increase $T(s)$ more than one time for each $2$-cycle. This also provides us an analog to $N$ in **Step 2** where we said we were counting "observed" $1$-cycles. 
 
-We will observe similar to the previous two cases, the quantity
+> **Lemma 4C7**: Taking a $1$-edge cannot increase the value of $T(s)$
+
+This follows directly from the definition, and the fact that a $1$-edge does not change your $1$-cycle. 
+
+We will observe similar to the previous two cases, the quantity which for notational brevity we will denote with $X_2(s)$ as done in the original 4Chan post
 $$
-L(s_{1:n})-P(s_{1:n})-N(s_{1:n})-T(s_{1:n}) \geq n-3
+\begin{align}
+X_2(s_{1:n}) &= L(s_{1:n})-P(s_{1:n})-N(s_{1:n})-T(s_{1:n}) \\\\
+&\geq n-3
+\end{align}
 $$
-and now we must show that our sum here increases overall. Let us consider what happens when we increase our characters from some substring $s_{1:k}$. $T(s)$ can only increase when we have entered into a new $2$-cycle, which means that in the event that we have not done so, then we can refer to the proof of **Step 2** to show that our quantity must not decrease between $s_{1:k}\rightarrow s_{1:k+1}$ if taking a $1$-edge or $s_{1:k-1}\rightarrow s_{1:k+1}$ if taking a $2$-edge.
+and now we must show that our sum here increases overall. Let us consider what happens when we increase our characters from some substring $s_{1:k}$. $T(s)$ can only increase when we have entered into a new $2$-cycle, which means that in the event that we have not done so, then we can refer to the proof of **Step 2** to show that our $X_2$ must not decrease between $s_{1:k}\rightarrow s_{1:k+1}$ if taking a $1$-edge or $s_{1:k-1}\rightarrow s_{1:k+1}$ if taking a $2$-edge.
 
 We can now limit our cases to when we are increasing the value of $T(s)$. The scenarios in which we can increase $T$ are
 1. We take a $3$-edge or higher to a new $2$-cycle. In this case we see a new permutation, $1$-cycle, and $2$-cycle, however we increase $L$ by at least $3$. This means that $L(s_{k-2})-P(s_{k-2})-N(s_{k-2})-T(s_{k-2})\leq L(s_{k+1})-P(s_{k+1})-N(s_{k+1})-T(s_{k+1})$ is non-decreasing in the $3$-edge case[^19]. 
@@ -601,6 +618,70 @@ $$
 **Q.E.D.**
 
 Holy fuck that was brutal.
+
+---
+
+The proof we will perform here is a large effort of case work, which I will try to make as straightforward to follow as possible. Lets consider the set of cases that can occur when we start at some substring $s_{1:i}$ of superpermutation string $s$ and proceed to increase the character count by $k$ to represent the completion of some $k$-edge. We consider the completion of the entire edge as a single "step" to make the discussion less annoying to deal with the many indices and edge cases. Remember that per definition of a $k$-edge, for the first $k-1$ characters in said edge, no permutations can be covered, meaning in those indices only $L$ can be increased. Values $P,N,T$ can *only* increase by at most $1$ upon completion of a $k$-edge.
+
+1. $T(s_{1:i+1})=T(s_{1:i})$: Case $1$ occurs when we increase our character count, but do not enter into a new $2$-cycle, instead staying inside the same one or entering one we've already seen before. In this case $X_2=L-P-N$, which is the same quantity as in **Step 2**. From **Step 2** we know that upon completion of any $k$-edge the quantity $L-P-N$ is non-decreasing, we know that in this case $X_2$ is non-decreasing as well.
+2. $T(s_{1:i+1})=T(s_{1:i})+1$: Case $2$ occurs when we increase our character count *and* enter into a new $2$-cycle.
+
+There are multiple scenarios that can occur during Case $2$, so let us observe them. When referring to this next list, we will denote it as $2.x$ to represent that it is list item $x$ of the original Case $2$, which will hopefully make these cases easier to track.
+
+1. The completed $k$-edge is $k\geq 3$. Case $2.1$ sees that we increase $L$ by at least $3$, while increasing $P,N,T$ each by at most $1$, since its possible to be in a new $2$-cycle but not a new $1$-cycle or permutation. As such in this case $X_2$ is non-decreasing.
+2. The completed $k$-edge is $k=2$: Case $2.2$ cannot occur $n-1$ edges from the entrypoint of the current $1$-cycle of the current $2$-cycle. This is because that would jump us to the next entrypoint in the $2$-cycle which would not increase $T$. As such we must take this $2$-edge out from some other permutation $p$ in the current $1$-cycle.
+
+We will now split Case $2.2$ into the following two categories
+
+1. We take a $2$-edge out of our current $1$-cycle after having taken more than $n-1$ $1$-edges, from a permutation that is not $n-1$ $1$-edges away from the entrypoint. Case $2.2.1$ represents what happens if we complete our current $1$-cycle, take more $1$-edges to cycle back to the front, and then take a $2$-edge out to a new $2$-cycle. In this case, we take a $2$-edge, which increases $L$ by $2$, to a new $2$-cycle which increases $T$ by $1$, and $P,N$ each by at most $1$. However, since we are exiting from a permutation we have already covered, the step prior to taking the $2$-edge increases $L$ by $1$ only. Thus $X_2(s_{1:i-1})\leq X_2(s_{1:i+2})$ and $X_2$ over this interval cannot decrease further than $X_2(s_{1:i-1})$
+2. We take a $2$-edge out of our current $1$-cycle after having taken less than $n-1$ $1$-edges. This means that the current $1$-cycle that we are in will be exited early.
+
+Before continuing, let us define the following terminology
+
+> **Definition**: Given s\in\Sigma_n^* and some $1$-cycle $c\in C_1$ such that there exists a $p\in c$ that is covered by $s$. We say some permutation $q\in c$ is a **leftover** of $c$ if it is not covered by $s$.
+
+Simply put, leftovers are permutations of one cycles that have only been partially covered. This means that at some point we will need to return back to that $1$-cycle if we want to build a superpermutation string.
+
+Now let us split case $2.2.2$ into $2$ cases
+
+1. At least one permutation that was covered before exiting the one cycle had already been covered before. Suppose this permutation occurred at index $j$, then by the same argument as $2.2.1$ we can say that $X_2(s_{1:j})\leq X_2(s_{1:i+2})$ after taking the $2$-edge.
+2. All permutations visited before exiting this one cycle were not previously covered.
+
+We will now split $2.2.2.2$ into $2$ cases. Just to provide a refresher on where we are, we are analyzing the scenario in which we have found we entered into a new $2$-cycle to increase $T$ after taking a $2$-edge after taking less than $n-1$ $1$-edges in our current cycle, and all the permutations visited in this $1$-cycle were new and thus each increased $P$.
+
+1. The $1$-cycle that we are entering is one we have already visited before. This means that we increase $L$ by $2$, $T$ by $1$, and possibly $P$ by $1$. Note this is possible because we may have visited this $1$-cycle before, but via a different entrypoint. In this case $X_2$ is non-decreasing.
+2. The $1$-cycle that we are entering into has not been visited before. We have now hit a snag, as $L$ increases by $2$, but all of $P,N,T$ are guaranteed to increase, meaning that this scenario does decrease. 
+
+From all of our cases, we can now see that exactly $1$ is a villain scenario: $2.2.2.2.2$. Note that the original 4chan proof gets around this by having a different definition of $N$ doesn't count non-completed cycles you're not currently in, my definition I feel is slightly more rigorous but is looking more and more like a decision I regret as I continue writing. To simplify our writing I will define the following
+
+> **Definition**: Let $s\in\Sigma_n^*$. Let $D(s)$ be the **debt counter** which counts the number of times Case $2.2.2.2.2$ occurs, and let $R(s)$ be the **repayment counter** that counts the number of steps that strictly increase $X_2$.
+
+Since our eventual end goal is to show that any superpermutation string $s$ has 
+$$
+X_2(s) \geq X_2(s_{1:n})
+$$
+then it is now sufficient to show that $R(s)\geq D(s)$ to prove the claim. The way we will do this is by showing that for every piece of "debt" we incur by not completing a $1$-cycle, we will eventually *have* to pay it back eventually when we reenter into our $1$-cycle that we exited previously. Since we are now showing how we defeat the "villain" scenarios, for notational brevity we will represent case $2.2.2.2.2$ as Case $V$. We split Case $V$ into the following.
+
+Let $c\in C_1$ be a cycle that was exited early and thus incurring a point of "debt". Since it was exited early, there must be some leftovers in $c$, and thus we must return to $c$ at some point later in $s$.
+
+1. We re-enter $c$ via a $k$-edge with $k\geq 3$. This will increase $L$ by $k$, and $P,T$ by at most $1$ each. Since this $1$-cycle had already been visited previously, then $N$ does not increase, and thus in this step we increase $R$ by $1$, paying off the debt.
+2. We re-enter $c$ via a $2$-edge without entering a new $2$-cycle. This scenario accounts for the situation in which we were already within a $2$-cycle or entered into one we had already seen before. In this case $L$ increases by $2$, $P$ can increase by $1$, but $N,T$ cannot increase, and thus we can increase $R$ and pay our debt.
+3. We re-enter $c$ via a $2$-edge while entering a new $2$-cycle. Notice that this can actually only via Case $2.2$. If we have that the scenario we find ourselves is $2.2.1$ and we have cycled over this $1$-cycle more than once, then we pay off our debt easily. The additional considerations now come from what happens if we enter into $c$ from exiting some *other* cycle early, and thus creating potentially more leftovers!
+
+Let us split Case $V.3$ to further analyze.
+
+1. We re-enter $c$ into a permutation $p$ that we have already previously covered. In this case we increase $L$ by $2$, $T$ by $1$, but $P,N$ do not increase. This increases $R$ and pays back the debt.
+2. We re-enter $c$ into a permutation $p$ that we have not already covered. In this scenario $L$ increases by $2$, $P, T$ by $1$. This does *not* increase the debt but it does not repay it.
+
+Case $V.3.2$ is interesting when we think of what arrived us into this situation. As mentioned in the description of Case $V.3$, by exiting another $1$-cycle early in order to re-enter $c$, we may have created new leftovers. Observe that even in the event that we create new leftovers, in neither scenario $V.3.1$ or $V.3.2$ are we actually increasing $D$. Rather we in fact pay it off in scenario $V.3.1$, or we keep it the same in $V.3.2$. Imagine that the cycle we are exiting in $c_2\in C_1$, for scenario $V.3.2$ we will say that we are "transferring" the debt to $c_2$ in order to track how it gets repaid. 
+
+Of course, note that debt does not actually connect to a particular cycle, but in order to show how $c$ is guaranteed to get repaid, we will follow what happens with the leftovers of $c_2$ that were created in order to cover the leftovers of $c$. 
+
+Also note, that it is possible for us to not cover all the leftovers of $c$ when we reach that $1$-cycle for the second time, and by extension create new debt. In this scenario we will treat these as new leftovers that will be repaid on their own later via the arguments we have discussed.
+
+Now consider the leftovers of $c_2$. For these it is possible for Case $V.1,V.2,V.3.1$ to all occur which would thus pay off the debt of the original leftovers $c$ by increasing $R$, finishing this chain. However, if Case $V.3.2$ occurs again, then we will create another set of leftovers $c_3$ that will have the debt of $c_2$, and by extension $c$, transferred to it. We then create a sequence of leftovers $c, c_2, c_3, c_4, \ldots$ that all are connected to the same debt. 
+
+**Importantly**, since $s$ is finite, this sequence must at some point terminate, meaning that we covered $c_m$ without creating any new leftovers.
 
 
 
