@@ -703,7 +703,7 @@ With this, we now know that the bounds of the Haruhi problem are
 $$
 93884313611\leq L(s) \leq 93924230411
 $$
-meaning our solution is somewhere within this gap of $11!$, which is approximately $40$ million!
+meaning our solution is somewhere within this gap of $11!$[^21], which is approximately $40$ million!
 
 
 
@@ -730,3 +730,4 @@ meaning our solution is somewhere within this gap of $11!$, which is approximate
 [^18]: You could also say that it depends on the final permutation prior to the $2$-edge, whichever representation you prefer.
 [^19]: Adjust as needed if the edge is larger than $3$.
 [^20]: In the event that, for example, you perform $3$ $1$-cycles in some particular $2$-cycle, you would need to take a higher order edge out, and then cover that $1$-cycle at some other point, in some other $2$-cycle. So limiting ourselves to just these straggler permutations is not a problem.
+[^21]: Apparently Robert Houston[^14] has shown that this bound can be improved by $1$, but I have not seen that anywhere except an off comment within Engen and Vatter's paper.
