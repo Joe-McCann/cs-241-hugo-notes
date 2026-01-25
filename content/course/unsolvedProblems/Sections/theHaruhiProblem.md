@@ -583,43 +583,7 @@ X_2(s_{1:n}) &= L(s_{1:n})-P(s_{1:n})-N(s_{1:n})-T(s_{1:n}) \\\\
 &\geq n-3
 \end{align}
 $$
-and now we must show that our sum here increases overall. Let us consider what happens when we increase our characters from some substring $s_{1:k}$. $T(s)$ can only increase when we have entered into a new $2$-cycle, which means that in the event that we have not done so, then we can refer to the proof of **Step 2** to show that our $X_2$ must not decrease between $s_{1:k}\rightarrow s_{1:k+1}$ if taking a $1$-edge or $s_{1:k-1}\rightarrow s_{1:k+1}$ if taking a $2$-edge.
-
-We can now limit our cases to when we are increasing the value of $T(s)$. The scenarios in which we can increase $T$ are
-1. We take a $3$-edge or higher to a new $2$-cycle. In this case we see a new permutation, $1$-cycle, and $2$-cycle, however we increase $L$ by at least $3$. This means that $L(s_{k-2})-P(s_{k-2})-N(s_{k-2})-T(s_{k-2})\leq L(s_{k+1})-P(s_{k+1})-N(s_{k+1})-T(s_{k+1})$ is non-decreasing in the $3$-edge case[^19]. 
-2. We take a $2$-edge from a permutation from our current $1$-cycle $c\in C_1$ that we have already seen and looped back around to repeat. This $2$-edge will increase $P,N,T$ by $1$, and $L$ by only $2$, however since we are moving from a permutation that we had previously already seen, that would not have increased $P,N,T$ but would have increased $L$. Thus we can say  $L(s_{k-2})-P(s_{k-2})-N(s_{k-2})-T(s_{k-2})\leq L(s_{k+1})-P(s_{k+1})-N(s_{k+1})-T(s_{k+1})$
-
-However, now we find a snag and the most difficult part. What happens if we exit the current $2$-cycle we are in early by taking a $2$-edge out to a new $2$-cycle? In this case we increase $P,N,T$ by $1$ but $L$ by only $2$! This screws up our whole idea of non-decreasing! This is a direct consequence of us adjusting the 4Chan definition of $N$ to make it slightly less ambiguous.
-
-The way we will get around this is to show that if we "start" at $s_{1:n}$ then when we complete our process at $s$, then we will not have dipped down below that initial amount, by showing all those steps that decrease our sum must have some corresponding step that strictly increases it.
-
-Suppose we are in some $2$-cycle and we exit it before completing it, which means that at some other location in $s$ we must have already covered the remaining permutations of this $2$-cycle. If we wanted to leave this $2$-cycle at the end of one of its corresponding $1$-cycles, then we would be unable to do so via a $2$-edge as it would keep us in the same $2$-cycle, which places us into point (1) from above, and as such we only need to consider what happens to the "leftover" permutations of a $1$-cycle that we exit in the middle of[^20].
-
-It is clear that these leftover permutations that we leave behind from exiting our $1$-cycle early must be consecutive within the $1$-cycle. If we were to cover these permutations via the same $2$-cycle, then we are done, as we would need to cover at least one permutation that we have already covered in order to get to the leftovers, which will increase $L$ by $1$ but not $P,N,T$, which would sufficiently offset the previous deficit. The same would be the case for any $2$-cycle that has an entrypoint within the $1$-cycle of the leftovers that has already been covered. We can now limit all our remaining scenarios to $2$-cycles who's entrypoints have not been covered yet.
-
-If we have already seen the $2$-cycle which has a leftover permutation as an entrypoint, then taking at least a $2$-edge into the $1$-cycle with our leftover permutation will increase $L$ by at least $2$, but only $P$, which sufficiently offsets the previous deficit. This finally means that we now only need to consider when we are entering a new $2$-cycle into one of our leftover permutations as the initial entrypoint. In this case both $P,T$ increase, so if we take a higher order edge than $2$ into this $2$-cycle then we are done. 
-
-If we enter into our $2$-cycle with initial entrypoint being our leftover permutation via a $2$-edge, then we could have case (2) from the list above, however $N$ would not be increased, which offsets our deficit. Our only remaining option is to exit some other $1$-cycle midway through via $2$-edge, which would then keep our sum neutral and *not* offset the deficit. However, notice what we just did here: we actually just created more leftover permutations for ourselves! In the same vein, depending on our entrypoint, we may have "split" our original leftover permutations such that you would need to traverse the entire $1$-cycle to cover them all; in this scenario you either need to travel through already covered permutations, or exit the $2$-cycle which creates more "leftovers", which we will explain below. Note that throughout all of these situations the deficit by these leftovers associated with the original cycle we did not complete has not raised greater than $1$.
-
-Imagine that we continually repeat this process, creating new leftovers to cover the old ones. Eventually we must cover the final set of leftovers, however this cannot be done via a $2$-edge in the middle of a $1$-cycle (as that would create new leftovers and these are the last ones) which means that the only other options we have to deal with them are options that offset the deficit.
-
-With this, we can finally say that the quantity of our final string
-$$
-L(s)-P(s)-N(s)-T(s)\geq L(s_{1:n})-P(s_{1:n})-N(s_{1:n})-T(s_{1:n}) \geq n-3.
-$$
-Since each $2$-cycle covers at most $n\cdot (n-1)$ permutations, then we must see **at least** $\frac{n!}{n\cdot (n-1)}=(n-2)!$ distinct $2$-cycles occur, thus
-$$
-\begin{align}
-L(s)-P(s)-N(s)-T(s) \geq L(s)-n!-(n-1)!-(n-2)! &\geq n-3 \\\\
-\implies L(s) &\geq n!+(n-1)!+(n-2)!+n-3
-\end{align}
-$$
-
-**Q.E.D.**
-
-Holy fuck that was brutal.
-
----
+and now we must show that our sum here increases overall. 
 
 The proof we will perform here is a large effort of case work, which I will try to make as straightforward to follow as possible. Lets consider the set of cases that can occur when we start at some substring $s_{1:i}$ of superpermutation string $s$ and proceed to increase the character count by $k$ to represent the completion of some $k$-edge. We consider the completion of the entire edge as a single "step" to make the discussion less annoying to deal with the many indices and edge cases. Remember that per definition of a $k$-edge, for the first $k-1$ characters in said edge, no permutations can be covered, meaning in those indices only $L$ can be increased. Values $P,N,T$ can *only* increase by at most $1$ upon completion of a $k$-edge.
 
