@@ -681,7 +681,30 @@ Also note, that it is possible for us to not cover all the leftovers of $c$ when
 
 Now consider the leftovers of $c_2$. For these it is possible for Case $V.1,V.2,V.3.1$ to all occur which would thus pay off the debt of the original leftovers $c$ by increasing $R$, finishing this chain. However, if Case $V.3.2$ occurs again, then we will create another set of leftovers $c_3$ that will have the debt of $c_2$, and by extension $c$, transferred to it. We then create a sequence of leftovers $c, c_2, c_3, c_4, \ldots$ that all are connected to the same debt. 
 
-**Importantly**, since $s$ is finite, this sequence must at some point terminate, meaning that we covered $c_m$ without creating any new leftovers.
+**Importantly**, since $s$ is finite, this sequence must at some point terminate, meaning that we covered $c_m$ without creating any new leftovers. Since we know that we cannot cover $c_m$ without creating new leftovers than we can cover it via scenarios $V.1, V.2$ directly. However, what would happen if we were to enter $c_m$ via a $2$-edge exiting some $1$-cycle early?
+
+Well, since we cannot create any new leftovers, this means the remaining permutations in the $1$-cycle we are exiting must have already been visited. This means that we must have already seen this $1$-cycle at some point, and thus would not have increased $N$ when entering it initially, which is enough to ensure that we have paid off the debt associated with $c$.
+
+We can now be confident that since the initial debt is $0$ at $X_2(s_{1:n})$, then this must be less than or equal to $X_2(s)$.
+
+To complete, we know that $P(s)=n!$, $N(s)=(n-1)!$. For $T(s)$, observe that a $2$-cycle contains $n\cdot (n-1)$ permutations. That means in order to cover all $n!$ permutations, we must have entered *at least* $(n-2)!$ distinct $2$-cycles. So $T(s)\geq (n-2)!$
+
+With this we can say
+$$
+\begin{align}
+X_2(s) \geq L(s) - n! - (n-1)! - (n-2)! &\geq n - 3 \\\\
+\implies L(s) \geq n!+(n-1)!+(n-2)!+n-3.
+\end{align}
+$$
+
+**Q.E.D.**
+
+With this, we now know that the bounds of the Haruhi problem are 
+$$
+93884313611\leq L(s) \leq 93924230411
+$$
+meaning our solution is somewhere within this gap of $11!$, which is approximately $40$ million!
+
 
 
 
