@@ -16,7 +16,7 @@ weight: 5007
 
 ## Problem Description
 
-How is it possible that genuine mathematical research could be gleamed from the depths of anime fandoms and anonymous message boards? The world of mathematics is bonkers and insights of ingenuity can come from anywhere, even if it takes some time for the genius to be appreciated  
+How is it possible that genuine mathematical research could be gleamed from the depths of anime fandoms and anonymous message boards? The world of mathematics is bonkers and insights of ingenuity can come from anywhere, even if it takes some time for the genius to be appreciated.
 
 Given $n$ objects or symbols, we know from intro combinatorics that there are $n!$ ways that we can arrange the objects in different permutations, where
 $$
@@ -216,7 +216,7 @@ In this initial thread they came to the belief that the minimal solution was the
 
 > *Anonymous Response*: [In response to other user] yeah, it does seem to involve the sum of factorials. But the the thing I can't figure out is why. Also as someone else brought up, how do we prove this is the most efficient method?
 
-It is important to note that this was determined heuristically by them, but not formally proved, however at this point in time there was a known algorithm for generating superpermutation strings called the **Recursive Algorithm**[^2], from Greg Egan's page he describes it as follows
+It is important to note that this was determined heuristically by them, but not formally proved. At this point in time there was a known algorithm for generating superpermutation strings called the **Recursive Algorithm**[^2], from Greg Egan's page he describes it as follows
 
 > *Greg Egan*: Given a superpermutation on n–1 symbols, to obtain one with n symbols you perform the following steps:
 >
@@ -231,7 +231,7 @@ $$
 L(s) = \sum_{k=1}^n k! = 1!+2!+\ldots+n!
 $$
 
-On his page he provides a proof, however personally I don't feel like writing it down here right now. What this does tell us now though is that we have a new upper bound using **B2**. We now know that if $s\in\sigma_n$ then
+On his page he provides a proof, however personally I don't feel like writing it down here. What this does tell us now though is that we have a new upper bound using **B2**. We now know that if $s\in\sigma_n$ then
 
 $$
 n!\leq L(s) \leq \sum_{k=1}^n k!
@@ -248,7 +248,7 @@ $$
 L(s) = 1!+2!+\ldots+n!
 $$
 
-This would later be proven to be untrue, however this would not be proven false until August 21st, 2014[^8][^9].
+This would later be proven to be untrue, however this would not be proven false until August 21st, 2014[^8],[^9].
 
 ### 4chan's Breakthrough
 
@@ -272,7 +272,7 @@ Note, Johnston did not link to the original 4chan thread, rather the version tha
 
 On August 21st, 2014 Robin Houston published a document to arXiv providing a counterexample for **C1**[^8] when $n=6$ and proving it false for $n\geq 6$. 
 
-This meant that the problem had been blown wide open, and that the 4Chan lower bound could be considered something feasible. However, according to Michael Engen and Vincent Vatter in their 2019 article **Containing All Permutations**[^14] it was not truly recognized in the community as serious
+This meant that the problem had been blown wide open, and that the 4chan lower bound could be considered something feasible. However, according to Michael Engen and Vincent Vatter in their 2019 article **Containing All Permutations**[^14] it was not truly recognized in the community as serious
 
 > *Michael Engen and Vincent Vatter*: At least since a 2013 blog post of Johnston, it had been known that there was an argument (on a website devoted to anime) claiming to improve on the lower bound ... However, the argument was far from what most mathematicians would consider a proof, and there had been no efforts to make it into one, in part because the claimed lower bound was so far from what was thought to be the correct answer at the time. However, Egan’s \[2018\] breakthrough quickly inspired several participants of the Superpermutators group to re-examine the argument.
 
@@ -302,9 +302,9 @@ This is *finally* when the 4chan proof was formalized and accepted into the cann
 
 I will now attempt to explain the 4chan proof of the lower bound here, sticking as close to the original argument and terminology as possible. In the paper by Engen and Vatter they "formalize" the proof by modifying the language to fit that of the literature.
 
-However, I personally am slightly irritated by this as the argument of the 4chan proof was not taken seriously for several years by this group due who then had the interesting decision to throw shade on it *"the argument was far from what most mathematicians would consider a proof"*, all before providing an argument that feels less rigorous than the effort performed by the 4chan poster[^15].
+However, I personally am slightly irritated by this as the argument of the 4chan proof was not taken seriously for several years by this group due who then had the interesting decision to throw shade on it *"the argument was far from what most mathematicians would consider a proof"*. While there were valid and genuine concerns for not looking too deeply into it, as discussed above, I want to press against a trend I've seen in math circles to dismiss genuinely interesting insights into challenging problems from "laypeople" due to a lack of the language of the community[^15]. For example, in Engen and Vatter's paper, they provide a very brief and conversational proof of the 4chan bound, however it utilizes terminology from the space that makes the entire argument feel not tight if you are not already in the weeds of the community. That is why I personally love the 4chan argument, while the notation can get dense, it does not require serious niche knowledge to be understood.
 
-As such, I wish to attempt to clean up the 4chan argument and present it in a pretty way so that it can be observed in the way the original anonymous user themselves thought of it. Throughout the proof effort, I will hypothesize about what may have potentially led the user to these conclusions for the sake of teaching.
+As such, I wish to attempt to clean up the 4chan argument and present it in a pretty way so that it can be observed in the way the original anonymous user themselves thought of it, with some minor variations to the notational definition and argument.
 
 ### Step One
 
@@ -331,7 +331,7 @@ By **Lemma SE1**, we know that a permutation can only be covered if all characte
 $$
 P(s_{1:n-1})=0
 $$
-and thus by extension[^17]
+and thus by extension[^16]
 $$
 L(s_{1:n-1})-P(s_{1:n-1}) \geq n-1
 $$
@@ -448,7 +448,7 @@ $$
 
 In order to help us, we will define the following quantity
 
-> **Definition**: Given $s\in\Sigma_n^*$, let $N(s)$ represent the number of distinct $1$-cycles that have had an element of theirs appear within permutations of $s$[^16].
+> **Definition**: Given $s\in\Sigma_n^*$, let $N(s)$ represent the number of distinct $1$-cycles that have had an element of theirs appear within permutations of $s$[^17].
 
 Being more formal, we would say that $N(s)$ is the amount of elements $c\in C_1$ such that there exists an index $i$ such that 
 $$
@@ -470,7 +470,11 @@ Again, we consider what happens when we increase the substring that we look at f
 
 Summarizing this, we can see that 
 1. If a $1$-edge is taken, then $$L(s_{1:k+1})-P(s_{1:k+1})-N(s_{1:k+1})\geq L(s_{1:k})-P(s_{1:k})-N(s_{1:k})$$
-2. If a $2$-edge is taken, then $$L(s_{1:k+1})-P(s_{1:k+1})-N(s_{1:k+1})\geq L(s_{1:k-1})-P(s_{1:k-1})-N(s_{1:k-1})$$
+2. If a $2$-edge is taken, then $$
+\begin{align}
+L(s_{1:k+1})-P(s_{1:k+1})-N(s_{1:k+1})&\geq 
+\\\\ &L(s_{1:k-1})-P(s_{1:k-1})-N(s_{1:k-1})
+\end{align}$$
 
 We do not need to consider any higher order edges as of now, because they would for **B5** fall into a similar argument as point (5) above. 
 
@@ -555,13 +559,13 @@ In order to show uniqueness, assume that there are some values $e_1, e_2\in E_2$
 </details>
 {{% /callout %}}
 
-This is nice because we now can see that while each individual permutation $p\in S_n$ is a part of $n$ $2$-cycle processes, each permutation can be the entrypoint of exactly $1$ $2$-cycle. In the original 4Chan proof, the anonymous user does not consider this partition $E_2$ and only works with $C_2$, we hope that our additional definition will make things easier to work with.
+This is nice because we now can see that while each individual permutation $p\in S_n$ is a part of $n$ $2$-cycle processes, each permutation can be the entrypoint of exactly $1$ $2$-cycle. In the original 4chan proof, the anonymous user does not consider this partition $E_2$ and only works with $C_2$, we hope that our additional definition will make things easier to work with.
 
 As stated prior, $|E_2|=|C_2|=n\cdot (n-2)!$ which is straightforward via **4C6** since each element $c\in E_2$ contains $n-1$ items and there is a correspondence between $E_2,C_2$. 
 
 Still, this makes things more challenging, and as such we will need to observe more cases to prove our final theorem
 
-> **Theorem 4Chan Bound B6**: Let $s\in\Sigma_n^*$ be a superpermutation string, then
+> **Theorem 4chan Bound B6**: Let $s\in\Sigma_n^*$ be a superpermutation string, then
 $$
 L(s) \geq n! + (n-1)! + (n-2)! + n - 3
 $$
@@ -576,7 +580,7 @@ Note that when we say $2$-cycles that we have entered into, we can only increase
 
 This follows directly from the definition, and the fact that a $1$-edge does not change your $1$-cycle. 
 
-We will observe similar to the previous two cases, the quantity which for notational brevity we will denote with $X_2(s)$ as done in the original 4Chan post
+We will observe similar to the previous two cases, the quantity which for notational brevity we will denote with $X_2(s)$ as done in the original 4chan post
 $$
 \begin{align}
 X_2(s_{1:n}) &= L(s_{1:n})-P(s_{1:n})-N(s_{1:n})-T(s_{1:n}) \\\\
@@ -602,7 +606,7 @@ We will now split Case $2.2$ into the following two categories
 
 Before continuing, let us define the following terminology
 
-> **Definition**: Given s\in\Sigma_n^* and some $1$-cycle $c\in C_1$ such that there exists a $p\in c$ that is covered by $s$. We say some permutation $q\in c$ is a **leftover** of $c$ if it is not covered by $s$.
+> **Definition**: Given $s\in\Sigma_n^*$ and some $1$-cycle $c\in C_1$ such that there exists a $p\in c$ that is covered by $s$. We say some permutation $q\in c$ is a **leftover** of $c$ if it is not covered by $s$.
 
 Simply put, leftovers are permutations of one cycles that have only been partially covered. This means that at some point we will need to return back to that $1$-cycle if we want to build a superpermutation string.
 
@@ -663,7 +667,7 @@ $$
 
 **Q.E.D.**
 
-With this, we now know that the bounds of the Haruhi problem are 
+With this, we now know that the bounds of the Haruhi problem if $s\in\sigma_{14}$ are 
 $$
 93884313611\leq L(s) \leq 93924230411
 $$
@@ -688,9 +692,9 @@ meaning our solution is somewhere within this gap of $11!$[^21], which is approx
 [^12]: https://math.stackexchange.com/questions/15510/what-is-the-shortest-string-that-contains-all-permutations-of-an-alphabet
 [^13]: https://mathsci.fandom.com/wiki/The_Haruhi_Problem
 [^14]: Engen, M., & Vatter, V. (2021). Containing All Permutations. The American Mathematical Monthly, 128(1), 4–24. https://doi.org/10.1080/00029890.2021.1835384
-[^15]: I will personally get on my soapbox that this might get to me due to my own background as a hobbyist in mathematics, as well as my persistent observation that mathematicians are incredibly quick to discard the ideas of anyone who's not in the tight problem space community without its customs and language. 
-[^16]: This is a slightly different formulation than the original proof, however we do so to account for the scenario in which we are consistently starting new $1$-cycles without completing them.
-[^17]: We have this as greater than or equal to to show that its possible the first $n$ characters may not contain a permutation at all.
+[^15]: I will personally state my own bias as a math hobbyist for this perspective.
+[^16]: We have this as greater than or equal to to show that its possible the first $n$ characters may not contain a permutation at all.
+[^17]: This is a slightly different formulation than the original proof, however we do so to account for the scenario in which we are consistently starting new $1$-cycles without completing them.
 [^18]: You could also say that it depends on the final permutation prior to the $2$-edge, whichever representation you prefer.
 [^19]: Adjust as needed if the edge is larger than $3$.
 [^20]: In the event that, for example, you perform $3$ $1$-cycles in some particular $2$-cycle, you would need to take a higher order edge out, and then cover that $1$-cycle at some other point, in some other $2$-cycle. So limiting ourselves to just these straggler permutations is not a problem.
