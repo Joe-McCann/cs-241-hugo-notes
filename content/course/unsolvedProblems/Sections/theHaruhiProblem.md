@@ -114,7 +114,7 @@ The first two are related to what actually constitutes a permutation in our stri
 1. You can't cover a permutation with some sequence if you are missing a character or contain a duplicate
 2. Any sequence of $n$ characters cannot more than one permutation at a time
 
-> **Lemma SE1**: A string $s\in\Sigma_n^*$ covers a permutation if and only if all $n$ characters are present within the string exactly once. 
+> **Lemma SE1**: A string $s\in\Sigma_n^*$ where $L(s)=n$ covers a permutation if and only if all $n$ characters are present within the string exactly once. 
 
 {{% callout info %}}
 <details>
@@ -137,7 +137,7 @@ $$
 u_1=&s_1=v_1 \\
 u_2=&s_2=v_2 \\
 &\vdots \\
-u_n=&s_n=p_n
+u_n=&s_n=v_n
 \end{align}
 $$
 which means that $u=v$ contradicting our claim that they are two distinct permutations.
@@ -146,13 +146,13 @@ which means that $u=v$ contradicting our claim that they are two distinct permut
 </details>
 {{% /callout %}}
 
-We now have enough to create our first simple bounds
+Using this information is actually enough to construct the first basic set of bounds
 
 > **Trivial Bounds B1**: Let $s\in\sigma_n$, then $n! \leq L(s) \leq n\cdot n!$
 {{% callout info %}}
 <details>
 <summary>Proof</summary>
-For the lower bound, we know that there are $n!$ permutations, and since by <b>SE2</b> we know that no sequence of $n$ characters can cover more than $1$ permutations then we must have at least $1$ character added for each permutation so $n!\leq L(s)$
+The lower bound proof we will skip, as later on in this page we will actually prove a similar, but slightly better, bound in a much more rigorous way. But a general outline of this is that you can see that you need at least $n!$ characters since by <b>SE1</b> each window cannot cover more than $1$ permutation.
 </br>
 For the upper bound, we know that we can create a valid string that covers all permutations by concatenating them all, which would create a string $L(s)\leq n\cdot n!$
 </br>
@@ -250,6 +250,16 @@ $$
 
 This would later be proven to be untrue, however this would not be proven false until August 21st, 2014[^8],[^9].
 
+Some other gems from the initial 4chan thread included
+
+> **Anonymous Response**: Ok i had a good explanation but forgot the fucking captcha, google factorial calculator then type in 14! basically it's just 14x13x12x11x10x9x8x7x6x5x4x3x2x1 = all possible permutaions.
+
+> **Anonymous Response**: \[with respect to watching all Haruhi permutations\] I've done it. Trust me, it sucks.
+
+As well as some fascinating mathematical insights every now and then.
+
+> **OP**: Another thing is, why are the solutions all palindromes?
+
 ### 4chan's Breakthrough
 
 On September 17, 2011 the third thread[^10] in the Haruhi problem series was posted[^11]. We can see from the username and tripcode that this appears to be the same user as the previous posted thread. 
@@ -268,7 +278,19 @@ Since this provided lower bound is significantly lower than the sum of factorial
 
 > *Nathaniel Johnston*: It is not difficult to improve this lower bound to $n! + (n-1)! + n – 2$ (I won’t provide a proof here, but the idea is to note that when building the superpermutation, you can not add more than n-1 permutations by appending just 1 character each to the string – you eventually have to add 2 or more characters to add a permutation that is not already present). In fact, this argument can be stretched further to show that $n! + (n-1)! + (n-2)! + n – 3$ is a lower bound as well (a rough proof is provided [here](https://mathsci.fandom.com/wiki/The_Haruhi_Problem)[^13]).
 
-Note, Johnston did not link to the original 4chan thread, rather the version that was migrated to the /sci/ wiki page. This migration does imply that the users present in the 4chan thread, despite not providing much commentary on the lower bound, felt it worthwhile to polish, format, and publish to the Wiki page. The page was created by user [Renaldo Moon](https://mathsci.fandom.com/wiki/User:Renaldo_Moon) who also made the majority of contributions early in the page history. One can speculate on this user's involvement in the original thread, as well as the owner of this document [here](https://docs.google.com/document/d/1AXXx1516LLq3wpiIZT_FayLnp6Q7xw8JlmFqsyyoy8Y/edit?tab=t.0) where the proof was typed up, but there is no definitive evidence. 
+Note, Johnston did not link to the original 4chan thread, rather the version that was migrated to the /sci/ wiki page. This migration does imply that the users present in the 4chan thread, despite not providing much commentary on the lower bound, felt it worthwhile to polish, format, and publish to the Wiki page. The page was created by user [Renaldo Moon](https://mathsci.fandom.com/wiki/User:Renaldo_Moon) who also made the majority of contributions early in the page history. 
+
+Renaldo Moon actually appeared a few times in this particular thread
+
+>**Renaldo Moon**: Greetings again, good sir. Let's get all the 14! and 14*14! derps out of the way now so the big boys can talk math
+
+followed by
+
+>**Renaldo Moon**: Alright, after that pretentious statement, I'll acknowledge that I'm not a big boy at math at all, I'm quite a novice.
+
+In fact we can see that this user actually *created* the /sci/ wiki that the proof would eventually be found on expressly for this thread
+
+>**Renaldo Moon**: If /sci/ has a wiki I couldn't find it. In either case, I propped one up real quick, it should be easy enough to maintain for this sort of stuff. If a better one exists then dropping this one's easy enough.
 
 On August 21st, 2014 Robin Houston published a document to arXiv providing a counterexample for **C1**[^8] when $n=6$ and proving it false for $n\geq 6$. 
 
@@ -296,6 +318,18 @@ which shrunk the upper bound by around $4$ million.
 
 This is *finally* when the 4chan proof was formalized and accepted into the cannon of the problem, $7$ years later!
 
+Before moving forward, lets show this other gem from the 4chan thread with the proof that made me chuckle
+
+>**Anonymous Response**: Guise! Itsa trick question!
+>
+>>What is the least number of episodes you would have to watch?
+>
+> I can watch each episode 1,000 times but I've still only watched 14 episodes. So the answer is just 14. (no factorial) :p I win!
+>
+>**Anonymous Response**: Ops face when he realizes how idiotic his attempt to answer the question is
+>
+>**OP**: you knew what I mean. I could say if each ep was 30min, then how many hours would you have to watch, but that would be just semantics
+
 ---
 
 ## The 4chan Proof
@@ -304,7 +338,7 @@ I will now attempt to explain the 4chan proof of the lower bound here, sticking 
 
 However, I personally am slightly irritated by this as the argument of the 4chan proof was not taken seriously for several years by this group due who then had the interesting decision to throw shade on it *"the argument was far from what most mathematicians would consider a proof"*. While there were valid and genuine concerns for not looking too deeply into it, as discussed above, I want to press against a trend I've seen in math circles to dismiss genuinely interesting insights into challenging problems from "laypeople" due to a lack of the language of the community[^15]. For example, in Engen and Vatter's paper, they provide a very brief and conversational proof of the 4chan bound, however it utilizes terminology from the space that makes the entire argument feel not tight if you are not already in the weeds of the community. That is why I personally love the 4chan argument, while the notation can get dense, it does not require serious niche knowledge to be understood.
 
-As such, I wish to attempt to clean up the 4chan argument and present it in a pretty way so that it can be observed in the way the original anonymous user themselves thought of it, with some minor variations to the notational definition and argument.
+As such, I wish to attempt to clean up the 4chan argument and present it in a pretty way so that it can be observed in the way the original anonymous user themselves thought of it, with some minor variations to the notational definition and argument. Of course, this is **not** intended to be a publishable document, for that see Engen and Vatter's paper. Rather this is to explain the 4chan argument in more detail, in a way to show that it has some merit and that a real mathematician probably could type it up into a way that it would be publishable.
 
 ### Step One
 
