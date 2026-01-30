@@ -72,4 +72,4 @@ email: ""
 
 Welcome to the blog / course notes website written by me. In order to get to the pages and material, select the Material header which will bring you to a collection of pages providing tutorials on each topic. 
 
-I am currently working as a Product Analyst for American Express, having previously been a Software Engineer for American Express that specialized in Machine Learning Operations. Once a week during the Spring and Fall I teach a night class at NJIT, currently CS 241 Discrete Mathematics. 
+I am currently working as a Java Systems Engineer American Express, having previously been a Software Engineer for American Express that specialized in Machine Learning Operations as well as a Product Analyst working in New Product Development. Once a week during the Spring and Fall I teach a night class at NJIT, currently CS 356 Intro to Computer Networking. 
