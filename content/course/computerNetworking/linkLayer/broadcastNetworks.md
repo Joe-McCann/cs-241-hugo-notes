@@ -16,19 +16,19 @@ weight: 203
 
 ## What if Nobody is in Control?
 
-In our previous example of switched networks, there were hidden switch devices that were responsible for the forwarding of communication between various devices, and in this way the network works wonderfulling like magic. This is why, according to the book, L2-switched networks are growing vastly in popularity over larger distances than ever before. 
+In our previous example of switched networks, there were hidden switch devices that were responsible for the forwarding of communication between various devices, and in this way the network works wonderfully like magic. This is why, according to the book, L2-switched networks are growing vastly in popularity over larger distances than ever before. 
 
 However, not all LANs are switched in this way, the original LANs were a bunch of cables that were all connected together so that if any one host sent a message, *every* host would hear it. 
 
 > **Definition**: A **broadcast network** is one in which every message sent is broadcast to every host on the network.
 
-Note that this does not mean every destination is written as the ff-ff-ff-ff-ff-ff, just that even addressed packets will be heared by unintended recipients. 
+Note that this does not mean every destination is written as the ff-ff-ff-ff-ff-ff, just that even addressed packets will be heard by unintended recipients. 
 
 Two incredibly popular examples of network protocols that are used for broadcast networks are Wi-Fi and Bluetooth. Prior to them radio waves were also a type of broadcast network (and still are). 
 
 To understand what will make broadcast networks so challenging compared to switched networks, is to think about a group setting in which a bunch of people who don't know each other are sitting in a circle and having a collective conversation. Even if multiple people want to say something, only one person at a time can speak, because otherwise the multiple conflicting voices would drown each other out. 
 
-> **Definition**: A **collision** on a broadcast network is when more than one device attempts to broadcast simultanously, and corrupts the messages. The problem of dealing with potential collisions is the **Multiple Access Problem**
+> **Definition**: A **collision** on a broadcast network is when more than one device attempts to broadcast simultaneously, and corrupts the messages. The problem of dealing with potential collisions is the **Multiple Access Problem**
 
 So we understand that if multiple people are talking at the same time, we are going to waste time because nobody will understand the messages. 
 
@@ -41,7 +41,7 @@ So effectively just make sure all communication is fair and even. Sounds good. W
 
 ### Channel Partitioning Algorithms
 
-The most straightforward of algorithms to solve the multiple access problem are algorithms that take the transmission of data and divde it between the devices on the network. These types of algorithms are called **Channel Partitioning** algorithms because they partition the broadcast channel (obviously). 
+The most straightforward of algorithms to solve the multiple access problem are algorithms that take the transmission of data and divide it between the devices on the network. These types of algorithms are called **Channel Partitioning** algorithms because they partition the broadcast channel (obviously). 
 
 The textbook goes over $3$, but I will only discuss the two easiest here: time and frequency partitioning. 
 
@@ -68,7 +68,7 @@ As a case study on random access methods, we will show one of the first random a
 
 How well does this method work? Well if we have only one host that needs to transmit, then we will get the full rate $R$ with no problem. How does it work though if we have multiple devices on the network? 
 
-For an **incredibly simplifed** mathematical model of how Slotted ALOHA performs, we can assume that there are $n$ devices, and any single device on the network will want to transmit on any given slot with probability $p$. As such, when we want to know how efficient our model is, we want to know what is the probability that during any given slot we will have **exactly** one device transmitting.
+For an **incredibly simplified** mathematical model of how Slotted ALOHA performs, we can assume that there are $n$ devices, and any single device on the network will want to transmit on any given slot with probability $p$. As such, when we want to know how efficient our model is, we want to know what is the probability that during any given slot we will have **exactly** one device transmitting.
 
 The probability that one *specific* device is the only one to transmit during a given slot is $p\cdot(1-p)^{n-1}$, because there is a $p$ chance that the device wants to transmit, and a $(1-p)$ chance that any of the other $n-1$ devices do not want to transmit. Since there are $n$ total devices, we add all these together to get
 $$
@@ -83,7 +83,7 @@ You might think that ditching the slots would make things better, of which the a
 
 ### The Incredibly Obvious Idea of Carrier Sensing
 
-When we decide to utilize a broadcasting algorithm that has the potential for collisions, there is are two insanely obvious enchancements that we can add our algorithm to make it more efficient immediately. Remember that a NIC actually listens and sends simultaneously, so if we notice that someone else is sending a message, why don't we just not?
+When we decide to utilize a broadcasting algorithm that has the potential for collisions, there is are two insanely obvious enhancements that we can add our algorithm to make it more efficient immediately. Remember that a NIC actually listens and sends simultaneously, so if we notice that someone else is sending a message, why don't we just not?
 
 1. Collision Avoidance (Carrier Sensing): If you detect another node on the network broadcasting, wait until they are done before speaking.
 2. Collision Detection: If you detect another node broadcasting while you are currently broadcasting, then a collision has occurred and stop broadcasting.
@@ -106,13 +106,13 @@ In the book they point to a paper that I do not have the time to read that deriv
 $$
 P(\text{successful transmission}) = \frac{1}{1+5\cdot\frac{d_\text{prop}}{d_\text{trans}}}
 $$
-where $d_\text{prop}$ is the max propogration delay between two nodes in the LAN, and $d_\text{trans}$ is the maximum possible transmission delay of a node pushing a packet onto the LAN.
+where $d_\text{prop}$ is the max propagation delay between two nodes in the LAN, and $d_\text{trans}$ is the maximum possible transmission delay of a node pushing a packet onto the LAN.
 
 You might be wondering, why is this not just $1$? If devices don't transmit until they ensure that there is no traffic on the network, then clearly they should never collide? The problem is that information does not transmit instantly, and it is entirely possible that before one node realizes the other has started broadcasting, that it starts broadcasting itself. As such, the smaller the $d_\text{prop}$ is, the faster data arrives between nodes, the less of a chance this has to occur. 
 
 ### Hidden Terminals and Taking Turns
 
-When dealing with broadcasting over EM Waves (ie Wi-fi), there is an additional problem: because signal strength degrades quite rapidly over time, it is very possible that some of the nodes on the network will not be able to hear each other for CSMA/CD purposes, but still will collide and cause packets to be screwed up. This is called the **hidden terminal** or hidden node problem, because the nodes that are colliding to not notice that a collision is occuring.
+When dealing with broadcasting over EM Waves (ie Wi-fi), there is an additional problem: because signal strength degrades quite rapidly over time, it is very possible that some of the nodes on the network will not be able to hear each other for CSMA/CD purposes, but still will collide and cause packets to be screwed up. This is called the **hidden terminal** or hidden node problem, because the nodes that are colliding to not notice that a collision is occurring.
 
 Different protocols have different ways of dealing with it. For example, Wi-Fi has the idea of "Request to Send (RTS)" where a node will first ask the Wireless Access Point for permission to communicate, upon which it will be provided with a "Clear to Send (CTS)" if it is. Bluetooth, on the other hand, performs polling in which the bluetooth main node tells all of the child nodes on the network who is allowed to speak at any given point in time. 
 

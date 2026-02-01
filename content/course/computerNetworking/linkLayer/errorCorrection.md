@@ -16,19 +16,19 @@ weight: 204
 
 ## Error Detection and Error Correction
 
-With all the discussion on the previous page, there is a follow up question of how a receiver of a message might realize that something has gone wrong, and thus act accordingly. The last thing we would want is for the message containing the text "whatever you do, don't launch the nukes!" to get jarbled up and passed along anyway without providing the possibility for correction. By "error" in a message, we are referring to an idea that the receiver has received a bit when the sender actually had sent the opposite: through some cosmic fuckery, we have a $0$ to $1$ or a $1$ to $0$. 
+With all the discussion on the previous page, there is a follow up question of how a receiver of a message might realize that something has gone wrong, and thus act accordingly. The last thing we would want is for the message containing the text "whatever you do, don't launch the nukes!" to get garbled up and passed along anyway without providing the possibility for correction. By "error" in a message, we are referring to an idea that the receiver has received a bit when the sender actually had sent the opposite: through some cosmic fuckery, we have a $0$ to $1$ or a $1$ to $0$. 
 
 > **Definition**: An algorithm that determines whether an error has occurred is an **Error Detection** Algorithm, and if it can fix a found error, then it is an **Error Correction** algorithm.
 
 In this page we will really only concern ourselves with detection algorithms. Also, error detection algorithms are used in literally every layer, so why are we talking about them here in the link layer? 
 
 1. I needed another topic for the link layer
-2. The link layer uses hardward to efficiently implement more complex algorithms
+2. The link layer uses hardware to efficiently implement more complex algorithms
 3. If you can detect errors at every hop, then there is no need to worry about errors later down the line.
 
 Keeping this in mind though that the idea of some of these algorithms will appear later in the future. Technically, all of the algorithms I will show actually fall into the same category of algorithm, in that they are all "checksums", however, I will not show how we can define them all in that way (as that might be confusing).
 
-However, in *all* our algorithms, these will work by taking some binary data $D$, appending on some error detection binary string $C$, and sending that all as a packet $P=D\circ C$, if $\circ$ represents concatonation.[^1]
+However, in *all* our algorithms, these will work by taking some binary data $D$, appending on some error detection binary string $C$, and sending that all as a packet $P=D\circ C$, if $\circ$ represents concatenation.[^1]
 
 For this page, knowledge of modular arithmetic will be very helpful, so I'd suggest checking out my mod math page. Also, we will define some notation here that will be very helpful for these sections. Suppose I have some packet $P=D\circ C$ where $P$ is $n$ bits long. We will say that after transmission that the receiver receives $P'$, which is $P$ with potentially some errors, and the **error string** $\varepsilon$ of $P'$ is an $n$ bit string that contains a $1$ in every location there is an error. 
 
@@ -63,7 +63,7 @@ How effective is this method? For us to flag $P'$ as having an error, we need fo
 
 This can be proven in a straightforward manner with the following heuristic: let `count` be the amount of bits in $P$ that are $1$, we know this is even. Every time there is an error, one bit flips, which either increases or decreases the count by $1$, to an odd number. If this occurs again, then `count` will go back to even. Repeating this process shows that only odd amount of errors will be detected.
 
-> **Corollary**: Parity bit will dectect $50\\%$ of all possible $\varepsilon$ strings
+> **Corollary**: Parity bit will detect $50\\%$ of all possible $\varepsilon$ strings
 
 This is straightforward, as half of all possible error strings have odd amounts of $1$s. Note, not all error strings are equally likely to occur, but still we should want to find a method that is much better at detection than this.
 
@@ -113,7 +113,7 @@ and thus would discard it for having an error.
 
 It can be proven that $n$ bit checksums will miss $\frac{1}{2^n}$ errors, which is pretty good! However, we still want to do better, but the final method is evil.
 
-## Cyclic Redundency Checks (CRCs) : The Most Despised Algorithm by Students
+## Cyclic Redundancy Checks (CRCs) : The Most Despised Algorithm by Students
 
 This next method is so dastardly, that I am first going to describe the algorithm before giving the mathematics that explains why we are doing what we are doing. This algorithm is built around the `XOR` operation. Remember that `1 XOR 1` is $0$.
 

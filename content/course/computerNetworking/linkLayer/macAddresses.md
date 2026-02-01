@@ -38,7 +38,7 @@ A special MAC address that we will use soon is called the *broadcast* MAC Addres
 
 Your laptop most likely has many different ways that it can connect to a network; three immediate options are Wi-Fi, Ethernet, and Bluetooth. Does your CPU need to understand all these different protocols? What if there is a new type of protocol that's super fast, that would require throwing out your entire CPU for literally such a minor problem. As such, these Link-Layer protocols are actually handled by dedicated chips called NICs.
 
-> **Definition**: A **network interfact controller (NIC)** is a physical chip that connects a host to a L2 protocol, such as Ethernet. Every NIC has its own unique MAC address.
+> **Definition**: A **network interface controller (NIC)** is a physical chip that connects a host to a L2 protocol, such as Ethernet. Every NIC has its own unique MAC address.
 
 Why would each NIC have its own MAC address? It is possible to connect the same host to the same network over different types of network protocols, as such if they shared a MAC address its possible that they could collide and cause problems[^4].
 
