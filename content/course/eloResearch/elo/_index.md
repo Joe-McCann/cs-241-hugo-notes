@@ -67,23 +67,23 @@ $$
 where $m_k=\left(t_i,t_j\right)\in T\times T$ with the first entry being the winner, and the second entry being the loser, we want to minimize the log-odds loss function shown here
 $$
 L([m_k]) = \sum_{k=1} -\log\left(\begin{cases}
-b_E(X_i-X_j) & \text{ if i defeats j in k} \\\\
-b_E(X_j-X_i) & \text{ if j defeats i in k}
+b_E(x_i-x_j) & \text{ if i defeats j in k} \\\\
+b_E(x_j-x_i) & \text{ if j defeats i in k}
 \end{cases}\right).
 $$
 What makes this interesting compared to standard SGD is that we will not be randomly selecting datapoints to optimize our function, rather we will be moving sequentially through our list of match outcomes. Using standard SGD formulation we say that in iteration step $t$ then
 $$
 X_{t+1}=X_{t}-K\cdot\nabla L_k
 $$
-where $L_k$ is our loss function only at match $m_k$. In normal Elo we have that $k=t$ but we keep it separate in case future questions call for that. Since at any point in time only two objects are participating in a match, all other derivatives will be $0$, and thus we can focus first on $X_{i,t}$
+where $L_k$ is our loss function only at match $m_k$. In normal Elo we have that $k=t$ but we keep it separate in case future questions call for that. Since at any point in time only two objects are participating in a match, all other derivatives will be $0$, and thus we can focus first on $x_{i,t}$
 $$
-\frac{\partial}{\partial X_i}\left(-\log\left(\frac{1}{1+10^{-\frac{X_i-X_j}{s}}}\right)\right) = -\frac{\log(10)}{s}\frac{1}{1+10^{-\frac{X_j-X_i}{s}}}.
+\frac{\partial}{\partial x_i}\left(-\log\left(\frac{1}{1+10^{-\frac{x_i-x_j}{s}}}\right)\right) = -\frac{\log(10)}{s}\frac{1}{1+10^{-\frac{x_j-x_i}{s}}}.
 $$
 If we simplify our notation, we will see that our update rules become
 $$
 \begin{cases}
-X_{i,t+1} &= X_{i_t}+K\cdot \frac{\log(10)}{s}b_E(X_{j,t}-X_{i,t}) \text{ if i wins} \\\\
-X_{i,t+1} = X_{i_t}-K\cdot \frac{\log(10)}{s}b_E(X_{i,t}-X_{j,t}) \text{ if j wins}
+x_{i,t+1} &= x_{i_t}+K\cdot \frac{\log(10)}{s}b_E(x_{j,t}-x_{i,t}) \text{ if i wins} \\\\
+x_{i,t+1} = x_{i_t}-K\cdot \frac{\log(10)}{s}b_E(x_{i,t}-x_{j,t}) \text{ if j wins}
 \end{cases}
 $$
 which is then combined into the version including $S_{i,t}$ as shown above.
@@ -92,19 +92,19 @@ which is then combined into the version including $S_{i,t}$ as shown above.
 
 In order to perform the mathematics in a way that is convenient and standard, we will have our update rules as
 $$
-X_{t+1} = X_t - \eta\nabla\left(-\log\left(b(X_{i,t}-X_{j,t})\right)\right)
+X_{t+1} = X_t - \eta\nabla\left(-\log\left(b(x_{i,t}-x_{j,t})\right)\right)
 $$
-in which our function $b(X_i-X_j)$ will be
+in which our function $b(x_i-x_j)$ will be
 $$
-b(X_i-X_j)=\frac{1}{1+e^{-(X_i-X_j)}}
+b(x_i-x_j)=\frac{1}{1+e^{-(x_i-x_j)}}
 $$
-where $X$ will have mean of $0$. Imagine that some person is using the standard Elo algorithm and they have ratings $\overline{X_i},\overline{X_j}$ that has mean of $\mu$, scaled with $s$ factor (again, usually $400$), exponentiation constant of $10$, and some $K$ factor. In order to convert our results to fit their needs, it would be that
+where $X$ will have mean of $0$. Imagine that some person is using the standard Elo algorithm and they have ratings $\overline{x_i},\overline{x_j}$ that has mean of $\mu$, scaled with $s$ factor (again, usually $400$), exponentiation constant of $10$, and some $K$ factor. In order to convert our results to fit their needs, it would be that
 $$
 K=\frac{s\eta}{\log(10)}
 $$
 and that
 $$
-\overline{X_i} = \frac{s}{log(10)}X_i + \mu.
+\overline{x_i} = \frac{s}{log(10)}x_i + \mu.
 $$
 Interestingly, observing commonly used factors of $K$ as shown on the internet[^6] we can see that selected values of $\eta$ range from around $.09$ to $.25$.
 
