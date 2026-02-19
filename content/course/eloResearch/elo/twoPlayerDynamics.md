@@ -131,6 +131,67 @@ $$
 \varphi_1^{-1}(x)=\log\left(-\frac{2\eta}{W_{e^{-x}}\left(-2\eta e^{-x}\right)}-1\right).
 $$
 
+## Symmetries of the Two Player Scenario 
+
+After perhaps slightly too long, I have realized that 
+$$
+\varphi_2(r) = -\varphi_1(-r).
+$$
+If we let $\varphi(r) = \varphi_1(r)$ we get that our SGD process is
+$$
+\begin{align}
+&\varphi(r) \\\\
+-&\varphi(-r)
+\end{align}
+$$
+where we select option $1$ with probability $p$ and option $2$ with probability $1-p$. This also means that our respective inverse functions are $\varphi^{-1}(x)$ and $-\varphi^{-1}(-x)$.
+
+We will now calculate the derivative of $\varphi(r)$
+$$
+\varphi'(r)=1-\frac{2\eta e^r}{(1+e^r)^2}
+$$
+and also by the chain rule we see
+$$
+\frac{d}{dr}\left(-\varphi(-r)\right)=\varphi'(-r)
+$$
+but observe that
+$$
+\varphi'(-r)=1-\frac{2\eta e^{-r}}{(1+e^{-r})^2}=1-\frac{2\eta e^{-r}}{(1+e^{-r})^2}\cdot\frac{e^{2x}}{e^{2x}}=1-\frac{2\eta e^r}{(1+e^r)^2}
+$$
+and thus we know that $\varphi'(-r)=\varphi'(r)$. This tells us not only that the function is even, but also that both of our maps have the same derivative. With some simple calculus we can see that
+$$
+0 < \frac{e^r}{(1+e^r)^2} \leq \frac{1}{4}\implies 1-\frac{\eta}{2}\leq \varphi'(r) < 1.
+$$
+
+### Formula for the Stationary Distribution
+
+Traditionally, $\rho(x)$ is used as the symbol for the stationary distribution, however that already conflicts with the other notation so I will use $\pi(x)$. From the Perron-Frobenius Operator we would get that
+$$
+\pi(x) = p_1\frac{\pi\left(\varphi^{-1}(x)\right)}{|\varphi'(\varphi^{-1}(x))|}+(1-p_1)\frac{\pi\left(-\varphi^{-1}(-x)\right)}{|\varphi'(\varphi^{-1}(-x))|}.
+$$
+For notational brevity for the following steps, I will write
+$$
+w(x) = W_{e^{-x}}\left(-2\eta e^{-x}\right)
+$$
+and $p=p_1$, so 
+$$
+\varphi^{-1}(x) = -\log\left(-\frac{2\eta}{w(x)}-1\right).
+$$
+
+Let us now observe the quantity $\varphi'(\varphi^{-1}(x))$. We plug the expression in to see that we have
+$$
+\varphi'(\varphi^{-1}(x)) = 1-\frac{-(\frac{2\eta}{w(x)}+1)}{\left(-\frac{2\eta}{w(x)}\right)^2} = 1+w(x)+\frac{w(x)^2}{2\eta}.
+$$
+
+Wonderfully, the quadratic polynomial $1+x+\frac{x^2}{2\eta}$ is strictly positive presuming that $\eta < 2$, so we can drop the absolute value signs in our denominator with that qualification, provided $w(x)$ is evaluated on a real branch, which it is for our purposes[^4]. This means our invariant measure expression is
+$$
+\pi(x) = p\frac{\pi\left(-\log\left(-\frac{2\eta}{w(x)}-1\right)\right)}{1+w(x)+\frac{w(x)^2}{2\eta}} + (1-p)\frac{\pi\left(\log\left(-\frac{2\eta}{w(-x)}-1\right)\right)}{1+w(-x)+\frac{w(-x)^2}{2\eta}},
+$$
+assuming $\eta<2$
+
+## Observations around $w(x)$
+
 [^1]: Change of variables was suggestion of ChatGPT which proved quite useful
 [^2]: We are starting with the second map so that we can work with $e^{-r}$ first. We will perform a change of variables afterwards to get the first map into the same form.
 [^3]: https://www.ams.org/journals/tran/2017-369-11/S0002-9947-2017-06911-7/S0002-9947-2017-06911-7.pdf
+[^4]: From theorem $4$ of [^3]
