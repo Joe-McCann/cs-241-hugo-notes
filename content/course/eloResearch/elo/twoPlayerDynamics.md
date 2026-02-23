@@ -15,15 +15,15 @@ weight: 6101
 
 ## Problem Description
 
-Let us focus on the scenario in which we are dealing only with two players $T=\left\\{x,y\right\\}$ and want to run Elo in order to see what their predicted skill levels are.
+Let us focus on the scenario in which we are dealing only with two players $A=\left\\{1,2\right\\}$ and want to run Elo in order to see what their predicted skill levels are.
 
 We will assume that the players' skills are fixed, and thus there exists some value $p$ such that
 $$
-Pr(x \text{ wins over } y) = p 
+Pr(1 \text{ wins over } 2) = p 
 $$
 and by extension
 $$
-Pr(y \text{ wins over } x) = 1-p 
+Pr(2 \text{ wins over } 1) = 1-p 
 $$
 which in our matrix is
 $$
@@ -33,38 +33,38 @@ P=\begin{bmatrix}
 \end{bmatrix}
 $$
 
-We can completely parameterize our system by observing the gap value of $r=x-y$, instead of observing the sequence of Elo ratings $x$ and $y$. 
+We can completely parameterize our system by observing the gap value of $r=r_1-r_2$, instead of observing the sequence of Elo ratings $r_1$ and $r_2$. 
 
 Since our update rules in SGD would have been
 $$
 \begin{align}
-x_{t+1}&=\begin{cases}
-x_t + \eta\cdot b(y_t-x_t) &\text{ if x wins} \\\\
-x_t - \eta\cdot b(x_t-y_t) &\text{ if y wins} 
+r_{1,t+1}&=\begin{cases}
+r_{1,t} + \eta\cdot \sigma(r_{2,t}-r_{1,t}) &\text{ if x wins} \\\\
+r_{1,t} - \eta\cdot \sigma(r_{1,t}-r_{2,t}) &\text{ if y wins} 
 \end{cases} \\\\
-y_{t+1}&=\begin{cases}
-y_t + \eta\cdot b(x_t-y_t) &\text{ if y wins} \\\\
-y_t - \eta\cdot b(y_t-x_t) &\text{ if x wins} 
+r_{2,t+1}&=\begin{cases}
+r_{2,t} + \eta\cdot \sigma(r_{1,t}-r_{2,t}) &\text{ if y wins} \\\\
+r_{2,t} - \eta\cdot \sigma(r_{2,t}-r_{1,t}) &\text{ if x wins} 
 \end{cases}
 \end{align}
 $$
-which if we subtract to get $r_{t+1}=x_{t+1}-y_{t+1}$ then we get that
+which if we subtract to get $r_{t+1}=r_{1,t+1}-r_{2,t+1}$ then we get that
 $$
 r_{t+1}=\begin{cases}
-r_t + 2\eta\cdot b(-r_t) &\text{ if x wins} \\\\
-r_t - 2\eta\cdot b(r_t) &\text{ if y wins} 
+r_t + 2\eta\cdot \sigma(-r_t) &\text{ if x wins} \\\\
+r_t - 2\eta\cdot \sigma(r_t) &\text{ if y wins} 
 \end{cases}.
 $$
 
 From here we have entered into a $1$-variable SGD dynamic, however the interesting aspect is that the data that we sample will select between the functions
 $$
-r_t\pm 2\eta\cdot b(\pm r_t)
+r_t\pm 2\eta\cdot \sigma(\pm r_t)
 $$
 with weighted probability $p$ instead of $\frac{1}{2}$! 
 
 Using algebra, we also can see what we expect the "true" skill gap between the two players to be
 $$
-p = \frac{1}{1+e^{-r}} \implies R = -\log\left(\frac{1}{p}-1\right),
+p = \frac{1}{1+e^{-r}} \implies R = \log\(\frac{p}{p-1}\),
 $$
 and since we are centering around the origin, then $\vec{\rho}=\left(\frac{R}{2}, -\frac{R}{2}\right)^T$.
 
@@ -85,25 +85,25 @@ where we select $\varphi_1(r)$ with probability $p$ and $\varphi_2(r)$ with prob
 
 ### Computation of Inverse Maps
 
-For simplification purposes, we will let $k=2\eta$ and $s=\frac{1}{1+e^{-r}}=\frac{e^r}{1+e^r}$[^1]. This means that
+For simplification purposes, we will let $k=2\eta$ and $u=\frac{1}{1+e^{-r}}=\frac{e^r}{1+e^r}$[^1]. This means that
 $$
-r=\log\left(\frac{s}{1-s}\right)
+r=\log\left(\frac{u}{1-u}\right)
 $$
 and thus our second map[^2] is
 $$
-\varphi_2(r) = \log\left(\frac{s}{1-s}\right)-ks
+\varphi_2(r) = \log\left(\frac{u}{1-u}\right)-ku
 $$
 Letting $y=\varphi_2(r)$ we have that
 $$
 \begin{align}
-y &= \log\left(\frac{s}{1-s}\right)-ks \\\\
-e^y &= \frac{s}{1-s}e^{-ks} \\\\
--e^y &= e^{-ks}\frac{s-0}{s-1}
+y &= \log\left(\frac{u}{1-u}\right)-ku \\\\
+e^y &= \frac{u}{1-u}e^{-ku} \\\\
+-e^y &= e^{-ku}\frac{u-0}{u-1}
 \end{align}
 $$
 this provides us with the form to use the $r$-Lambert $W$ function[^3] to get our inverse with $t=0$, $s=1$, $c=-k$, $a=-e^y$, $T=t-s=-1$
 $$
-s = -\frac{1}{k}W_{e^y}\left(-ke^y\right)
+u = -\frac{1}{k}W_{e^y}\left(-ke^y\right)
 $$
 replacing all of our variables and solving accordingly we have that
 $$
