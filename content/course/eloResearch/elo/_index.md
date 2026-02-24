@@ -52,8 +52,8 @@ $$
 where $s=400$, which was chosen due to a desired scaling for chess. The update rules for the Elo scores $r_i,r_j$ at time $t$ are then given by
 $$
 \begin{align}
-r_{i,t+1} &= r_{i,t} + K\left(\mathscr{M}(m_t)_i-b\left(r_{i,t}-r_{j,t}\right)\right) \\\\
-r_{j,t+1} &= r_{j,t} + K\left(\mathscr{M}(m_t)_j-b\left(r_{j,t}-r_{i,t}\right)\right)
+r\_{i,t+1} &= r\_{i,t} + K\left(\mathscr{M}(m\_t)\_i-b\left(r\_{i,t}-r\_{j,t}\right)\right) \\\\
+r\_{j,t+1} &= r\_{j,t} + K\left(\mathscr{M}(m\_t)\_j-b\left(r\_{j,t}-r\_{i,t}\right)\right)
 \end{align}
 $$
 where $\mathscr{M}(m_t)_i$[^5] represents the outcome of the game at timestep $t$ for player $i$, with a $0$ representing a loss, and a $1$ representing a win. $K$ is an arbitrary scaling factor.
@@ -102,7 +102,7 @@ K=\frac{s\eta}{\log(10)}
 $$
 and that
 $$
-\overliner{r_i} = \frac{s}{log(10)}r_i + \mu.
+\overline{r_i} = \frac{s}{log(10)}r_i + \mu.
 $$
 Interestingly, observing commonly used factors of $K$ as shown on the internet[^7] we can see that selected values of $\eta$ range from around $.09$ to $.25$.
 

@@ -77,8 +77,8 @@ and since we are centering around the origin, then $\vec{\rho}=\left(\frac{R}{2}
 Similar to previous work we've done on SGD, we will represent our process as the following functions
 $$
 \begin{align}
-\varphi_1(r) &= r + \frac{2\eta}{1+e^r} \\\\
-\varphi_2(r) &= r - \frac{2\eta}{1+e^{-r}}
+\varphi_1(r) &= r + \frac{2\eta}{1+e^r} = r+2\eta\sigma(-r) \\\\
+\varphi_2(r) &= r - \frac{2\eta}{1+e^{-r}} = r-2\eta\sigma(r)
 \end{align}
 $$
 where we select $\varphi_1(r)$ with probability $p$ and $\varphi_2(r)$ with probability $1-p$. We now want to calculate the inverse maps of these functions so we can start performing methods of numerical computation on them
@@ -130,6 +130,8 @@ and thus
 $$
 \varphi_1^{-1}(x)=\log\left(-\frac{2\eta}{W_{e^{-x}}\left(-2\eta e^{-x}\right)}-1\right).
 $$
+
+---
 
 ## Symmetries of the Two Player Scenario 
 
@@ -189,7 +191,81 @@ $$
 $$
 assuming $\eta<2$
 
-## Observations around $w(x)$
+---
+
+## Expectations of Stationary Distribution
+
+Since we know that the Elo process can be represented as SGD of two convex functions, we know that there exists a stationary distribution $\pi(x)$. We will now derive some properties of this. 
+
+### Expected Value
+
+In order to calculate the expected value, we will compute the integral
+$$
+\int_{-\infty}^\infty x\pi(x)dx = p\int_{-\infty}^\infty x\frac{\pi\(\varphi^{-1}(x)\)}{\varphi'\(\varphi^{-1}(x)\)}dx + (1-p)\int_{-\infty}^\infty x\frac{\pi\(-\varphi^{-1}(-x)\)}{\varphi'\(-\varphi^{-1}(-x)\)}dx.
+$$
+Damn this thing looks scary. Lets first tackle the following integral
+$$
+\int_{-\infty}^\infty x\frac{\pi\(\varphi^{-1}(x)\)}{\varphi'\(\varphi^{-1}(x)\)}dx
+$$
+and make the following substitution that $x=\varphi(u)$ and thus $dx=\varphi'(u)du$. The bounds of our integral are still $\pm\infty$
+this means our integral simplifies to
+$$
+\int_{-\infty}^\infty \varphi(u)\frac{\pi\(u\)}{\varphi'\(u\)}\varphi'(u)du = \int_{-\infty}^\infty \varphi(u)\pi\(u\)du.
+$$
+
+We can do the same thing to the other integral, except we set $x=-\varphi(-u)$ (which remember from above has inverse $-\varphi^{-1}(-x)$) and thus our bounds stay at $\pm\infty$ to get
+
+$$
+\int_{-\infty}^\infty -\varphi(-u)\pi\(u\)du.
+$$
+
+Our combined integral, summing these two parts becomes
+
+$$
+\int_{-\infty}^\infty\[p\varphi(u)-(1-p)\varphi(-u)\]\pi(u)du
+$$
+
+expanding our version of $\varphi$ we get that the inside expression is
+
+$$
+\begin{align}
+p\varphi(u)-(1-p)\varphi(-u) &= p\left(u+2\eta\sigma(-u)\right)-(1-p)\left(-u+2\eta\sigma(u)\right) \\\\
+&= pu+2p\eta\sigma(-u)+u-2\eta\sigma(u)-pu+2p\eta\sigma(u) \\\\
+&= u + 2p\eta\left(\sigma(u)+\sigma(-u)\right) - 2\eta\sigma(u) \\\\
+&= u + 2p\eta - 2\eta\sigma(u)
+\end{align}
+$$
+
+since $\sigma(u)+\sigma(-u)=1$. If we say that 
+
+$$
+\int_{-\infty}^\infty f(x)\pi(x)dx=\mathbb{E}_{\pi}(f(x))
+$$
+
+then we can say that 
+
+$$
+\begin{align}
+\int_{-\infty}^\infty x\pi(x)dx &= \int_{-\infty}^\infty(u + 2p\eta - 2\eta\sigma(u))\pi(u)du
+\end{align}
+$$
+
+which placing into expected value notation we have
+
+$$
+\begin{align}
+\mathbb{E}\_\pi(R) &= \mathbb{E}\_\pi(R + 2p\eta - 2\eta\sigma(R)) \\\\
+\mathbb{E}\_\pi(R) &= \mathbb{E}\_\pi(R) + \mathbb{E}\_\pi(2p\eta) - \mathbb{E}\_\pi(2\eta\sigma(R)) \\\\
+0 &= 2p\eta-2\eta\mathbb{E}\_\pi(\sigma(R)) \\\\
+\mathbb{E}\_\pi(\sigma(R)) &= p 
+\end{align}
+$$
+
+observe that we relabeled the variables on the second step to $R$ to tie it back in to the framework of the original problem.
+
+This is spectacular, as it tells us that the expected value of our sigmoid function is the probability $p$ itself!
+
+**Q.E.D.**
 
 [^1]: Change of variables was suggestion of ChatGPT which proved quite useful
 [^2]: We are starting with the second map so that we can work with $e^{-r}$ first. We will perform a change of variables afterwards to get the first map into the same form.
